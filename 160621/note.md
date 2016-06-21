@@ -123,23 +123,3 @@ select
     option
 
 day7(0622) 5문항 구글폼으로 제출
-
-------------------
-study - form, table 실습
-```
-<form action="">
-    <table></table>
-</form>  <!--form 요소 안에 table이 있어야 하나?  -->
-```
-
-```
-<table>
-    <tr><td colspan="2"></td></tr>
-    <tr><td colspan="2"></td></tr>
-    <tr><td rowspan="3"></td> <td></td> </tr> <!-- 이부분 잘못써서 오류남-->
-    <tr><td></td></tr>
-    <tr><td></td></tr>
-</table>
-```
-
->style태그는 헤드 안에!

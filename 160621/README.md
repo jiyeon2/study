@@ -72,7 +72,7 @@ p태그 내용을 사용자가 수정할 수 있다. 어디에 쓰이는걸까?
 
 ###form, table 실습!
 
-- 테이블 레이아웃 안에 폼 요소를 넣어 만들어보기!
+- [테이블 레이아웃 안에 폼 요소를 넣어 만들어보기!](https://github.com/jiyeon2/TIL/blob/master/160621/study_form1.html)
 
 ![보고 따라 만든 폼](http://www.uwec.edu/help/Acrobat9/Images/dialog/submit-form.gif)
 
