@@ -1,4 +1,5 @@
 # 프론트엔드 개발자 특강 by [진유림님](https://milooy.wordpress.com/) 내용 정리 
+[진유림님 발표자료](http://www.slideshare.net/jayjin0427/ss-61315271)
 
 ##내가 할 수 있는 것들
 
