@@ -2,25 +2,23 @@
 
 - 퀴즈 본인이 작성한 답과 비교, 스크럼 코멘트, 구글 두들 (http://www.google.com/doodles/soccer-2012), 테이블-금융표, 구글 analytics, 구글 document-문제내는 툴? 사용자 위한 강조 색깔변경, 스터디 때 서로 체크?, 문제 오류, 코멘트같은거
 
-- *시험문제 만들기 5문항*  구글 서베이, 매니저님께 링크 제공, 3개이상 객관식으로
 
 - sublime 마크다운 바로보기 http://tonebrew.tistory.com/1187 - ~~크롬으로 열 수 있나?~~ 기본 브라우저를 크롬으로 변경함  
+
 - 마크다운 내 이동??, markdown관련 패키지 readme 읽어보기
 
 - 수 오전activity: 그래픽 디자인-> 구조를 짜기! 모호함 경험
 
 - 이메일 디자인? 레이아웃은 왜 테이블로 짜는가 - 이메일 내용이 테이블로 구조화된다는건가 무슨소릴까(https://litmus.com/blog/the-tyranny-of-tables-why-web-and-email-design-are-so-differentd)
 
-- 플랫 디자인? 머티리얼 디자인???
+- [플랫 디자인? 머티리얼 디자인???](http://slowalk.tistory.com/2389)
 
 - google gmail은 css적용 거의 안됨 table써서 레이아웃 짜야함
 - readme 내용 읽기!! 그냥 훑어본 글, 링크
-- 폼 만들기! 테이블과 폼을 함께 이용해서 디자인가능! [](http://www.uwec.edu/help/Acrobat9/Images/dialog/submit-form.gif)
-[](http://www.uwec.edu/help/Acrobat9/for-submit.htm)
-- [](http://forms.stefcameron.com/2008/08/28/submitting-form-data-by-email/) 이거 뭐라고하더라
+- 폼 만들기! 테이블과 폼을 함께 이용해서 디자인가능! [2](http://www.uwec.edu/help/Acrobat9/Images/dialog/submit-form.gif)
+[1](http://www.uwec.edu/help/Acrobat9/for-submit.htm)
+- [1](http://forms.stefcameron.com/2008/08/28/submitting-form-data-by-email/) 이거 뭐라고하더라
 - ! emmet //meta http equive x ua compatible content ie-edge 포함하기
-> bloquote
-> yeh
 
 
 ----------
@@ -72,7 +70,7 @@ cpu사용하는 js보다 빠름
 ##퀴즈 풀이
 -자식/ 자손 구분
 -멀티 탭 많을 때 탭 제목 보고 구분할 수 있어야 하므로 웹 접근성 준수와도 관련
--컨텐트 마임타입..???
+-컨텐트[ 마임타입](http://www.webmadang.net/community/community.do?action=read&boardid=5001&page=1&seq=3)..???
 -데이터가 중요한 표는 접근성 고려해서 구조화해야 함, 레이아웃 위한 표는 모양위주 작성(이메일)
 ----
 
