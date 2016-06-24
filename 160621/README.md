@@ -9,6 +9,23 @@
     + POST 방식: 보안이 필요한 경우, 전송 내용이 많은 경우, 파일 전송할 경우 사용
         * method="POST" 일때 form 내에 `<input type="file">` 있으면 `enctype="multipart/form-data"` 
 
+
+#### [전송 방식 `GET` vs `POST`](https://github.com/yamoo9/FDS/blob/master/DAY03/README.md)
+
+조건 | GET | POST
+---|---|---
+보안 | POST에 비해 덜 보안적 | GET에 비해 보안적
+데이터 제한 | 제한적, url 허용 길이만큼 | 제한 없음
+데이터 타입 제한 | 오직 아스키 문자만 해당 | 제한 없음, 바이너리 역시 사용가능
+뒤로가기, 재전송 | 사용자가 입력한 내용 다시 작성 | 사용자에게 지워짐을 경고 함
+인코딩 | `application-x-www-form-urlencoded` | `multipart/form-data`, `application-x-www-form-urlencoded`
+
+
+
+
+
+
+
 ### fieldset, legend
 - fieldset : 폼 내에서 요소들 그룹핑
 - legend : fieldset의 제목
@@ -96,3 +113,7 @@ p태그 내용을 사용자가 수정할 수 있다. 어디에 쓰이는걸까?
 >style태그는 헤드 안에!
 
 - 부모요소가 체크되었을 때만 자식요소가 체크 가능하게 하려면 javascript 써야할까?? 
+
+>meta **http-equiv**="Content-Type" : http-equiv(equivalent 동등한)
+>- `meta`  요소에서 정의된 명령을 먼저 실행 후 페이지 로딩함
+>- 이를 프라그마 디렉티브(pragma directive)라 함 
