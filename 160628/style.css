@@ -1,0 +1,58 @@
+@charset 'UTF-8';
+/*common*/
+main, h1, footer>section{
+	width:1200px;
+	margin:0 auto;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	color: #666;
+}
+
+main article:first-child:hover{
+	outline: 4px solid yellow;
+}
+main article:nth-child(2n):hover{
+	outline: 4px solid green;
+}
+
+main [src^="http://"]{
+	outline: 3px dashed orange;
+}
+
+main :last-child{
+	color: blue;
+}
+
+/*header*/
+h1{
+	padding: 20px 0;}
+
+header{
+	border-bottom: 1px solid #acacac;
+	margin-bottom: 50px;
+}
+/*main*/
+main{
+padding-bottom: 100px;}
+
+article{
+	display: inline-block;
+	margin: 5px;
+	color: #666;
+}
+article>a{
+	display: inline-block;
+	border:1px solid #ededed;
+}
+
+/*footer*/
+footer{
+	border-top: 1px solid #acacac;
+	padding-top: 100px;
+}
+
+footer h6{
+	display: none;
+}
