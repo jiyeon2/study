@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>KOREAN AIR</title>
+</head>
+<body>
+<!-- 팀활동 빠르게 구조 파악하고 짜기!! 다시 해보기 -->
+<!-- header, footer는 sectioning요소가 아님. sectioning요소가 아닌 header나 footer가 sectioning요소인 nav 감싸는 게 옳지 않다고 생각할 수 있음. html5에서 header는 sectioning요소 내부에서 배너 넣는 용도로 쓰임-->
+<!-- custom  form요소 +버튼, -버튼 어떻게 구현할 것인가 하는것도 논의해봐야함 -->
+<!-- main은 이용자에게 보여주고 싶은 컨텐츠들. 문서내에서 한번만 나옴 -->
+	<header>
+		<a href="#main">본문바로가기</a>
+		<div class="top-left-menu">
+			<li>
+				<div class="nation-lang-select">
+					<label for="nation-select">국가선택</label>
+						<select name="nation-select" id="nation-select">
+							<option value="ko" selected>대한민국</option>
+							<option value="jp">일본</option>
+						</select>
+				</div>
+			</li>
+			<li>대한민국</li>
+			<li>한국어</li>
+			<li><a href="">english</a></li>
+		</div>
+		<div class="top-right-menu">
+			<ul>
+				<li> <a href="">로그인</a></li>
+				<li> <a href="">회원가입</a></li>
+				<li> 	<a href="">나의 예약</a></li>
+				<li> <input type="search" placeholder="검색"><button type="button">돋보기모양</button></li>
+			</ul>
+		</div>
+		<div class="logo">
+			<h1>KOREAN AIR</h1>
+			<img src="" alt="로고이미지">
+		</div>
+
+		<nav class=header-nav>
+			<ul>
+				<li><a href="">항공권 예매</a></li>
+				<li><a href="">스카이패스</a></li>
+				<li><a href="">서비스안내</a></li>
+				<li><a href="">프로모션/여행상품</a></li>
+			</ul>
+		</nav>
+	</header>
+<!-- header안에 nav가 들어가야 할 필요는 없다.
+nav는 다른 페이지로 이동 가능한 부분? 이라서 다른 페이지로 이동해도 변하지 않는 윗부분이라 볼 수 있겠다 -->
+	<main>
+		<nav class="main-nav">
+			<ul>
+				<li><a href="">게스트하우스 프랑스</a></li>
+				<li><a href="">모바일로 준비하는 제주여름휴가</a></li>
+				<li><a href="">메인 여행1</a></li>
+				<li><a href="">메인 여행2</a></li>
+				<li><a href="">메인 여행3</a></li>
+				<li><a href="">메인 여행4</a></li>
+				<li><button type="button" class="stop-btn"></button></li>
+				<li><button type="button" class="next-btn"></button></li>
+			</ul>
+		</nav>
+
+		<article class="booking">
+			<h2>항공권 예매</h2>
+			<button type="button">국내선</button>
+			<button type="button">국제선</button>
+			<form action="">
+				<label><input type="checkbox">마일리지사용</label>
+				<label><input type="radio" name="path" value="one-way">편도</label>
+				<label><input type="radio" name="path" value="many-way">다구간</label>	
+				<a href="">다구간</a>
+				<button type="button">?</button>
+				<!-- 목록으로 묶어야 할까? -->
+			</form>
+		</article>
+		<article class="check-in"><h2>체크인</h2></article>
+		<article class="schedule"><h2>출도착/스케쥴</h2></article>
+
+		<section class="event">
+			<h3>진행 중 이벤트</h3>
+			<ul>
+				<li><a href="">
+						<img src="" alt="제주노선 모바일 프로모션 제주 여름휴가 모바일로 알뜰하게">
+						<p>제주노선 모바일</p>
+					</a></li>
+			</ul>
+			<ul>
+				<li><a href="">
+						<p>비자카드 구매하고 리우로</p>
+					</a></li>
+			</ul>
+		</section>
+
+		<section class="event">
+			<h3>항공할인권</h3>
+			<ul>
+				<li><a href="">
+						<img src="" alt="제주노선 모바일 프로모션 제주 여름휴가 모바일로 알뜰하게">
+						<p>제주노선 모바일</p>
+					</a></li>
+			</ul>
+			<ul>
+				<li><a href="">
+						<img src="" alt="비자카드로 구매하고 리우고 리우올림픽 참관의 기회를 드립니다">
+						<p>비자카드 구매하고 리우로</p>
+					</a></li>
+			</ul>
+		</section>
+	</main>
+</body>
+</html>
