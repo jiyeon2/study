@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>vertical-align with CSS</title>
+	<style>
+
+	/*예제에 사용된 공통 css*/
+	.example_for_vertical_align .text, .image, .block
+	 { width:14em;
+	 	height:8em;
+	 	margin:0.5em;
+  		border:thick solid;
+  		background:#fff;}
+	       
+	.example_for_vertical_align .text  {border-color:#99f;}
+
+	.example_for_vertical_align .image {border-color:#f99;}
+	.example_for_vertical_align .image img {
+		width:50px;
+		height:50px;}
+
+	.example_for_vertical_align .block {color:#aa3;}
+	.example_for_vertical_align .block div {
+		border:dashed;
+		width:10em;
+		}
+
+	/* 1. line-height 와 vertical-align이용해서 중앙정렬*/
+	.example_for_vertical_align div {line-height: 8em;} 
+	.example_for_vertical_align img {vertical-align:middle;}
+	/*이미지를 수직정렬하는데 부모에도 line-height를 적용해야 중앙정렬 되는 이유는 그냥 그런것... 논리적인 이유없음. 받아들이기!*/
+	/*이 방법은 이미지가 부모보다 높이가 크거나, 텍스트가 wrap되면 적용 안됨*/
+
+	/* 2. display:table-cell이용해서 중앙정렬 */
+	.example_for_vertical_align .text, .image, .block {display: table-cell;}
+	.example_for_vertical_align div, img {vertical-align: middle;}
+	/*부모에 line-height 지정하지 않았는데도 img에 vertical-align:middle; 적용된듯함-> 사실 정 가운데 정렬된것은 아님 아래 image{display:block;}지정해보면 위치가 약간 다른 것 알 수 있음.*/
+	/*img{display: block;}*/
+
+
+
+	/* 3. line-height and display:inline-block
+			부모 박스의 너비와 같게 line-height지정하고 display:inline-block;지정하여 가운데 정렬*/
+	.example_for_vertical_align .block{line-height: 8em;}
+	.example_for_vertical_align .block div{
+		display: inline;
+		display: inline-table;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+
+/*본문의 높이를 vh를 이용하지 않고 브라우저 창 가득 채우기*/
+
+html, body{
+	height: 100%;
+	margin:0;
+	padding:0;
+}
+	
+	#contents{
+		min-height:100%;
+		margin-top: -100px;
+		margin-bottom: -100px;
+		background-color: green;
+	}
+	#header, #footer{
+		height: 100px;
+		background-color: #d00;
+	}
+	#header{
+		background-color: yellow;
+	}
+	#inner-contents{
+		padding: 100px 0;
+		background-color: #efefef;
+	}
+
+	</style>
+
+</head>
+<body>
+
+<div class="example_for_vertical_align">
+	<div class="text">
+		<span>Some Text</span>
+	</div>
+
+	<div class="image">
+		<img src="http://placehold.it/50x50/00f/efefef/?text=blue" alt="blue squre">
+	</div>
+
+	<div class="block">
+		<div> Block element, with long enough content to wrap.</div>
+	</div>
+</div>
+
+	<div id="header">header</div>
+	<div id="contents">
+	contents
+		<div id="inner-contents">inner-contents</div>
+	</div>
+	<div id="footer">footer</div>
+
+</body>
+</html>
