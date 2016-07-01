@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>종축 중앙정렬</title>
+    <style>
+    /*예제 공통 코드*/
+    
+    .text,
+    .image,
+    .block {
+        width: 14em;
+        height: 8em;
+        margin: 0.5em;
+        border: thick solid;
+        background: #fff;
+    }
+    
+    .text {
+        border-color: #99f;
+    }
+    
+    .image {
+        border-color: #f99;
+    }
+    
+    .image img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .block {
+        color: #aa3;
+    }
+    
+    .block div {
+        border: dashed;
+        width: 10em;
+    }
+    
+    .ex1,
+    .ex2,
+    .ex3 {
+        margin-bottom: 30px;
+    }
+    /* 1. line-height와 vertical-align 이용*/
+    /*이미지를 수직정렬하는데 부모에도 line-height를 적용해야 중앙정렬 되는 이유는 그냥 그런것... 논리적인 이유없음. 받아들이기!*/
+    /*이 방법은 이미지가 부모보다 높이가 크거나, 텍스트가 wrap되면 적용 안됨*/
+    
+    .ex1 div {
+        line-height: 8em;
+    }
+    
+    .ex1 img {
+        vertical-align: middle;
+    }
+    /* 2. table-cell 이용*/
+    /*부모에 line-height 지정하지 않았는데도 img에 vertical-align:middle; 적용된듯함-> 완벽하게 가운데 정렬된것은 아님 
+	image{display:block;}지정해보면 위치가 약간 다른 것 알 수 있음.*/
+    /*img{display: block;}*/
+    
+    .ex2 .text,
+    .ex2 .image,
+    .ex2 .block {
+        display: table-cell;
+    }
+    
+    .ex2 div,
+    img {
+        vertical-align: middle;
+    }
+    /* 3. line-height, display:inline-block 이용*/
+    /*부모 박스의 너비와 같게 line-height지정하고 display:inline-block;지정하여 가운데 정렬*/
+    
+    .ex3 .block {
+        line-height: 8em;
+    }
+    
+    .ex .block div {
+        display: inline;
+        display: inline-table;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="ex1">
+        <h1>1. line-height와 vertical-align 이용</h1>
+        <div class="text">
+            <span>Some Text</span>
+        </div>
+        <div class="image">
+            <img src="http://placehold.it/50x50/00f/efefef/?text=bluebox" alt="blue box">
+        </div>
+        <div class="block">
+            <div> Block element, with long enough content to wrap.</div>
+        </div>
+    </div>
+    <div class="ex2">
+        <h1>2.table-cell 이용</h1>
+        <div class="text">
+            <span>Some Text</span>
+        </div>
+        <div class="image">
+            <img src="http://placehold.it/50x50/00f/efefef/?text=bluebox" alt="blue box">
+        </div>
+        <div class="block">
+            <div> Block element, with long enough content to wrap.</div>
+        </div>
+    </div>
+    <div class="ex2">
+        <h1>3. line-height, display:inline-block 이용</h1>
+        <div class="text">
+            <span>Some Text</span>
+        </div>
+        <div class="image">
+            <img src="http://placehold.it/50x50/00f/efefef/?text=bluebox" alt="blue box">
+        </div>
+        <div class="block">
+            <div> Block element, with long enough content to wrap.</div>
+        </div>
+    </div>
+</body>
+
+</html>
