@@ -1,0 +1,8 @@
+body{background-image: url("../img/background-gallery.png");}
+.frame{
+	width: 200px;
+	height: 150px;
+	border: 5px solid brown;
+	float: left;
+	margin-right: 50px;
+}
