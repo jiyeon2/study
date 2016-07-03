@@ -1,8 +1,35 @@
-body{background-image: url("../img/background-gallery.png");}
+html, body{
+			height: 100%;
+			width:100%;
+			margin:0;
+			}
+
+.wall{
+			min-height:100%;
+			background-image: url("../img/background-gallery.png");
+			background-size: cover;
+    		background-repeat: no-repeat;
+   		background-position: center;
+   		padding-left: 50px;
+		}
+
 .frame{
-	width: 200px;
-	height: 150px;
-	border: 5px solid brown;
-	float: left;
-	margin-right: 50px;
-}
+	min-width:170px;
+	width: 15vmax;
+	min-height: 160px;
+	height:auto;
+	border-top: 10px solid #efefef;
+	border-left: 7px solid #fff;
+	border-right: 7px solid #fff;
+	border-bottom: 10px solid #efefef;
+	margin-top: 70px;
+	margin-right: 60px;
+	float:left; 
+	box-shadow: 10px 10px 5px rgba(120,120,120, 0.5);}
+
+	.frame img{
+		min-width:170px;
+		width: 15vmax;
+		min-height: 160px;
+		height:auto;
+	}
