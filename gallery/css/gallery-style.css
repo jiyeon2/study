@@ -14,9 +14,9 @@ html, body{
 		}
 
 .frame{
-	min-width:170px;
+	min-width:150px;
 	width: 15vmax;
-	min-height: 160px;
+	min-height: 150px;
 	height:auto;
 	border-top: 10px solid #efefef;
 	border-left: 7px solid #fff;
@@ -25,11 +25,10 @@ html, body{
 	margin-top: 70px;
 	margin-right: 60px;
 	float:left; 
-	box-shadow: 10px 10px 5px rgba(120,120,120, 0.5);}
+	box-shadow: 10px 10px 5px rgba(120,120,120, 0.5);
+	background-image: url(../img/h2.jpg);
+	background-size: cover;}
 
-	.frame img{
-		min-width:170px;
-		width: 15vmax;
-		min-height: 160px;
-		height:auto;
+	.frame:hover{
+	background-image: url(../img/g1.jpg);
 	}
