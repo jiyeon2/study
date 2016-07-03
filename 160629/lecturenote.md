@@ -67,6 +67,8 @@
 > studnt.oulu.fi/~laurirai/www/css/middle
 > 예제 직접 만들기! 과제 - position부분 제외
 
+- [vertical-align](http://aboooks.tistory.com/171) 참고!
+
 -가상요소 ::before, ::after { content : attr(class);} 하면 요소의 클래스명이 표시됨. 클래스명이 많을 경우 요소에 `data-name=""` 속성 지정하고 { content : attr(data-name);} 쓰면 data-name속성의 값이 표시됨!
 
 >이론개념 정립하기 위해 종이에 손으로 쓰기!@!@
