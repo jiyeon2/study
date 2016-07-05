@@ -1,0 +1,131 @@
+/*
+14px, 타입 크기 배율: x 1.313
+행간 14px * 1.5 = 21px , 단락 간격 21px
+
+14px= 1rem, 
+*/
+
+html{
+	font-size: 14px;
+	line-height:1.5;
+}
+body{
+	width:90%;
+	margin: 5% auto;
+	background-size: 1px 1.5rem;
+}
+body:hover{
+	background-image: linear-gradient(180deg, transparent 95%, #999 95%);
+}
+
+h6, p{font-size:1rem;}
+h5{font-size:1.3128rem;}
+h4{font-size:1.7234rem;}
+h3{font-size:2.2624rem;}
+h2{font-size:2.97rem;}
+h1{font-size:3.899rem;}
+h1,h2{line-height: 4.5rem;}
+h3,h4{
+	line-height: 3rem;}
+h5,h6,p{
+	line-height: 1.5rem;}
+h1,h2,h3,h4,h5,h6,p{
+	margin-bottom: 1.5rem;}
+h1,h2,h3,h4,h5,h6{
+		letter-spacing: -0.025em;
+	}
+
+.section-title{
+	color:#aaa;
+	box-sizing: border-box;
+	border-bottom: 1px solid;
+	text-transform: uppercase;
+}
+
+
+.typography span{
+	display: inline-block;
+	width:7rem;
+	float: left;
+	line-height:1.5rem;
+	color:#aaa;
+}
+
+
+.typography span+*{
+	overflow: hidden;
+}
+
+
+	/*table*/
+	.hidden{display: none;}
+	table{
+		font-size: 1rem;
+		line-height: 3rem;
+		margin-bottom: 1.5rem;
+	}
+	th, td{padding:0 3rem;}
+	th{letter-spacing: -0.025em;}
+
+/*table style1*/
+
+/*display: table-row, cell은 인라인요소라 width,height 줄 수 없고 box-sizing도 적용불가. border때문에 줄이 안맞으면 어떻게해야할까??*/
+	.table-style1 tr:first-of-type{
+		border-top: 1px solid #E2E1E1;
+	}
+	.table-style1 tr{
+		border-bottom: 1px solid #E2E1E1;
+	}
+	.table-style1 th[scope="col"]{
+		background-color: #F8F8F8;
+	}
+
+/*table style2*/
+
+.invisible{
+	visibility: hidden;
+}
+.table-style2 tr{
+	border-bottom: 1px solid #e2e1e1;
+}
+.table-style2 tr:first-of-type, .table-style2 tr:last-of-type{border-bottom-color:#000;}
+
+/*list type*/
+.list{
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+ul,ol,dl,li,dt,dd{
+	margin-bottom: 1.5rem;
+}
+li>*{margin-top:1.5rem;}
+
+[class*="-sub"] > :last-child{
+	margin-bottom: 3rem;
+}
+
+[class*="-sub"], dl>dd{ 
+	padding-left:1.5rem;
+}
+
+
+[class$="-list"]{
+	float:left;
+	width:15%;
+}
+.definition-list{
+	width:70%;
+}
+.cf::after{
+	content: '';
+	clear: both;
+	display: block;
+}
+
+/*colors*/
+.color-box{
+	display: block;
+	width:50px;
+	height:auto;
+	background-color: #eee
+}
