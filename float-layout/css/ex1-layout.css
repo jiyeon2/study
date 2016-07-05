@@ -43,8 +43,22 @@
 .speaker{ 
 	float: left; 
 	width: 50%; }
+
 .speaker:hover{
 	background-color: #fef1e1;
+}
+.speaker::after{
+	content:'';
+	display: block;
+	position:relative;
+	width:0;
+	height:0;
+	left:50%;
+	top:50%;
+	border-top:2.5rem solid transparent;
+	border-bottom:2.5rem solid transparent;
+	border-right: 3rem solid red;
+	border-left: none;
 }
 .speaker >* {
 	float: left;
