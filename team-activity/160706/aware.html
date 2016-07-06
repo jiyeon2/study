@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>aware</title>
+    <link rel="stylesheet" href="../../../resrouce/reset.css">
+    <link rel="stylesheet" href="css/aware-style.css">
+</head>
+
+<body>
+    <header class="main-header cf">
+        <button class="nav-toggle al" type="button">
+        	<img src="img/header/svg-icon-hamberger.png" alt="" width="13" height="13">
+        </button>
+        <a class="al" href="#">
+        	<h1 class="top-logo">aware</h1>
+        </a>
+        <nav class="top-nav al">
+        		<a href="">Men</a>
+            <a href="">Women</a>
+            <a href="">Kids</a>
+            <a href="">Accessories</a></nav>
+        <ul class="user-btn cf ar">
+            <li class="al">
+                <button type="button"><img src="img/header/svg-icon-bag.png" alt="bag"></button>
+            </li>
+            <li class="al">
+                <button type="button"><img src="img/header/svg-icon-face.png" alt="face"></button>
+            </li>
+            <li class="al">
+                <button type="button"><img src="img/header/svg-icon-search.png" alt="search"></button>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section class="events">
+            <h2 class="hidden">events</h2>
+            <article class="event-large">
+                <h3 class="hidden">men</h3>
+            </article>
+            <ul class="event-side">
+                <li></li>
+            </ul>
+            <article class="event-regular">
+                <h3 class="hidden">women</h3>
+            </article>
+            <article class="event-small">
+                <h3 class="hidden">acc</h3>
+            </article>
+        </section>
+        <section class="featured-products">
+            <header class="section-header">
+                <h2>featured products</h2>
+            </header>
+            <ul class="products">
+                <li>
+                    <div class="product-name">
+                        <figure><img src="img/a.png" alt>
+                            <figcaption>des</figcaption>
+                        </figure>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="blog">
+            <header class="section-blog">
+                <h2>our blog</h2>
+            </header>
+            <ul class="blog-post">
+                <li>
+                    <article class="posting"><span class="date">april.6</span>
+                        <h3>post-title</h3>
+                        <p class="writer"></p>
+                    </article>
+                </li>
+            </ul>
+        </section>
+        <section class="what-people-say">
+            <header class="section-what-people-say">
+                <h2>what people say</h2>
+            </header>
+            <blockquote>
+                <cite></cite>
+            </blockquote>
+            <div class="quote-btn">
+                <button type="button"></button>
+            </div>
+        </section>
+        <section class="about">
+            <header class="section-about">
+                <h2>who we are</h2>
+            </header>
+            <div class="aware-desc">
+                <img src="img/a.png" alt="">
+                <strong></strong>
+                <p></p>
+            </div>
+        </section>
+        <section class="brands">
+            <h2 class="hidden">brand-logos</h2>
+            <ul class="brand-list">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <nav class="foot-nav"></nav>
+        <div class="foot-logo"></div>
+        <div class="user-info"></div>
+        <ul class="sns">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="card">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </footer>
+<!-- [웹표준 준수] HTML, CSS 문법은 유효한가? -->
+		<!--
+		* section, article과 같은 sectioning 요소에는 h2~h6의 제목요소 반드시 필요! section요소만 필요한 줄 알았는데 아니었다
+		* figcaption 요소는 figure요소의 자식으로 존재해야 함!
+		* <date>요소는 컴퓨터가 이해할 수 있는 날짜형식으로 입력해야 오류가 나지 않음-->
+
+<!-- [접근성 고려] 사용자 입장에서 접근하는데 문제가 없는가? (음성 출력/키보드 접근 등) -->
+		<!--
+		* 버튼 요소 보더와 배경이미지 색을 지우고 이미지를 넣었더니 클릭 가능한 요소인지 알기 어려웠다. hover시 아웃라인이 표시되도록 하였다.  
+		-->
+
+<!-- [의미 구조화] HTML 구조는 올바른 의미를 가지는가? -->
+		<!-- 
+		* a/ button 구분 잘 못함 수정할것!
+		 -->
+
+<!-- [스타일 모듈] CSS 스타일 디자인(설계)는 효율적으로 작성되었는가? -->
+		<!--
+		* 공통된 스타일을 모듈로 디자인하도록 생각하는 게 익숙하지 않아서 css를 덕지덕지 바르고 있다. 공통된 스타일을 모아서 모듈로 만드는 연습을 하자!!
+		  -->
+<!-- [네이밍 규칙] HTML, CSS에 설정된 이름은 간결하며 읽기 용이한가? -->
+		<!-- 
+		* 각 section이나 article 에는 대표하는 클래스를 줘서 구분하였고, sectioning요소의 제목 태그에도 섹션클래스와 유사한 클래스를 달아서 구분하였다. 간결하지 않은 것이 문제다. 알기 쉽고 간결한 이름은 어떻게 쓸 수 있을까 고민이 필요하다. 
+		 -->
+
+<!-- [코드 최적화] 불 필요한 <div> 또는 <span> 요소의 남용 및 무의미하게 중복되는 스타일 코드는 없었는가? -->
+		<!-- 
+		*div, span 사용을 최소화했고, 요소들을 그룹지어야 할 경우에는 공통 구획에 포함되는 요소를 주로 section요소 사용해서 묶었다. section이나 article로 묶기 너무 작은 단위들은 div를 이용하거나 ul을 이용하였다.
+		 -->
+
+<!-- [팀원간 소통] 코드는 읽기 쉽고, 간결한가? -->
+		<!-- 
+		* 마크업이 복잡하지 않아서 읽기는 편하나 
+		 -->
+</body>
+
+</html>
