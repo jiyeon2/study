@@ -1,6 +1,6 @@
 body{
 	width:100vw;
-	height: 107vh;
+	height: 100vh;
 	margin:0;
 	background: radial-gradient(#feaaf4 10%, #67cffa 60%,#ff9812 ) no-repeat center center;
 	background-size: cover; 
@@ -11,8 +11,9 @@ body{
 position: relative;
 top:50%;
 left: 50%;
-margin-top:-64px;
-margin-left: -120px;
+/*margin-top:-64px;
+margin-left: -120px;*/
+transform: translate(-50%,-50%);
 }
 .buttonset-movie-control::after{
 	content: '';
