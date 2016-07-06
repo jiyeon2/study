@@ -11,12 +11,21 @@ html{
 }
 body{
 	width:90%;
-	margin: 5% auto;
-	background-size: 1px 1.5rem;
+	min-height:100vh;
+	margin: 0% auto;
 }
 body:hover{
-	background-image: linear-gradient(180deg, transparent 95%, #999 95%);
+background-image: linear-gradient(180deg, transparent 95%, rgba(112, 69, 207, 0.39) 95%);
+	background-size: 1px 1.5rem;
 }
+
+
+.cf::after{
+	content: '';
+	clear: both;
+	display: block;
+}
+
 
 h6, p{font-size:1rem;}
 h5{font-size:1.3128rem;}
@@ -29,17 +38,27 @@ h3,h4{
 	line-height: 3rem;}
 h5,h6,p{
 	line-height: 1.5rem;}
+h5,h6{
+	font-weight: bold;
+}
 h1,h2,h3,h4,h5,h6,p{
 	margin-bottom: 1.5rem;}
 h1,h2,h3,h4,h5,h6{
 		letter-spacing: -0.025em;
 	}
 
+
+h2 {
+    margin-bottom: 1.45rem;
+}
+
 .section-title{
 	color:#aaa;
 	box-sizing: border-box;
 	border-bottom: 1px solid;
 	text-transform: uppercase;
+	margin-top: -1px;
+	/* text-align: left; */
 }
 
 
@@ -80,6 +99,12 @@ h1,h2,h3,h4,h5,h6{
 		background-color: #F8F8F8;
 	}
 
+.table-style1 {
+    margin-top: -5px;
+}
+/*테이블 보더높이때문에 아래쪽도 안맞아서 일단 마진값 음수줘서 올림*/
+
+
 /*table style2*/
 
 .invisible{
@@ -90,13 +115,21 @@ h1,h2,h3,h4,h5,h6{
 }
 .table-style2 tr:first-of-type, .table-style2 tr:last-of-type{border-bottom-color:#000;}
 
+.table-style2 {
+    margin-top: -3.3px;
+}
+
+
+
+
+
 /*list type*/
 .list{
 	font-size: 1rem;
 	line-height: 1.5rem;
 }
 ul,ol,dl,li,dt,dd{
-	margin-bottom: 1.5rem;
+	margin-bottom: 1.48rem;
 }
 li>*{margin-top:1.5rem;}
 
@@ -116,16 +149,96 @@ li>*{margin-top:1.5rem;}
 .definition-list{
 	width:70%;
 }
-.cf::after{
-	content: '';
-	clear: both;
-	display: block;
+
+ul {
+    list-style-type: afar;
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
+li ul {
+    list-style-type: circle;
+}
+
+ol {
+    list-style-type: decimal-leading-zero;
+    list-style-position: inside;
+}
+
+li ol {
+    list-style-type: upper-alpha;
+}
+
+dd::before {
+    /* list-style-type: cambodian; */
+    display: inline-block;
+    content: '-';
+}
+
+
 /*colors*/
+.color-tag{
+	height:9rem;
+	float:left;
+	margin-bottom: 1.5rem;
+}
+.color-name{
+	line-height: 1.5rem;
+	text-transform: uppercase;
+}
 .color-box{
 	display: block;
-	width:50px;
-	height:auto;
-	background-color: #eee
+	width:7.142rem;
+	height:7.142rem;
+	background-color: #eee;
+	margin-right:2.14rem;
+	margin-bottom: 0.43rem;
+	text-align: center;
+	line-height: 7.142rem;
+	color:#fff;
 }
+.color-box.warning{
+	background-color: #FCB409;
+}
+.color-box.info{
+	background-color: #63A2FC;
+}
+.color-box.success{
+	background-color: #44CB83;
+}
+.color-box.primary{
+	background-color: #7171EF;
+}
+.color-box.danger{
+	background-color: #FF5448;
+}
+.color-box.default{
+	background-color: #787F94;
+}
+
+.no-color-name{
+	text-indent:-999rem;
+}
+
+.gray1{
+	background-color: #333741;
+}
+
+.gray2{
+	background-color: #586077;
+}
+
+.gray3{
+	background-color: #787F94;
+}
+
+.gray4{
+	background-color: #BAC2D0;
+}
+
+.gray5{
+	background-color: #D9E0E9;
+}
+
+
+
