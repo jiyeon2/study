@@ -9,8 +9,10 @@ body{
 	width:240px;
 	height:64px;
 position: relative;
-top:46vh;
-left: 42vw;
+top:50%;
+left: 50%;
+margin-top:-64px;
+margin-left: -120px;
 }
 .buttonset-movie-control::after{
 	content: '';
@@ -29,7 +31,6 @@ padding: 0.5rem 1rem 0 1rem;
 border-top: 5px solid rgba(33,180,226,1);
 border-bottom: 5px solid rgba(33,180,226,1);
 border-right: 1px solid rgba(33,180,226,1);
-border: none;
 float: left;
 background: linear-gradient(to bottom, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 50%, rgba(33,180,226,1) 51%, rgba(183,222,237,1) 100%);
 box-shadow: 2px 2px 2px #444;
