@@ -1,0 +1,45 @@
+body{
+	margin: 0;
+	background: url(../img/bg.jpg) no-repeat center center;
+	height: 100vh;/*화면 높이(뷰포트 높이)의 100%*/
+	background-size: cover;
+}
+/*body요소는 높이 없어도 배경이미지 보임*/
+
+[class$="-box"] {
+	position: absolute;
+	width:200px;
+	height: 100px;
+	background: hsla(0, 50%, 100%, 0.2);
+}
+.utility-box{
+	top: 0;
+	left: 0;
+}
+.weather-box{
+top: 0;
+right: 0;
+}
+.todo-box{
+bottom: 0;
+right: 0;
+}
+.info-box{
+bottom: 0;
+left: 0;
+}/*
+.center-box{
+	width:50%;
+	height:50%;
+	bottom:25%;
+	left:25%;
+}*/
+.quote-box{
+	width:50%;
+	height:80px;
+	left:50%;
+	bottom:0;
+	/*transform: translateX(-50%); */
+	/*자신이 가진 크기의 절반만큼 x축으로 -이동*/
+	margin-left: -25%; /*도 같은 기능*/
+}
