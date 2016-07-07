@@ -1,0 +1,39 @@
+.cf::after{
+	content: '';
+	clear: both;
+}
+
+ul{list-style-type: none;}
+
+.wrapper{
+	width:940px;
+/*	margin-left:auto;
+	margin-right:auto;*/
+}
+
+body::before{
+	content:'';
+	display: block;
+	background-color: #0493d7;
+	width:1330px;
+	height:24px;
+}
+
+header{
+	width:1330px;
+	height:120px;
+	background-color: #06b2f5;
+	padding-top: 36px;
+}
+
+.logo{
+	width:220px;
+	height: 48px;
+	background-color: #18ffff;
+}
+
+.gnb li{float:left;
+	display:block;
+	width:94px;
+	margin-left:30px;
+background-color: #026289;}
