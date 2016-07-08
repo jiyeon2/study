@@ -1,0 +1,57 @@
+/*가로폭 1200px 고정, 컬럼: 12개, 컬럼70 : 거터 30 비율*/
+
+/*그리드 컨테이너*/
+.wrapper{
+	width:1200px;
+	height:900px;
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+}
+.wrapper::before{
+	content:'';
+	width:100%;
+	height:900px;
+	position: absolute;
+	left: 50%;
+	top:0;
+	transform: translateX(-50%);
+}
+
+.wrapper.grid-on::before{
+	background: url(./img/customgrid-15-70-15.png) repeat;
+}
+
+.wrapper.grid-off:hover::before{
+	background: none;
+}
+
+/*그리드 로우 모듈*/
+.row::after{
+	content: '';
+	clear:both;
+	display:block;
+}
+
+/*그리드 컬럼 모듈 
+컬럼 12개 : 컬럼 70px, 거터 30px
+*/
+[class*="col-"]{
+float: left;
+margin-left: 15px;
+margin-right: 15px;
+}
+.col-1{width:70px; }
+.col-2{width:170px; }
+.col-3{width:270px; }
+.col-4{width:370px; }
+.col-5{width:470px; }
+.col-6{width:570px; }
+.col-7{width:670px; }
+.col-8{width:770px; }
+.col-9{width:870px; }
+.col-10{width:970px; }
+.col-11{width:1070px; }
+.col-12{width:1170px; }
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>custom grid homework</title>
+	<link rel="stylesheet" href="../../resrouce/ress.min.css">
+	<link rel="stylesheet" href="my-gs-1200.css">
+	<link rel="stylesheet" href="custom-grid.css">
+</head>
+<body>
+<div class="family-site"><button type="button"><a href=""></a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a></button></div>
+<div class="wrapper grid-on grid-off">
+	<header class="main-header col-12 row">
+			<h1 class="logo">BLOTER</h1>
+	</header>
+	<!-- header와 h1은 화면 꽉차는 요소라고 생각해서 col-12안줬더니 양옆 마진 15가 안들어가서 커보임.-->
+	<nav class="top-nav col-12 row">
+		<a class="top-nav-menu col-2" href="">menu</a>
+		<a class="top-nav-menu col-2" href="">menu</a>
+		<a class="top-nav-menu col-2" href="">menu</a>
+		<a class="top-nav-menu col-2" href="">menu</a>
+		<a class="top-nav-menu col-2" href="">menu</a>
+		<a class="top-nav-menu col-2" href="">menu</a>
+	</nav>
+		
+		<main>
+			<div class="main-top row">
+				<div class="main-top-article big col-12 row">큰 이미지 상자</div>
+				<!-- width 꽉 채우는 이미지라서 clear:both;는 지금 당장 필요없음. margin-bottom:24px만 필요함. 1)row클래스 적용하는 게 나은가? 2).mian-top-article에 mb24px주는 게 나은가??
+				메인 내부의 모든 col-에게 mb24px필요-->
+				<div class="main-top-article col-3">작은 이미지 상자</div>
+				<div class="main-top-article col-3">작은 이미지 상자</div>
+				<div class="main-top-article col-3">작은 이미지 상자</div>
+				<div class="main-top-article col-3">작은 이미지 상자</div>
+			</div>
+			<div class="offset-parent row col-12">
+				<div class="ad-banner row col-8 align-center">배너광고 가운데정렬해주세요</div>
+			</div>
+
+			<div class="main-bottom row">
+				<div class="main-bottom-article-section col-9">
+					<div class="main-bottom-article col-4">글상자</div>
+					<div class="main-bottom-article col-4">글상자</div>
+					<div class="main-bottom-article col-4">글상자</div>
+					<div class="main-bottom-article col-4">글상자</div>
+				</div>
+
+				<div class="main-bottom-ad-section col-3">
+					<div class="main-bottom-ad col-2">광고</div>
+					<div class="main-bottom-ad col-2">광고</div>
+				</div>
+			</div>
+		</main>
+</div>
+
+</body>
+</html>
