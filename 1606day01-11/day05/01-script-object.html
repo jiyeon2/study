@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Script, Object, Paramater요소</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/app.js"></script>
+	<!-- css링크 위에 script 쓰면 안됨
+	 html 요청시 css파일 병렬식으로 옮겨옴(동시다발적)
+	 js는 직렬식으로 받아옴. 느림 
+	 js 코드 만나면 해석하는 동안 아래쪽 코드는 실행되지 않음!
+	 js 공통적인 코드 분리하여 '재사용'' 하는 것이 좋다. 한 페이지에서만 적용되는 경우는 내부에 써도 됨.
+	 script 코드는 head 내부 혹은 body 내부에 사용.
+	 하지만 body내 다른 코드 사이사이에 링크로 불러오는 건 비효율적-->
+</head>
+<body>
+	
+	<div class="page-header" lang="en">
+		<!-- <script>
+			window.alert('inner.page-header area');	
+		</script> -->
+		<h1 class="headline">Loading JS</h1>
+		<!-- <script>
+			window.alert('maked heading 1 element.');
+		</script> -->
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+		<!-- <script>
+			window.alert('maked paragraph element.');
+		</script> -->
+	</div>
+
+<script>
+	document. write('<pre>모든 &lt;문서&gt;의 내용을 로드 완료했다.</pre>');
+</script>
+</body>
+</html>

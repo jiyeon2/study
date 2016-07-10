@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	/*border이용해서 삼각형 만들기
+::after{
+	
+};
+	*/
+		.child{
+			width: 100px;
+			height: 80px;
+		}
+		.child::after{
+			content: '';
+			position: relative;
+			/*right: -10px;*/
+			width:0px;
+			height:0px;
+			border-top:10px solid orange;
+			border-bottom:10px solid pink;
+			border-left:10px solid skyblue;
+			border-right:10px solid aqua;
+			border-top-left-radius: 2em 0.5em;
+border-top-right-radius: 1em 3em;
+border-bottom-right-radius: 4em 0.5em;
+border-bottom-left-radius: 1em 3em;
+		}
+		.grandma{
+			background: gold;
+			position: relative;
+			width: 500px;
+			height: 500px;
+		}
+		.parent{
+			background: blue;
+			width: 200px;
+			height: 240px;
+			position:absolute;
+			top: 50px;
+			left: 50px;
+		}
+		.absolute{
+			background: red;
+			position: absolute;
+			bottom: 20px;
+			right: -20px;
+		}
+
+		.relative{
+			background: green;
+			position: relative;
+		/*	top: -50px;
+			right:-100px;*/
+		}
+		.fixed{
+			background: gray;
+			position: fixed;
+			top: 300px;
+
+		}
+	</style>
+</head>
+<body>
+<div class="grandma">
+	<div class="parent">
+		<div class="child absolute"></div>
+		<div class="child relative"></div>
+		<div class="child fixed"></div>
+	</div>
+</div>
+</body>
+</html>

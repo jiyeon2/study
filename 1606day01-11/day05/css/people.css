@@ -1,0 +1,50 @@
+@charset "utf-8"; 
+/*html파일과 언어 인코딩 맞춤*/
+
+/*inline 방식 쓰는 이유 :
+$0.style,color 는 인라인 스타일만 가져올 수 있음
+$0는 개발자도구 콘솔에서 선택된 요소 가리킴
+
+window.getComputedStyle($0,가상요소).스타일 하면 가져올수있음
+window.getComputedStyle($0,null).color
+*/
+
+/*스타일 모듈 파일 로드 -  이 방식은 직렬식으로 불러와서 느림. 쓰지 말것! 경로 틀리면 불러올 수 없음*/
+/*@import url("color.css");
+@import "common.css";
+@import url("grid.css");
+@import "layout.css";
+@import url("layout.css");
+@import "old-ie.css";
+@import url("print.css");*/
+
+/*웹 브라우저 기본 스타일 덮어쓰기*/
+body{
+	margin: 0;
+
+}
+
+/*문서에서 대상을 선택한다*/
+/*선택자 필요*/
+
+article{
+	/*선택된 대상을 스타일링*/
+	/*속성: 값;*/
+
+	/*테두리 디자인: 두께 모양 색상; 색 안넣으면 글씨 색 상속*/
+	border: 1px solid #454545;
+}
+article h2{
+	font-weight: 100;
+	color: #cf966e;
+
+	}
+	/*img요소는 inline-block 요소*/
+	/*inline-block 요소는 margin-top 같은 값이 적용된다*/
+article img{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+article p{
+	line-height: 30px;
+}

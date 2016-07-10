@@ -1,0 +1,87 @@
+body{
+	font-family: serif;
+	line-height: 1.5;
+	color:#464646;
+}
+
+.clearfix::after{  
+	content: '';
+	display: block;
+	clear: both;
+}
+/*앞에 있는 요소들의 float 해제해야하므로 ::before 아닌 ::after 사용, float는 뒤쪽 요소에만 영향 주므로.*/
+.speaker{
+	width:100%; /*float적용하면 inline처럼 컨텐츠 너비만큼 줄어듦 그거 방지 위해 width100% */
+	float:left;
+	text-align: center;
+	/*border:1px solid red; 레이아웃 깨지므로 보더, 패딩 쓸 수 없음*/
+	/*padding-top: 3.4375em; 레이아웃깨짐*//* 55/19px */
+}
+
+	/*이미지에만 float:left하면 이미지옆에 글자 붙고 글자 아래로 이미지 들어오고 그래서 계단식으로 다 붙어버림. 그래서 clearfix써서 speaker의 이미지와 설명글만 붙게. 그 speaker들 상자가 또 옆으로 붙어야 하니까 speaker에도 float:left준것!*/
+
+.speaker:hover{
+	background-color: #fff1ef;
+}
+.speaker-bio{
+	overflow: hidden;
+}
+.speaker-bio a{
+	display: block;
+	width:1.25em;
+	height:1.25em;
+	background: url("../img/icon-twitter.svg") 0 0 no-repeat;
+	background-size: contain;
+	margin-left: auto;
+	margin-right: auto;
+	/*mla가 답은 아님. text-align center가 더 나을 수도 있다.*/
+}
+.speaker-name{
+	font-size: 19px;
+	/*자식에서 마진주면 튀어나감. 부모에 패딩줘야함*/
+	margin-top: 3.4375em;
+	margin-bottom: 1.125em;
+}
+.speaker-description{
+	 padding-left: 1.875em;
+	 padding-right: 1.875em;
+}
+.speaker-description::after{
+	content:'';
+	display: block;
+	height:1px;
+	width:4em;
+	background: #464646;
+	margin:0.8125em auto;
+}
+
+.speaker-container{
+	width:1100px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.speaker-container *{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.speaker-photo{
+	float:left;
+	width:50%;/*speaker의 전체 너비의 50%가 이미지*/
+	height: auto; /*html에 높이 고정되어 있어서 이미지 이상해짐. 가로세로 종횡비 유지위해*/
+}
+
+
+/*LAYOUT*/
+.layout-half{
+	width: 50%;
+}
+
+/*코드 재사용, 유지보수 위해 layout-half, align-right와 같은 클래스 만든것.  머리속에서 구조 생각하면서 코드 짜기!!
+영상강의 보고 외울정도로 따라하기!!!*/
+/*css코드 아래쪽에 나온 게 덮어씌워짐. 코드 위치도 잘 살펴볼것!!*/
+.align-right{
+	float:right;
+}
+
+
+/*장식, 가상요소 인덴트*/

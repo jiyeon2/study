@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Form 디자인</title>
+</head>
+<body>
+	<form action="#" method="GET" enctype="" name="register-form">
+	<!-- 전송 데이터가 텍스트 말고 다른것일때 
+
+	enctype??? multipart/form-data 파일 전송할때 텍스트 아닌걸 전송할 때. 
+	이걸로 이미지 전송시 -> 디비에는 이미지의 경로 주소가 들어감. 
+
+	get은 빠르고, 주소 길이 제한. readme 3회차. 게시판- 글 같은거 /1/2
+
+	post 보안필요 내용많고. 파일전송시-->
+
+<!-- js
+문서 내 폼 찾을 때(폼이 여러개일때), document['register-form']으로 찾을 수 있음. js에서는 -e들어가면 오류나서 document.register-form은 안씀
+ -->
+
+
+		<!-- <button type="submit"></button> 버튼 요소 기본값 SUBMIT-->
+		<!-- <input type="submit"> -->
+		<!-- 스크린리더가 버튼은 버튼으로 읽고, 인풋은 편집창으로 읽음. 예전에 버튼에 이미지 넣을 수 있었다. 지금은 둘다 배경이미지 깔 수 있음 -->
+
+		<!-- label 암묵적 방식, 명시적 방식 둘 다 가능하나 국내 일부 스크린리더가 암묵적 방식 못읽어서 명시적 방식 추천 -->
+
+		<!-- input에도 name 속성 있어야 서버로 전달될 때 주소 문자열 뒤쪽에 붙어서 전달됨 -->
+		<fieldset>
+		<legend>필수입력사항</legend>
+		<div>
+			<label for="register-id">id</label> 
+			<input id="register-id" type="text" name="regi-id" disabled value="jiyeon" maxlength="14">
+		</div>
+		<div>
+			<label for="register-email">E-mail</label>
+			<input type="email" id="register-email" placeholder="user@email.com">
+		</div>
+
+		<div>
+			<label for="register-password">password</label> 
+			<input id="register-password" type="password" name="regi-password" placeholder="sdf">
+		</div>
+</fieldset>
+
+
+		<div>
+		<h3>Gender</h3>
+			<!-- <label for="register-gender">gender</label> 
+			radio버튼과 연결되는 label은 'gender'가 아님!! -->
+			<!-- label 달면, label 텍스트 클릭시에도 radio 버튼 체크 됨! -->
+			<!-- 명시적 방식 -->
+			<div>
+			<h4>label 명시적 방식</h4>
+				<input type="radio" id="register-male" name="gender-a-type"> <label for="register-male">Male</label>
+				<input type="radio" id="register-female" name="gender-a-type"> <label for="register-female">Female</label>
+			</div>
+
+			<!-- 암묵적 방식. 코드 양 줄일수있다. 스크린 리더로 테스트 후 문제 없다면 암묵적 방식도 괜찮음. -->
+			<div>
+			<h4>암묵적 방식</h4>
+				<label><input type="radio" checked="" name="gender-b-type" value="1">male</label>
+				<label><input type="radio" name="gender-b-type" value="2">female</label>
+			</div>
+		</div>
+
+		<div>
+			<h3>hobby</h3>
+<!-- value는 서버에 전송되는 값. 어떤 값이 전송되었는지 식벽할 수 있게 함. value없으면 on으로 전송됨. 버튼 눌렀을 때 주소창 뒷부분 값. 
+서버에서는 &기준으로 문자열 값 분리-->
+			<ul>
+				<li>
+					<label><input type="checkbox" name="hobby" value="book">Read a book</label>
+				</li>
+				<li>
+					<label><input type="checkbox" name="hobby" value="sleep">Sleeping</label>
+				</li>
+				<li>
+					<label><input type="checkbox" name="hobby" value="movie">watching movie</label>
+				</li>
+				<li>
+					<label><input type="checkbox" name="hobby" value="uke" checked>playing ukulele</label>
+				</li>
+			</ul>
+		</div>
+<hr>
+<div>
+	<label for="register-upload">File</label>
+	<input type="file" id="register-upload" name="register-upload" multiple><!--multiple 속성 쓰면 여러 파일 전송 가능-->
+</div>
+<hr>
+
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<!-- contenteditable: 클릭시 사용자가 수정 가능하게 됨. 다른 요소일때?는 수정가능할까?
+어떤 용도로 쓰는걸까?? 
+-->
+<p contenteditable="true">야무와 demun 한글 로렘입숨. 할지라도, 두기 산야에! 노년에게서 그러므로 설산에서 위하여, 약동하다. 속에서 싹이 바이며, 설레는 이 이상을 동력은 그들의 곧 가치를 물방아, 장식하는 사막이다. 거선의 그들에게 스며들어 꾸며. 길지, 사막이다. 반짝이는.</p>
+<div contenteditable="true">dfklsdfjlksdfljkdsfljk</div>
+<hr>
+
+<div>
+	<h3>your job</h3>
+	<select name="register-job" id="">
+		<option value="">select your job</option><!--이 값이 전달된다면 아무값도 안넘어가는것. 이용자들에게 뭘 하라 알려주는 역할-->
+		<option value="instructor" selected>instructor</option>
+		<option value="student">student</option>
+		<option value="doctor">doctor</option>
+		<optgroup label="web"> <!--facet같은것. 오늘날 많이 쓰지는 않음 . 디자인이 운영체제, 브라우저마다 달라서 디자인 힘듦-->
+			<option value="planner">planner</option>
+			<option value="designer">designer</option>
+			<option value="developer">developer</option>
+		</optgroup>
+	</select>
+</div>
+
+
+		<div>
+			<input type="submit" value="전송">
+			<input type="reset" value="초기화">
+			<button type="reset">초기화</button>
+		</div>		
+		<!-- 최근 폼양식은 간단해져서 굳이 reset버튼 잘 안씀 -->
+		<!-- 초기화는 초기상태로 돌아가는것이지 아예 다 체크상태 없애는 것 아님. checked속성 적용되어 있다면 그게 초기상태! -->
+		<!-- xml에서는 checked="checked"라고 써야함 -->
+	</form>
+
+</body>
+</html>

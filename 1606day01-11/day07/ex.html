@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div.box{
+		border:3px solid green;
+		margin: 10px;
+	}
+	p.box{
+		width: 100px;
+		height: 20px;
+		border:1px dashed blue ;
+		margin: 10px;
+	}
+		.box:only-child{
+			background-color: red;
+		}
+.box:first-child{
+	background-color: yellow;
+}
+	</style>
+</head>
+<body>
+<!-- 	<div>
+		<p class="box"></p>
+		<p class="box"></p>
+		<p class="box"></p>
+		<p class="box"></p>
+		<p class="box"></p>
+	</div> -->
+	<div>
+		<p></p>
+		<p></p>
+		<p class="box"></p><!-- 
+		<p class="box"></p>
+		<p class="box"></p> -->
+	</div>
+	<div>ddd</div><!-- 
+	<div class="box">dd
+	<a href="">aa</a>
+		<p class="box"></p>
+		<p class="box"></p>
+		<p class="box"></p>
+		<p class="box"></p>
+		<p class="box"></p>
+	</div> -->
+</body>
+</html>

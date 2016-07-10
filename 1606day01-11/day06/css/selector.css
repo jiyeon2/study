@@ -1,0 +1,116 @@
+@charset "utf-8";
+/*제일 위에 쓴다. 안써도 됨. 혹시 글자 깨진다면 html파일과 인코딩 맞춰준다. 세미콜론 빼먹지 말것!!@@! */
+
+/*! 압축하는 컴파일러가 !붙은 주석은 안없앰. 관례적으로 저작권 표시할 때 ! 붙임*/
+
+/*웹브라우저마다 기본 스타일 값 다르다!
+user agent stylesheet
+
+css 음절-음절 사이에 - 씀
+상우하좌 시계방향으로 설정
+*/
+
+/*
+*----------
+*css 선택자
+*----------
+*요소 선택자 E(:element)
+*전체 선택자 *
+*자손 선택자  E(parent) E(child)
+*그룹핑 E,E,E
+*/
+
+/* 선택자 점수
+*요소선택자 E
+* 0001
+*/
+/*같은 요소 선택자의 경우 아래쪽에 있는 값이 우선 적용*/
+body{
+  /* margin: 0;*/
+   /*글자 크기 변경*/
+   font-size:20px;
+
+   /*고정값(기기에 따라 다르다) px을 상대값(em: equal M)으로 변경하고자 한다면???*/
+   font-size: 1.25em;  /*20px/16px = x1.25*/
+   /*웹브라우저 기본크기 16 = 1로 봄, 20/16px 커서 뒤에두고 실행>
+   ctrl+shift+y : emmet으로 계산, 
+   상대값 썼지만 웹브라우저는 px단위로 계산함! body: filter: font-size보면 20px로 보임*/
+}
+
+/*전체 선택자 : *        */
+/*h3{
+   margin-top: 0;
+   margin-bottom: 0;
+}*/
+/*
+body * {
+   margin: 0;
+}*/
+/*그룹핑 e,e,e*/
+/*
+* {
+margin: 0;
+} 이렇게 쓰면 성능 저하, 쓰지 않는다
+*/
+/*요소+그룹핑+아이디+전체선택자
+css선택자는 여러 유형이 조합되어 사용된다
+
+#아이디 선택자
+0100
+
+.클래스 선택자
+0010
+*/
+#shoppine1 *, body {
+   margin: 0;
+}
+
+/*자식 선택자 E(p) > E(c)
+> child Combinator*/
+/*직계 자식을 가리키는 선택자*/
+#shopping1> h4 {
+color: tan;
+}
+
+.btn{
+border:none;
+background-color: #000;
+color:#fff;
+}
+.btn-buy.btn{
+color: orange;
+}
+.btn.btn-cancel-buy{
+color:green;
+}
+.btn .btn-cancel-buy{
+color:red;
+}
+/*인접형제선택자 E+E*/
+.parent ul{border:1px solid red;}
+.parent h4 + ul {
+border: none;
+}  /*이 경우 class="parent" 자손 중 h4에 인접한(바로 다음,뒤의)형제인 ul만 적용됨!!*/
+
+/*일반 형제 선택자*/
+#shoppingGrpTab > #shopping1 + h3 a{
+   color: darkred;
+}
+#shoppingGrpTab > #shopping1 ~ h3 a{
+   color: #bd8d46;
+}
+/* id선택자 = 속성 선택자로 변경 */
+/*[id] {border: 3px double blue;}*/
+/*class선택자*/
+/*[class]{outline: 3px solid rgba(255,255,0,0.5);}*/
+/*[type="button"]{font-size:30px;}*/
+/*[href]{color: green;}*/
+
+/*특정 id를 찾고자 한다면?*/
+/*#shopping3 .screen_out{}  : screen out이 포함되기만 하면 됨*/
+[id="shopping3"] [class="screen_out"]{border:4px solid #303030;} /*반드시 screen_out이어야함! 다른 클래스 포함되면 적용 안됨 
+class^="screen_out" : 시작하는 값이 screen_out;
+class$="screen_out" : 끝나는 값이 screen_out;
+
+a[href$=".pdf"]{} : pdf파일만 선택하는경우;
+*/

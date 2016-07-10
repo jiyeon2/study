@@ -1,0 +1,46 @@
+/*
+page 구조 
+css float 레이아웃 디자인
+-float 영향을 받는 요소에서 해제를 하지 않을 경우 발생하는 문제
+*/
+
+/*공통 모듈 디자인*/
+[class^="page"]{
+	height: 20vh;
+	text-align: center;
+	line-height: 20vh;
+	color:#fff;
+	font-size: 2rem;
+}
+[class^="page"]::after{
+	content:attr(class);
+}
+/*width: calc(100% - 400px); 과 같이 %값에서 픽셀값 적용가능. 나누기는 안됨. 최신 브라우저에서만 적용*/
+/*가운데정렬 한 방법1) 가상요소 블록화 -> 블록화된 가상요소에 text-align:center, line-height: 20vh ->부모요소 높이에 따라 행간 바꿔줘야 하므로 유지보수 측면에서 불편*/
+/*가운데정렬 방법 2) 가상요소의 부모에 text-align:center, line-height를 부모 높이와 같게*/
+
+/*개별 모듈 디자인 */
+.page-header {
+background-color: #7045cf;
+}
+.page-navigation{
+background-color: #388dc4;
+}
+.page-main{
+background-color:#3cc880 ;
+width:60%;
+float:left;
+/*height: 50vh;*/
+}
+/*float 특징! width 없이 float:left만 지정하면 너비가 컨텐츠만큼만 가짐*/
+/*float된 요소는 본인 너비보다 폭이 작아지면 아래로 떨어짐. float안 된 요소는 float요소 오른쪽에(float:left라면)붙어서 아래로 떨어지지 않음*/
+.page-sidebar{
+background-color: #78c953;
+/*width:40%;*/
+/*float:right;*/
+clear:both;
+}
+.page-footer{
+	background-color: #c38b36;
+	/*clear:both;*/
+}

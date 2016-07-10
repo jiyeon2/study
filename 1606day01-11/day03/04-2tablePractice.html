@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>테이블 만들기 연습</title>
+<style>
+	th,td{
+		padding: 1em 1.5em;
+	}
+	tr:nth-child(2n){
+		background-color: #efefef;
+		border-bottom: 2px solid #dedede;
+		border-right: 3px solid #dedede;
+	}
+	table{
+		border-collapse: collapse;
+		text-align: center;
+	}
+	tr>td:nth-child(2){
+		color:red;
+	}
+	tr>td:nth-child(3){
+		color: blue;
+	}
+	col{
+	}
+</style>
+</head>
+<body>
+	<p id="metadata-table-summary">본 표는 테이블 마크업 연습용 표입니다.</p>
+	<table aria-describedby="metadata-table-summary">
+		<caption class="title">카페 아다모 메뉴판</caption>
+		<col>
+	<tr>
+		<th scope="col">Espresso Coffee</th>	
+		<th scope="col">HOT</th>
+		<th scope="col">ICE</th>
+	</tr>
+<tr>
+	<td>에스프레소</td>
+	<td>2,500</td>
+	<td>2,800</td>
+</tr>
+	<tr>
+		<td>아메리카노</td>
+		<td>2,500</td>
+		<td>2,800</td>
+	</tr>
+	<tr>
+		<td>더치라떼</td>
+		<td>4,500</td>
+		<td>5,500</td>
+	</tr>
+	<tr>
+		<td>카페라떼</td>
+		<td>3,500</td>
+		<td>3,800</td>
+	</tr>
+	<tr>
+		<td>카푸치노</td>
+		<td>3,500</td>
+		<td>3,800</td>
+	</tr>
+	<tr>
+		<td>바닐라라떼</td>
+		<td>4,000</td>
+		<td>4,300</td>
+	</tr>
+
+	<tr><th scope="col" colspan="2">무커피음료</th></tr>
+	<tr>
+		<td>녹차/민트라떼</td>
+		<td>3,500</td>
+	</tr>
+		<tr>
+			<td>핫초코/밀크티</td>
+			<td>3,500</td>
+		</tr>
+		<tr>
+			<td>플레인 요거트</td>
+			<td>4,000</td>
+		</tr>
+		<tr>
+			<td>레몬에이드</td>
+			<td>4,000</td>
+		</tr>
+	</tr>
+
+
+
+	</table>
+</body>
+</html>

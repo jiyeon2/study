@@ -1,0 +1,307 @@
+@charset "utf-8";
+/*@import url("common.css");*/
+/*세미콜론 빼먹지 말기! import보다 링크가 더 좋은 방식임*/
+
+ body{
+ 	line-height: 1.6;
+ 	margin:5% 20%;
+ }
+/*속성선택자
+	[attr]
+	[attr="value"]
+	[attr|="value"]
+	[attr~="value"]
+	[attr*="value"]
+*/
+
+/*
+[class="nation"] -> 이건 class에 nation 값만 가진 요소 선택됨
+
+[class="nation container"]{background: yellow;}*/
+
+/*공백으로 구분되는 단어가 있을 때 공백으로 구분되는 단어가 일치할 때 선택*/
+[class~="container"]{
+	border: 1px dashed #cacaca;
+	padding: 1em;
+}
+
+/*하이픈으로 구분되는 단어가 있을 때 하이픈(-)으로 구분되는 단어가 일치할 때 선택*/
+[lang|="en"]{
+	text-decoration: underline;
+}
+
+/*상태디자인(state design) 선택자
+1. 기본 상태(normal)
+2. 커서가 올라간 상태(Hover)
+3. 커서로 누른 상태(Active)
+*/
+
+/*기본상태*/
+.container p{
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0.88em;
+	color: #84888a;
+	background-color: #fff;
+}
+/*커서가 올라간 상태(hover)
+Pseudo class " : " 유사, 의사, 가상 클래스
+css에서 실제 클래스(.hover) 주지 않고도 마우스 올라가면 자동으로 클래스 붙이는 식으로 동작하게 지원함
+*/
+.container p:hover{
+	color:#0c0d0d;
+	background-color: #bfbfbf;
+}
+/*실제 class 속성을 적용한 예*/
+.container p.hover{}
+/*커서로 누른 상태(Active)*/
+.container p:active{
+	background-color: #000;
+	color:#fff;
+}
+
+/*하이퍼링크 <a href>
+상태 디자인(state design)
+가상(유사, 의사) 클래스
+Pseudo Class
+
+href=""속성이 비어있었을 때 왜 방문한상태였나?? #는?
+
+:link 기본상태
+:visited 방문한상태
+:hover 커서 올라간 상태
+:active 커서로 누르고 있는 상태
+:focus 키보드 포커싱 상태 - 이 가상클래스는 포커스 가능한 요소에만 적용되는 가상클래스인가 
+포커스 가능요소는 링크, 이동가능한 요소들=  a, form 요소들 
+Tab 으로 접근이 가능한 태그는 tabindex를요소로 가지고 있는 태그인 a, area, button, input, object, select, textarea 가 있다. 
+http://dev.zzoman.com/2014/04/28/access-drop-down-navigation-with-keyboard/
+*/
+
+/*기본 상태*/
+/*a:link{}*/
+a {
+	padding-left: 0.25em; /*상대적 값(em) 쓰는 것이 이용자관점?에서 좋다 4px -> 4/16em*/
+	padding-right: .25em;
+	text-decoration: none;
+	color:  blue;
+	background-color: #ebebeb;
+}
+/*방문한 상태*/
+/*가능한 상태 속성 
+-color
+-background-color
+-...
+visited는 이미지 적용되지 않는다! 배경색 등만 적용됨*/
+a:visited {
+color:#bf00bf;
+}
+
+/*커서 올라간 상태*/
+a:hover{
+	/*text-decoration: underline; gy같은 값이 밑줄과 붙음*/
+	padding-bottom: 1px;
+	border-bottom: 3px dotted;
+}
+
+/*커서 누른 상태*/
+a:active{
+	background: #fffff0;
+}
+
+/*키보드 포커싱 상태*/
+a:focus{
+	/*포커스 상태는 화면에 시각적으로 표현되어야 함!! 꼭!! 브라우저 기본상태는 잘 안보이니까 이런식으로 아웃라인 디자인 해주기*/
+	border: 3px solid #fc1214;
+}
+
+a:focus:hover {
+	outline-offset: 50px;
+} /*offset-안쪽공간 
+outline- border와 달리 박스의 축이 움직이지 않는다!! border와 outline 이용해서 만들어보기
+:hover:focus순서는 상관없을까?*/
+
+/*box 실습*/
+.box{
+	display: inline-block;
+	margin-bottom: 20px;
+	margin-right: 5px;
+	width:200px;
+	height: 200px;
+	outline:none;
+	background:#efefef;
+}
+
+.box:hover{
+	/*border:10px solid #fe49fe;*/
+	outline:10px solid #fe4949;
+}
+
+/*rounded box*/
+.rounded-box{
+width: 200px;
+background: #eee;
+}
+
+/*나를 포함한 부모기준에서 내가 몇번째 자식인가?*/
+/*rounded-box가 부모인 모든 자손들 중 첫번째 자식*/
+.rounded-box *:first-child{}
+
+/*직계 자식 중 첫번째 자식이라면 선택*/
+.rounded-box > *:first-child{background: orange;}
+
+
+/*rounded-box가 본인 포함한 부모의 마지막 자식일 때 선택됨*/
+.rounded-box:last-child{}
+
+.wrapper :last-child{}
+
+.wrapper > :nth-child(2n){}
+.wrapper > * > *:nth-child(2n){}
+/*크로스브라우징때문에 lastchild나 nthchild안쓰는 게 나을수도 있다*/
+
+/*한글 문서에 다른 언어 포함된 부분 찾을 때, 클래스보다 다음과 같은 가상 클래스 이용하면 편함, 접근점 관점에서도 lang속성 표시하여 좋음
+:가상클래스, ::가상요소 ; */
+:lang(es) {
+/*스페인어 사용*/
+}
+
+[lang|="en"]{}
+
+:lang(ja){
+	/*일본어 사용*/
+}
+/*크리스찬 디올 페이지*/
+
+/*가상(유사, 의사) 요소
+Pseudo element
+가상으로 요소(콘텐츠)를 만들어 준다
+하위호환 위해서 옛날부터 있던것들은 :한개써도 됨,  
+이후 새로 나온건 가상선택자와 가상요소 구분위해 ::두개씀
+
+css 2/2.1     |  css3
+:first-line   |  ::first-line 
+:first-letter |  ::first-letter 
+:before       |  ::before
+:after        |  ::after
+*/
+
+/*잡지 디자인 드롭캡(dropcap)-앞글자 하나를 크게*/
+/*css레이아웃 연습할 때 잡지 레이아웃 참고해보기*/
+.dropcap-demo{
+	color: #ec0904;
+}
+
+/*가상으로 요소를 생성한다, 만약 일일이 첫 글자를 span으로 감싸면 글자 추가시 직접 변경해줘야함*/
+/*.dropcap::first-line*/
+.dropcap::first-letter{
+	font-size: 200%;
+	color:#ec0904;
+	line-height: 1;
+}
+
+.dropcap{
+	text-indent: 20px;
+	margin:0;
+}
+
+/*가상요소
+::before
+::after
+자주씀!! - 실제 읽히는 컨텐츠아님. 이미지로 처리됨. 꾸밈을 위한 것. 스크린 리더 못읽음 접근성 없음. 드래그 안됨
+자식으로 생성됨(요소 안쪽에! 요소 앞이 아니라)
+반드시 content와 같이 써야 함
+기본적으로 인라인
+*/
+abbr{cursor: help;}
+
+.msg .before,
+.msg::before{
+	 content: 'Hey!';
+	 color: #3a0099;
+}
+.msg p::before{
+	content: 'design';
+	color: red;
+	display: block;
+}
+.msg .after,
+.msg::after{
+	 content: 'hands up!';
+	 color: #3aefef;
+}
+
+/*가상클래스 visited 만 색깔 관련 스타일만 적용가능*/
+
+
+/*프린트 환경에서만 적용되게!! 우와우와*/
+@media print{
+/*접근성관점에서 링크의 주소를 출력하는 스타일 -  가상요소사용*/
+/*ctl+p 프린트모드 확인해서 링크보기- 주소가 뜨는가? 링크인지 아닌지 모르므로*/
+a::after{
+	/* 함수: ()안에 전달하는 무엇을 통해 뭔가를 처리해서 결과를 보여준다 */
+	content: '('attr(href)')';
+	color:#fc43ec;
+}
+
+abbr::after{
+	content:'('attr(title)')';
+}
+}
+
+/*그 페이지의 루트(뿌리요소)를 가리킴. HTLM <html>, XML <cook> <book> ...*/
+:root {}
+
+/*포트폴리오 - 브라우저 몇 버전까지 지원할것인가? 구려해야함! 9이상 기준으로*/
+/**/
+div.empty::before{
+	width:100px;
+	height:10px;
+	background: yellow;
+}
+
+:target{
+	background: #ff3;}
+	/*css only tap menu 접근성 없음 따라하지 말것*/
+
+	.parent :not(a){
+
+	}
+
+	/*css lint - 오류 검출*/
+	.parent *:not(a):not(p){
+		border: 1px solid #b64926;
+	}
+
+
+/*선택자 정리*/
+/*
+자주쓰이는거 마크다운파일에 테이ㅡㄹ로 정리!
+E: 요소선택자;
+E(p) E(c):자손선택자 ;
+
+
+*/
+
+/*사용자가 커서로 클릭 후 , '텍스트 블록'을 선택할 경우 가상으로 요소를 만들어 디자인*/
+::selection{
+	background: #fc4b55;
+	color:#fff;
+	cursor: move;
+	outline: 1px solid black;
+	text-shadow: 2px 2px 8px purple;
+}
+
+::-moz-selection{
+	background: #fc4b55;
+	color:#fff;
+}
+/*selection은 그룹핑 안됨, 다로 써야함
+배경이미지 적용 안됨. 컬라 배경색, 커서모양, 아웃라인, 텍스트 데코레이션, text-emphasis-color(아직 표준아님). text-shadow*/
+
+/* !important는 가급적 사용 자제
+웹상에서 어두운 배경 밝은 글자->프린트환경에서바꿀때
+@media print{
+color: #000 !important;
+background: #fff; !important}*/
+
+/**/

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>(X)HTML vs. HTML5 Markup</title>
+	
+
+	<script> //문장 -> script 코드로 짜는 방식으로 진행될 것!
+
+		//문서에 input요소를 생성한다.
+		//생성한 요소를 my_num_input에 참조한다.
+		var my_num_input=document.createElement('input');
+		//변수 my_num_input에 참조된 문서 객체 input 요소에 속성을 설정(set)한다.
+		my_num_input.setAttribute('type','number');
+		//조건(my_num_input 요소의 type 속성 값이 'text'인가?) 확인
+		if (my_num_input.getAttribute('type') === 'text') {
+			//input[type="number"]를 지원하지 않는 브라우저 대응하는 코드
+		 console.log('input "number" 유형을 지원하지 않습니다.');
+		} else {
+			console.log('input "number" 유형을 지원합니다.');
+		}
+
+	</script>
+</head>
+<body>
+
+
+<div>
+outer div
+	<div>
+		<!-- HTML5 에서는 <a href=""></a>요소가 블록 요소를 감쌀 수 있도록 변경되었지만, 내부에 또 다른 클릭 가능한 컴포넌트(다른 a나 버튼)가 존재한다면 문법오류이다. 
+		헷갈리면 써보고 직접 문법검사 해보기1!!@-->
+		<a href="">
+			inner<div> div</div> 
+			<button>이건 문법오류</button><a href="">이것도 문법오류</a>
+		</a>
+		<span>s<em>pan</em></span>
+	</div>
+</div>
+
+
+	<!-- HTML4.01 or XHTML 1.0 Markup -->
+	<!-- #header+#gnb+#main+#sidebar+#footer -->
+	<!-- <div id="header"></div>
+	<div id="gnb"></div>
+	<div id="main"></div>
+	<div id="sidebar"></div>
+	<div id="footer"></div> -->
+
+<!-- section 요소 안에는 header, footer 들어올 수 있다. body, nav 모두 section요소임 -->
+
+<!-- id : 정말 필요한 경우가 아니면 가급적 쓰지 않음, aria나 form에 사용. 대신 class 사용. id 우선적이므로 그렇다??? -->
+<!-- 
+id="고유한-이름"	
+class="다른-이름 다른-이름1"   동일 기능, 모듈에 사용
+-->
+<!-- 문서 내에서 main은 딱 한번만. section은 여러개 나올 수 있음 -->
+
+<!-- section(범용) vs. article(독립)
+section : 연예 섹션, 정치 섹션. 분리할 수 없는 것???, 제목이 꼭 필요(눈에 보이든 안보이든 필요)
+article : 개별 기사, 위젯 애플리케이션 같은것. 따로 떼서 독립적으로 사용 가능한 것.
+
+outline algorythm??
+ -->
+<!-- 구조 짤 때 재사용 염두!@!@!@ -->
+
+	<!-- HTML5 Markup -->
+	<!-- header+nav+main+aside+footer -->
+	<!-- <header class="page-header"></header><!-- 어떤 헤더인지 명시할 것!!-->
+	<!-- <nav></nav> -->
+	<!--<article>
+			<section>
+				<article></article>
+			</section>
+		</article> -->
+	<!-- <main></main>
+	<aside></aside>
+	<footer></footer>
+ -->
+</body>
+</html>
