@@ -44,31 +44,13 @@ main *[class*="col-"]{
 .main-top{
 	margin-bottom: -24px;
 }
-/*가운데 정렬하고 싶은데 col-8의 float때문에 mrl:auto 적용 안됨 margin-left값 줌*/
+
 .ad-banner.row{
 	height:48px;
 	background-color: #d44536;
 	margin:48px 215px;
 	clear: both;
 }
-
-/*배너 가운데 정렬하고 싶다! 
-배너부모인 div에 relative주고 자식인 배너에 absolute 줌.
-분명 top:0 은 부모div 기준인데 left:50%는 body로 적용되는 듯 하다. 
-부모 높이가 없어서 그런가? -> 부모 높이 지정해도 해결안됨.
-왜 가운데 정렬 안되지??*/
-/*.offset-parent{
-	position:relative;
-	height:24px;
-}
-.align-center{
-	position:absolute;
-	top:0;
-	left:50%;
-	transform: translateX(-50%);
-	border:1px solid blue;
-}*/
-/*absolute된 요소 마진이 뒤쪽 요소에 적용 안됨...*/
 
 .main-bottom-article, .main-bottom-ad{
 height:240px;
