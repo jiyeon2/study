@@ -19,13 +19,14 @@
 	</header>
 	<!-- header와 h1은 화면 꽉차는 요소라고 생각해서 col-12안줬더니 양옆 마진 15가 안들어가서 커보임.-->
 	<nav class="top-nav col-12 row">
-		<a class="top-nav-menu col-2" href="">menu</a>
-		<a class="top-nav-menu col-2" href="">menu</a>
-		<a class="top-nav-menu col-2" href="">menu</a>
-		<a class="top-nav-menu col-2" href="">menu</a>
-		<a class="top-nav-menu col-2" href="">menu</a>
-		<a class="top-nav-menu col-2" href="">menu</a>
+		<a class="top-nav-menu" href="">menu</a>
+		<a class="top-nav-menu" href="">menu</a>
+		<a class="top-nav-menu" href="">menu</a>
+		<a class="top-nav-menu" href="">menu</a>
+		<a class="top-nav-menu" href="">menu</a>
+		<a class="top-nav-menu" href="">menu</a>
 	</nav>
+	<!-- col-12 안의 col-2들은 맨 왼쪽 오른쪽 자식들의 좌우 여백때문에 딱 안맞음... col들 감싸는 요소는 col속성이 아닌 다른 클래스 이용해야겠다.-->
 		
 		<main>
 			<div class="main-top row">
@@ -38,7 +39,7 @@
 				<div class="main-top-article col-3">작은 이미지 상자</div>
 			</div>
 			<div class="offset-parent row col-12">
-				<div class="ad-banner row col-8 align-center">배너광고 가운데정렬해주세요</div>
+				<div class="ad-banner row col-8 align-center">배너광고 가운데정렬해주세요 왜 안가운데죠???? 왜 margin-bottom적용 안되죠?</div>
 			</div>
 
 			<div class="main-bottom row">
