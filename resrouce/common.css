@@ -1,0 +1,40 @@
+/*common.css 어 이거 썼던건데?? 하는 거 넣기*/
+
+/*목록 초기화 재사용 가능한 스타일 모듈*/
+
+.reset-list ul,
+.reset-list ol,
+ul.reset-list,
+ol.reset-list {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style:none;
+}
+/*이미지 하단 공백 제거하는 코드*/
+img{
+	vertical-align: bottom;
+}
+
+/*이미지 하단에 공백을형성하여 옆으로 배치되는 글들이 동일한 공간을 가질 수 있도록 설정*/
+img.blank-bottom-img + *, img.blank-bottom{
+	overflow: hidden;
+}
+
+/*클리어픽스*/
+.clearfix::after,
+.cf::after{
+	content:'';
+	display: block;
+	clear:both;
+}
+
+.lt-ie8 .clearfix,
+.lt-ie8 .cf{
+	zoom:1;
+}
+
+/*안보이게*/
+.hidden{
+	display:none;
+}
