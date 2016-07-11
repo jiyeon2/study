@@ -1,0 +1,46 @@
+/*! common.css © yamoo9.net, 2016 */
+
+/* 목록 초기화 재사용 가능한 스타일 모듈 */
+.reset-list ul,
+.reset-list ol,
+ul.reset-list,
+ol.reset-list {
+  margin-top:    0;
+  margin-bottom: 0;
+  padding-left:  0;
+  list-style:    none;
+}
+
+/* 이미지 하단의 공백을 제거하는 속성 */
+img {
+  vertical-align: bottom;
+}
+
+/* 이미지 하단에 공백을 형성하여 옆으로 배치되는 글들이 동일한 공간을 가질 수 있도록 설정 */
+.blank-bottom-img img + *,
+img.blank-bottom + * {
+  overflow: hidden;
+}
+
+img.flex-img {
+  width: 100%;
+  height: auto;
+}
+
+img.horizontal-center-img {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 클리어 픽스 */
+.clearfix::after,
+.cf::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.lt-ie8 .clearfix,
+.lt-ie8 .cf {
+  zoom: 1;
+}

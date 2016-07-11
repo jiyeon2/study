@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* 기본 링크 */
+a{
+	text-decoration: none;
+	padding-bottom: 2px; /*rem 지원 안되는 하위 브라우저 적용 위해서*/
+	padding-bottom: 0.125rem;
+	border-bottom: 1px solid; 
+	border-bottom-width: 0.0625rem solid; /*기본 링크 밑줄은 글자와 붙어있어서 읽기 힘듦!*/
+}
+
+
+/*
+배경 색상 페이드 (face in/out)
+.fade-bg
+*/
+
+.fade-bg{
+display: inline-block;
+vertical-align: bottom;
+padding: 0.0625rem 0.375rem;  /*글자 크기에 상대적 */
+transition: all 0.25s;
+}
+
+.fade-bg.round{
+	border-radius: 0.1875rem;
+}
+.fade-bg:hover,
+.fade-bg:focus{
+color:#fff;
+background:linear-gradient(0deg, #65b1e3 50%, #fff);
+}
+
+.fade-bg:focus{
+	outline: none;
+}
+
+
+/*전방위 슬라이드
+.slide-from-ight
+.slide-from-left
+.slide-from-right
+.slide-from-right
+
+*/
+a[class*="slide-"]{
+overflow:hidden; /*적용 위해 인라인 블럭,*/
+display: inline-block;
+position:relative;
+border-bottom: none;
+vertical-align: bottom;
+padding: 0.06em 0.12em;
+}
+
+a[class*="slide-"]::after{
+	position:absolute;
+	width:100%;
+	padding: 0.06em 0.12em;
+	content:attr(data-linktext);
+	background: #1f74bf;
+	color:#fff;
+	transition:all 0.2s;
+}
+
+a.slide-from-left::after{
+left:-110%;
+}
+
+a.slide-from-left:hover::after,
+a.slide-from-left:focus::after{
+left: 0;
+}
+
+a.slide-from-right::after{
+right:-110%;
+}
+
+a.slide-from-right:hover::after,
+a.slide-from-right:focus::after{
+right:0;
+}
+
+a.slide-from-top::after{
+top:-110%;
+left:-2%;
+}
+
+a.slide-from-top:hover::after,
+a.slide-from-top:focus::after{
+top:0;
+}
+
+a.slide-from-bottom::after{
+top:110%;
+left:-1%;
+}
+
+a.slide-from-bottom:hover::after,
+a.slide-from-bottom:focus::after{
+top:0;
+}
