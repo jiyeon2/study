@@ -8,15 +8,20 @@ a{color:#fff;}
 .family-site{
 	width:100%;
 	height:24px;
-	background-color:#123def;
-	color:#000;
+	background-color:#1C325D;
+	color:#1C325D;
 	text-align: left;
 }
-.family-site>*{display:inline-block;padding-left:10px;padding-right:10px;}
-
+.family-site>*{
+	display:inline-block;
+	padding-left:10px;
+	padding-right:10px;
+}
+button{color:white;}
 main *[class*="col-"]{
 	margin-bottom: 24px;
 }
+
 .main-header{
 	height:72px;
 	background-color: #111;
@@ -28,11 +33,6 @@ main *[class*="col-"]{
 	background-color: #222;
 	float:left;
 }
-.top-nav-menu{
-	display: inline-block;
-	width: 190px;
-
-}
 
 .main-top-article{
 	height:168px;
@@ -41,31 +41,71 @@ main *[class*="col-"]{
 .main-top-article.big{
 	height:360px;
 }
-.main-top{
-	margin-bottom: -24px;
-}
 
-.ad-banner.row{
-	height:48px;
+.ad-banner{
+	height:72px;
 	background-color: #d44536;
-	margin:48px 215px;
-	clear: both;
 }
 
+.main-bottom{
+	background-color: #F5F5F5;
+}
 .main-bottom-article, .main-bottom-ad{
 height:240px;
 }
+.main-bottom-article-section{padding-left: 15px; margin-right: 0px;width:885px;}
 .main-bottom-article{
 background-color: #444;
-width:400px;
-}
-.main-bottom-article:nth-child(2n-1){
-	margin-left: 0;
-}
-.main-bottom-ad{
-background-color: #555;
-width:250px;
-margin-right: 0;
-float: right;
+width:420px;
+margin-left: 0;
 }
 
+.main-bottom-ad-section{
+	float:left;
+	width:285px;
+}
+.main-bottom-ad, .main-bottom-sns, .main-bottom-newsletter{
+background-color: #555;
+width:285px;
+float: left;
+margin-left:0;
+}
+.main-bottom-sns, .main-bottom-newsletter{
+background-color: #666;
+height:120px;
+}
+
+.main-footer{
+	height:144px;
+	width:100%;
+	background-color: #1C325D;
+	float: left;
+}
+
+.bottom-logo, .contact, .publish{
+	height:96px;
+	position:relative;
+	padding-top:33px;
+}
+.bottom-logo::after{
+	content: '';
+	border-right:1px solid #dfdfdf;
+	width:1px;
+	height:72px;
+	position:absolute;
+	right:0;
+	top:10px;
+}
+.copyright{
+	height:48px;
+	position:relative;
+}
+.copyright::after{
+content: '';
+position:absolute;
+width:100%;
+height:1px;
+border-top:1px solid #dfdfdf;
+top:-5px;
+left:0;
+}
