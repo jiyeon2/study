@@ -2,9 +2,9 @@
 /* 기본 링크 */
 a{
 	text-decoration: none;
-	padding-bottom: 2px; /*rem 지원 안되는 하위 브라우저 적용 위해서*/
+	/*padding-bottom: 2px;*/ /*rem 지원 안되는 하위 브라우저 적용 위해서*/
 	padding-bottom: 0.125rem;
-	border-bottom: 1px solid; 
+	/*border-bottom: 1px solid; */
 	border-bottom-width: 0.0625rem solid; /*기본 링크 밑줄은 글자와 붙어있어서 읽기 힘듦!*/
 }
 
@@ -97,4 +97,101 @@ left:-1%;
 a.slide-from-bottom:hover::after,
 a.slide-from-bottom:focus::after{
 top:0;
+}
+
+/*fade undeline*/
+	/*장면전환  a->b, b->a 
+	그 외의 간단한 장면전환은 transition
+	animation은 언제 사용??
+	별도의 사용자 인터랙션 없이 처음부터 움직임을 제어하려면 animation
+	keyframe 기반으로 애니메이션 제서하고자 할때
+	*/
+/*	transition: 속성 지속시간 물리곡선(움직임유형) 지연시간;
+	property(ex.color, background, font-size, ... , all) duration(ex. 100ms, 0.2s) timing-function(ex. linear(default, 등속운동)) delay;*/
+
+.fade-underline{
+	border-bottom: 2px solid transparent;
+	transition: all 0.25s ease;
+	/*border-bottom-color 0.25s linear 0.25s, color 0.6s linear 0.6s;*/
+	/*총 transition시간은 지속시간+지연시간*/
+}
+.fade-underline:hover,
+.fade-underline:focus{
+	color:#c90038;
+	border-bottom-color:currentColor; /*color값처럼 일일이 바꿔주지 않고 현재 설정된 컬러 사용 */
+}
+
+/*전에 배운 overflow:hidden 이용해서 페이드 슬라이드*/
+/*a.[class*="slide-underline"]{
+border-bottom:none;
+position: relative;
+}
+a.[class*="slide-underline"]::before{
+	content: '';
+	position:absolute;
+	border-bottom: 2px solid currentColor;
+	width:100%;
+	top:0;
+	left:-100%;
+	transition: all 0.2s;
+}
+a.slide-underline:hover::before,
+a.slide-underline:focus::before{
+left:0;
+}
+
+
+a.slide-underline-right::before{
+	
+}
+a.slide-underline-right:hover::before,
+a.slide-underline-right:focus::before{
+
+}
+*/
+/*언더라인 슬라이드*/
+a[class*="underline-"]{
+	position:relative;
+	border-bottom: none;
+	/*display: inline-block;
+	overflow:hidden;
+	padding-bottom:0;
+	vertical-align: bottom; */
+}
+a[class*="underline-"]::before{
+	content: '';
+	position:absolute;
+	top:100%;
+	border-bottom:2px solid currentColor;
+	transition: all 0.25s;
+}
+a.underline-from-left::before{
+left:0;
+right:100%;
+}
+a.underline-from-left:hover::before,
+a.underline-from-left:focus::before{
+left:0;
+right:0%;
+}
+
+a.underline-from-right::before{
+	right:0;
+	left:100%;
+}
+a.underline-from-right:hover::before,
+a.underline-from-right:focus::before{
+	right:0;
+	left:0;
+}
+
+a.underline-from-center::before{
+	left:50%;
+	right:50%;
+}
+
+a.underline-from-center:hover::before, 
+a.underline-from-center:focus::before{
+left:0;
+right:0;
 }
