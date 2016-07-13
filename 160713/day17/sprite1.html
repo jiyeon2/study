@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>dog1</title>
+	<style>
+	.dog-walk{
+	width:200px;
+	height:130px;
+	border:1px solid green;
+	background: url(sprite-img/walk-dog1.png) no-repeat;
+	animation: walk 0.2s steps(2) infinite;
+	}
+	@keyframes walk {
+		0%{background-position-x:0;}
+		100%{background-position-x:-400px;}
+	}
+
+	.adam{
+		width:120px;
+		height:182px;
+		border:2px solid red;
+		background:url(sprite-img/css-sprite-animation-steps-adam.png) no-repeat;
+		animation: adam 0.2s steps(7) infinite;
+	}
+	@keyframes adam {
+		0%{background-position-x:0;}
+		100%{background-position-x: -840px;}
+	}
+	.pom{
+		
+	}
+	</style>
+</head>
+<body>
+	<div class="dog-walk"></div>
+	<div class="adam"></div>
+	<div class="pon"></div>
+</body>
+</html>
