@@ -1,9 +1,10 @@
+@charset "utf-8";
 /**
  * Grid System (160 [unit(130) + gutter(15)], 8 columns)
  * 1280 - 30 = 1250px
  * base-font-size: 0.9375rem (18px)
  * base-leading-ratio: 1.5; // 18 * 1.5 = 27px
- * gutter-direction: after; // margin-right Ã¬â€šÂ¬Ã¬Å¡Â©
+ * gutter-direction: after; //margin-right 사용
  */
 
 /**
@@ -61,7 +62,8 @@
  * Unit Module
  * ----------------------------- */
 .grid [class*="unit-"] { float: left; margin-right: 30px; }
-.grid [class*="unit-"]:last-child, .last, .omega { margin-right: 0; }
+.grid [class*="unit-"]:last-child, .last, .omega { margin-right: 0; } /*last-child 쓸 수 없는 브라우저 대응 위해 새로운 클래스 지정*/
+
 .grid .unit-1 { width: 130px; }
 .grid .unit-2 { width: 290px; }
 .grid .unit-3 { width: 450px; }
