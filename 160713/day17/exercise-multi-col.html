@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>멀티컬럼 연습!</title>
+	<link rel="stylesheet" href="../../resrouce/webfonts/spoqa-han-sans.css">
+	<link rel="stylesheet" href="../../resrouce/initialization/normalize.css">
+	<link rel="stylesheet" href="../../resrouce/common.css">
+	<style>
+		.multi-column-container{
+			max-width: 1200px;
+			margin:2rem auto;
+			line-height:1.5;
+			/*column-count, column-gap, column-rule 필요함*/
+			-webkit-column-gap: 1.2rem;
+			-moz-column-gap: 1.2rem;
+			column-gap: 1.2rem;
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+			-webkit-column-rule: 1px dotted #acacac;
+			-moz-column-rule: 1px dotted #acacac;
+			column-rule: 1px dotted #acacac;
+		}
+		.multi-column-container .col-box{
+		    display: inline-block;
+    margin-bottom: 0.7rem;
+    background-color: #a72f2f;
+    border-radius: 5%;
+    color: #fff;
+    padding: 2rem 1rem 1rem;
+    text-align: justify;
+    word-spacing: 0.08em;
+    line-height: 1.5;
+}
+.col-box	p{
+	text-indent: 2em;
+}
+.col-box	p::first-line{
+	font-size: 1.5em;
+	color:yellow;
+	font-variant: small-caps;
+}
+
+.multi-column-container h2{
+		-webkit-column-span: all;
+		-moz-column-span: all;
+		column-span: all;
+		text-indent: 2rem;
+		font-size:4rem;
+		line-height: 1.5;
+}
+
+	</style>
+</head>
+<body>
+	<div class="multi-column-container">
+	<h2>Lorem ipsum Lorem ipsum</h2>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x400/384723/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x200/345312/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x300/589547/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x400/125996/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x200/985698/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x200/532047/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x300/785426/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x200/200789/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x300/874598/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+		<div class="col-box">
+			<img class="flex-img" src="http://placehold.it/320x300/125874/efefef/?text=320x200" alt>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis temporibus, vero quis possimus. Vero a id hic ipsa illo. Dolore.</p>
+		</div>
+	</div>
+</body>
+</html>
