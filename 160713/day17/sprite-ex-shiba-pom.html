@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>shiba and pom</title>
+	<style>
+	.float-left{
+		float:left;
+	}
+	
+.greenbox{ background-color: #B6F7EC;} 
+.bluebox{ background-color: #B5F1FF;} 
+
+[class*="box"]::after{
+	content: ''; 
+	display: block; 
+	clear:both; }
+[class*="box"]{
+	width:143px; 
+	float:left;}
+[class*="dog-"],
+[class*="pom-"]{
+	width:143px;
+	height:193px;
+	background: url(sprite-img/Shibes-sprites.png) no-repeat;
+	transform: scale(0.3);
+	position:relative;
+}
+
+[class*="dog-"]::before,
+[class*="pom-"]::before{
+content: '';
+width:10px;
+height:10px;
+display:inline-block;
+border:10px solid red;
+border-radius: 50%;
+border-left-color:transparent;
+border-top-color:transparent;
+transform:rotate(45deg);
+position: absolute;
+left:37%;
+}
+[class*="dog-"]::before{top:-10%;}
+[class*="pom-"]::before{top:5%;}
+[class*="dog-"]::after,
+[class*="pom-"]::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 2%;
+    left: 0%;
+    width: 100%;
+    height: 5%;
+    border-radius: 50%;
+    background-color: rgba(150,150,150,0.5);
+    
+}
+[class*="dog-"]::after{animation:move-left-to-right 0.45s infinite alternate;}
+[class*="pom-"]::after{animation:move-left-to-right 0.12s infinite alternate;}
+	@keyframes move-left-to-right{
+		0%{transform:translateX(3%);}
+		100%{transform:translateX(-5%);}
+	}
+	.dog-right{animation: walk 0.45s steps(3) infinite alternate;}
+	@keyframes walk {
+		0%{background-position:0px -193px;}
+		100%{background-position:-432px -193px;}
+	}
+	.dog-back{animation: backwalk 0.45s steps(3) infinite alternate;
+    background-position: -432px 0;
+	}
+	@keyframes backwalk{
+		0%{background-position-x: 0;}
+		100%{background-position-x: -432px;}
+	}
+	.dog-left{animation: leftwalk 0.45s steps(3) infinite alternate;}
+	@keyframes leftwalk{
+		0%{background-position: 0px -558px;}
+		100%{background-position: -432px -558px;}
+	}
+	.dog-front{animation: frontwalk 0.45s steps(3) infinite alternate;
+    background-position: 0px -386px;
+	}
+	@keyframes frontwalk{
+		0%{background-position-x: 0;}
+		100%{background-position-x: -432px;}
+	}
+.pom-right{animation:rightpom 0.25s steps(3) infinite;}
+	@keyframes rightpom{0%{background-position: -432px 0;} 100%{background-position: -881px 0;}}
+.pom-left{animation:leftpom 0.25s steps(3) infinite;}
+	@keyframes leftpom{0%{background-position: -432px -193px;} 100%{background-position: -881px -193px;}}
+.pom-front{animation:frontpom 0.25s steps(3) infinite;}
+	@keyframes frontpom{0%{background-position: -432px -386px;} 100%{background-position: -881px -386px;}}
+.pom-back{animation:backpom 0.25s steps(3) infinite;}
+	@keyframes backpom{0%{background-position: -432px -558px;} 100%{background-position: -881px -558px;}}
+
+
+	</style>
+</head>
+<body>
+<div class="greenbox">	
+	<div class="float-left dog-front"></div>
+	<div class="float-left dog-back"></div>
+	<div class="float-left dog-left"></div>
+	<div class="float-left dog-right"></div>
+</div>
+<div class="bluebox">
+	<div class="float-left pom-front"></div>
+	<div class="float-left pom-right"></div>
+	<div class="float-left pom-back"></div>
+	<div class="float-left pom-left"></div>
+</div>
+
+</body>
+</html>
