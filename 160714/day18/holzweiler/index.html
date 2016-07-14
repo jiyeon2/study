@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-	<meta charset="UTF-8">
-	<title>holzweiler</title>
-	<link rel="stylesheet" href="../../../resrouce/initialization/normalize.css">
-	<link rel="stylesheet" href="css/holzweiler.css">
+    <meta charset="UTF-8">
+    <title>holzweiler</title>
+    <link rel="stylesheet" href="../../../resrouce/initialization/normalize.css">
+    <link rel="stylesheet" href="css/holzweiler.css">
 </head>
+
 <body>
-	<section id="holzweiler-header">
-		<!-- Logo, Global navigation bar -->
-		<a class="logo" href=""><h1>HOLZWEILER</h1></a>
-		<ul class="global-nav">
-			<li><a href="">Shop</a></li>
-			<li><a href="">Collections</a></li>
-			<li><a href="">News</a></li>
-			<li><a href="">About</a></li>
-		</ul>
-		<ul class="utility-nav">
-			<li><button type="button">Search</button></li>
-			<li><a href="">Sign in</a></li>
-			<li><button type="button">NOK</button></li>
-			<li><button type="button">Bag (0)</button></li>
-		</ul>
-	</section>
-	<section id="holzweiler-go-shop">
-		<!-- a > slogan text + Video BG -->
-		<a href="#">
-		<div class="texts">
-			<p class="main-text">Latest Essentials</p>
-			<p class="sub-text">Shop now -></p>
-		</div>
-			<video poster="imageurl"  autoplay loop src="holzweiler_new.mp4">
-				<!-- IE8 이하에서는 대체할 수 있는 기술 또는 문구를 삽입한다. controls 속성은 비디오 콘트롤러 보이게 함  -->
-			</video>
-		</a>
-	</section>
-	<div class="notice">New styles have arrived - take a look at our lambwool scarves here!
-	<button type="button" class="close-btn">close</button></div>
+    <section id="holzweiler-header">
+        <!-- Logo, Global navigation bar -->
+        <a class="logo" href=""><h1>HOLZWEILER</h1></a>
+        <ul class="global-nav cf">
+            <li><a href="">Shop</a>
+					<ul class="two-depth">
+						<li><a href="">Sale</a></li>
+						<li><a href="">Women</a></li>
+						<li><a href="">Men</a></li>
+						<li><a href="">Lambswool scarves</a></li>
+						<li><a href="">Fine scarves</a></li>
+						<li><a href="">Accesories</a></li>
+					</ul>
+            </li>
+            <li><a href="">Collections</a>
+					<ul class="two-depth">
+						<li><a href="">Fall / Winter 16</a></li>
+						<li><a href="">Spring / Summer 16</a></li>
+						<li><a href="">Fall/ Winter 15</a></li>
+						<li><a href="">Pre Fall 15</a></li>
+					</ul>
+            </li>
+            <li><a href="">News</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+        <ul class="utility-nav cf">
+            <li>
+                <button type="button">Search</button>
+            </li>
+            <li><a href="">Sign in</a></li>
+            <li>
+                <button type="button">NOK</button>
+                <ul class="two-depth">
+                	<li><a href="">NOK</a></li>
+                	<li><a href="">EUR</a></li>
+                </ul>
+            </li>
+            <li>
+                <button type="button">Bag (0)</button>
+            </li>
+        </ul>
+    </section>
+    <section id="holzweiler-go-shop">
+        <!-- a > slogan text + Video BG -->
+        <a href="#">
+            <div class="texts">
+                <p class="main-text">Latest Essentials</p>
+                <p class="sub-text">Shop now &rarr;</p>
+            </div>
+            <video poster="imageurl" autoplay loop src="holzweiler_new.mp4">
+                <!-- IE8 이하에서는 대체할 수 있는 기술 또는 문구를 삽입한다. controls 속성은 비디오 콘트롤러 보이게 함  -->
+            </video>
+        </a>
+    </section>
+    <div class="notice">New styles have arrived - take a look at our lambwool scarves here!
+        <button type="button" class="close-btn">close</button>
+    </div>
 </body>
+
 </html>
