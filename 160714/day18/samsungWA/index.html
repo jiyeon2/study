@@ -4,85 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Samsung WA</title>
 	<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
-	<style>
-	html{
-		
-	}
-	.header{
-		background-color: #3E4448;
-		color:#fff;
-		font-family: 'Quicksand', sans-serif;
-		font-size: 13px;
-		padding-top:0.5rem;
-		padding-bottom:0.5rem;
-	}
-	.header::after{
-		content: '';
-		display: block;
-		clear: both;
-	}
-	.wrapper{
-	width:1296px;
-	margin-left: auto;
-	margin-right: auto;
-	position:relative;
-	}
-	a{
-		display: inline-block;
-		color:#fff;
-		text-decoration: none;
-	}
-	.logo{
-		width:200px;
-		height:40px;
-	}
-	.logo> img{width:100%; height: auto;}
-
-	.main-menus{
-		float: right;
-		position:absolute;
-		top:50%;
-		right:0;
-		transform:translateY(-50%);
-	}
-	.main-links{
-		margin-left: 1.5em;
-		margin-right: 1.5em;
-		position: relative;
-	}
-	.main-links:hover:not([class*="on"]),
-	.main-links:focus:not([class*="on"]){
-		outline:none;
-	}
-	.main-links::after{
-		content:'';
-		position: absolute;
-		top:250%;
-		left:0;
-		right:0;
-		border-bottom: 5px solid white;
-		transition:all 0.3s;
-	}
-	.main-links:hover::after,
-	.on.main-links::after,
-	.main-links:focus::after{
-		top:230%;
-	}
-	.main-links:first-of-type::before,
-	.main-links:last-of-type::before{
-		content: '';
-		position:absolute;
-		top:0;
-		bottom:0;
-		border-right:1px solid #fff;
-	}
-	.main-links:first-of-type::before{
-		right:-1.5em;
-	}
-	.main-links:last-of-type::before{
-		left:-1.5em;
-	}
-	</style>
+	<link rel="stylesheet" href="samsungWA.css">
+	
 </head>
 <body>
 	<div class="header">
