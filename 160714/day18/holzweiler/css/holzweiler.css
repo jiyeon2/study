@@ -1,0 +1,123 @@
+@charset "utf-8";
+html{overflow-y: scroll; color:#fff;}
+a{color:#fff;
+text-decoration: none;
+display: inline-block;}
+h1,ul,p{margin:0;}
+ul{list-style-type: none;}
+li{
+display: inline-block;
+padding: 0.2em;
+line-height: 0.6em;
+position:relative;}
+button{
+	    border: none;
+    background: none;
+    color: #fff;
+}
+
+#holzweiler-header{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	height:110px;
+	z-index: 1;
+}
+
+.logo, ul[class*="-nav"]{
+	position:absolute;
+	top:50%;
+	transform:translateY(-45%);
+}
+.logo{
+	background: url(../logo.svg) no-repeat;
+	background-size: contain;
+	text-indent: -999rem;
+	width: 270px;
+	height:28px;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+
+.global-nav{left: 0; padding-left: 70px;}
+.utility-nav{right: 0; padding-left: 0; padding-right:70px;}
+
+ul[class*="-nav"]>li::after{
+	content:'';
+	display: inline-block;
+	border-bottom: 1px solid #fff;
+	width:100%;
+	opacity:0;
+	transition: all 0.4s;
+}
+ul[class*="-nav"]>li:hover::after,
+ul[class*="-nav"]>li:focus::after{
+opacity:1;
+}
+
+
+
+
+
+
+#holzweiler-go-shop{
+position:relative;
+}
+#holzweiler-go-shop a{
+	display: block;
+}
+.texts{
+	width:30rem;
+	text-align: center;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+}
+.main-text{
+	font-size: 4.8rem;
+	line-height: 1.2;
+}
+.sub-text{margin-top: 2rem;}
+#holzweiler-go-shop video{
+	width:100%;
+}
+
+.notice{
+	position:fixed;
+	top:88%;
+	bottom:0;
+	width:100%;
+	background-color: #000;
+	text-align: center;
+	padding-top:40px;
+}
+.close-btn{
+	display: inline-block;
+	position:absolute;
+	right: 10rem;
+	text-indent: -999rem;
+}
+.close-btn::before,
+.close-btn::after{
+	content:'';
+	display: inline-block;
+	width:2rem;
+	height:2rem;
+	border-top:1px solid #fff;
+	position:absolute;
+	top:0;
+	left:0;
+	transition: all 0.4s;
+}
+.close-btn::before{transform:rotate(45deg);}
+.close-btn::after{transform:rotate(-45deg);}
+
+.close-btn:hover::before,
+.close-btn:focus::before,
+.close-btn:hover::after,
+.close-btn:focus::after{
+	transform:rotate(0deg);
+}
+
