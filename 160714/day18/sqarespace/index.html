@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>squrespace</title>
+	<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+	<style>
+		body{
+			background: url(img/hero-desktop.jpg) no-repeat;
+			background-size: cover;
+			background-position: center 20%;
+			font-family: 'Quicksand', sans-serif;
+			color:#fff;
+			font-size: 14px;
+			letter-spacing: 0.02em;
+		}
+		.logo{
+			background-image: url(img/logo-svg.svg);
+			text-indent: -999rem;
+			width:170px;
+			height:24px;
+			overflow: hidden;
+			margin-right: 10rem;
+		}
+		a{
+			display: inline-block;
+			box-sizing: border-box;
+			color:#fff;
+			text-decoration: none;
+		}
+		.wrapper{
+			width:90%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.top-header::after{
+			content:'';
+			display: block;
+			clear: both;
+		}
+		.top-header>*{
+			float:left;
+		}
+		.top-menu, .transparent-btn{
+			margin-top:20px;
+		}
+		.top-menu> a{
+			margin-right: 5rem;
+		}
+		.underline-slide{
+			position: relative;
+		}
+		.underline-slide::after{
+			content: '';
+			display: block;
+			position:absolute;
+			top:110%;
+			left:0;
+			right:100%;
+			border-bottom: 1px solid white;
+			transition:all 0.3s;
+		}
+		.underline-slide:hover::after,
+		.underline-slide:focus::after{
+			right:0;
+			outline:none;
+		}
+		.transparent-btn{
+			float: right;
+			background-color: transparent;
+			padding:0.5rem 2.5rem;
+			border:1px solid white;
+			color: #fff;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="top-header">
+			<a href=""><h1 class="logo">squarespace</h1></a>
+			<nav class="top-menu">
+				<a class="underline-slide" href="">DOMAINS</a>
+				<a class="underline-slide" href="">WEBSITES</a>
+				<a class="underline-slide" href="">ONLINE STORES</a>
+			</nav>
+			<button class="transparent-btn"type="button">LOGIN</button>
+		</div>
+	</div>
+</body>
+</html>
