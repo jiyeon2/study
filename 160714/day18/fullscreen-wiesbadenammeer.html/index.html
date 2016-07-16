@@ -6,7 +6,10 @@
 	<style>
 		html,body,h1{margin:0; padding:0;}
 		html{overflow-y: scroll;}
-		.first-page, .wide-nav-list{
+		a{text-decoration: none;
+			color: #000;
+		}
+		.first-page, .wide-nav{
 			width:100vw;
 			height:100vh;
 		}
@@ -17,29 +20,87 @@
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
-		.wide-nav-list{
-			background-color: #FF754D;
+		.nav-btn{
+			background-color: #000;
 			position:fixed;
 			width:45px;
 			height:45px;
 			left:0;
 			top:54px;
+			padding: 15px;
+			box-sizing: border-box;
 		}
+
+		.nav-btn::after{
+		content: 'NAVIGATION';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 1rem;
+    opacity: 0;
+    transition: all 0.3s;
+		}
+
+		.nav-btn:hover::after, .nav-btn:focus::after{
+			opacity:1;
+		}
+		.bar{
+			width:15px;
+			height:3px;
+			margin-bottom: 2px;
+			background-color: #fff;
+		}
+
+		.wide-nav{
+			position: relative;
+			text-align: center;
+		}
+		.wide-nav-list{
+			display: block;
+			height:16.666666666666668vh;
+		}
+		.wide-nav-bg{
+			background-color: #FF754D;
+			position: absolute;
+			left:0;
+			top:0;
+			width:100%;
+			height:100%;
+			z-index: -1;
+			transition:all 0.5s;
+		}
+
+.wide-nav-list.bg-FF754D:hover~.wide-nav-bg{background-color: #FF754D;}
+.wide-nav-list.bg-15D090:hover~.wide-nav-bg{background-color:#15D090;}
+.wide-nav-list.bg-29D9C2:hover~.wide-nav-bg{background-color:#29D9C2;}
+.wide-nav-list.bg-00BEFF:hover~.wide-nav-bg{background-color:#00BEFF;}
+.wide-nav-list.bg-E2DED2:hover~.wide-nav-bg{background-color:#E2DED2;}
+.wide-nav-list.bg-E34F4A:hover~.wide-nav-bg{background-color:#E34F4A;}
 	</style>
+
 </head>
 <body>
 	<section id="first-page" class="first-page">
 		<h1>WIESBADEN AM MEER</h1>
-		<a href="#wide-nav-list" class="nav-btn">=</a>
+		
 	</section>
-	
-	<section id="wide-nav-list" class="wide-nav-list">
-		<a href="#first-page">Home</a>
-		<a href="">Projekte</a>
-		<a href="">Kunden</a>
-		<a href="">Agentur</a>
-		<a href="">Sandbank</a>
-		<a href="">Kontakt</a>
+	<a href="#wide-nav-list" class="nav-btn">
+			<div class="bar"></div>
+			<div class="bar"></div>
+			<div class="bar"></div>
+		</a>
+		<a href="" class="brand">
+			
+		</a>
+	<section id="wide-nav" class="wide-nav">
+		<a href="#first-page" class="wide-nav-list bg-FF754D">Home</a>
+		<a href="" class="wide-nav-list bg-15D090">Projekte</a>
+		<a href="" class="wide-nav-list bg-29D9C2">Kunden</a>
+		<a href="" class="wide-nav-list bg-00BEFF">Agentur</a>
+		<a href="" class="wide-nav-list bg-E2DED2">Sandbank</a>
+		<a href="" class="wide-nav-list bg-E34F4A">Kontakt</a>
+		<div class="wide-nav-bg"></div>
 	</section>
 </body>
 </html>
