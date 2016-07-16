@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*! common.css © yamoo9.net, 2016 */
 
 /* 목록 초기화 재사용 가능한 스타일 모듈 */
@@ -43,4 +44,22 @@ img.horizontal-center-img {
 .lt-ie8 .clearfix,
 .lt-ie8 .cf {
   zoom: 1;
+}
+
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  width:    1px;
+  height:   1px;
+  margin:   -1px;
+  border:   0;
+  padding:  0;
+}
+.readable-hidden.focusable:focus {
+  overflow: visible;
+  position: static;
+  clip:     auto;
+  width:    auto;
+  height:   auto;
+  margin:   0;
 }
