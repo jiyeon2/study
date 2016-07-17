@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*가로폭 1200px 고정, 컬럼: 12개, 컬럼70 : 거터 30 비율*/
 
 /*그리드 컨테이너*/
@@ -16,7 +17,7 @@
 	height:1300px;
 	content:'';
 	width:100%;
-	height:300vh;
+	min-height:200vh;
 	position: absolute;
 	z-index: 20;
 	left: 50%;
@@ -29,8 +30,9 @@
 	background: url(./img/customgrid-15-70-15.png) repeat;
 }
 
-.grid-off:hover::before{
+.wrapper.grid-off:hover::before{
 	background: none;
+	z-index: 0;
 }
 
 /*그리드 로우 모듈*/
