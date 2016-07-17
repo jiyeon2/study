@@ -86,7 +86,8 @@ text-shadow: 1px 1px #aaa;
 .main-top-article{
 	color: #383d41;
 	height:168px;
-	font-size: 1.2rem}
+	font-size: 1.2rem;
+padding-top: 0.8rem;}
 
 .main-top-article.big{
 	height:360px;
