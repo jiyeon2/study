@@ -6,6 +6,7 @@ body{
 	background: linear-gradient(180deg, #ecf7fb, #76d2cd);
 	background-size: cover;
 	font-family: "BMD", sans-serif;
+  font-weight: normal;
 	box-sizing: border-box;
 }
 
@@ -36,6 +37,8 @@ body{
 
 .container{
 	position: relative;
+  color: #73d4c9;
+  text-shadow: 0 -2px 0 #000;
 }
 
 [class*="text"]{
@@ -48,21 +51,10 @@ body{
 	animation: bounce 1s 1 0.8s;
 }
 
-span{display: inline-block;}
-.first-letter{
-	animation: bigger 1s 1 1.8s;
+.text-last{
+	animation: bounce 1s 1 1.8s;
 }
-.second-letter{
-	animation: bigger 1s 1 2.8s;
-}
-.last-letter{
-	animation: bigger 1s 1 3.8s;
-}
-@keyframes bigger{
-	0%{ transform:scale(1);}
-	70%{ transform: scale(1.5);}
-	100%{ transform:scale(1);}
-}
+
 /*animate.css bounce */
 @keyframes bounce {
   from, 20%, 53%, 80%, to {
