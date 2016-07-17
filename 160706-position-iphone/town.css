@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+.license{
+	position:fixed;
+	top:20px;
+	left:99px;
+	text-align: center;
+	background-color:#df9923;
+}
+
+
+.cloud, .cloud::before, .cloud::after, 
+.tree, .tree::after,
+.stem, .stem::before, .stem::after,
+.leaves, .leaves::before, .leaves::after, 
+.building-wide-window, .building-wide-window::after,
+.building-narrow-window, .building-narrow-window::after, .building-narrow-window::before,
+.bush,.bush::before,
+.sky::after {position:absolute;}
+
+.cloud::before,.cloud::after,
+.stem::before,.stem::after,
+.leaves::before, .leaves::after,
+.building-wide-window::after,
+.building-narrow-window::before,.building-narrow-window::after,
+.bush::before{
+	content:'';
+}
+
+/*하늘*/
+.sky{
+	position:relative;
+	width:800px;
+	height:850px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	background:linear-gradient(to bottom, #84dbd7, #effbfa);
+	overflow:hidden;
+}
+
+/*구름*/
+.cloud{
+	top:50px;
+	left:-100px;
+	width:100px;
+	height:40px;
+	border-radius: 50px;
+	background-color: #fff;
+}
+.cloud::before,.cloud::after{
+	border-radius: 50%;
+	background-color: #fff;
+}
+.cloud::before{top:-20px; left:15px; width:30px; height: 30px;}
+.cloud::after{top: -31px; left: 37px; width: 50px; height: 50px;}
+.cloud-1{animation: bubble 1s infinite, slide 8s infinite 3s linear;}
+.cloud-2{top: 100px; transform:scale(0.8);
+animation: bubble 0.8s infinite, slide 6s infinite linear;
+}
+.cloud-3{top: 200px;transform:scale(1.1);
+animation: bubble 1.5s infinite, slide 10s infinite 2s linear;
+}
+.cloud-4{top: 300px; transform:scale(0.7);
+animation: bubble 1s infinite, slide 7s infinite linear;
+}
+
+/*[class*="cloud-"]{animation: bubble 1s infinite;}*/
+/*창 넓은 건물*/
+.building-wide-window{
+	width:100px;
+	height:300px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #e87f41;
+	bottom:20px;
+	left: 100px;
+}
+.building-wide-window::after{
+	left:9px;
+	top:20px;
+	width:90px;
+	height:200px;
+	background: linear-gradient(to bottom, #e87f41 50%, transparent 50%),linear-gradient(to right, #533b2d 70%, #e87f41 70%);
+	background-size: 1px 10px, 30px 1px;
+}
+
+/*창 좁은 건물*/
+
+.building-narrow-window{
+	width:90px;
+	height:300px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #ebcd63;
+	left:20px;
+	bottom:20px;
+}
+.building-narrow-window::after{
+	 left: 11px;
+    top: 5px;
+    width: 70px;
+    height: 200px;
+    background: linear-gradient(to bottom, #ebcd63 50%, transparent 50%),linear-gradient(to right, #7b6f46 50%, #ebcd63 50%);
+    background-size: 1px 40px, 27px 1px;
+}
+
+.building-narrow-window::before{
+	width:60px;
+	height:20px;
+	top:-20px;
+	right:15px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color:#ebcd63;
+}
+
+.bd-1{height:350px;left:206px; background-color: #9f8e7e;}
+.bd-1::after{
+	background: linear-gradient(to bottom, #9f8e7e 50%, transparent 50%),linear-gradient(to right, #533b2d 70%, #9f8e7e 70%);
+	background-size: 1px 10px, 30px 1px;
+}
+.bd-2{left:576px; background-color: #fafaf9;}
+.bd-2::after{
+	background: linear-gradient(to bottom, #fafaf9 50%, transparent 50%),linear-gradient(to right, #533b2d 70%, #fafaf9 70%);
+	background-size: 1px 10px, 30px 1px;
+}
+.bd-3{height:400px; left:401px;}
+.bd-4{height:350px; left:689px; background-color:#54cab9;}
+.bd-4::after{
+    background: linear-gradient(to bottom, #54cab9 50%, transparent 50%),linear-gradient(to right, #7b6f46 50%, #54cab9 50%);
+    background-size: 1px 40px, 27px 1px;
+}
+.bd-4::before{background-color: #54cab9;}
+.bd-5{left:461px;}
+.bd-6{left:100px; width:110px;}
+.bd-6::before{width:77px;}
+.bg-6::after{left:22px;}
+
+.bd-1{animation: build 3s 1;}
+.bd-2{animation: build 4s 1;}
+.bd-3{animation: build 4.5s 1;}
+.bd-4{animation: build 3.5s 1;}
+.bd-5{animation: build 4s 1;}
+.bd-6{animation: build 3.5s 1;}
+
+
+/*나무*/
+.tree{left:40px; bottom:150px;}
+.stem{
+	height:100px;
+}
+.stem, .stem::before, .stem::after{
+	background-color: #342a2a;
+	width:10px;
+}
+.stem::before{width:5px; height:20px; left:12px; top:17px; transform: rotate(45deg);}
+.stem::after{width:5px; height:30px; left:-7px; transform: rotate(-45deg);}
+
+.leaves, .leaves::before, .leaves::after{
+	width:50px;
+	height:50px;
+	border-radius: 50%;
+	background-color: #219b9c;
+}
+.leaves{width:70px; height: 70px; left: -19px; top: -60px;}
+.leaves::before{right: 60px; bottom: -2px;}
+.leaves::after{left: 35px; bottom: -25px;}
+
+.tree-1{left:50px;}
+.tree-2{left: 312px; bottom: 127px; transform: scale(0.8);}
+.tree-3{left: 411px;}
+.tree-4{left: 675px;}
+
+.leaves{ animation: bubble 2s infinite ease; }
+
+/*덤불*/
+.bush,.bush::before{
+    width: 50px;
+    height: 50px;
+    background-color: #1cb67c;
+}
+.bush{border-top-right-radius: 100%; bottom: 40px; left: 265px;}
+.bush::before{ border-top-left-radius: 100%; left:-50px;}
+
+.bush-1{left: 267px;}
+.bush-2{left: 350px;}
+.bush-3{left: 640px;}
+.bush-4{left: 200px; bottom:25px; transform:scale(0.7);}
+
+[class*="bush-"]{
+	animation:dancing 2s infinite;
+}
+
+/*땅*/
+.sky::after{
+	content: '';
+	width:100%;
+	height:50px;
+	bottom:0;
+	background-color: #342a2a;
+}
+
+/*애니메이션*/
+
+/*좌우로 왔다갔다*/
+@keyframes dancing {
+  0% {transform:skewX(20deg) scaleY(1.2);}
+  10% {transform:skewX(1deg) scaleY(.6) ;}
+  50% {transform:skewX(-20deg) scaleY(1.2);}
+  60% {transform:skewX(-1deg) scaleY(.6) ;}
+  100% {transform:skewX(20deg) scaleY(1.2);}
+}
+
+/*커졌다 작아졌다*/
+@keyframes bubble{
+	0%{transform: scale(1);}
+	25%{transform:scale(1.05);}
+	75%{transform:scale(0.95);}
+	100%{transform:scale(1);}
+}
+
+@keyframes slide{
+	0%{left:-100px;}
+	100%{left:900px;}
+}
+
+@keyframes build{
+	0%{bottom:20px; opacity:1; transform:scaleY(1);}
+	50%{bottom:-300px; opacity:0; transform:scaleY(0.8);}
+	75%{bottom:20px; opacity:1; transform:scaleY(1.15);}
+	100%{bottom:20px; opacity:1; transform:scaleY(1);}
+}
