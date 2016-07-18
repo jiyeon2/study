@@ -3,7 +3,7 @@
 figure{margin:0;}
 ::selection{
 color:#fff;
-background-color: #F45C09;
+background-color: #E6EDCF;
 }
 .container, .quote-box, .contents, .quotation, .source-book-title, .by-whom, .go-shop{
 	box-sizing: border-box;
@@ -15,11 +15,12 @@ background-color: #F45C09;
 	margin-top:50px;
 	font-family: "Spoqa Han Sans";
 	line-height: 1.5;
+	overflow:hidden;
 }
 .quote-box{
 	width:100%;
 	min-height:390px;
-	background:linear-gradient(to right, transparent 40%, #F4884D 40%);
+	background:linear-gradient(to right, transparent 50%, #78A2B4 50%);
 	background-clip: content-box;
 	padding-right:0.5rem;
 	padding-bottom:0.5rem;
@@ -36,7 +37,7 @@ background-color: #F45C09;
 
 }
 .quote-box:hover{
-	background:linear-gradient(to right, transparent 40%, #F4B18D 40%);
+	background:linear-gradient(to right, transparent 50%, #A2B282 50%);
 	background-clip: content-box;
 }
 .quote-box::before{
@@ -45,9 +46,9 @@ background-color: #F45C09;
     position: absolute;
     width: 2rem;
     height: 2rem;
-    background-color:#F4B18D;
+    background-color:#A2B282;
     transform: rotate(45deg);
-    left: 38.5%;
+    left: 49%;
     top: 45%;
     transition:all 0.5s;
 }
@@ -55,17 +56,17 @@ background-color: #F45C09;
 	display:inline-block;
 }
 .quote-box.align-right:hover::before{
-	left:53.5%;
+	left: 42.5%;
 }
 .quote-box.half{width:50%; max-height:390px;}
 .quote-box.half>.bookcover{padding-top:2rem;}
 .quote-box, .bookcover, .contents{
 	float:left;
 }
-.align-right{background:linear-gradient(to right, #F4884D 58%,transparent 58%);}
+.align-right{background:linear-gradient(to right, #78A2B4 48%,transparent 48%);}
 .align-right> .contents, .align-right>.bookcover{float:right;}
 .align-right:hover{
-	background:linear-gradient(to right, #F4B18D 58%,transparent 58%);
+	background:linear-gradient(to right, #A2B282 48%,transparent 48%);
 	background-clip: content-box;
 }
 .container::after, .quote-box::after{
@@ -74,13 +75,13 @@ background-color: #F45C09;
 	clear: both;
 }
 .bookcover{
-	width:40%;
+	width:50%;
 	height:auto;
 	vertical-align: bottom;
 }
 .contents>*{display:block; margin-bottom:1.5rem;}
 .contents{
-	width:60%;
+	width:50%;
 	padding: 2rem;
     text-align: center;
     line-height: 1.6;
@@ -110,7 +111,7 @@ background-color: #F45C09;
     text-indent: 0.4rem;
     text-align: right;
     position: relative;
-    transform: translateX(60%);
+    right:-2rem;
 }
 .source-book-title::before{
 	content:'- ';
