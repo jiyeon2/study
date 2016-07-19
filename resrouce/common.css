@@ -23,9 +23,31 @@ img.blank-bottom + * {
   overflow: hidden;
 }
 
+/*콘텐츠 이미지<img>에 적용되는 fluid image*/
 img.flex-img {
   width: 100%;
   height: auto;
+}
+img.keep-original-scale{
+  max-width: 100%; /* width:100%만 해두면 이미지의 본래 크기보다 더 커질 수 있음. max-width:100%하면 본래 크기보다 더 커지지 않음*/
+}
+/*배경이미지(css)에 적용되는 fluid BG image*/
+.flex-media{
+  width:100%;
+  padding-bottom:;  /*이미지 (세로폭/가로폭)*100 */
+  background:url(images/);
+}
+.flex-img-3-4{
+  width:100%;
+  padding-bottom: 75%;
+  background-size: cover;
+  background-position: center center;
+}
+.flex-img-9-16{
+    width:100%;
+  padding-bottom: 56.25%;
+  background-size: cover;
+  background-position: center center;
 }
 
 img.horizontal-center-img {
