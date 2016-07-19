@@ -130,7 +130,7 @@
 
 /*거터모듈 .gutter*/
 
-.gutter, .gutter-group[class*="unit-"]{
+.gutter, .gutter-group [class*="unit-"]{
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
