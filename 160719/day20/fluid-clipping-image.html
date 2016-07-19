@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>img-fluid-clipping</title>
+	<style>
+		.responsive-scale{
+			width:100%;
+			padding-bottom: 66.6666666666667%; /*배경이미지의 경우 가로세로 종횡비 맞추기 위해 패딩바텀 사용*/
+			background: url(https://posterjackcanada.files.wordpress.com/2015/02/happy-alpacas-landscape.jpg) no-repeat;
+			background-size:cover;
+	background-position: center;
+}
+.responsive-crop{
+	width:100%;
+	height:960px;
+	background-image: url(https://posterjackcanada.files.wordpress.com/2015/02/happy-alpacas-landscape.jpg);
+		background-size:cover;
+	background-position: center;
+	
+}
+.box{float:left; width:50%; outline: 3px solid #fff;}
+	</style>
+
+</head>
+<body>
+<div class="box"><div class="responsive-scale">가로세로 비율을 맞춰 축소됨</div></div>
+<div class="box"><div class="responsive-crop">고정된 높이값</div></div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+@charset "utf-8";
+/*! rwd.css*/
+
+/*
+------------
+fluid grid
+------------
+target:content = result
+450px:1200px = 37.5%;
+*/
+
+
+
+/*
+------------------------
+flexible image
+------------------------
+[content image]
+width:100%;
+height:auto;
+
+[bg image]
+width:100%;
+padding-bottom: 40%;= 320/800*100 비율에 따라 다른 값;
+
+[crop img]
+bg img방식에 height 고정
+
+[keep scale image]
+max-width:100%;
+
+*/
+
+
+/*
+------------------------
+flexible video
+------------------------
+html5 <video> -<img>와 유사하게 이용
+youtube, vimeo 비디오파일 <iframe>,<object>,<embed>
+<iframe>감싸는 컨테이너 요소 필요
+position 속성 필요(iframe 요소는 absolute, 부모 컨테이너 요소는 relative)
+iframe 요소에 top:0; width:100%; height:100%;
+부모 컨테이너 요소에는 height:0; padding-bottom:스크린 비율;
+margin, padding 속성에 설정되는 % 값의 기준 크기는 부모 요소가 된다
+*/
+/*스크린 비율 (가로x세로)
+		4:3 = 75%
+		16:9 = 56.25%
+		21:9 = 42.85714857%*/
+
+
+/*
+-----------------------
+media query/break point
+-----------------------
+중단점 설계 참고 https://material.google.com/layout/responsive-ui.html
+
+미디어쿼리 https://developer.mozilla.org/ko/docs/Web/CSS/@media
+https://developer.mozilla.org/ko/docs/Web/guide/CSS/media_queries
+
+css2
+@media screen{
+@media all{}
+@media print{}
+
+css v3
+@media [only|not] <media-type> and (<condition>){}
+
+반응형 ui - 중단점 설계에 따른 레이아웃 디자인 가이드
+*/
