@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/*8컬럼 flexible 그리드. no gutter*/
+
+
+/*show-grid-line*/
+.show-grid{
+	position: relative;
+}
+.show-grid::before{
+content:'';
+position:absolute;
+z-index: 999;
+top:0;
+left:0;
+width:100%;
+min-height: 100vh;
+background: linear-gradient(to bottom,transparent 9px, rgba(0,0,255,0.3) 9px),linear-gradient(to right, rgba(255,0,0,0.2) 50%, transparent 50%);
+background-size: 1px 10px,240px 1px;
+}
+
+/*row*/
+.row::after{
+	content:'';
+	display: block;
+	clear: both;
+}
+
+/*col*/
+[class*="col-"]{
+	float: left;
+	width:100%;
+	height:auto;
+	box-sizing: border-box;
+}
+
+.col-1{width:12.5%;}
+.col-2{width:25%;}
+.col-3{width:37.5%;}
+.col-4{width:50%;}
+.col-5{width:62.5%;}
+.col-6{width:75%;}
+.col-7{width:87.5%;}
+.col-8{width:100%;}
+
+/*offset : margin-left */
+.offset-1{margin-left:12.5%;}
+.offset-2{margin-left:25%;}
+.offset-3{margin-left:37.5%;}
+.offset-4{margin-left:50%;}
+.offset-5{margin-left:62.5%;}
+.offset-6{margin-left:75%;}
+.offset-7{margin-left:87.5%;}
+.offset-8{margin-left:100%;}
