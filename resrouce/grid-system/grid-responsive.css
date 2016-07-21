@@ -6,7 +6,7 @@
 [class*="unit-"]{
 	float: left;
 	width:100%;
-	box-shadow: border-box;
+	box-sizing: border-box;
 }
 
 .unit-s-1-2, .unit-s-2-4, .unit-s-3-6, .unit-s-4-8, .unit-s-5-10{width:50%;}
