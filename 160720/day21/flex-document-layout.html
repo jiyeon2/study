@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML 문서 기본 레이아웃</title>
+	<style>
+		body{margin: 0;}
+		header,footer{height:100px; color:#fff;}
+		header{background: #123468;}
+		footer{background: #324538;}
+		main{
+			display: flex;
+			border:2px solid #999;
+			/*height:400px;*/
+		}
+		section{order: 2; background: #656874; flex-basis:300px; flex-grow: 1; height:500px;}
+		aside{ flex-shrink:0; height:200px; }
+		.side-a{order: 1;background: #968732; width:200px;}
+		.side-b{order: 3;background: #932732; width:200px; align-self:flex-end;}
+
+
+	</style>
+</head>
+
+<body>
+	<header>header</header>
+	<main>
+		<section>section</section>
+		<aside class="side-a">asideA</aside>
+		<aside class="side-b">asideB</aside>
+	</main>
+	<footer>footer</footer>
+</body>
+
+</html>

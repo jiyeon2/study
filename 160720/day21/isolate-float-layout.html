@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>격리된 floating layout</title>
+    <link rel="stylesheet" href="../../resrouce/initialization/normalize.css">
+    <link rel="stylesheet" href="../../resrouce/common.css">
+    <link rel="stylesheet" href="../../resrouce/grid-system/grid-fluid-1280-8.css">
+    <style>
+    /*isolate float layout technique -2012년에 알려짐*/
+    
+    .box {
+        float: left;
+        width: calc(12.8% * 0.81);
+        /*width:10.368%;*/
+        /*height:48px;*/
+        height: calc(27px *2);
+        text-align: center;
+        line-height: calc(27px *2);
+        background: #313131;
+        color: #fff;
+    }
+    /*본래 사용하는 float방식*/
+    
+    .box-float {
+        margin-right: calc(12.8%*0.19);
+    }
+    /*격리된 float 레이아웃 방식. Isolate*/
+    
+    [class*=box-isolate] {
+        margin-right: -100%;
+        /*핵심!!!!*/
+    }
+    
+    .isolate-order-1 {
+        margin-left: calc(12.8% *0);
+    }
+    
+    .isolate-order-2 {
+        margin-left: calc(12.8% *1);
+    }
+    
+    .isolate-order-3 {
+        margin-left: calc(12.8% *2);
+    }
+    
+    .isolate-order-4 {
+        margin-left: calc(12.8% *3);
+    }
+    
+    .grid {
+        margin-bottom: calc(27px*1);
+    }
+    
+    .grid *:nth-child(1) {
+        background: #235415;
+    }
+    
+    .grid *:nth-child(2) {
+        background: #267805;
+    }
+    
+    .grid *:nth-child(3) {
+        background: #963005;
+    }
+    
+    .grid *:nth-child(4) {
+        background: #084751;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container show-grid">
+        <div class="grid">
+            <div class="box box-float">1</div>
+            <div class="box box-float">2</div>
+            <div class="box box-float">3</div>
+            <div class="box box-float">4</div>
+        </div>
+        <div class="grid">
+            <div class="box box-isolate isolate-order-1">a</div>
+            <div class="box box-isolate isolate-order-2">b</div>
+            <div class="box box-isolate isolate-order-3">c</div>
+            <div class="box box-isolate isolate-order-4">d</div>
+        </div>
+    </div>
+</body>
+
+</html>
