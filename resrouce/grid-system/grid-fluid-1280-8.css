@@ -24,7 +24,7 @@
   background: hsla(60, 50%, 50%, 0.3);
   background: linear-gradient(90deg, rgba(191, 64, 64, 0.3) 81%, rgba(0, 0, 0, 0) 81%), linear-gradient(rgba(0, 0, 0, 0) 26px, #26923f 26px);
   background-size:
-    160px 1px,
+    12.8% 1px,
     1px 1.6875rem;
 }
 
@@ -32,7 +32,7 @@
   /*마진이 유닛 앞쪽에*/
     background: linear-gradient(90deg, rgba(0, 0, 0, 0) 19%, rgba(191, 64, 64, 0.3) 19%), linear-gradient(rgba(0, 0, 0, 0) 26px, #26923f 26px);
   background-size:
-    160px 1px,
+    12.8%px 1px,
     1px 1.6875rem;
 }
 .grid-container.show-grid-split::before{
