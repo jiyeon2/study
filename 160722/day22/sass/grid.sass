@@ -1,0 +1,25 @@
+// 거터 20, 컬럼 80  총 1200px line-height 24px
+$unit: 80px
+$gutter: 10px
+$line: 24px
+$column: $unit+($gutter* 2)
+// Xcolumn = X(unit+gutter) - (X-1)gutter
+
+
+
+aside
+	width: $column*4
+	height: $line*30
+	margin: 
+		right: $gutter*2
+		bottom: $line*1 
+	background-color: pink
+	float: left
+
+div
+	width: $column*12
+
+div::after
+	content: ''
+	display: block
+	clear: both
