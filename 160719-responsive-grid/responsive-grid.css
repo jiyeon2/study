@@ -1,0 +1,87 @@
+@charset "utf-8";
+body {
+    color:#fff;
+    margin: 0;
+}
+
+.text {
+	padding:3rem;
+    display: none;
+}
+iframe{border:0;}
+.section-1,
+.section-2,
+.section-3 {
+    float: left;
+    width: 100%;
+    height: 33.3333vh;
+}
+
+.section-1 {
+    background-color: #126455;
+}
+
+.section-2 {
+    background-color: #154558;
+}
+
+.section-3 {
+    background-color: #472637;
+}
+
+h2{ padding: 2rem; }
+
+@media(min-width:600px) {
+    .section-1 {
+        height: 100vh;
+    }
+    .section-2,
+    .section-3 {
+        min-height: 50vh;
+    }
+    .section-1  .text{display: block;}
+}
+
+@media(min-width:1200px) {
+    .section-1,
+    .section-2,
+    .section-3 {
+        min-height: 100vh;
+    }  
+    .section-2 .text, .section-3 .text{display: block;}
+}
+
+.responsive-bg {
+    max-width: 1280px;
+    /*height: 853px;*/
+    width: 100%;
+    height: 0;
+    padding-top: 67%;
+    background: url(http://67.media.tumblr.com/a63fd221c6e39c37b21842fe0ea2ee20/tumblr_oa7y3nLTyi1u7ns0go1_1280.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.responsive-bg-crop {
+    background: url(http://67.media.tumblr.com/500820c3365b1a2e3c689f00e0f19ef1/tumblr_oa7y21w3QD1u7ns0go1_1280.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 640px;
+    width: 100%;
+    height: 420px;
+}
+.responsive-video-wrapper{
+	width:100%;
+	height:0;
+    padding-top:10%;
+	padding-bottom: 70%;
+	position:relative;
+}
+.responsive-video{
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+
+}
