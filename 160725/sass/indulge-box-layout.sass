@@ -1,0 +1,104 @@
+%row-wrap-flex
+	display: flex
+	flex-flow: row wrap
+
+$tablet: "max-width: 700px"
+
+.container
+	@extend %row-wrap-flex
+	align-content: stretch
+	max-width: 1200px
+	max-height: 1255px
+	margin:
+		top: 1rem
+		left: auto
+		right: auto
+	@media ($tablet)
+		flex-flow: column nowrap
+
+
+
+
+$section-height: 502px
+$section-height-tablet: 460px
+
+%section-common
+	flex-grow: 1
+	flex-shrink: 0
+	min-height: $section-height
+	@extend %row-wrap-flex
+	@media ($tablet)
+		min-height: $section-height-tablet
+
+$box-height: 251px
+$box-height-tablet: 171px
+
+%box
+	box-sizing: border-box
+	border: 2px solid pink
+	max-height: $box-height
+	overflow: hidden
+	@media ($tablet)
+		min-height: $box-height-tablet
+
+.box
+	@extend %box
+	flex-basis: 50%
+	&.big
+		flex-basis: 100%
+		max-height: $section-height
+		@media ($tablet)
+			min-height: $section-height-tablet
+	.section7 &.big
+		@media ($tablet)
+			min-height: $box-height-tablet
+
+.section1
+	@extend %section-common
+	flex-basis: 40%
+	background: red
+.section2
+	@extend %section-common
+	flex-basis: 60%
+	background: orange
+	flex-flow: column wrap
+.section3
+	@extend %section-common
+	flex-basis: 20%
+	background: yellow
+	flex-flow: column wrap
+	@media ($tablet)
+		flex-flow: row wrap
+		min-height: $box-height-tablet
+
+.section4
+	@extend %section-common
+	flex-basis: 40%
+	background: green
+.section5
+	@extend %section-common
+	flex-basis: 40%
+	background: lightgreen
+.section6
+	@extend %section-common
+	flex-basis: 40%
+	background: lightblue
+	min-height: $section-height/2
+	order: 1
+	@media ($tablet)
+		order: 0
+.section7
+	@extend %section-common
+	flex-basis: 60%
+	background: indigo
+	min-height: $section-height/2
+
+
+
+
+
+
+
+
+
+
