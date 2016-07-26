@@ -1,0 +1,13 @@
+@import demo-component/box
+
+.demo
+	font: 1em Arial, sans-serif
+
+@import demo-component/button
+
+.container
+	@extend .demo
+	width: 55%
+	$space: 15px
+	@import demo-component/button
+	@import demo-component/box
