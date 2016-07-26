@@ -300,11 +300,14 @@ width:80%;}
 /*푸터*/
 
 .main-footer{
+	padding:3rem;
+	background-color:hsl(231, 33%, 12%);
+}
+.main-footer .wrapper{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding:3rem;
-	background-color:hsl(231, 33%, 12%);
+	
 }
 .main-footer>*{
 	margin-bottom:3rem;
@@ -394,7 +397,20 @@ background:url(../img/button/fa-youtube-play.png) no-repeat;
 	align-items: center;}
 .footer-logo{width:10%;}
 .sns{order: 3;}
+.main-footer .wrapper{
+	display: flex;
+	flex-flow:row nowrap;
+	justify-content: center;
+	align-items: space-between;
+}
 .footer-nav{
-	display: inline-flex;
+	display: flex;
+	flex-flow: row nowrap;
+}
+.footer-nav a{
+	flex: 1 1 0;
+}
+.gooter-nav a:first-child{
+	flex: 2 1 0;
 }
 }
