@@ -34,7 +34,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   border-radius: 3px;
 }
 
-.body-header, .top-nav, .top-nav button {
+.body-header, .top-nav, .top-nav button, .info-title {
   text-transform: uppercase;
 }
 
@@ -48,7 +48,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   overflow: hidden;
 }
 
-.slide .left, .slide .right, .slide-btn a, .welcome-board-title {
+.slide .left, .slide .right, .slide-btn a, .welcome-board-title, .info h3, .sns a {
   text-indent: -999rem;
   overflow: hidden;
 }
@@ -225,6 +225,12 @@ body::after {
 
 .info {
   position: relative;
+  padding-top: 48px;
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-bottom: 26px;
+  color: #975122;
+  text-align: center;
   background: url("../img/info/bg-wood.png");
 }
 .info::before {
@@ -239,6 +245,134 @@ body::after {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.info h3 {
+  height: 48px;
+  background-image: url("../img/info/restaurant-information.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.info-item {
+  border-radius: 3px;
+  border: 1px solid #975122;
+  padding: 0.5em;
+  margin-bottom: 24px;
+}
+
+.info-title {
+  margin-bottom: 0.5em;
+}
+
+.image-box {
+  text-align: center;
+  color: #fff;
+  background-image: url("../img/footer/imagebox-bg-mobile.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.image-box h3 {
+  padding-top: 24px;
+  padding-botton: 24px;
+  font-size: 24px;
+  margin-bottom: 1em;
+}
+.image-box h3 span {
+  font-weight: normal;
+}
+.image-box p {
+  font-size: 13px;
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-bottom: 24px;
+}
+
+.body-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77;
+  background-size: 20px 1px, 1px 20px, cover;
+}
+.body-footer > * {
+  height: 48px;
+}
+.body-footer a {
+  color: #fff;
+}
+
+.copyright {
+  order: 3;
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2B2B2B;
+}
+
+.sns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  order: 2;
+  flex: 1 1 25%;
+}
+.sns a {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.facebook {
+  background-image: url("../img/footer/facebook-icon.png");
+}
+
+.twitter {
+  background-image: url("../img/footer/twitter-icon.png");
+}
+
+.foot-links {
+  order: 1;
+  border-bottom: 1px dashed #303C4B;
+  flex: 1 1 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.foot-links a::before {
+  display: inline-block;
+  vertical-align: bottom;
+  content: "";
+  width: 14px;
+  height: 12px;
+  margin-right: 0.2em;
+  background: url(../img/footer/check-icon.png) no-repeat center;
+}
+
+.location {
+  order: 2;
+  flex: 1 1 75%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding-left: 16px;
+  align-items: stretch;
+}
+.location::before {
+  content: "";
+  flex: 1 1 100%;
+  display: inline-block;
+  width: 20px;
+  height: 30px;
+  margin-right: -1rem;
+  background: url(../img/footer/location-icon.png) no-repeat center;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,80 @@
+//---------------------------
+//*footer
+$footer-font-color: #fff
+.body-footer
+	display: flex
+	flex-flow: row wrap
+	justify-content: center
+
+	color: $footer-font-color
+	font-size: 12px
+
+	background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77
+	background-size: 20px 1px, 1px 20px, cover
+
+	>*
+		height: $leading *2
+
+	a
+		color: $footer-font-color
+	
+.copyright
+	order: 3
+	flex: 1 1 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	background: #2B2B2B
+
+.sns
+	display: flex
+	justify-content: flex-start
+	align-items: center
+	order: 2
+	flex: 1 1 25%
+	a
+		@extend %ir
+		width: 30px
+		height: 30px
+		+bg(contain)
+
+.facebook
+	background-image: url('../img/footer/facebook-icon.png')
+.twitter
+	background-image: url('../img/footer/twitter-icon.png')
+
+.foot-links
+	order: 1
+	border-bottom: 1px dashed #303C4B 
+	flex: 1 1 100%
+	display: flex
+	flex-flow: row nowrap
+	justify-content: space-around
+	align-items: center
+	a
+		&::before
+			display: inline-block
+			vertical-align: bottom
+			content: ''
+			width: 14px
+			height: 12px
+			margin-right: 0.2em
+			background: url(../img/footer/check-icon.png) no-repeat center
+
+.location
+	order: 2
+	flex: 1 1 75%
+	display: flex
+	flex-flow: column wrap
+	justify-content: center
+	padding-left: 16px
+	align-items: stretch
+	&::before
+		content: ''
+		flex: 1 1 100%
+		display: inline-block
+		width: 20px
+		height: 30px
+		margin-right: -1rem
+		background: url(../img/footer/location-icon.png) no-repeat center
+
