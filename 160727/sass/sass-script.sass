@@ -1,0 +1,109 @@
+//---------------------------
+//* Sass Script Operation
+/* 야호야호*/
+@import var
+@import mixins
+
+$base-width: 10px !default
+@mixin size1($width: $base-width)
+	$base-width: 20px
+	width: $width
+	height: $width /2
+
+.test
+	$width: 30px
+	$base-width: 40px
+	@include size1($width: $base-width)
+
+%border-radius
+	-webkit-border-radius: 4px
+	-moz-border-radius: 4px
+	border-radius: 4px
+
+%box-sizing
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+
+/* 믹스인 사용 */
+header
+	+test($w:400vh)
+	+rounder
+	@include test(20px, 30px)
+	// @extend %border-radius
+	@include box-sizing
+
+main
+	@include size(100px)
+	// @extend %border-radius
+	@include box-sizing(content-box)
+	p
+		+arrow-up(20px, yellow)
+		
+
+nav
+	ul
+		@include reset-list
+		li
+			+size(10%,0)
+			+transition(width 1s ease, height 0.3s ease 1s)
+			&:hover
+				+size(100%, 50vh)
+footer
+	@extend %border-radius
+	ul
+		@include reset-list
+	// @include box-sizing
+
+
+// 웹폰트 
+// (인터폴레이션 보간법) -> 문자를 접합(용접과 비슷)
+@import url("http://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-#{$spoqa-language}.css")
+
+//본문설계
+body
+	font: #{$base-font-size}/#{$base-line-height} $spoqa-font-family
+	//font: $base-font-size/#{$base-line-height} $spoqa-font-family
+	// font-size: $base-font-size
+	// font-family: $spoqa-font-family
+	// line-height: $base-line-height
+
+
+//디버그 디렉티브(지시자) 사용하면 명령 창에 디버그 결과를 출력한다
+@debug type-of(red) //color
+
+@import webfont
+
+//---------------------------
+//* 보간법 interpolation #{}
+$selector: yamoo9
+$pseudo-name: after
+
+#area .#{$selector}
+	margin:
+		left: 20%
+		right: 20
+	&::#{$pseudo-name}
+		content: 'dynamic content'
+
+//---------------------------
+//*보간법 + 미디어쿼리
+$media-md: "screen and (min-width:760px)" 
+$media-lg: "screen and (min-width:1220px)"
+$media-print: "not screen and (min-width: 21cm)"
+
+.#{$selector}
+	@media #{$media-md}
+		display: flex
+		flex-flow: row-reverse wrap
+	@media #{$media-lg}
+		display: block
+		padding: 1rem
+	@media #{$media-print}
+		background: #fff !important //프린트 할 때 무조건 배경 흰색, 글자 검정으로 나오도록 하기위해 important 사용
+		color: #000 !important //a도 검정색이 될까??
+
+p
+	color: rgba(255, 0, 0, 0.2) + rgba(0, 0, 255, 0.2)
+
