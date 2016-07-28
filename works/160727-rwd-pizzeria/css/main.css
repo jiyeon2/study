@@ -1,0 +1,244 @@
+body, h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover, a:focus {
+  border-bottom: 1px solid currentColor;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 10px;
+}
+
+header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
+  box-sizing: border-box;
+}
+
+.welcome-board-item::after, .top-nav::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.top-nav button, .welcome-comment a {
+  border: 1px solid #cdcdcd;
+  background: linear-gradient(to bottom, #fff, #efefef);
+  color: #E6171F;
+  padding: 1em;
+  border-radius: 3px;
+}
+
+.body-header, .top-nav, .top-nav button {
+  text-transform: uppercase;
+}
+
+.top-nav h2, .slide h3, .welcome-board h3 {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.slide .left, .slide .right, .slide-btn a, .welcome-board-title {
+  text-indent: -999rem;
+  overflow: hidden;
+}
+
+.slide .left, .slide .right {
+  position: absolute;
+  width: 45px;
+  height: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.special-menu {
+  border-radius: 10px;
+  box-shadow: -2px -2px 3px #ccc;
+}
+
+.welcome-board-item {
+  padding: 15px 22px;
+  font-size: 12px;
+  line-height: 1.5;
+  background-color: #fff;
+}
+.welcome-board-item div {
+  text-align: center;
+}
+.welcome-board-item img {
+  width: 31%;
+  height: auto;
+}
+
+body {
+  background: url(../img/bg.png);
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+}
+body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 300vh;
+  background: linear-gradient(to bottom, transparent 23px, #aaff99 23px);
+  background-size: 1px 24px;
+}
+
+.body-header {
+  height: 48px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(to right, #C30006 50%, #ED1920 50%);
+  background-size: 60px 1px;
+  background-position-x: 10px;
+  font-size: 13px;
+  position: relative;
+}
+.body-header a {
+  color: white;
+}
+.body-header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  border-bottom: 1px solid yellow;
+}
+
+.logo h1 {
+  font-size: 13px;
+}
+
+.top-nav {
+  width: 100%;
+  height: 96px;
+  background: url(../img/header-nav/nav-bg.png);
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position: center 80%;
+  text-align: center;
+  padding: 0.5rem;
+}
+.top-nav .logo {
+  background: url(../img/header-nav/center-logo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 122px;
+  height: 65px;
+}
+
+.grid-btn {
+  float: left;
+}
+
+.menu-btn {
+  float: right;
+}
+
+.nav-links {
+  display: none;
+}
+
+.slide {
+  height: 288px;
+  margin-top: -48px;
+  position: relative;
+}
+.slide .left {
+  left: 0;
+  background: url(../img/slide/left-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.slide .right {
+  right: 0;
+  background: url(../img/slide/right-arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.slide-page {
+  padding-top: 72px;
+}
+.slide-page img {
+  width: 120%;
+  height: auto;
+  transform: translateX(-15%);
+}
+
+.slide-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.slide-btn a {
+  width: 20px;
+  height: 20px;
+  background: url(../img/slide/slide-dot.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.welcome-board {
+  color: #777;
+  background-color: #fff;
+}
+
+.welcome-board-title {
+  line-height: 48px;
+  background: url("../img/welcome/This-week-event news.png");
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+.week-event .welcome-board-title {
+  background-image: url("../img/welcome/Special-menu-open.png");
+}
+.welcome-comment .welcome-board-title {
+  background-image: url("../img/welcome/Welcome-to-our restaurant.png");
+}
+
+.fin {
+  float: right;
+}
+
+.info {
+  position: relative;
+  background: url("../img/info/bg-wood.png");
+}
+.info::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 50px;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("../img/info/riborn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*# sourceMappingURL=main.css.map */

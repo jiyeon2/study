@@ -1,0 +1,35 @@
+//---------------------------
+//*main- welcom board
+
+
+
+.welcome-board
+	color: $welcome-font-color
+	background-color: #fff
+	h3
+		@extend %readable-hidden
+
+.special-menu
+	@extend %box-top-shadowing
+
+.welcome-board-item
+	@extend %welcome-box-style
+
+.welcome-board-title
+	@extend %ir
+	line-height: $leading * 2
+	+bg(70%, no-repeat, center top)
+		background: url('../img/welcome/This-week-event news.png')
+
+	.week-event &
+		background-image: url('../img/welcome/Special-menu-open.png')
+
+	.welcome-comment &
+		background-image: url('../img/welcome/Welcome-to-our restaurant.png')
+
+.fin
+	float: right
+
+.welcome-comment
+	a
+		@extend %btn-shape

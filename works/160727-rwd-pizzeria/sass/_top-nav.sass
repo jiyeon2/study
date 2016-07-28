@@ -1,0 +1,34 @@
+
+//---------------------------
+//*top-nav
+.top-nav
+	@extend %clearfix
+	@extend %capitalize
+	width: 100%
+	height: $leading * 4
+	+bg(200%, no-repeat, center 80%)
+		background: url(../img/header-nav/nav-bg.png)
+
+	text-align: center
+	padding: 0.5rem
+	.logo
+		+bg
+			background: url(../img/header-nav/center-logo.png)
+		width: 122px
+		height: 65px
+
+	h2
+		@extend %readable-hidden
+
+	button
+		@extend %btn-shape
+		@extend %capitalize
+
+.grid-btn
+	float: left
+.menu-btn
+	float: right
+
+.nav-links
+	display: none
+

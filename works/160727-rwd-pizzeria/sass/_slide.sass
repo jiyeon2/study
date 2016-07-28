@@ -1,0 +1,39 @@
+//---------------------------
+//*slide
+
+.slide
+	height: $leading * 12
+	margin-top: -($leading * 2)
+	position: relative
+	h3
+		@extend %readable-hidden
+	
+	.left
+		@extend %slide-arrow
+		left: 0
+		+bg(contain)
+			background: url(../img/slide/left-arrow.png)
+			
+	.right
+		@extend %slide-arrow
+		right: 0
+		+bg(contain)
+			background: url(../img/slide/right-arrow.png)
+
+.slide-page
+	padding-top: $leading *3
+	img
+		+responsive-img(120%)
+		transform: translateX(-15%)
+
+.slide-btn
+	position: absolute
+	bottom: 10px
+	left: 50%
+	transform: translateX(-50%)
+	a
+		@extend %ir
+		width: 20px
+		height: 20px
+		@include bg(80%)
+			background: url(../img/slide/slide-dot.png)
