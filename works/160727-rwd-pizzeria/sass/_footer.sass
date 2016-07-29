@@ -1,6 +1,8 @@
 //---------------------------
 //*footer
 $footer-font-color: #fff
+
+
 .body-footer
 	display: flex
 	flex-flow: row wrap
@@ -77,4 +79,24 @@ $footer-font-color: #fff
 		height: 30px
 		margin-right: -1rem
 		background: url(../img/footer/location-icon.png) no-repeat center
+
+@mixin flex-box($flex-flow:row wrap, $main:space-around, $cross:center)
+	display: flex
+	flex-flow: $flex-flow
+	justify-content: $main
+	align-items: $cross
+	@content
+
+@mixin flex-item($flex: 1 1 auto, $align: null, $order: null)
+	flex: $flex
+	align-self: $align
+	order: $order
+
+.test
+	+flex-box
+		>*
+		+flex-item
+
+%center-flex
+
 
