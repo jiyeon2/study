@@ -75,7 +75,8 @@ sass script 에서 이용 가능한 데이터 유형 6가지
 3. string & color 
     - 예) "../img/df.jpg" / Verdana / lightblue/ #847437
 4. boolean
-    - True/False , yes/no
+    - True/False , 
+    - yes/no는 커피스크립트
 5. list []
     - 자바스크립트의 배열같은것
 6. map {} 
