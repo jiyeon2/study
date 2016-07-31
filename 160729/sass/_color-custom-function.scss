@@ -1,0 +1,19 @@
+@function remove-unit($unit){
+	@return $unit/($unit*0+1);
+}
+
+@function _hsla($hex, $alpha){
+//실행과정: _hsla(#390939, 0.4)
+// 결과: hsla(hue, saturation, lightness, alpha)
+	//$hue: hue($hex); //hex -> deg
+//$hue: $hue/($hue * 0 + 1); //deg 단위를 제거
+	$hue: floor(remove-unit(hue($hex)));
+	$saturation: floor(saturation($hex));
+	$lightness: floor(lightness($hex));
+	$result: "hsla(#{$hue},#{$saturation},#{$lightness},#{alpha})";
+	@return unquote($result);
+}
+	//$result: "hsla(#{$hue}, #{$saturation}, #{$lightness}, #{$alpha})";
+	//hsla는 원래 있는 함수라서 실행 후 rgba값이 반환됨. hsla형태로 반환하기 원하므로 인터폴레이션 이용해 문자로 내보내고 따옴표 없애기
+	//@return unquote($result);
+}

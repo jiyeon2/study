@@ -1,0 +1,42 @@
+.icon-play {
+  background: url("../img/icon-icon.png");
+}
+
+.icon-pause {
+  background: url("../img/icon-icon.png");
+}
+
+.icon-stop {
+  background: url("../img/icon-icon.png");
+}
+
+.icon-prev {
+  background: url("../img/icon-icon.png");
+}
+
+.icon-next {
+  background: url("../img/icon-icon.png");
+}
+
+.icon-forward {
+  background: url("../img/icon-icon.png");
+}
+
+.icon-backward {
+  background: url("../img/icon-icon.png");
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.45;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
