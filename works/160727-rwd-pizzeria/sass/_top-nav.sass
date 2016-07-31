@@ -1,21 +1,34 @@
-
+@charset "UTF-8"
 //---------------------------
 //*top-nav
 .top-nav
 	@extend %clearfix
 	@extend %capitalize
+	$logo-width: 192px
+	$logo-height: $logo-width *0.5
+	//top-nav가 slide 위에 보이도록
+	+pos-z
+	+bg(1px $logo-height + 4, repeat)
+		background: linear-gradient(to bottom, #fff 50%, #ddd 50%, transparent 53%)
 	width: 100%
-	height: $leading * 4
-	+bg(200%, no-repeat, center 80%)
-		background: url(../img/header-nav/nav-bg.png)
+	transition: all 0.2s
+	+flex-box(row nowrap, space-between, center)
 
 	text-align: center
-	padding: 0.5rem
 	.logo
-		+bg
-			background: url(../img/header-nav/center-logo.png)
-		width: 122px
-		height: 65px
+		+flex-item(0 1 auto, center, 1)
+		+pos-z
+		+bg(contain)
+			background: url(../img/header-nav/center-logo.png), #fff
+				origin: content-box
+		padding: 0.3rem
+		width: $logo-width
+		height: $logo-width * 0.5
+		
+		border: 
+			bottom: 1px solid #ddd
+				left-radius: 50%
+				right-radius: 50%
 
 	h2
 		@extend %readable-hidden
@@ -25,10 +38,27 @@
 		@extend %capitalize
 
 .grid-btn
-	float: left
+	+flex-item(0 1 auto, flex-start, 0)
+
 .menu-btn
-	float: right
+	+flex-item(0 1 auto, flex-start,2)
+	+mq-m
+		display: none
 
 .nav-links
 	display: none
+	+mq-m
+		+flex-item(0 1 auto, flex-start, 2)
+		display: block
+	$items: about menu event comunity
+	@each $item in $items
+		.#{$item}
+			&::before
+				+size(16px, 16px)
+				@extend %margin-auto
+				content: ''
+				display: block
+				+bg
+					background: url(../img/header-nav/#{$item}-btn.png)
+
 

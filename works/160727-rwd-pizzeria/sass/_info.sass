@@ -15,10 +15,9 @@ $info-font-color: #975122
 	background: url('../img/info/bg-wood.png') 
 	&::before
 		content: ''
+		+size(60px, 50px)
 		position: absolute
-		width: 60px
-		height: 50px
-		top: -10px
+		top: -5px
 		left: 50%
 		transform: translateX(-50%)
 		+bg
@@ -27,8 +26,10 @@ $info-font-color: #975122
 	h3
 		@extend %ir
 		height: $leading * 2
-		+bg(70%)
+		+bg(contain)
 			background-image: url('../img/info/restaurant-information.png')
+			@extend %margin-auto
+			max-width: 200px
 
 .info-item
 	border-radius: 3px

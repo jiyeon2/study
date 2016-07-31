@@ -1,6 +1,7 @@
 @charset "UTF-8"
 //---------------------------
 //*변수
+$grid-on: false
 $leading: 24px
 
 $main-color: #E6171F
@@ -9,9 +10,20 @@ $welcome-font-color: #777
 $header-font-size: 13px
 $btn-font-size: 10px
 $welcome-font-size: 12px
-  
+
+//미디어쿼리 분기점 
+$small-screen: 320px 
+$medium-screen: 960px
+$large-screen: 1200px
 //---------------------------
 //*mixin
+@mixin mq-m
+	@media (min-width: $medium-screen)
+		@content
+@mixin mq-l
+	@media (min-width: $large-screen)
+		@content
+
 
 //기본 (cover, no-repeat)배경이미지 넣기. bg믹스인 호출하고 background-image: url() 쓰기!
 @mixin bg($size:cover,$repeat:no-repeat, $position:center)
@@ -21,10 +33,30 @@ $welcome-font-size: 12px
 	background-position: $position
 
 
-//부모width 값의 %만큼 width 가지는 이미지
-@mixin responsive-img($width:100%)
+//width, height 지정.
+@mixin size($width:100%, $height: auto)
 	width: $width
-	height: auto
+	height: $height
+
+//position과 z-index지정
+@mixin pos-z($position: relative, $z-index: 1)
+	position: $position
+	z-index: $z-index
+
+//플렉스 박스(컨테이너)
+@mixin flex-box($flex-flow:row wrap, $main:space-around, $cross:center)
+	display: flex
+	flex-flow: $flex-flow
+	justify-content: $main
+	align-items: $cross
+	@content
+
+//플렉스 아이템
+@mixin flex-item($flex: 1 1 auto, $align: null, $order: null)
+	flex: $flex
+	align-self: $align
+	order: $order
+
 
 //---------------------------
 //* 초기화
@@ -109,23 +141,32 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button
 	div
 		text-align: center
 	img
-		+responsive-img(31%)
+		+size(31%)
 
+//block 요소 가운데 정렬- margin left, right : auto
+%margin-auto
+	margin:
+		left: auto
+		right: auto
 
 //---------------------------
-//*
-body
-	+bg(contain, repeat)
-		background: url(../img/bg.png)
-	&::after
-		content: ''
-		position: absolute
-		left: 0
-		top: 0
-		width: 100%
-		min-height: 300vh
-		background: linear-gradient(to bottom, transparent 23px, #aaff99 23px)
-		background-size: 1px 24px
+//*body
+
+
+
+@if $grid-on == true
+	body
+		+bg
+			background: url(../img/slide/slide.png)
+		&::after
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			min-height: 300vh
+			background: linear-gradient(to bottom, transparent 23px, #aaff99 23px)
+			background-size: 1px 24px
 
 
 @import header

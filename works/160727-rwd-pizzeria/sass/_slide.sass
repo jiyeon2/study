@@ -5,6 +5,9 @@
 	height: $leading * 12
 	margin-top: -($leading * 2)
 	position: relative
+	overflow: hidden
+	+bg
+		background: url(../img/slide/slide-bg.gif)
 	h3
 		@extend %readable-hidden
 	
@@ -21,10 +24,13 @@
 			background: url(../img/slide/right-arrow.png)
 
 .slide-page
-	padding-top: $leading *3
 	img
-		+responsive-img(120%)
-		transform: translateX(-15%)
+		@extend %margin-auto
+		+size(100%)
+		display: block
+		padding:
+			top: $leading * 2
+		max-width: 530px
 
 .slide-btn
 	position: absolute
@@ -33,7 +39,6 @@
 	transform: translateX(-50%)
 	a
 		@extend %ir
-		width: 20px
-		height: 20px
-		@include bg(80%)
+		+size(20px, 20px)
+		+bg(80%)
 			background: url(../img/slide/slide-dot.png)

@@ -2,23 +2,16 @@
 //---------------------------
 //*헤더
 .body-header
-	height: $leading * 2
-	
-	display: flex
-	justify-content: space-around
-	align-items: center
-	
-	background: 
-		image: linear-gradient(to right, #C30006 50%, #ED1920 50%) 
-		size: 60px 1px
-		position-x: 10px
-
 	@extend %capitalize
+	+flex-box(row wrap, space-around, center)
+	+bg(60px 1px, repeat, 10px 0)
+		background: linear-gradient(to right, #C30006 50%, #ED1920 50%) 
+	position: relative
+	height: $leading * 2
 	font-size: $header-font-size
+
 	a
 		color: white 
-
-	position: relative
 
 	&::after
 		content: ''
@@ -29,6 +22,11 @@
 		bottom: 8px
 		border-bottom: 1px solid yellow
 
-h1
-	.logo &
+.logo
+	+flex-item(0 1 auto)
+	h1
 		font-size: $header-font-size
+
+.util-link
+	+flex-item(0.3 1 auto)
+	+flex-box($main: space-around)

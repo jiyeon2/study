@@ -83,34 +83,23 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   height: auto;
 }
 
-body {
-  background: url(../img/bg.png);
-  background-size: contain;
-  background-repeat: repeat;
-  background-position: center;
-}
-
-body::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  min-height: 300vh;
-  background: linear-gradient(to bottom, transparent 23px, #aaff99 23px);
-  background-size: 1px 24px;
+.nav-links .about::before, .nav-links .menu::before, .nav-links .event::before, .nav-links .comunity::before, .slide-page img, .welcome-board-title, .info h3 {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .body-header {
-  height: 48px;
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(to right, #C30006 50%, #ED1920 50%);
+  background: linear-gradient(to right, #C30006 50%, #ED1920 50%);
   background-size: 60px 1px;
-  background-position-x: 10px;
-  font-size: 13px;
+  background-repeat: repeat;
+  background-position: 10px 0;
   position: relative;
+  height: 48px;
+  font-size: 13px;
 }
 
 .body-header a {
@@ -127,46 +116,141 @@ body::after {
   border-bottom: 1px solid yellow;
 }
 
+.logo {
+  flex: 0 1 auto;
+}
+
 .logo h1 {
   font-size: 13px;
 }
 
+.util-link {
+  flex: 0.3 1 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .top-nav {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, #fff 50%, #ddd 50%, transparent 53%);
+  background-size: 1px 100px;
+  background-repeat: repeat;
+  background-position: center;
   width: 100%;
-  height: 96px;
-  background: url(../img/header-nav/nav-bg.png);
-  background-size: 200%;
-  background-repeat: no-repeat;
-  background-position: center 80%;
+  transition: all 0.2s;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
-  padding: 0.5rem;
 }
 
 .top-nav .logo {
-  background: url(../img/header-nav/center-logo.png);
-  background-size: cover;
+  flex: 0 1 auto;
+  align-self: center;
+  order: 1;
+  position: relative;
+  z-index: 1;
+  background: url(../img/header-nav/center-logo.png), #fff;
+  background-origin: content-box;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 122px;
-  height: 65px;
+  padding: 0.3rem;
+  width: 192px;
+  height: 96px;
+  border-bottom: 1px solid #ddd;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
 
 .grid-btn {
-  float: left;
+  flex: 0 1 auto;
+  align-self: flex-start;
+  order: 0;
 }
 
 .menu-btn {
-  float: right;
+  flex: 0 1 auto;
+  align-self: flex-start;
+  order: 2;
+}
+
+@media (min-width: 960px) {
+  .menu-btn {
+    display: none;
+  }
 }
 
 .nav-links {
   display: none;
 }
 
+@media (min-width: 960px) {
+  .nav-links {
+    flex: 0 1 auto;
+    align-self: flex-start;
+    order: 2;
+    display: block;
+  }
+}
+
+.nav-links .about::before {
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: block;
+  background: url(../img/header-nav/about-btn.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-links .menu::before {
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: block;
+  background: url(../img/header-nav/menu-btn.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-links .event::before {
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: block;
+  background: url(../img/header-nav/event-btn.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-links .comunity::before {
+  width: 16px;
+  height: 16px;
+  content: '';
+  display: block;
+  background: url(../img/header-nav/comunity-btn.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .slide {
   height: 288px;
   margin-top: -48px;
   position: relative;
+  overflow: hidden;
+  background: url(../img/slide/slide-bg.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .slide .left {
@@ -185,14 +269,12 @@ body::after {
   background-position: center;
 }
 
-.slide-page {
-  padding-top: 72px;
-}
-
 .slide-page img {
-  width: 120%;
+  width: 100%;
   height: auto;
-  transform: translateX(-15%);
+  display: block;
+  padding-top: 48px;
+  max-width: 530px;
 }
 
 .slide-btn {
@@ -212,14 +294,31 @@ body::after {
 }
 
 .welcome-board {
+  position: relative;
   color: #777;
   background-color: #fff;
+}
+
+@media (min-width: 960px) {
+  .welcome-board {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 960px) {
+  .welcome-board-item {
+    flex: 1 1 33%;
+  }
 }
 
 .welcome-board-title {
   line-height: 48px;
   background: url("../img/welcome/This-week-event news.png");
-  background-size: 70%;
+  max-width: 205px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
 }
@@ -249,10 +348,10 @@ body::after {
 
 .info::before {
   content: '';
-  position: absolute;
   width: 60px;
   height: 50px;
-  top: -10px;
+  position: absolute;
+  top: -5px;
   left: 50%;
   transform: translateX(-50%);
   background-image: url("../img/info/riborn.png");
@@ -264,7 +363,8 @@ body::after {
 .info h3 {
   height: 48px;
   background-image: url("../img/info/restaurant-information.png");
-  background-size: 70%;
+  max-width: 200px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -281,12 +381,12 @@ body::after {
 }
 
 .image-box {
-  text-align: center;
-  color: #fff;
   background-image: url("../img/footer/imagebox-bg-mobile.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  text-align: center;
+  color: #fff;
 }
 
 .image-box h3 {
@@ -311,6 +411,7 @@ body::after {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  align-items: strecth;
   color: #fff;
   font-size: 12px;
   background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77;
@@ -326,9 +427,10 @@ body::after {
 }
 
 .copyright {
-  order: 3;
   flex: 1 1 100%;
+  order: 3;
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   background: #2B2B2B;
@@ -336,10 +438,11 @@ body::after {
 
 .sns {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
-  order: 2;
   flex: 1 1 25%;
+  order: 2;
 }
 
 .sns a {
@@ -359,54 +462,46 @@ body::after {
 }
 
 .foot-links {
-  order: 1;
-  border-bottom: 1px dashed #303C4B;
   flex: 1 1 100%;
+  order: 1;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row norwrap;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1px dashed #303C4B;
 }
 
 .foot-links a::before {
+  background-image: url(../img/footer/check-icon.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
   display: inline-block;
   vertical-align: bottom;
   content: '';
   width: 14px;
   height: 12px;
   margin-right: 0.2em;
-  background: url(../img/footer/check-icon.png) no-repeat center;
 }
 
 .location {
-  order: 2;
   flex: 1 1 75%;
+  order: 2;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  align-items: strecth;
   padding-left: 16px;
-  align-items: stretch;
 }
 
 .location::before {
   content: '';
   flex: 1 1 100%;
-  display: inline-block;
   width: 20px;
   height: 30px;
+  display: inline-block;
   margin-right: -1rem;
   background: url(../img/footer/location-icon.png) no-repeat center;
-}
-
-.test {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.test > * {
-  flex: 1 1 auto;
 }
 
 /*# sourceMappingURL=../map/main.css.map */

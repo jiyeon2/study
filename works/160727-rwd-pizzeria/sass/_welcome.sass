@@ -4,8 +4,11 @@
 
 
 .welcome-board
+	+pos-z(relative, null)
 	color: $welcome-font-color
 	background-color: #fff
+	+mq-m
+		+flex-box(row nowrap, center, center)
 	h3
 		@extend %readable-hidden
 
@@ -14,12 +17,17 @@
 
 .welcome-board-item
 	@extend %welcome-box-style
+	+mq-m
+		+flex-item(1 1 33%)
+
 
 .welcome-board-title
 	@extend %ir
 	line-height: $leading * 2
-	+bg(70%, no-repeat, center top)
+	+bg(contain, no-repeat, center top)
 		background: url('../img/welcome/This-week-event news.png')
+		@extend %margin-auto
+		max-width: 205px
 
 	.week-event &
 		background-image: url('../img/welcome/Special-menu-open.png')
