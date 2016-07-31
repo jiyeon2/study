@@ -39,9 +39,15 @@
 
 .grid-btn
 	+flex-item(0 1 auto, flex-start, 0)
+	margin:
+			top: 10px
+			left: 10px
 
 .menu-btn
 	+flex-item(0 1 auto, flex-start,2)
+	margin:
+			top: 10px
+			right: 10px
 	+mq-m
 		display: none
 
@@ -50,6 +56,11 @@
 	+mq-m
 		+flex-item(0 1 auto, flex-start, 2)
 		display: block
+		margin:
+			top: 10px
+			right: 10px
+		& >a
+			color: red
 	$items: about menu event comunity
 	@each $item in $items
 		.#{$item}

@@ -171,12 +171,16 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   flex: 0 1 auto;
   align-self: flex-start;
   order: 0;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .menu-btn {
   flex: 0 1 auto;
   align-self: flex-start;
   order: 2;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 @media (min-width: 960px) {
@@ -195,6 +199,11 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     align-self: flex-start;
     order: 2;
     display: block;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .nav-links > a {
+    color: red;
   }
 }
 
@@ -304,13 +313,20 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: strecth;
   }
+}
+
+.special-menu img {
+  border: 2px solid #ccc;
+  border-radius: 50%;
 }
 
 @media (min-width: 960px) {
   .welcome-board-item {
     flex: 1 1 33%;
+    border-radius: 10px;
+    box-shadow: 1px -2px 3px #ccc;
   }
 }
 
@@ -346,6 +362,15 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background: url("../img/info/bg-wood.png");
 }
 
+@media (min-width: 960px) {
+  .info {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
 .info::before {
   content: '';
   width: 60px;
@@ -369,6 +394,21 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background-position: center;
 }
 
+@media (min-width: 960px) {
+  .info h3 {
+    width: 30%;
+  }
+}
+
+@media (min-width: 960px) {
+  .info-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
 .info-item {
   border-radius: 3px;
   border: 1px solid #975122;
@@ -376,15 +416,21 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   margin-bottom: 24px;
 }
 
+@media (min-width: 960px) {
+  .info-item {
+    flex: 0.25 1 30%;
+  }
+}
+
 .info-title {
   margin-bottom: 0.5em;
 }
 
 .image-box {
-  background-image: url("../img/footer/imagebox-bg-mobile.png");
+  background-image: url("../img/footer/imagebox-bg.gif");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   text-align: center;
   color: #fff;
 }
@@ -411,7 +457,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: strecth;
+  align-items: stretch;
   color: #fff;
   font-size: 12px;
   background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77;
@@ -442,7 +488,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   justify-content: flex-start;
   align-items: center;
   flex: 1 1 25%;
-  order: 2;
+  order: 3;
 }
 
 .sns a {
@@ -465,7 +511,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   flex: 1 1 100%;
   order: 1;
   display: flex;
-  flex-flow: row norwrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px dashed #303C4B;
@@ -490,7 +536,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: strecth;
+  align-items: stretch;
   padding-left: 16px;
 }
 
@@ -502,6 +548,33 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   display: inline-block;
   margin-right: -1rem;
   background: url(../img/footer/location-icon.png) no-repeat center;
+}
+
+@media (min-width: 960px) {
+  .location {
+    flex: 0.3 1 25%;
+    align-self: stretch;
+    order: 1;
+  }
+  .foot-links {
+    flex: 0.5 1 50%;
+    align-self: stretch;
+    order: 2;
+    border-bottom: none;
+    border-left: 1px dashed #303c4b;
+  }
+  .sns {
+    flex: 0.2 1 10%;
+    align-self: stretch;
+    order: 3;
+  }
+}
+
+@media (min-width: 960px) {
+  .body-footer > * {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 }
 
 /*# sourceMappingURL=../map/main.css.map */

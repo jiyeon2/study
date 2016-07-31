@@ -8,17 +8,22 @@
 	color: $welcome-font-color
 	background-color: #fff
 	+mq-m
-		+flex-box(row nowrap, center, center)
+		+flex-box(row nowrap, center, strecth)
 	h3
 		@extend %readable-hidden
 
 .special-menu
 	@extend %box-top-shadowing
+	img
+		border: 2px solid #ccc
+			radius: 50%
 
 .welcome-board-item
 	@extend %welcome-box-style
 	+mq-m
 		+flex-item(1 1 33%)
+		border-radius: 10px
+		box-shadow: 1px -2px 3px #ccc
 
 
 .welcome-board-title

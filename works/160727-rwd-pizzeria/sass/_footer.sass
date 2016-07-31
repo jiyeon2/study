@@ -4,7 +4,7 @@ $footer-font-color: #fff
 
 
 .body-footer
-	+flex-box($main: center, $cross: strecth)
+	+flex-box($main: center, $cross: stretch)
 	color: $footer-font-color
 	font-size: 12px
 	background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77
@@ -23,7 +23,7 @@ $footer-font-color: #fff
 
 .sns
 	+flex-box(row nowrap, flex-start, center)
-	+flex-item(1 1 25%, null, 2)
+	+flex-item(1 1 25%, null, 3)
 	a
 		@extend %ir
 		+size(30px,30px)
@@ -36,7 +36,7 @@ $footer-font-color: #fff
 
 .foot-links
 	+flex-item(1 1 100%, null, 1)
-	+flex-box(row norwrap, space-around, center)
+	+flex-box(row nowrap, space-around, center)
 	border-bottom: 1px dashed #303C4B 
 	a
 		&::before
@@ -50,7 +50,7 @@ $footer-font-color: #fff
 
 .location
 	+flex-item(1 1 75%, null, 2)
-	+flex-box(column wrap, center, strecth)
+	+flex-box(column wrap, center, stretch)
 	padding-left: 16px
 	&::before
 		content: ''
@@ -60,7 +60,18 @@ $footer-font-color: #fff
 		margin-right: -1rem
 		background: url(../img/footer/location-icon.png) no-repeat center
 
++mq-m
+	.location
+		+flex-item(0.3 1 25%, stretch, 1)
+	.foot-links
+		+flex-item(0.5 1 50%, stretch, 2)
+		border:
+			bottom: none
+			left: 1px dashed #303c4b
+	.sns
+		+flex-item(0.2 1 10%, stretch, 3)
 
-
-
++mq-m
+	.body-footer >*
+		+padding
 
