@@ -1,7 +1,7 @@
 @charset "UTF-8"
 //---------------------------
 //*변수
-$grid-on: false
+$grid-on: true
 $leading: 24px
 
 $main-color: #E6171F
@@ -156,8 +156,6 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button
 
 @if $grid-on == true
 	body
-		+bg
-			background: url(../img/slide/slide.png)
 		&::after
 			content: ''
 			position: absolute

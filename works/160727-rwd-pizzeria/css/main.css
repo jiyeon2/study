@@ -88,6 +88,17 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   margin-right: auto;
 }
 
+body::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 300vh;
+  background: linear-gradient(to bottom, transparent 23px, #aaff99 23px);
+  background-size: 1px 24px;
+}
+
 .body-header {
   display: flex;
   flex-flow: row wrap;
@@ -125,7 +136,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
 }
 
 .util-link {
-  flex: 0.3 1 auto;
+  flex: 0.1 1 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -143,9 +154,15 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   transition: all 0.2s;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
+}
+
+@media (min-width: 960px) {
+  .top-nav {
+    background-size: 1px 144px;
+  }
 }
 
 .top-nav .logo {
@@ -160,11 +177,20 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background-repeat: no-repeat;
   background-position: center;
   padding: 0.3rem;
-  width: 192px;
+  width: 30%;
+  max-width: 192px;
   height: 96px;
   border-bottom: 1px solid #ddd;
   border-bottom-left-radius: 50%;
   border-bottom-right-radius: 50%;
+}
+
+@media (min-width: 960px) {
+  .top-nav .logo {
+    max-width: 288px;
+    height: 144px;
+    padding: 1rem;
+  }
 }
 
 .grid-btn {
@@ -252,7 +278,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
 }
 
 .slide {
-  height: 288px;
+  max-height: 288px;
   margin-top: -48px;
   position: relative;
   overflow: hidden;
@@ -260,6 +286,14 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@media (min-width: 960px) {
+  .slide {
+    max-height: 528px;
+    margin-top: -72px;
+    overflow: visible;
+  }
 }
 
 .slide .left {
@@ -278,12 +312,25 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background-position: center;
 }
 
+@media (min-width: 960px) {
+  .slide .left, .slide .right {
+    width: 70px;
+    height: 100px;
+  }
+}
+
 .slide-page img {
   width: 100%;
   height: auto;
   display: block;
   padding-top: 48px;
   max-width: 530px;
+}
+
+@media (min-width: 960px) {
+  .slide-page img {
+    max-width: 870px;
+  }
 }
 
 .slide-btn {
@@ -314,6 +361,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: strecth;
+    background: linear-gradient(to bottom, #efefef 3%, #fff 30%);
   }
 }
 
@@ -326,29 +374,48 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   .welcome-board-item {
     flex: 1 1 33%;
     border-radius: 10px;
-    box-shadow: 1px -2px 3px #ccc;
+    box-shadow: 0px -5px 3px rgba(204, 204, 204, 0.5);
+    line-height: 2.2;
+    padding: 19px 22px;
+  }
+}
+
+@media (min-width: 960px) {
+  .week-event {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
 .welcome-board-title {
   line-height: 48px;
   background: url("../img/welcome/This-week-event news.png");
-  max-width: 205px;
+  max-width: 226px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;
 }
 
 .week-event .welcome-board-title {
+  max-width: 191px;
   background-image: url("../img/welcome/Special-menu-open.png");
 }
 
 .welcome-comment .welcome-board-title {
+  max-width: 250px;
   background-image: url("../img/welcome/Welcome-to-our restaurant.png");
 }
 
 .fin {
   float: right;
+}
+
+@media (min-width: 960px) {
+  .welcome-comment a {
+    position: absolute;
+    right: 22px;
+    bottom: 12px;
+  }
 }
 
 .info {
@@ -359,7 +426,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   padding-bottom: 26px;
   color: #975122;
   text-align: center;
-  background: url("../img/info/bg-wood.png");
+  background: url("../img/info/bg-wood.png"), #f6d49d;
 }
 
 @media (min-width: 960px) {
@@ -368,6 +435,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     flex-flow: column wrap;
     justify-content: center;
     align-items: stretch;
+    padding-bottom: 0;
   }
 }
 
@@ -385,6 +453,13 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background-position: center;
 }
 
+@media (min-width: 960px) {
+  .info::before {
+    width: 80px;
+    height: 65px;
+  }
+}
+
 .info h3 {
   height: 48px;
   background-image: url("../img/info/restaurant-information.png");
@@ -397,6 +472,9 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
 @media (min-width: 960px) {
   .info h3 {
     width: 30%;
+    max-width: 400px;
+    margin-bottom: 24px;
+    margin-top: 24px;
   }
 }
 
@@ -405,7 +483,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: stretch;
   }
 }
 
@@ -419,11 +497,13 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
 @media (min-width: 960px) {
   .info-item {
     flex: 0.25 1 30%;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
 }
 
 .info-title {
-  margin-bottom: 0.5em;
+  margin-bottom: 24px;
 }
 
 .image-box {
@@ -442,6 +522,12 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   margin-bottom: 1em;
 }
 
+@media (min-width: 960px) {
+  .image-box h3 {
+    padding-top: 48px;
+  }
+}
+
 .image-box h3 span {
   font-weight: normal;
 }
@@ -453,6 +539,12 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   padding-bottom: 24px;
 }
 
+@media (min-width: 960px) {
+  .image-box p {
+    padding-bottom: 48px;
+  }
+}
+
 .body-footer {
   display: flex;
   flex-flow: row wrap;
@@ -462,6 +554,22 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   font-size: 12px;
   background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77;
   background-size: 20px 1px, 1px 20px, cover;
+}
+
+.body-footer .footer-contents {
+  height: 60%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  flex: 0.6 1 60;
+}
+
+@media (min-width: 960px) {
+  .body-footer {
+    height: 216px;
+    flex-flow: column nowrap;
+  }
 }
 
 .body-footer > * {
@@ -482,6 +590,12 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background: #2B2B2B;
 }
 
+@media (min-width: 960px) {
+  .copyright {
+    flex: 0.4 1 40%;
+  }
+}
+
 .sns {
   display: flex;
   flex-flow: row nowrap;
@@ -497,6 +611,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  margin-right: 5%;
 }
 
 .facebook {
@@ -515,6 +630,8 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px dashed #303C4B;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .foot-links a::before {
@@ -536,8 +653,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: stretch;
-  padding-left: 16px;
+  align-items: center;
 }
 
 .location::before {
@@ -546,7 +662,6 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
   width: 20px;
   height: 30px;
   display: inline-block;
-  margin-right: -1rem;
   background: url(../img/footer/location-icon.png) no-repeat center;
 }
 
@@ -560,6 +675,7 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     flex: 0.5 1 50%;
     align-self: stretch;
     order: 2;
+    padding: 0;
     border-bottom: none;
     border-left: 1px dashed #303c4b;
   }
@@ -567,13 +683,6 @@ header, main, section, nav, footer, h1, h2, h3, h4, div, a, button {
     flex: 0.2 1 10%;
     align-self: stretch;
     order: 3;
-  }
-}
-
-@media (min-width: 960px) {
-  .body-footer > * {
-    padding-top: 24px;
-    padding-bottom: 24px;
   }
 }
 

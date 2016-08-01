@@ -12,15 +12,19 @@ $info-font-color: #975122
 		bottom: 26px
 	color: $info-font-color
 	text-align: center
-	background: url('../img/info/bg-wood.png') 
+	background: url('../img/info/bg-wood.png'), #f6d49d
 	+mq-m
 		+flex-box(column wrap, center, stretch)
+		padding:
+			bottom: 0
 	&::before
 		content: ''
 		+size(60px, 50px)
 		position: absolute
 		top: -5px
 		left: 50%
+		+mq-m
+			+size(80px, 65px)
 		transform: translateX(-50%)
 		+bg
 			background-image: url('../img/info/riborn.png')
@@ -34,10 +38,14 @@ $info-font-color: #975122
 			max-width: 200px
 		+mq-m
 			width: 30%
+			max-width: 400px
+			margin:
+				bottom: $leading * 1
+				top: $leading * 1
 
 .info-wrapper
 	+mq-m
-		+flex-box(row nowrap, space-around, center)
+		+flex-box(row nowrap, space-around, stretch)
 
 
 .info-item
@@ -47,7 +55,10 @@ $info-font-color: #975122
 	margin-bottom: $leading * 1
 	+mq-m
 		+flex-item(0.25 1 30%)
+		padding:
+			top: $leading
+			bottom: $leading
 
 .info-title
 	@extend %capitalize
-	margin-bottom: 0.5em
+	margin-bottom: $leading

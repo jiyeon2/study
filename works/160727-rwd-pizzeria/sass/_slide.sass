@@ -2,8 +2,12 @@
 //*slide
 
 .slide
-	height: $leading * 12
+	max-height: $leading * 12
 	margin-top: -($leading * 2)
+	+mq-m
+		max-height: $leading * 22
+		margin-top: -($leading * 3)
+		overflow: visible
 	position: relative
 	overflow: hidden
 	+bg
@@ -22,6 +26,10 @@
 		right: 0
 		+bg(contain)
 			background: url(../img/slide/right-arrow.png)
++mq-m
+	.slide 
+		.left, .right
+			+size(70px,100px)
 
 .slide-page
 	img
@@ -31,6 +39,8 @@
 		padding:
 			top: $leading * 2
 		max-width: 530px
+		+mq-m
+			max-width: 870px
 
 .slide-btn
 	position: absolute

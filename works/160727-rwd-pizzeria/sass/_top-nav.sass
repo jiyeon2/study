@@ -1,18 +1,19 @@
 @charset "UTF-8"
 //---------------------------
 //*top-nav
+$logo-width: 192px
 .top-nav
 	@extend %clearfix
 	@extend %capitalize
-	$logo-width: 192px
-	$logo-height: $logo-width *0.5
 	//top-nav가 slide 위에 보이도록
 	+pos-z
-	+bg(1px $logo-height + 4, repeat)
+	+bg(1px $logo-width /2 + 4, repeat)
 		background: linear-gradient(to bottom, #fff 50%, #ddd 50%, transparent 53%)
+	+mq-m
+		background-size: 1px 144px
 	width: 100%
 	transition: all 0.2s
-	+flex-box(row nowrap, space-between, center)
+	+flex-box(row nowrap, space-around, center)
 
 	text-align: center
 	.logo
@@ -22,9 +23,14 @@
 			background: url(../img/header-nav/center-logo.png), #fff
 				origin: content-box
 		padding: 0.3rem
-		width: $logo-width
-		height: $logo-width * 0.5
-		
+		width: 30%
+		max-width: $logo-width
+		height: $logo-width /2
+		+mq-m
+			$logo-width: 288px
+			max-width: $logo-width
+			height: $logo-width /2
+			padding: 1rem
 		border: 
 			bottom: 1px solid #ddd
 				left-radius: 50%

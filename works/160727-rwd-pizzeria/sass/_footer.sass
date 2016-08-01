@@ -9,9 +9,16 @@ $footer-font-color: #fff
 	font-size: 12px
 	background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77
 	background-size: 20px 1px, 1px 20px, cover
-
+	& .footer-contents
+		height: 60%
+		+flex-box($main: center, $cross: stretch)
+		flex: 0.6 1 60
+	+mq-m
+		height: $leading *9
+		flex-flow: column nowrap
 	>*
 		height: $leading *2
+
 
 	a
 		color: $footer-font-color
@@ -20,6 +27,8 @@ $footer-font-color: #fff
 	+flex-item(1 1 100%, null, 3)
 	+flex-box(row nowrap, center, center)
 	background: #2B2B2B
+	+mq-m
+		flex: 0.4 1 40%
 
 .sns
 	+flex-box(row nowrap, flex-start, center)
@@ -28,6 +37,7 @@ $footer-font-color: #fff
 		@extend %ir
 		+size(30px,30px)
 		+bg(contain)
+		margin-right: 5%
 
 .facebook
 	background-image: url('../img/footer/facebook-icon.png')
@@ -38,6 +48,9 @@ $footer-font-color: #fff
 	+flex-item(1 1 100%, null, 1)
 	+flex-box(row nowrap, space-around, center)
 	border-bottom: 1px dashed #303C4B 
+	padding:
+		top: $leading * 0.5
+		bottom: $leading * 0.5
 	a
 		&::before
 			+bg(auto)
@@ -50,14 +63,14 @@ $footer-font-color: #fff
 
 .location
 	+flex-item(1 1 75%, null, 2)
-	+flex-box(column wrap, center, stretch)
-	padding-left: 16px
+	+flex-box(column wrap, center, center)
+	// padding-left: 16px
 	&::before
 		content: ''
 		+flex-item(1 1 100%)
 		+size(20px, 30px)
 		display: inline-block
-		margin-right: -1rem
+		// margin-right: -1rem
 		background: url(../img/footer/location-icon.png) no-repeat center
 
 +mq-m
@@ -65,13 +78,12 @@ $footer-font-color: #fff
 		+flex-item(0.3 1 25%, stretch, 1)
 	.foot-links
 		+flex-item(0.5 1 50%, stretch, 2)
+		padding: 0
 		border:
 			bottom: none
 			left: 1px dashed #303c4b
 	.sns
 		+flex-item(0.2 1 10%, stretch, 3)
 
-+mq-m
-	.body-footer >*
-		+padding
+
 
