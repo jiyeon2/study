@@ -10,7 +10,7 @@ $footer-font-color: #fff
 	background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77
 	background-size: 20px 1px, 1px 20px, cover
 	& .footer-contents
-		height: 60%
+		+size(100%, 60%)
 		+flex-box($main: center, $cross: stretch)
 		flex: 0.6 1 60
 	+mq-m
@@ -29,6 +29,8 @@ $footer-font-color: #fff
 	background: #2B2B2B
 	+mq-m
 		flex: 0.4 1 40%
+		justify-content: flex-end
+		padding-right: 17% //foot-link와 끝나는 지점 맞추는 값/
 
 .sns
 	+flex-box(row nowrap, flex-start, center)
@@ -47,6 +49,10 @@ $footer-font-color: #fff
 .foot-links
 	+flex-item(1 1 100%, null, 1)
 	+flex-box(row nowrap, space-around, center)
+	+mq-m
+		justify-content: flex-end
+		&>*
+			flex: 0.1 1 auto
 	border-bottom: 1px dashed #303C4B 
 	padding:
 		top: $leading * 0.5
@@ -65,12 +71,13 @@ $footer-font-color: #fff
 	+flex-item(1 1 75%, null, 2)
 	+flex-box(column wrap, center, center)
 	// padding-left: 16px
+	p
+		align-self: flex-start
 	&::before
 		content: ''
 		+flex-item(1 1 100%)
 		+size(20px, 30px)
 		display: inline-block
-		// margin-right: -1rem
 		background: url(../img/footer/location-icon.png) no-repeat center
 
 +mq-m

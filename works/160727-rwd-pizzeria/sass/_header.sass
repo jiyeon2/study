@@ -4,7 +4,7 @@
 .body-header
 	@extend %capitalize
 	+flex-box(row wrap, space-around, center)
-	+bg(60px 1px, repeat, 10px 0)
+	+bg(60px, repeat, 10px 0)
 		background: linear-gradient(to right, #C30006 50%, #ED1920 50%) 
 	position: relative
 	height: $leading * 2
@@ -23,7 +23,7 @@
 		border-bottom: 1px solid yellow
 
 .logo
-	+flex-item(0 1 auto)
+	+flex-item(0.55 1 auto)
 	h1
 		font-size: $header-font-size
 
