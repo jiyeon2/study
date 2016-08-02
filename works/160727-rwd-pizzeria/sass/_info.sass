@@ -18,16 +18,16 @@ $info-font-color: #975122
 		padding:
 			bottom: 0
 	&::before
-		content: ''
 		+size(60px, 50px)
+		content: ''
 		position: absolute
 		top: -5px
 		left: 50%
-		+mq-m
-			+size(80px, 65px)
 		transform: translateX(-50%)
 		+bg
 			background-image: url('../img/info/riborn.png')
+		+mq-m
+			+size(80px, 65px)
 
 	h3
 		@extend %ir
