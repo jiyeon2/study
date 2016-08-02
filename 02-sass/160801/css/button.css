@@ -1,0 +1,38 @@
+.button, .button-fail, .button-success, .button-disabled {
+  margin: 0 auto 25px;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.button em, .button-fail em, .button-success em, .button-disabled em {
+  text-decoration: underline;
+}
+
+.button-fail {
+  background-color: red;
+  border-color: #660000;
+}
+
+.button-success {
+  background-color: #1be4b7;
+  border-color: #0b5b49;
+}
+
+.button-disabled {
+  cursor: default;
+  background-color: #c9c9c9;
+  border-color: #7d7d7d;
+}
+
+.msg .button-disabled {
+  background-color: #660000;
+}
+
+.demo {
+  font: 1em Arial, sans-serif;
+}
+
+.demo .box {
+  margin: 10px auto 20px;
+  padding: 10px;
+}

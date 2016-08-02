@@ -1,0 +1,28 @@
+@import "part"
+
+
+.button
+	margin: 0 auto 25px
+	padding: 15px
+	border-radius: 6px
+	em
+		text-decoration: underline
+	&-fail
+		@extend .button !optional
+		background-color: $fail-color
+		border-color: darken($fail-color, 30%)
+	&-success
+		@extend .button
+		background-color: $success-color
+		border-color: darken($success-color, 30%)
+	&-disabled
+		@extend .button
+		cursor: default
+		background-color: $disabled-color
+		border-color: darken($disabled-color, 30%)
+		.msg &
+			background-color: darken($fail-color, 30%)
+
+.demo
+	@import box
+	font: 1em Arial, sans-serif
