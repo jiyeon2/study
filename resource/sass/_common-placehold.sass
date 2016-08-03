@@ -1,0 +1,36 @@
+//---------------------------
+//* common %placehold
+
+@import 'size'
+
+//목록 스타일 초기화
+%reset-list
+	margin:
+		top: 0
+		bottom: 0
+	padding-left: 0
+	list-style: none
+
+// 클리어픽스
+%cf
+	&::after
+		content: ''
+		display: block
+		clear: both
+ .lt-ie8 &
+ 		zoom: 1
+
+//readable-hidden 화면에 보이지 않지만 스크린리더가 읽을 수 있게 함
+%readable-hidden
+	overflow: hidden
+	position: absolute
+	+size(1px, 1px)
+	margin: -1px
+	border: 0
+	padding: 0
+	&:focus
+		overflow: visible
+		position: static
+		clip: auto
+		+size(auto, auto)
+		margin: 0
