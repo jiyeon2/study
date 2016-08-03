@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>btns</title>
+	<style>
+		button{
+			border: none;
+			
+		}
+	</style>
+</head>
+
+<body>
+<button>red</button>
+<button>blue</button>
+
+<script>
+var red_btn = document.getElementsByTagName('button')[0];
+var blue_btn = document.getElementsByTagName('button')[1];
+var body = document.body;
+var bg  = body.style.backgroundColor; 
+console.log(bg);
+red_btn.onclick = function(){
+	body.style.backgroundColor='#cc1234';
+	// bg = '#cc1234';
+	// bg ='rgb(100,10,11)';
+	// console.log(bg);
+}
+blue_btn.onclick = function(){
+	body.style.backgroundColor = '#1234cc';
+}
+	//red버튼을 누르면 배경색이 붉게
+	//blue버튼을 누르면 배경색 파랗게
+</script>
+</body>
+
+</html>
