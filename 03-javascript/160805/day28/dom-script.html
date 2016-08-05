@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM Script with JavaScript</title>
+	<style>
+		input{
+			border: none;
+			padding: 0.5em;
+			border-bottom: 1px solid pink;}
+		input:focus{
+			outline: none;
+			background: rgba(255,100,100, 0.2);
+			border-bottom: #fff;
+		}
+		input::placeholder{
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+
+<p class="my-para">
+	<strong id="bow">hello</strong>how are you doing?
+</p>
+
+ <form name="primary_form" action="#" method="GET">
+ 	<p>
+ 		<label for="c_id">ID</label>
+ 		<input type="text" name="c_id" id="c_id" placeholder="yahoo">
+ 	</p>
+ 	<button type="submit">전송</button>
+ </form>
+
+  <form name="secondary-form" action="#" method="GET">
+ 	<p>
+ 		<label for="c_mail">EMAIL</label>
+ 		<input type="text" name="c_mail" id="c_mail" placeholder="yahoo@gmail.com">
+ 	</p>
+ 	<button type="submit">전송</button>
+ </form>
+
+ <script>
+//  	//dom lv.0방식
+//  	var forms = document.forms;
+//  	console.log(forms); // [form,form] 이렇게 수집됨
+
+//  	//document.layers(netscape) vs document.all(ie) 이제 ie만 사용되는 코드 아니므로 아래처럼 쓰지 않는다
+//  	if (document.layers){
+//  		//nn
+//  		console.info('nn가 확실합니다');
+//  	}else{
+//  		//ie
+//  		console.info('ie 웹 브라우저가 확실합니다');
+//  	}
+
+//  /*
+// DOM Level1
+// document.documentElement
+// document.getElementsByTagName()
+// document.getElementById()
+// 대상을 수집해 옴
+//  */
+// var head = document.head;//html에서만 사용 가능
+// var body = document.body;//html에서만 사용 가능
+// var root_element = document.documentElement; // 표준 적용되지 않는 ie만 사용불가. HTML문서에서만 이렇게 단축된 형식으로 사용 가능
+// var root_element = document.getElementsByTagName('html')[0];//xml에서는 이렇게 써야함
+// console.log('root element: ',root_element); //<html> 비표준ie에서는<body>(?)
+
+// var inputs = document.getElementsByTagName('input');
+// var buttons = document.getElementsByTagName('button');
+
+// console.log('inputs: ', inputs);
+// console.log('buttons: ', buttons);
+
+// // id속성을 통한 접근 방법(interface : selecting)
+// var c_id = document.getElementById('c_id');
+// var c_mail = document.getElementById('c_mail');
+// console.log('c_id: ', c_id);
+// console.log('c_mail: ', c_mail);
+
+//----------
+
+var first_para = document.getElementsByTagName('p').item(0);
+var first_para_nodes= first_para.childNodes;
+
+console.log(first_para_nodes[0].nodeType === document.ELEMENT_NODE); // 첫번째 노드 타입이 요소노드인가? === 1
+console.log(first_para_nodes[1].nodeType === document.ELEMENT_NODE);
+console.log(first_para_nodes[2].nodeType === document.TEXT_NODE); // 세번째 노드 타입이 텍스트노드인가? ===3
+// 노드타입 2 : 속성노드
+ </script>
+</body>
+
+</html>
