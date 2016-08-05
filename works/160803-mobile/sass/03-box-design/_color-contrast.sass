@@ -1,0 +1,7 @@
+// 폰트값과 대비되는 색상을 배경색으로 지정
+@mixin font-bg($color, $compare-light: 50%, $amount: 50%)
+	@if type-of($color) != color
+		@error "전달받은 #{$color}값은 색상 데이터가 아닙니다"
+
+	$lightness: lightness($color) > $compare-light
+	$bg-

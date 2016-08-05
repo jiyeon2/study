@@ -1,0 +1,76 @@
+$sand: color(sand)
+
+body
+	+font
+
+.container
+	max-width: 375px
+	+position(relative)
+
+img
+	.status-bar &, .item-picture &
+		+block(inline)
+		+size(100%)
+	.move-btns &
+		+size(16px)
+
+
+
+.move-btns
+	@extend %cf
+	.back-btn
+		float: left
+	.shopping-btns
+		float: right
+
+.item
+	+flex-box(center, stretch)
+		flex-flow: column nowrap
+	text-align: center
+	&::before
+		content: ''
+		+block
+		width: 100%
+		padding-top: 96% // absolute되어 뜬 이미지높이만큼 padding-top지정
+
+.item-picture
+	position: absolute
+	top: 0
+	left: 0
+	z-index: -1
+	+size(100%,auto)
+
+
+.item-tag
+	+flex-box(space-between)
+	padding: 1em
+	color: #fff
+	background-color: black
+ 
+.item-info
+	+flex-box(center, stretch)
+	padding: 1em
+	color: rgba(black, 0.3)
+	font-style: italic
+	& span
+		display: block
+		font-size: (60 / 28) * 1rem
+		font-weight: 800
+		color: $sand
+	& >*
+		flex: 1 1 auto
+
+	.color
+		$circle-edge: rgba(black, 0.2)
+		background: radial-gradient(circle, black 25%, $circle-edge 30%, $circle-edge 40%, transparent 40%) no-repeat
+		background-size: 50%
+		background-position: center
+		text-indent: -999rem
+
+button
+	@extend %btn-default
+	&.add-btn
+		+size(100%)
+		background-color: $sand
+		color: #fff
+

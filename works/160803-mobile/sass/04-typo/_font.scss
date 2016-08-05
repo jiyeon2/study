@@ -1,0 +1,3 @@
+@mixin font{
+	font: #{$base-font-size}/#{$base-line-height} '#{$merriweather-font-family}', 'sans-serif';
+}

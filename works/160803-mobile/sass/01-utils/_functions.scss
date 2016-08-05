@@ -1,0 +1,55 @@
+/* 함수 */
+
+
+// 키워드로 색 지정하는 함수
+// $colors 에 '키워드: 색상코드' 로 이뤄진 맵 데이터 저장
+//color()함수에 색깔 키워드 전달하면 색상코드 반환 
+$colors: (
+    "cobalt": #225b99,
+    "black": #333333,
+    "sand": #ddba76,
+    "greyish": #a4a4a4,
+    "black-two": #222222,
+    "gray-bg": #d8d8d8,
+    "beige": #e4cabc,
+    "gray-box": #efefef,
+    "cerise": #ed145b,
+    "white-bg": #fcfcfc,
+    "white-tab": #f9f9f9,
+    "black-three": #030303,
+    "disble-grey": #828282
+);
+@function color($key) {
+    @if not map-has-key($colors, $key) {
+        @warn "Key `#{$key}` not found in $colors map."
+    }
+    @return map-get($colors, $key);
+}
+
+// 단위제거함수
+// $unit : 단위(px, %, rem ..) 가 붙은 숫자 데이터
+// 반환값 : 단위없는 숫자데이터
+@function rm-unit($unit)
+    @return $unit / ($unit*0+1)
+
+
+// px단위 값을 rem 단위 값으로 변환하는 함수
+// $px : rem단위 값으로 변환하고자하는 px값
+// [$base-font-size]: rem단위 기준이되는 px값, 기본 16px
+// 반환값 : rem단위 값
+@function rem($px, $base-font-size: 16px)
+    @return ($px/$base-font-size) *1rem
+
+// 색상 어둡게 만드는 함수
+// $color: 변환할 색상값
+// [$amount] : 0% ~ 100%, 0%면 조금 어둡게, 100%면 많이 어둡게, 기본 50%
+// 반환값 : 색상값
+@function shade($color, $amount: 50%)
+    @return mix($color, black, $amount)
+
+// 색상 밝게 만드는 함수
+// $hex : 변환할 색상값
+// [$amount] : 0% ~ 100%, 0%이면 조금 밝게, 100%면 많이 밝게, 기본 50%
+// 반환값 : 색상값
+@function tint($hex, $amount: 50%)
+    @return mix($hex, white, $amount)

@@ -1,0 +1,25 @@
+// position믹스인
+// 입력: relative left 0 right 0 top 0 bottom 0 z 0
+//
+// 포지션값과 옾셋값 콜론없이 입력해서 position 지정하고싶다
+//출력 :
+// position: relative
+// left: 0
+// right: 0
+// top: 0
+// bottom: 0
+// z-index: 0
+
+//$position: 필수
+//[$offsets]: top left right bottom z 값 담고있는 리스트
+@mixin position($position, $offsets: null )
+	position: $position
+	
+	@each $key in top left right bottom z
+		@if index($props, $key) > 0 
+			$value-index: index($props, $key) + 1
+			#{$key}: nth($props, $value-index)
+			
+
+
+
