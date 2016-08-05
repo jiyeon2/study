@@ -6,6 +6,9 @@ $logo-width: 192px
 	@extend %clearfix
 	@extend %capitalize
 	//top-nav가 slide 위에 보이도록
+	+flex-box(row nowrap, space-around, center)
+	& >*
+		+flex-item(1 1 auto)
 	+pos-z
 	+bg(1px $logo-width /2 + 6, repeat)
 		background: linear-gradient(to bottom, #fff 50%, #ddd 50%, transparent 54%)
@@ -13,11 +16,10 @@ $logo-width: 192px
 		background-size: 1px 150px
 	width: 100%
 	transition: all 0.2s
-	+flex-box(row nowrap, space-around, center)
-	
 	text-align: center
 	.logo
-		+flex-item(1 1 auto, center, 1)
+		+flex-box(row wrap, center)
+		order: 2
 		+pos-z
 		&:hover,
 		&:focus
@@ -51,7 +53,10 @@ $logo-width: 192px
 		@extend %capitalize
 
 .grid-btn
-	+flex-item(0 1 auto, flex-start, 0)
+	+flex-box($main: flex-start)
+	max-width: 50px
+	align-self: flex-start
+	order: 1
 	margin:
 			top: 10px
 			left: 10px
@@ -73,7 +78,10 @@ $logo-width: 192px
 					background: url(../img/header-nav/hamberger-btn.png)
 
 .menu-btn
-	+flex-item(0 1 auto, flex-start,2)
+	+flex-box($main: flex-end)
+	max-width: 50px
+	align-self: flex-start
+	order: 3
 	margin:
 			top: 10px
 			right: 10px
