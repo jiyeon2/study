@@ -56,8 +56,8 @@
 
 ----------
 
-- [repaint reflow] (https://github.com/nhnent/fe.javascript/wiki/Reflow%EC%99%80-Repaint)
-- [Reflow or Repaint(or ReDraw)과정 설명 및 최적화 방법] (http://mohwaproject.tistory.com/entry/ReflowLayout-%EA%B3%BC-Repaint-%EA%B3%BC%EC%A0%95-%EB%B0%8F-%EC%B5%9C%EC%A0%81%ED%99%94)
+- [repaint reflow](https://github.com/nhnent/fe.javascript/wiki/Reflow%EC%99%80-Repaint)
+- [Reflow or Repaint(or ReDraw)과정 설명 및 최적화 방법](http://mohwaproject.tistory.com/entry/ReflowLayout-%EA%B3%BC-Repaint-%EA%B3%BC%EC%A0%95-%EB%B0%8F-%EC%B5%9C%EC%A0%81%ED%99%94)
     + html 문서 파싱 -> DOM 노드 트리 생성(요소별로 나눠지는듯하다) -> 각 노드가 화면에 정확한 위치에 표시되도록 배치하는 과정(reflow)-> 노드 그리는 과정 visibility, outline, background-color등 시각적 속성을 입힘(repaint)
 - 애니메이션 시
        + position: absolute에서 left값 변화하게 만들면 cpu사용하여 성능저하됨
