@@ -36,12 +36,16 @@ $pesudo-type: after
 	$hue: floor(remove-unit(hue($hex)))//입력받은 hex컬러에서 hue값 얻어서(deg단위 붙어있음) 단위 제거
 	$saturation: floor(remove-unit(saturation($hex))) //입력받은 hex컬러에서 saturation값 얻어서(%값 붙어있음) 단위 제거
 	$lightness: floor(remove-unit(lightness($hex))) //입력받은 hex컬러에서 lightness값 얻어서(%값 붙어있음) 단위 제거
-	$result: "hsla(#{$hue},#{$saturation},#{$lightness},#{$alpha})"//result변수에 문자열로 저장. 기존 sass의 hsla()함수-rgba값으로 반환-가 있기에 쌍따옴표로 감싸지 않으면 rgba형태로 저장된다
+	$result: "hsla(#{$hue},#{$saturation},#{$lightness},#{$alpha})"//result변수에 문자열로 저장. 기존 sass의 hsla()함수-rgba값으로 반환-가 있기에 쌍따옴표로 감싸지 않으면 rgba형태로 저장된다 = sass함수는 덮어쓸 수 있다
 	@return unquote($result) // 쌍따옴표를 풀어서 컬러값으로 반환한다
 
 /*색깔함수*/
-@function shade($hex, $amount)
-	@return mix(#000, #hex, $amount) //mix()함수는 두 색을 섞는데, amount가 0%에 가까우면 앞쪽색을 더 많이, 100%에 가까우면 뒤쪽색을 더 많이 섞는다???
+@function shade($hex, $amount) //색을 어둡게 만들어줌 
+//darken 함수도 있다. 색을 점진적으로 어둡게 하기에는 mix함수 사용하는 것이 낫다 (http://sass-guidelin.es/ko/)
+	@return mix(#000, $hex, $amount) //mix()함수는 두 색을 섞는데, amount가 0%에 가까우면 앞쪽색을 더 많이, 100%에 가까우면 뒤쪽색을 더 많이 섞는다???
+
+@function tint($hex, $amount)
+	@return mix(#fff, $hes, $amount)
 
 
 
