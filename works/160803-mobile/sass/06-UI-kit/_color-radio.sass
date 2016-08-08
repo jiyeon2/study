@@ -1,3 +1,7 @@
 //---------------------------
 //* radio 버튼처럼 생긴 색상표시
-
+@mixin color-radio($center-color: black, $edge-color: rgba(black, 0.2), $size: 50%)
+	background: radial-gradient(circle, $center-color 25%, $edge-color 30%, $edge-color 40%, transparent 40%) no-repeat
+	background-size: $size
+	background-position: center
+	text-indent: -999rem
