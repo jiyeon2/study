@@ -15,11 +15,13 @@ img
 		+size(16px)
 
 
-
 .move-btns
 	@extend %cf
 	.back-btn
 		float: left
+		& > img:hover
+			 filter: hue-rotate(220deg) saturate(5)
+			 
 	.shopping-btns
 		float: right
 
@@ -31,13 +33,10 @@ img
 		content: ''
 		+block
 		width: 100%
-		padding-top: 96% // absolute되어 뜬 이미지높이만큼 padding-top지정
+		padding-top: calc(100% - 76px) // absolute되어 뜬 이미지높이만큼 padding-top지정
 
 .item-picture
-	position: absolute
-	top: 0
-	left: 0
-	z-index: -1
+	+position(absolute, top 0 left 0 z-index -1)
 	+size(100%,auto)
 
 
@@ -53,7 +52,7 @@ img
 	color: rgba(black, 0.3)
 	font-style: italic
 	& span
-		display: block
+		+block
 		font-size: (60 / 28) * 1rem
 		font-weight: 800
 		color: $sand
