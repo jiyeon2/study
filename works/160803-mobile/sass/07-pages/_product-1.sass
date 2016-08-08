@@ -1,4 +1,5 @@
 $sand: color(sand)
+$light-grey: #eaeaea
 
 body
 	+font
@@ -6,6 +7,13 @@ body
 .container
 	max-width: 375px
 	+position(relative)
+	.product2 &
+		background: $light-grey
+
+.status-bar
+	padding:
+		left: 0.5em
+		right: 0.5em
 
 img
 	.status-bar &, .item-picture &
@@ -29,15 +37,16 @@ img
 	+flex-box(center, stretch)
 		flex-flow: column nowrap
 	text-align: center
-	&::before
+	&.intro::before
 		content: ''
 		+block
 		width: 100%
 		padding-top: calc(100% - 76px) // absolute되어 뜬 이미지높이만큼 padding-top지정
 
 .item-picture
-	+position(absolute, top 0 left 0 z-index -1)
 	+size(100%,auto)
+	.intro &
+		+position(absolute, top 0 left 0 z-index -1)
 
 
 .item-tag
@@ -60,11 +69,7 @@ img
 		flex: 1 1 auto
 
 	.color
-		$circle-edge: rgba(black, 0.2)
-		background: radial-gradient(circle, black 25%, $circle-edge 30%, $circle-edge 40%, transparent 40%) no-repeat
-		background-size: 50%
-		background-position: center
-		text-indent: -999rem
+		+color-radio
 
 button
 	@extend %btn-default
