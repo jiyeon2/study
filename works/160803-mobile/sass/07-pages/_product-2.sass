@@ -3,7 +3,7 @@ $light-grey-blue: #95b8ce
 $dark-grey-blue: #353b59
 $purple-brown: #1b191a
 $white-bg: #fcfcfc
-
+// +flexible-font
 .product2
 	font-size: 0.9rem
 	.item
@@ -55,10 +55,10 @@ $white-bg: #fcfcfc
 
 .item-color
 	& >span:nth-of-type(2)
-		+color-radio($silver-two, #fff, 100%)
+		+color-radio($silver-two, #fff, 2rem 2rem)
 	& >span:nth-of-type(3)
-		+color-radio($light-grey-blue, #fff, 100%)
+		+color-radio($light-grey-blue, #fff, 2rem 2rem)
 	& >span:nth-of-type(4)
-		+color-radio($dark-grey-blue, #fff, 100%)
+		+color-radio($dark-grey-blue, #fff, 2rem 2rem)
 	& >span:nth-of-type(5)
-		+color-radio($purple-brown, #fff, 90%)
+		+color-radio($purple-brown, #fff, 2rem 2rem)
