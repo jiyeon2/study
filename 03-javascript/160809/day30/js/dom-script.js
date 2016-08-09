@@ -62,15 +62,44 @@ var body = document.body;
 	//parent_node.appendChild(child_node); 와 유사하게 쓸 수 있도록
 // target_node.parentNode.insertBefore(insert_node, target_node)
 	//핵심코드 사용
-function prependChild(parent, child){
-	parent.insertBefore(child, parent.firstChild);
-}
+// function prependChild(parent, child){
+// 	parent.insertBefore(child, parent.firstChild);
+// }
 
-prependChild(body, modal);
+// prependChild(body, modal);
+
+//특정 노드 뒤에 삽입하는 헬퍼 함수
+//insertAfter()
+
+// function insertAfter(target_node, insert_node){
+// // 삽입하고자 하는 노드를 모표 뒤에 추가해주는 헬퍼함수이다
+// // 함수 내부 var 키워드 사용한 변수선언은 '지역변수'가 된다
+// var next_node = target_node.nextSibling;
+// var parent_node = target_node.parentNode;
+// //만약 next_node가 존재한다면
+// if( next_node ){
+// 	next_node.parentNode.insertBefore(insert_node,next_node);
+// }
+// //만약 next_node가 존재하지 않는다면
+// else{
+// parent_node.appendChild(insert_node);
+// }
+// }
+
+var scripts_in_body = document.querySelectorAll('script');
+var last_script = scripts_in_body[scripts_in_body.length -1 ];
+insertAfter(last_script, modal);
+
+// function insertAfter(new_node, target){
+// 	if (target.nextSibling === null){ //타겟노드의 다음 형제자식이 없다면(타겟노드가 마지막 자식이라면)
+// 		target.parentNode.appendChild(new_node) // 타겟노드의 부모를 찾아 마지막 자식요소로 추가한다
+// 	}
+// 	target.nextSibling.parentNode.insertBefore(new_node, target.nextSibling);
+// }
 
 
 
-
+//-----------------------------------------------------------
 // var new_div = document.createElement('div');
 // var new_h2 = document.createElement('h2');
 // var new_title_text = document.createTextNode('Modal Window');
@@ -108,4 +137,5 @@ prependChild(body, modal);
 // close_button.appendChild(close_button_text);
 
 // document.body.insertBefore(new_div, document.body);
+
 
