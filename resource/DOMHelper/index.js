@@ -137,3 +137,30 @@ function findNode(type, name, context){
 			break;
 	}
 }
+
+/*--------------------------------------
+문서객체(노드) 제거하는 헬퍼함수
+-----------------------------------------*/
+function removeNode(node){
+	node.parentNode.removeChild(node);
+}
+
+/*--------------------------------------
+createElement(), createTextNode()
+2가지 일을 동시에 수행하는 헬퍼함수
+요소노드를 생성한 후 내부에 텍스트노드를 자식노드로 삽입
+-----------------------------------------*/
+function createNode(element_name, text){
+	var element_node = document.createElement(element_name);
+	if (typeof text !== 'undefined' && typeof text ==='string'){
+	var text_node = document.createTextNode(text);
+	//인자값과 변수값 같으면 좋지 않음 , js 호이스팅으로인해 변수가 위로 올라가서 인자값에 들어가는 것 방지
+	element_node.appendChild(text_node);
+	}
+	return element_node;
+}
+
+// 요소에 클래스 붙이기
+// function addClass(element_node, class_name){
+// element_node.setAttribute('class', class_name);
+// }
