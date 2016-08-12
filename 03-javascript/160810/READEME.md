@@ -126,6 +126,8 @@ function(){}.toString -> 오류
 |Number()안에 넣는다| Number('3') -> 3| Number('3살') -> Nan|
 |parseInt()안에 넣는다|parseInt('3살') -> 3, parseInt('2.3살') -> 2, parseInt('나는23살') -> NaN| parseInt()는 문자열 내 숫자값을 정수(소수점은 버림)로 반환. 들어가는 문자열이 숫자로 시작하지 않으면 NaN 반환|
 |parseFloat()안에 넣는다|parseFloat('3.3살') -> 3.3| 실수로 반환|
+|문자형 숫자앞에 `+`나 `-`| +'3' -> 3, -'3' -> -3| 부호 바꿔줌
+
 
 ```js
 '3px' - 1; //단위가 포함된 값은 문자열이라 연산 안됨
@@ -135,11 +137,14 @@ function(){}.toString -> 오류
 // ['3',''] 반환됨
 
 // 숫자값만 뽑아내려면
-'3px'.split('px')[0]; //3
+'3px'.split('px')[0]; //"3"
 
-'3px'.split('px')[0] - 1; //2
++'3px'.split('px')[0]; // 3
+
+'3px'.split('px')[0] - 1; // "3" - 1 // 2
 
 '3px'.split('px')[0] - 1 + 'px'; //'2px'
+
 
 ```
 
@@ -182,3 +187,21 @@ null / 1        // 숫자 0
 - typeof undefined -> undefined
 - null과 undefined 둘 다 비어있음 의미하는 자료형이라 같은 결과 나올 줄 알았는데 달라서 신기했음
 - null을 숫자로 형변환하면 0이 되는구나!!
+
+### 헬퍼함수 getStyle(), camelCase()
+```js
+window.getComputedStyle(el, [pseudo]); 
+// 요소(el)에 적용된 css스타일 값을 반환
+// 반환값은 CSSStyleDeclaration 라는 객체이고 {속성:값, 속성:값 ...}형태
+
+//특정 속성에 접근하려면
+window.getComputedStyle(el,[pseudo]).getPropertyValue(property);
+
+//.getComputedStyle 로 반환된 객체 값에 접근하기 위해 []사용
+window.getComputedStyle(el,[pseudo])[property];  
+
+
+//예
+window.getComputedStyle(document.body);
+    //
+```
