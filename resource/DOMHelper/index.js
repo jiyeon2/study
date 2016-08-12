@@ -117,7 +117,7 @@ getElementById, getElementsByClassName, getElementByTagName 대신
 
 @type{string} 'id', 'class' ,'tag' 선택
 @name{string} 아이디이름, 클래스이름, 태그이름
-@[context]{ELEMENT_NODE} 이건 잘 모르겠음 값을 넣으니 안됨...
+@[context]{ELEMENT_NODE} 
 @return ELEMNT_NODE
 
 IE8이상에서 사용 가능한 .querySelector를 이용하는 게 편하다!
@@ -164,3 +164,62 @@ function createNode(element_name, text){
 // function addClass(element_node, class_name){
 // element_node.setAttribute('class', class_name);
 // }
+
+/*------------------------------------------------
+웹브라우저에서 계산된 CSS 스타일 값 가져오는 방법
+--------------------------------------------------
+* 비표준 MS IE 방식 (IE 8 이하)
+	 대상.currentStyle.스타일속성
+--------------------------------------------------
+* 표준 W3C 방식 (IE 9 이상 지원)
+	window.getComputedStyle(대상,가상요소).스타일속성
+--------------------------------------------------*/
+function getStyle(el, property, pseudo){
+	var value, el_style;
+	//유효성검사 - 내가 만든 함수는 어떤 인자 넣어야하는지 알지만 다른사람은 모르므로 잘못된 인자 전달시 오류 발생시켜 알려줘야한다.
+	if (el.nodeType !== 1) {
+		console.error('첫번째 인자 el은 요소노드여야 합니다.');
+	}
+	if ( typeof property !== 'string'){
+		console.error('두번째 인자 property는 문자열이어야 합니다.');
+	}
+	if (pseudo && typeof pseudo !== 'string'){ // pseudo값이 존재하는데 그 값이 string이 아니면
+		console.error('세번째 인자 pseudo는 문자열이어야 합니다.');
+	}
+	//유효성 검사 끝!
+
+ //css 속성 이름 카멜케이스 화
+ //크롬의 경우 현재 font-size 이렇게 써도 fontSize와 같은 결과 알려주는데, 어떤 브라우저는 이렇지 않을 수도 있으므로 크로스 브라우징 위해서 함
+
+ property = camelCase(property); //전달인자로 받은 property 값을 camelCase함수에 전달하여 반환된 결과값을 property에 저장
+
+ if (window.getComputedStyle){ //getComputedStyle 지원되는 브라우저는 아래 함수 실행
+ 	el_style = window.getComputedStyle(el,pseudo);
+ 	if(pseudo && el_style.content === ''){ //가상요소 판별하여 가상요소의 경우 
+ 		return null;
+ 	}
+ 	value = el_style[property];
+ }else{//getComputedStyle 지원하지 않는 비표준 브라우저에서는 아래 함수 실행
+ 	value = el.currentStyle[property];
+ }
+ return value;
+}
+
+/*--------------------------------------
+css서 사용하는 '-'(하이픈) 붙은 속성명을 
+camelCase형식으로 변경하는 함수
+
+camelCase('font-size') -> fontSize 반환
+-----------------------------------------*/
+function camelCase(css_prop){
+	return css_prop.replace(/-./g, function($1){
+		return $1.replace('-','').toUpperCase();
+	});
+}
+
+/*--------------------------------------
+console.log(); 치기 귀찮아서 만든 함수
+-----------------------------------------*/
+function cl(content){
+	console.log(content);
+}
