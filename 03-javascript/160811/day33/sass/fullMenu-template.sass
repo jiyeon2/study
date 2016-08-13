@@ -1,0 +1,52 @@
+%button
+	width: 30px
+	height: 30px
+	position: fixed
+	top: 10px
+	left: 10px
+	// text-indent: -999rem
+	border: none
+	color: #fff
+	transition: all 0.2s
+	&:hover, &:focus
+		background: #000
+		color: #fff
+		cursor: pointer
+
+body
+	margin: 0
+
+.open-menu-btn
+	@extend %button
+	background: blue
+
+.close-menu-btn
+	@extend %button
+	background: green
+
+.full-menu
+	width: 100%
+	height: 100vh
+	display: flex
+	flex-flow: column nowrap
+	justify-content: space-between
+	margin: 0
+	padding: 0
+	list-style: none
+	background: lightpink
+
+.full-menu-list
+	flex: 1 1 auto
+	display: flex
+	justify-content: center
+	align-items: center
+	font-size: 2rem
+	@media (max-width: 400px) and (max-height: 500px)
+		font-size: 1rem
+	a
+		text-decoration: none
+		color: white
+		transition: all 0.2s
+		&:hover, &:focus
+			color: rgba(black, 0.5)
+
