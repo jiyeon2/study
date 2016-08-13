@@ -3,7 +3,9 @@ var page_header = query('.page-header');
 var increase_btn = query('.btn-increase-text');
 var decrease_btn = query('.btn-decrease-text');
 var set_default_btn = query('.btn-set-default'); //폰트사이즈 초기화하기 위한 버튼
-var change_text = 5; //폰트사이즈 증감 크기 담고있는 변수
+var show_font = document.getElementsByTagName('span')[0];
+var user_input = query('input'); //인풋창
+var change_text = 1; //폰트사이즈 증감 크기 담고있는 변수
 var limit_up = 72; //최대 폰트사이즈
 var limit_down = 12; //최소 폰트사이즈
 
@@ -19,6 +21,7 @@ console.log('set_default_btn : ',set_default_btn);
 function changeTextSize(){
 	// console.log('context: ',this.firstChild.nodeValue); //클릭한 버튼 식별하기 위해 버튼의 텍스트노드 값 확인
 	var operator = this.firstChild.nodeValue; // 버튼의 텍스트노드로 연산자(+,-) 파악
+	var show_font = query('span');// font-size보여줄 span태그 찾음
 	var _change_text = change_text; // changeTetSize()함수 내에서 사용하는 지역변수.
 	// 전역변수인 change_text 값에 영향 끼치지 않도록 지역변수 따로 설정하고, 전역변수의 값을 복사하여 저장해 둠
 	var _current_text;
@@ -26,13 +29,14 @@ function changeTextSize(){
 		// 글자 크기를 연산이 가능하도록 변경
 	var current_size = parseInt( getStyle(page_header, 'font-size') ); // getStyle() 함수는 inline style말고 css computedstyle 가져오기 위한 함수
 	// var current_size = parseInt(page_header.style.fontSize)
+	var changed_font; // 증감된 폰트값을 문자열로 저장
 
 	if ( operator === '+'){
 		_current_text= current_size + change_text;
 	}else if( operator === '-'){
 		_current_text = current_size - change_text;
 	}else{
-		page_header.style.fontSize = getStyle(document.documentElement,'font-size');
+		show_font.innerHTML = page_header.style.fontSize = getStyle(document.documentElement,'font-size');
 		return;
 	}
 
@@ -40,8 +44,9 @@ function changeTextSize(){
 	if (_current_text > limit_up|| _current_text < limit_down){
 		_current_text = current_size; 
 	}
-
-	page_header.style.fontSize = _current_text + 'px';
+ var changed_font = _current_text + 'px';
+	page_header.style.fontSize = changed_font;
+	show_font.innerHTML = changed_font;
 	//console.log(page_header.style.fontSize);
 }
 //changeTextSize() 함수 선언 끝! 
@@ -56,6 +61,12 @@ function changeTextSize(){
 increase_btn.onclick = changeTextSize;
 decrease_btn.onclick = changeTextSize;
 set_default_btn.onclick = changeTextSize;
+
+//input 값 바뀌면 input의 값을 폰트사이즈로 적용
+user_input.onchange = function(){
+	var input_value = user_input.value; 
+	page_header.style.fontSize= input_value+'px';
+}
 
 
 // textarea.style.fontSize = '16px';
