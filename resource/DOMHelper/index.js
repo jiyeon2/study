@@ -1,5 +1,33 @@
 /*dom helper functions .js*/
 
+/*--------------------------------------
+자바스크립트 모든 데이터유형을 올바르게 감지할 수 있는 헬퍼함수
+-----------------------------------------*/
+function isType(data){
+	return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+}
+
+
+//데이터 간 동등한지 유무 파악 헬퍼함수
+function equal(data1, data2){
+	return data1 == data2;
+}
+
+//데이터 간 완전하게 동등한지 유무 파악 헬퍼함수
+function strictEqual(data1, data2){
+	return data1 === data2;
+}
+
+function throwError(type1, type2, err_msg){
+	err_msg = err_msg || '기본 오류 메시지';
+	if(isType(type1) !== type2 ) {throw new Error(err_msg); }
+}
+
+function validData(data, type){
+	throwError(type, 'string'); //오류 발생 시 멈추고 화면에 오류 메시지 출력
+	return strictEauql( isType(data), type);
+}
+
 /*-----------------------------------------------
 prependChild(부모노드, 자식노드)
 부모노드의  첫번째 자식노드로 삽입한다
@@ -223,3 +251,4 @@ console.log(); 치기 귀찮아서 만든 함수
 function cl(content){
 	console.log(content);
 }
+
