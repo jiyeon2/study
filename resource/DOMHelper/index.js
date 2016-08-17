@@ -1,6 +1,27 @@
 /*dom helper functions .js*/
 
 /*--------------------------------------
+ECMA Script 2015 Syntax
+
+var cleanWhiteSpace = (el=document) =>{}
+
+ECMAScript 3rd Edition
+공백 제거하는 함수
+-----------------------------------------*/
+function cleanWhiteSpace(el){
+	el = el||document; //인자로 넣은 요소가 존재하면 el, 존재하지 않으면 document.
+	var current_node = el.firstChild; 
+	while(current_node){ //자식 요소가 존재하는동안 실행
+		if (current_node.nodeType ===3 && !/\s/.test(current_node.nodeValue)){//
+			removeNode(current_node);
+		}else if(current_node.nodeType === 1){
+			cleanWhiteSpace(current_node);
+		}
+		current_node=current_node.nextSibling;
+	}
+}
+
+/*--------------------------------------
 자바스크립트 모든 데이터유형을 올바르게 감지할 수 있는 헬퍼함수
 -----------------------------------------*/
 function isType(data){
@@ -252,3 +273,119 @@ function cl(content){
 	console.log(content);
 }
 
+
+function errorMsg(message){
+if(isType(message) !== 'string'){
+	//함수 자신을 다시 호출: 재귀함수
+	errorMsg('ㅇ류메시지는 문자 데이터 유형이어야 합니다');
+}
+throw new Error(message);
+}
+
+/*--------------------------------------
+prevEl
+-----------------------------------------*/
+function prevEl(node){
+	//검증: 유효성검사
+	if(isntElNode(node)){
+		errorMsg('전달된 인자는 요소노드여야 합니다.');
+	}
+	// node.previousSibling; //요소노드, 텍스트노드, 주석노드 뭐가 존재하는지 모름
+
+
+	if(node.previousElementSibling){
+		return node.previousElementSibling;
+	} 
+//구형 IE 6,7,8 지원
+	else{
+	do{
+		node = node.previousSibling; //앞에 노드가 존재하든 아니든 한번은 실행됨
+	}while(node && !isElNode(node)); //앞의 코드를 반복한느데 그 조건은 1. node가 존재 2. node는 요소노드가 아닌경우.
+	//만약 노드가 존재하지 않거나, 노드가 요소노드이면 반복문 종료하고 그 노드를 반환함
+	return node;
+	}
+}
+
+function nextEl(node){
+	//검증: 유효성검사
+	if(isntElNode(node)){
+		errorMsg('전달된 인자는 요소노드여야 합니다.');
+	}
+
+//구형 IE 9+, 신형 웹 브라우저. 함수 실행할 때 마다 조건안의 코드 지원하는 신형브라우저냐고 물어보는거랑 같아서 좋은 코드는 아님
+	if(node.nextElementSibling){
+		return node.nextElementSibling;
+	} 
+//구형 IE 6,7,8 지원
+	else{
+	do{
+		node = node.nextSibling;
+	}while(node && !isElNode(node)); 
+	return node;
+	}
+}
+
+/*--------------------------------------
+isElNode() 요소 전달시 true false로 반환
+-----------------------------------------*/
+function isElNode(node){
+return node.nodeType === 1;
+}
+function isntElNode(node){
+return !isElNode(node);
+}
+/*--------------------------------------
+요소노드 이름이 동일한지  체크하는 함수
+-----------------------------------------*/
+function isElName(node, name){
+if(isntElNode(node)){errorMsg('첫번째 인자로요소 노드가 전달되어야 합니다')}
+if(isType(name) !== 'string'){errorMsg('두번째 인자로요소 노드가 전달되어야 합니다')}
+return (node.localName || node.nodeName.toLowerCase()) === name;
+}
+
+/*--------------------------------------
+첫번째 자식요소 노드를 찾는 헬퍼 함수,
+마지막 자식요소 노드를 찾는 헬퍼 함수
+-----------------------------------------*/
+function _firstEl(node){
+	return node.children[0];
+}
+
+function _lastEl(node){
+	var children= node.children;
+	return children[children.length -1];
+}
+
+function fistEl(node){
+
+	if(istnElNode(node)){errorMsg('요소노드를 전달해야 합니다');}
+	if(node.firtElementChild){
+		return node.firstElementChilde;
+	}else{
+		// IE 6-8
+		// node 찾고자 하는 자식 노드의 부모이다
+		// 제일 먼저 부모 노드인 node의 첫번째 자식노드를 찾는다.
+		node = node.firstChild;
+		//return;
+		//만약 찾은 자식 노드의 요소가 노드가 아니라면 다음 형제 노드를 찾는다. 
+		//  다음 형제 노드가 요소 노드라면 반환하고, 아니라면 다음 다시 형제 노드를 요소노드인지 확인한다
+		//console.log( node&&isntElNode(node) ? nextEl():node);
+		return (node && insntEl(none)) ? nextEl(node) : node;
+	}
+	// 함수는 명시적으로 어떤 값도 반환하지 않을 경우 undefined 반환
+	// return undefiled;	
+}
+
+/*--------------------------------------
+단위 제거 가져오기 소유하고 있는지 확인
+-----------------------------------------*/
+// function getUnit(value){
+// 	var i=0, l=getUnit.units.length, unit;
+// 	var reg;
+// 	for (; i<l; i++)
+// }
+
+// function removeUnit(value){
+// 	removeUnit.unit = getUnit(value);
+// 	return parseFloat()
+// }
