@@ -415,3 +415,65 @@ removeUnit.unit = null;
 function hasUnit(value){
 	return !!getUnit(value);
 }
+
+/*--------------------------------------
+유사배열을 배열화
+-----------------------------------------*/
+function makeArray(data){
+
+	var check_data = isType(data), result_arr = [] , len = data.length;
+	//실제배열이라면
+	if(check_data === 'array'){
+		return data;
+	}
+	//유사 배열이라면
+	if(len && check_data !== 'string'){ //문자열도 length메소드 가지고 있음
+		while( len --){
+			result_arr.push(data[len]);
+		}
+	}
+	return result_arr.reverse();
+}
+
+// 유사배열을 배열로 바꿔주는 빌트인기능
+// Array.from ( ECMAScript 2015 ) 크로스브라우징
+// function convertArray(data){
+// 	if(Array.from){ //Array.from 지원하는경우
+// 		return Array.from(data);
+// 	}else{
+// 		return Array.prototype.slice.call(data); //없으면 배열객체의 slice메서드 빌려씀
+// 	}
+// }
+
+
+
+//1. 정식으로 클로저 사용하는 방법으로 유사배열->배열로 만들기
+function convertArray_wrapper(){
+	var closureFn;// 클로저 함수
+	if(Array.from){
+		closureFn = function(data){
+			return Array.from(data);
+		};
+	} else {
+		closureFn = function(data){
+			return Array.prototype.slice.call(data);
+		};
+	}
+	return closureFn; // 내부에서 클로저 함수 반환
+}
+// 외부에서 클로저함수 담고 있는 wrapper함수를 호출해야함
+var convertArray = convertArray_wrapper();
+
+//2. 약식 (IIFE패턴) 이용하여 클로저 처리하는 문제 해결 방법
+// 클로저함수 호출 할 필요 없음
+var convertArray = (function(){
+	if(Array.from){
+		return function(data){
+			return Array.from(data);
+		}
+	} else{
+		return function(data){
+			return Array.prototype.slice.call(data);
+		}
+	}
+})();
