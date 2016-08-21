@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>carousel 만들기 복습</title>
+	<style>
+	ul.carousel{
+		border: 2px solid #333;
+		list-style:none;
+		display: inline-flex;
+		padding: 0;
+	}
+	.carousel li{
+		height: 100px;
+		width: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.carousel li:nth-child(1){
+		background-color: red;
+	}
+	.carousel li:nth-child(2){
+		background-color: orange;
+	}
+	.carousel li:nth-child(3){
+		background-color: yellow;
+	}
+	.carousel li a{
+		display: block;
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+<ul class="item-list">
+	<li><a href="">item-01</a></li>
+	<li><a href="">item-02</a></li>
+	<li><a href="">item-03</a></li>
+</ul>
+
+<script src="../../../resource/DOMHelper/index.js"></script>
+<script src="carousel-review.js"></script>
+</body>
+</html>
