@@ -195,6 +195,14 @@ function createNode(element_name, text){
 	return element_node;
 }
 
+function addTextNode(el, text){
+if(isntElNode(el)){errorMsg('첫번째 인자는 요소노드여야합니다');}
+if( isType(text) !== 'undefined' && isStr(text) ){
+	var text = document.createTextNode(text);
+	el.appendChild(text);
+}
+return el;
+}
 
 /*--------------------------------------
 요소에 속성과 값 삽입하기
