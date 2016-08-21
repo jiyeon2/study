@@ -28,7 +28,6 @@ function isType(data){
 	return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
 }
 
-
 //데이터 간 동등한지 유무 파악 헬퍼함수
 function equal(data1, data2){
 	return data1 == data2;
@@ -47,6 +46,12 @@ function throwError(type1, type2, err_msg){
 function validData(data, type){
 	throwError(type, 'string'); //오류 발생 시 멈추고 화면에 오류 메시지 출력
 	return strictEauql( isType(data), type);
+}
+
+
+//데이터유형이 문자열인지 확인
+function isStr(str){
+	if(isType(str) !== 'string') {errorMsg('문자열이 아님');} else{return true;}
 }
 
 /*-----------------------------------------------
@@ -103,10 +108,6 @@ function query(selector, parent){
 	return queryAll(selector, parent)[0];
 }
 
-/*--------------------------------------
-//query와 queryAll를 하나로 묶은 함수
------------------------------------------*/
-//
 /*----------------------------------------------------
 $q(선택자, 조건, 컨텍스트)
 컨텍스트 내에 존재하는 해당 선택자를 골라낸다
@@ -194,6 +195,31 @@ function createNode(element_name, text){
 	return element_node;
 }
 
+
+/*--------------------------------------
+요소에 속성과 값 삽입하기
+-----------------------------------------*/
+function setAttr(el, attr, value){
+if(isntElNode(el)){errorMsg('첫번째 인자는 요소노드여야합니다');}
+isStr(attr);
+isStr(value);
+el.origin_attr_value = el.getAttribute(attr) || '';
+el.setAttribute(attr,(el.origin_attr_value +' '+value).trim());
+}
+
+// 요소에 클래스 삽입하기
+function setClass(el, value){
+	setAttr(el, 'class', value);
+}
+
+//요소 생성하고 클래스 붙이기
+function newNode(el_name, class_name){
+	var new_node = document.createElement(el_name);
+	if( isType(class_name) !== 'undefined' && isStr(class_name)){
+		setClass(new_node, class_name);
+		return new_node;
+	}
+}
 /*------------------------------------------------
 웹브라우저에서 계산된 CSS 스타일 값 가져오는 방법
 --------------------------------------------------
@@ -234,6 +260,21 @@ function getStyle(el, property, pseudo){
  return value;
 }
 
+function setStyle(elNode, property, value){
+	if( isntElNode(elNode)){errorMsg('첫번째 인자는 요소노드가 전달되어야 합니다');}
+	if( isType(property) !== 'string'){
+		errorMsg('두번째 전달인자는 문자열이어야 합니다');
+	}
+	elNode.style[property] = value;
+}
+
+function css(elNode, prop, value){
+	if(!value){
+		return getStyle(elNode, prop);
+	} else{
+		setStyle(elNode, prop, value);
+	}
+}
 /*--------------------------------------
 css서 사용하는 '-'(하이픈) 붙은 속성명을 
 camelCase형식으로 변경하는 함수
@@ -358,7 +399,7 @@ function _lastEl(node){
 	return children[children.length -1];
 }
 
-function fistEl(node){
+function firstEl(node){
 	if(isntElNode(node)){errorMsg('요소노드를 전달해야 합니다');}
 	if(node.firstElementChild){
 		return node.firstElementChild;
@@ -477,3 +518,5 @@ var convertArray = (function(){
 		}
 	}
 })();
+
+
