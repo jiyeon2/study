@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery Library</title>
+	<style>
+	/*모더나이저 - 사용자 환경 감지해주는 라이브러리*/
+	/*모더나이저 이용한 css분기 가능*/
+	/*flexbox 지원하는 브라우저*/
+		.flexbox{
+			background: #243421;
+			color: #fff;
+		}
+	/*flexbox지원하지 않는 브라우저*/
+		.no-flexbox{
+			background: #fc9013;
+		}
+/*우아한 기능저하 : 크로스 브라우징을 목적으로 사용자 환경을 감지한 후, 대체 방식을 제공*/
+		.no-borderradius{background-image: url('rounded-corner.png');}
+
+		.board{
+			width: 200px;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			left: -200px;
+			background: lightpink;
+			transition: all 0.2s;
+		}
+		.open-btn{
+			position: relative;
+		}
+	</style>
+<script src="../../../resource/lib/jquery-3.1.0.min.js"></script>
+	<script src="modernizr-custom.js"></script>
+	<script src="../../../resource/lib/detectizr.min.js"></script> 
+	<script src="jquery-study.js"></script>
+	<!-- detectizr는 modernizr에 의존하므로 아래에서 불러온다 -->
+</head>
+<body>
+
+<div class="demo">
+	<button type="button" class="change-text-button">아래 단락 내용 변경</button>
+	<p>문서객체모델은 아직 준비되지 않았습니다</p>
+</div>
+
+<button type="button" class="open-btn">x</button>
+<div class="board">안녕</div>
+
+<script>
+//jQuery 라이브러리 로드에 성공했는가?
+
+	// window.jQuery && document.write('<p>jQuery 로딩에 성공했습니다.</p>')
+// window.jQuery?
+// 	document.write('<p>jQuery 로딩에 성공했습니다.</p>') :
+// 	document.write('<p>jQuery 로딩에 실패했습니다.</p>');
+
+	//Modernizr 사용법. 콘솔창에서 Modernizr 객체 확인 간으
+// if(!Modernizr.cssanimations){
+// 	// 자바스크립트 애니메이션 대체
+// 	// setInterval, setTimeout 보다는 requestAnimationFrame사용하는 게 좋다.
+// }
+
+//Detectizr 사용법
+
+//옵션
+//addAllFeaturesAsClass: False,
+//detectDevice: true,
+//detectDeviceModel: true,
+//detectScreen: true,
+//detectOS: true,
+//detectBrowser: true,
+//detectPlugins: true
+
+// Detectizr.detect({
+// 	'detectDevice':false,
+// 	'detectPlugins': false
+// });
+
+(function(global, $){
+	'use strict';
+var $board = $('.board');
+
+var $open_btn = $('.open-btn');
+var open_board = false;
+$open_btn.on('click', function(){
+
+if(open_board == false){
+	$board.css('left',0);
+	$(this).css('left','200px');
+	$(this).text('=');
+	open_board = true;
+} else if(open_board == true){
+	$board.css('left', '-200px');
+	$(this).css('left',0);
+	$(this).text('x');
+	open_board = false;
+}
+
+})
+//문서에서 버튼.change-text-button을 선택한다
+var $ctb = $('.change-text-button');
+//선택된 버튼을 사용자가 클릭하면 아래 위치한 (다음 요소 ) 단락 요소의 텍스트 내용을 변경한다
+// $ctb.onclick(function(){ // 단축방식. 이벤트 allias
+$ctb.on('click mouseenter keydown', function(){// 정식 방법
+	//console.log(!!this.css , !!$(this).css); // this는 jQuery 객체가 아닌 문서객체를 참조
+	$(this).next().text('버튼을 클릭했기에 이 텍스트 내용은 변경된 것이다');
+	// $(this).prop('disabled',true); //JavaScript프로퍼티 취급    //disabled 
+	$(this).attr('disabled',true); //  HTML의 속성을 취급  //disabled="disabled" // xhtml 방식
+	//attr vs prop 둘 다 속성
+	//하드코딩한거 attr, js가 만든거 prop
+	//''http://javascriptandjquerydev.blogspot.kr/2012/07/attr-prop.html'
+})
+	// $('.demo p').text('문서객체모델이 모두 준비되어 해당 코드는 문서 객체의 내용을 변경했습니다');
+	// $('.demo').find('p').text('문서객체모델이 모두 준비되어 해당 코드는 문서 객체의 내용을 변경했습니다');
+	global.setTimeout(function(){
+		$('.demo').find('p').text('문서객체모델이 모두 준비되어 해당 코드는 문서 객체의 내용을 변경했습니다');
+	}, 2000);
+})(this, this.jQuery);
+</script>
+</body>
+</html>
