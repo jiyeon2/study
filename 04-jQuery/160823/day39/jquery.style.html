@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery 스타일 클래스 속성 제어</title>
+	<style>
+		body{
+			height: 100vh;
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: center;
+			align-items: center;
+		}
+		.demo-box{
+			width: 400px;
+			box-sizing: border-box;
+			margin: 1rem 0;
+			border: 4px solid #ddd;
+			padding: 1em;
+		}
+		.look{
+			background: linear-gradient(red,orange);
+			border: 2px dashed yellow;
+
+		}
+	</style>
+	<script src="../../../resource/lib/jquery-3.1.0.min.js"></script>
+	<script>
+		(function(global, $){
+			'use strict';
+
+			function init(){
+				//------------------------------------------------------------------
+				// 클래스 속성 제어 방법
+				//------------------------------------------------------------------
+				// .hasClass() : 해당 클래스 속성을 소유했는가? 반환값 : Boolean
+				// .addClass() : 해당 클래스가 없다면 추가한다. 반환값 : jQuery Object
+				// .removeClass() : 해당 클래스가 있다면 제거함다. 반환값 : jQuery Object | 인자값이 없다면 모든 클래스 속성을 제거함
+				// .toggleClass() : 해당 클래스 속성을 토글한다(해당 클래스 속성 소유했다면 제거, 소유하지 않았다면 추가)
+
+				// console.log($('.addClass_look'));
+
+				var $demo_box = $('.demo-box');
+				//이벤트 위임 / 부모에 이벤트 걸고 이벤트 위임 대상 설정 
+				//동적으로 생성된 자식요소에 일일이 이벤트 걸지 않아도 됨
+				$('.button-controls').on('click', 'button', function(){
+					switch(this.getAttribute('class')){ //jQuery만 써야하는 것 아님.
+						case 'addClass_look':
+							// console.log('addClass_look');
+							$demo_box.addClass(function(index, currentClass){
+								console.log(currentClass+ +'look');
+							});
+						break;
+						case 'removeClass_look':
+							// console.log('removeClass_look');
+							$demo_box.removeClass('look');
+						break;
+						case 'toggleClass_look':
+							// console.log('toggleClass_look');
+							$demo_box.toggleClass( (event.data.$index += 3) % 6 === 0 );
+						break;
+					}
+				});
+
+
+
+			};
+
+			//문서객체모델이 준비되면 init 함수 실행
+			 $(init);
+
+		})(this, this.jQuery);
+	</script>
+</head>
+<body>
+<div role="group" class="button-controls">
+	<button type="button" class="addClass_look">add <strong>look</strong></button>
+	<button type="button" class="removeClass_look">remove <strong>look</strong></button>
+	<button type="button" class="toggleClass_look">toggle <strong>look</strong></button>
+</div>
+<div class="demo-box">demo-box</div>
+</body>
+</html>
