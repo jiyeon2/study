@@ -23,6 +23,7 @@
 	justify-content: $main
 	align-items: $cross
 	flex-direction: $dir
+	@content
 
 //사이즈
 @mixin size($w: 100%, $h: auto)
@@ -92,6 +93,9 @@ button
 	cursor: pointer
 	padding: 0
 	+focus
+
+dd
+	margin: 0
 
 //-------------------------------------
 $top-bar-bg: #2097f0
@@ -244,3 +248,25 @@ $users: jy js goya
 		.follower-image
 			background-image: url(../img/avatar/#{$user}.jpg)
 
+//product sales 
+.product-sales--item
+	+flex(space-between, stretch)
+	padding: 1em
+	+relative
+
+	.procudt-cat
+		flex: 0.4 1 80%
+
+	.product-amount
+		flex: 0.1 1 20%
+		border-radius: 10px
+		background: #eff3f6
+		transform: translateY(100%)
+		& span
+			+absolute(top -100% left 0)
+		&::before
+			content: ''
+			display: block
+			background: yellow
+			border-radius: 10px
+			+absolute(top 0 bottom 0 left 0  right 30%)
