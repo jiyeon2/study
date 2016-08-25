@@ -1,0 +1,84 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "mrs",
+        "first": "julia",
+        "last": "garcia"
+      },
+      "location": {
+        "street": "4172 valwood pkwy",
+        "city": "devonport",
+        "state": "northern territory",
+        "postcode": 7591
+      },
+      "email": "julia.garcia@example.com",
+      "login": {
+        "username": "lazyostrich130",
+        "password": "talon",
+        "salt": "R8B9Vpsa",
+        "md5": "73f6ab6c070cd52f2735bfefe7325e22",
+        "sha1": "032070019d2746057d09b7b846d024584299044c",
+        "sha256": "168060e538965b613e13c2f2f78b4add37487930c1c892744c55919802b81243"
+      },
+      "dob": "1976-01-30 20:45:04",
+      "registered": "2011-01-19 14:10:48",
+      "phone": "08-3045-3952",
+      "cell": "0480-883-583",
+      "id": {
+        "name": "TFN",
+        "value": "115337736"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/46.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/46.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/46.jpg"
+      },
+      "nat": "AU"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "miss",
+        "first": "tracey",
+        "last": "bennett"
+      },
+      "location": {
+        "street": "5407 jones road",
+        "city": "cork",
+        "state": "limerick",
+        "postcode": 47755
+      },
+      "email": "tracey.bennett@example.com",
+      "login": {
+        "username": "organicbird639",
+        "password": "natalie1",
+        "salt": "qoDUAHrv",
+        "md5": "797b39170e3c92869286e368f7205fc1",
+        "sha1": "418649cd5dda36427f79093d08ca8cd837f66eaf",
+        "sha256": "ab9c6cd9561e0eb1f9c0370eec261959fcd9c2fcb36ad0ba285ef8d106fe5258"
+      },
+      "dob": "1968-11-22 17:32:50",
+      "registered": "2010-07-19 17:29:44",
+      "phone": "011-981-0589",
+      "cell": "081-421-5891",
+      "id": {
+        "name": "PPS",
+        "value": "1499005T"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/39.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/39.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/39.jpg"
+      },
+      "nat": "IE"
+    }
+  ],
+  "info": {
+    "seed": "41eab63da9089b78",
+    "results": 2,
+    "page": 1,
+    "version": "1.1"
+  }
+}
