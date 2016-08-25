@@ -250,23 +250,19 @@ $users: jy js goya
 
 //product sales 
 .product-sales--item
-	+flex(space-between, stretch)
 	padding: 1em
 	+relative
 
 	.procudt-cat
-		flex: 0.4 1 80%
 
 	.product-amount
-		flex: 0.1 1 20%
 		border-radius: 10px
 		background: #eff3f6
 		transform: translateY(100%)
-		& span
-			+absolute(top -100% left 0)
+		& > span
 		&::before
 			content: ''
 			display: block
-			background: yellow
+			background: repeating-linear-gradient(45deg, blue, blue 10px, red 10px, red 20px )
 			border-radius: 10px
 			+absolute(top 0 bottom 0 left 0  right 30%)
