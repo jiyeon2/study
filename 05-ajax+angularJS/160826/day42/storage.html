@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" data-ng-app>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>사용자의 웹 브라우저에 데이터를 저장하는 방법 - HTML5 Storage</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<style>
+		.circle{
+			width: 100px;
+			height: 100px;
+			background: orange;
+			border-radius: 50%;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+
+
+<div class="circle"></div>
+<script>
+	var circle = document.querySelector('.circle');
+	circle.onmousedown = function(){
+		this.style.top = '30px';
+		this.style.left = '20px';
+	}
+</script>
+<!-- <script src="js/storage.js"></script> -->
+<script src="js/jquery.dataManager.js"></script>
+</body>
+</html>
