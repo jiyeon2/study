@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko" data-ng-app>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>angularJS 공부</title>
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script> -->
+	<script src="lib/angular/angular.min.js"></script>
+	<script>
+(function(global, $){
+	'use strict';
+	 $ || document.write('<script src=\"framework/angular.min.js\"><\/script>');
+	 console.log('Angular verwion : ', $.version.full);
+})(this, this.angular);
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		function init($){ //$넣음으로써 $참조 가능
+			var $twb = $('#twb'),
+					$twb_binding = $('#two-binding');
+
+					$twb.on('keyup',function(event){
+						$twb_binding.text(event.target.value);
+					});
+		}
+		jQuery.noConflict(true)(init); // noconflict $포기, true -jQuery 변수명도 포기 => $함수 반환함. 반환된 $함수 바로 실행
+		//jQuery(document).ready(init); 과 같음
+		//$(init); 과 같음 
+	</script>
+	<style>
+		.angular{
+			border: 1px solid orange;
+			margin-bottom: 1rem;
+			padding: 3rem;
+		}
+		.jquery{
+			border: 1px solid green;
+			padding: 3rem;
+		}
+	</style>
+</head>
+
+<body data-ng-init="application_name='MyApp is using angularJS Framework.'">
+
+<div class="angular">
+<!-- expression으로 연결 -->
+	<h2 lang="en">{{application_name}}</h1>
+<!-- directive로 연결 -->
+	<h1 lang="en" data-ng-bind="application_name" contenteditable></h1>
+	
+	<input type="text" data-ng-model="application_name">
+	<h2>angular two-way binding</h2>
+</div>
+
+<div class="jquery">
+	<input type="text" id="twb">
+	<p id="two-binding"></p>
+	<h2>jquery two-way binding</h2>
+	 </div>
+
+
+	 <!-- html template -->
+	<div data-ng-controller="divController">
+		
+	</div>
+<script>
+	angular.controller('divController',['$scope', '$http', function($scope, $http){
+		$http // 가서 서버에서 모델 가지고 와
+		$scope // 가서 템플릿에 뷰 업데이트 하고 와#!@
+	}])
+</script>
+
+</body>
+</html>
