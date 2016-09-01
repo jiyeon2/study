@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/jiyeon2/backend/issues"
   },
-  "homepage": "https://github.com/jiyeon2/backend#readme"
+  "homepage": "https://github.com/jiyeon2/backend#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2"
+  }
 }
