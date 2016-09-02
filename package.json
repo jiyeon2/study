@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/jiyeon2/backend#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0"
   },
   "dependencies": {
     "body-parser": "^1.15.2"

@@ -7,6 +7,7 @@ var app = http.createServer(function(req,res){
 
 	router.home(req, res);
 	router.contact(req, res);
+	router.about(req, res);
 	router.detail(req, res);
 
 });
