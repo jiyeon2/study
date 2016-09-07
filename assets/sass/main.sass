@@ -1,0 +1,126 @@
+@import 'normalize'
+@import 'mixin'
+
+a
+	display: block
+	text-decoration: none
+
+button:hover
+	cursor: pointer
+
+html
+	font: 16px/1.5 'Noto Sans', sans-serif
+
+div, a, section, main, h1, p
+	box-sizing: border-box
+
+
+
+%clearfix
+	&:after
+		content: ''
+		display: block
+		clear: both
+
+///////////////////////////////////////
+// color
+///////////////////////////////////////
+$light-gray: #f2f5f5
+$fit-green: #55C2C2
+
+
+//////////////////////////////////////////
+// gnb
+//////////////////////////////////////////
+.gnb
+	@extend %clearfix
+	width: 100%
+	max-width: 970px
+	text-align: center
+	.gnb-item
+		+size(20%)
+		+ir
+		padding: 1rem
+		float: left
+		+width-from('970px')
+			text-indent: 6rem
+		//상태디자인 필요 hover,focus, active
+
+@each $icon in challenge, dashboard, friend, myInfo, notification
+	.gnb-item.#{$icon}
+		background: url(../img/icon/#{$icon}.svg) no-repeat center
+		background-size: 1.5rem
+
+
+///////////////////////
+// dashboard
+///////////////////////
+.dashboard:not(.gnb-item)
+	@extend %clearfix
+	background-color: $light-gray
+
+.dashboard-section
+	+relative
+	width: 50%
+	float: left
+	border: 2px solid $light-gray
+	background-color: white
+	&.summary
+		width: 100%
+
+	.dashboard-contents
+		+absolute(top 0 left 0)
+		width: 100%
+		text-align: center
+	&:after
+		content: ''
+		display: block
+		width: 100%
+		padding-bottom: 100%
+
+@media only screen and (min-width: 500px ) and (max-width: 799px )
+	.dashboard-section
+		width: 33.3%
+	.dashboard-section.summary
+		width: 66.6%
+
+@media only screen and (min-width: 800px ) and (max-width: 1259px)
+	.dashboard-section
+		width: 25%
+	.dashboard-section.summary
+		width: 50%
+
++width-from('1260px')
+	.dashboard-section
+		width: 20%
+	.dashboard-section.summary
+		width: 40%
+
+
+
+///////////////////////
+// util-btns
+///////////////////////
+.utils
+	@extend %clearfix
+	+fixed(bottom 0 left 0)
+	width: 100%
+	background: $light-gray
+	+width-from('1260px')
+		width: auto
+		+absolute(top 0 right 0 left initial bottom initial)
+		background: none
+
+.util-btns
+	float: right
+	&> button
+		+ir
+		width: 4rem
+		padding: 1em
+		border: none
+
+@each $icon in add, setting
+	.util-btns .#{$icon}-btn
+		background: url(../img/icon/#{$icon}.svg) no-repeat center
+		background-size: 1.5rem
+

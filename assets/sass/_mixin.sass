@@ -1,0 +1,55 @@
+///////////////////////////////////////
+//mediaquery
+//(mobile first - smamll(~500px)이 기준)
+//$small: '500px'
+//$medium: '800px'
+//$large: '1260px'
+///////////////////////////////////////
+
+
+@mixin width-from($w)
+	@media only screen and (min-width: #{$w})
+		@content
+
+
+@mixin size($w:100%,$h:auto)
+	width: $w
+	height: $h
+
+@mixin readable-hidden
+	overflow: hidden
+	position: absolute
+	+size(1px,1px)
+	margin: -1px
+	padding: 0
+	border: 0
+
+@mixin ir
+	white-space: nowrap
+	text-indent: 150%
+	overflow: hidden
+
+
+///////////////////////////////
+//position
+///////////////////////////////
+@mixin position($position, $args: null)
+		position: $position
+		@if $args != null
+				@each $dir in top, left, bottom, right, z-index
+						$i: index($args, $dir)
+						@if $i
+								#{$dir}: nth($args, $i + 1)
+
+//단축 믹스인
+@mixin relative($args: null)
+	@include position(relative, $args)
+
+@mixin absolute($args: null)
+	@include position(absolute, $args)
+
+@mixin fixed($args: null)
+	@include position(fixed, $args)
+
+
+
