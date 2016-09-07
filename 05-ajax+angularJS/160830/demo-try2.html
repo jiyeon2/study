@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" data-ng-app>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>앵귤러 이해를 위한 실습2</title>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	    <style>
+
+	    </style>
+</head>
+<body data-ng-init="
+	app={
+	'name':'DirectiveApp',
+	'switch': 'open'
+	}
+">
+<!-- 
+directivew & expressions
+* ng-clock (FOUC-flash of unstyled content : 번쩍이면서 {{}}가 보이는 현상방지)
+* ng-switch
+* ng-class
+* ng-show
+ -->
+<div data-ng-cloak class="demo-app-container" data-ng-switch="app.switch">
+	<h1 class="demo-app-title">{{app.name}}</h1>
+	<div class="demo-app-swicher">
+		<button data-ng-click="app.switch = 'open'" >open</button>
+		<button data-ng-click="app.switch = 'close'">close</button>
+		<button data-ng-click="app.switch = 'etc'">etc..</button>
+	</div>
+	<!-- 상태제어 -->
+	<p data-ng-switch-when="open" class="switch-is-open">
+		App switch Value is Open.
+	</p>
+	<p data-ng-switch-when="close" class="switch-is-close">
+		App switch Value is Close.
+	</p>
+	<p data-ng-switch-default class="switch-is-something">
+		App switch Value is something...
+	</p>
+</div>
+
+</body>
+</html>
