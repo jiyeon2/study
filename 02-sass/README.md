@@ -25,3 +25,24 @@ $ node-sass -wo sass/ css/ --output-style expanded --source-map map
     + compressed : 배포시
 
 - source-map : scss, sass 파일과 css파일 매칭시켜 줌. 
+
+
+##sass - mixin 이용한 media query
+- [Write Better Media Queries with Sass](https://davidwalsh.name/write-media-queries-sass)
+```sass
+$tablet: "(min-width: 768px) and (max-width: 1023px)"
+$desktop: "(min-width: 1024px)"
+
+p 
+  font-size: 16px
+
+
+@media #{$tablet} 
+  p 
+    font-size: 18px
+  
+@media #{$desktop} 
+  p 
+    font-size: 20px
+  
+```
