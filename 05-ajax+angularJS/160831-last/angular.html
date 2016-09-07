@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>앵귤러 모듈/ 컨트롤러 통해 뷰 제어</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body data-ng-app>
+
+
+<div class="ng-template" data-ng-controller="moduleController as mCtrl">
+	<h1 class="ng-template-headline"></h1>
+	<button data-ng-click="mCtrl.setContent()" type="button" class="fire-set-content-btn">fire content</button>
+	<p>{{mCtrl.content}}</p>
+</div>
+
+<script>
+	(function(global, ng, jq){
+		'use strict';
+		 //전역에 바로 노출
+		 global.moduleController=function(){
+		 	// $scope객체는 중재자 역할, view-controller 사이 접착제 역할
+		 	// console.log('$scope:' , $scope);
+		 	// console.log('angular.element:' , angular.element);
+		 	// console.log('this:' , this); //c{} 객체, 컨트롤로 함수를 가리ㅣ킴
+		 	// console.log('angular.version.full:' , angular.version.full);
+
+		 	// 버전별로 기능이 조금씩 다르므로 앵귤러 공부할 때 버전 확인하고 명시하기!!
+		 	//[v1.2.x , IE8 호환됨]jQuery와 유사한 jqLight를 angular 컨트롤러 내부에서 사용하는 예
+		 	// var template_headline = document.querySelector('.ng-template-headline');
+		 	// template_headline = angular.element(template_headline);//angular내에서 돔 제어
+
+		 	var template_headline=jq('.ng-template-headline'); //jquery 사용
+		 	// console.log(template_headline);
+		 	template_headline.addClass('test').text('this is not jQuery, this is jqLite');
+		 	var template_headline_content = template_headline.text();
+
+		 	//$scope의 속성 .content
+		 	// $scope.content = '';//초기 값 설정
+		 	this.content= '';
+			//$scope
+		 	// $scope.setContent= function(){
+		 	// 		$scope.content= template_headline_content;
+		 	// }
+		 	this.setContent= function(){
+		 			this.content= template_headline_content;
+		 	}
+		 	// jq('.ng-template-headline').hide(1000);
+		 };
+	})(this, this.angular, this.jQuery);
+</script>
+</body>
+</html>

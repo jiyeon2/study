@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>앵귤러 모듈/ 컨트롤러 통해 뷰 제어</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<style>
+		.tab-control button{
+			border:none;
+			border-radius: 4px;
+			padding: 0.5em 1em;
+			margin:0;
+			display: block;
+			float: left;
+		}
+		.tab-control::after{
+			content:'';
+			clear:both;
+			display: block;
+		}
+		.tab-menu .active{
+			background: #ff0;
+			border-radius: 4px;
+			border: none;
+		}
+		.tab-menu .tab-content{
+			display: none;
+		}
+		.tab-menu .tab-content.active{
+			display: block;
+		}
+	</style>
+</head>
+<body data-ng-app="ngApp"> 
+<!-- angularApp이 모듈 이름. 보통 App이 붙는다 -->
+<!--
+<div class="ng-template" data-ng-controller="ngController">
+	<h1 class="ng-template-headline"></h1>
+	<button 
+	data-ng-click="setContent()" 
+	type="button" 
+	class="fire-set-content-btn">fire content</button>
+	<p>{{content}}</p>
+</div>
+
+
+<!-- as문법 사용하지 않으면 this 참조 안됨 
+<div class="demo-temp" data-ng-controller="demoController as dc">
+	<h3>{{dc.headline}}</h3>
+	<pre>
+		{{ dc | json}}
+	</pre>
+</div>
+
+<section class="other-ctrl" data-ng-controller="otherController as oc">
+	<article data-ng-click="oc.trigger()">
+		<!-- <h3 title="{{init_value}}">{{init_value}}</h3> 
+		<h3 title="{{oc.init_value}}">{{oc.init_value ? '트리거 작동 됨' : '트리거 미작동'}}</h3>
+	</article>
+<!-- 	<button type="button" data-ng-click="showContent()"> 누르면 init value 값이 보임</button> 
+
+</section>
+-->
+
+<div 
+ role="application" 
+ class="tab-menu" 
+ data-ng-controller="tabController">
+	<!-- tab handle list -->
+	<!-- <button data-ng-click="setRandom()">setRandom</button> -->
+	<!-- <div>{{selected_tab_idx}}</div> -->
+	<div role="tablist" class="tab-control">
+		<button 
+		data-ng-click="selectTab(0)" 
+		data-ng-class="{'active': isSeletedTab(0)}" 
+		type="button" role="tab" class="tab-handle">
+		shoes</button>
+		<button 
+		data-ng-click="selectTab(1)" 
+		data-ng-class="{'active':isSeletedTab(1)}" 
+		type="button" role="tab" class="tab-handle">
+		bag</button>
+		<button 
+		data-ng-click="selectTab(2)" 
+		data-ng-class="{'active':isSeletedTab(2)}" 
+		type="button" role="tab" class="tab-handle">
+		hat</button>
+	</div>
+	<!-- tab content list -->
+	<div data-ng-class="{'active':isSeletedTab(0)}" class="tab-content" role="tabpanel">
+		<h2>shoes</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	</div>
+	<div data-ng-class="{'active':isSeletedTab(1)}" class="tab-content" role="tabpanel">
+		<h2>bag</h2>
+		<p>consectetur Lorem ipsum dolor sit amet,  adipisicing elit.</p>
+	</div>
+	<div data-ng-class="{'active':isSeletedTab(2)}" class="tab-content" role="tabpanel">
+		<h2>hat</h2>
+		<p>adipisicing elit Lorem ipsum dolor sit amet, consectetur .</p>
+	</div>
+</div>
+
+
+<!-- 모듈 정의된 app.js가 맨 위에 있어야 함 -->
+<!-- 모듈은 정의되어 있어야만 불러올 수 있으므로 -->
+<script src="modules/app.js"></script>
+<script src="modules/controllers/demoController.js"></script>
+<script src="modules/controllers/ngController.js"></script>
+<script src="modules/controllers/otherController.js"></script>
+<script src="modules/controllers/tabController.js"></script>
+</body>
+</html>

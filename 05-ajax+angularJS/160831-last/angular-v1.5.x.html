@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" data-ng-app="fdsApp">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AngularJS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="modules/main.js"></script>
+	<style>
+		.member-list > li{
+			border: 1px solid orange;
+			border-radius: 10px;
+			list-style: none;
+			margin-bottom: 1rem;
+			padding: 1rem;
+		}
+		.member-list > li::after{
+			content:'';
+			display: block;
+			clear: both;
+		}
+		.member-list img{
+			float: left;
+			margin-right: 1rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="fds-members" data-ng-controller="fdsMemberListController as fdsCtrl">
+		<!-- <pre>{{fdsCtrl.members | json}}</pre> -->
+
+		<ul class="member-list">
+			<li class="member" data-ng-repeat="member in fdsCtrl.members">
+
+			
+				<ul>
+					<li class="member_img"><img src="http://placehold.it/300x300/000/efefef/?text={{member.image}}" alt="{{member.image}}"></li>
+					<li>{{member.name}}</li>
+					<li>{{member.shortname}}</li>
+					<li>{{member.nickname}}</li>
+					<li>{{member.regiment}}</li>
+					<li>{{member.devil_fruit}}</li>
+					<li>{{member.position}}</li>
+					<li>{{member.wanted}}</li>
+					<li>{{member.bio}}</li>
+				</ul>
+			</li>
+			
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>api 어떻게 하나</title>
+
+	<script>
+var lat, long;
+console.log('1',lat, long);
+var nav = navigator.geolocation.getCurrentPosition(function(position){
+    return position.coords.latitude, position.coords.longitude;
+  });
+console.log(nav);
+console.log('2',lat, long);
+var xhr = new XMLHttpRequest();
+var url = 'http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getLCRiseSetInfo';
+var queryParams= '?';
+queryParams += encodeURIComponent('ServiceKey')+'='+('49fe9t%2BgsqtQ9URXSfBagdLDyLEw%2Bg3PV0J8y0Th7m9ppX8f9ugAdh4AecnYnbLJs5LFFTCgPr%2B07B7cNeZmgw%3D%3D'); /*Service Key*/
+queryParams += '&' + encodeURIComponent('locdate') + '=' + encodeURIComponent('20160831'); /*날짜*/
+queryParams += '&' + encodeURIComponent('longitude') + '=' + encodeURIComponent('33'); /*경도*/
+queryParams += '&' + encodeURIComponent('latitude') + '=' + encodeURIComponent('126'); /*위도*/
+queryParams += '&' + encodeURIComponent('dnYn') + '=' + encodeURIComponent('N'); /*10진수 여부*/
+queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1'); /*검색건수*/
+queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /*페이지 번호*/
+
+xhr.open('GET', url+queryParams);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+        console.log('Status: '+this.status+' Headers: '+JSON.stringify(this.getAllResponseHeaders())+' Body: '+this.responseText, this);
+    }
+};
+
+xhr.send('');
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
