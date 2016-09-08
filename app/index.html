@@ -11,22 +11,55 @@
 <body>
 
 <nav class="gnb">
-	<a href="" class="gnb-item dashboard">대시보드</a>
-	<a href="" class="gnb-item challenge">챌린지</a>
-	<a href="" class="gnb-item friend">친구</a>
-	<a href="" class="gnb-item notification">알림</a>
-	<a href="" class="gnb-item myInfo">계정</a>
+	<a href="dashboard.html" class="gnb-item dashboard">대시보드</a>
+	<a href="challenge.html" class="gnb-item challenge">챌린지</a>
+	<a href="friend.html" class="gnb-item friend">친구</a>
+	<a href="notification.html" class="gnb-item notification">알림</a>
+	<a href="myInfo.html" class="gnb-item myInfo">계정</a>
 </nav>
 
 <main class="dashboard">
 	<section class="dashboard-section daily summary">
 	<div class="dashboard-contents">
 			<h1>오늘</h1>
-		<div>237걸음</div>
-		<div>0층(오른 층 수)</div>
-		<div>0.16km</div>
-		<div>906칼로리 소모</div>
-		<div>0분(활동적 시간)</div>
+			<ul>
+				<li class="daily-item walk">
+					<svg class="ring-graph">
+						<circle r="40" class="circle"></circle>
+						<circle r="40" class="circle bar"></circle>
+					</svg>
+					<p>237걸음</p>
+				</li>
+				<li class="daily-item stair">
+					<svg class="ring-graph">
+						<circle r="25" class="circle"></circle>
+						<circle r="25" class="circle bar"></circle>
+					</svg>
+					<p>0층(오른 층 수)</p>
+				</li>
+				<li class="daily-item distance">
+					<svg class="ring-graph">
+						<circle r="25" class="circle"></circle>
+						<circle r="25" class="circle bar"></circle>
+					</svg>
+					<p>0.16km</p>
+				</li>
+				<li class="daily-item kcal">
+					<svg class="ring-graph">
+						<circle r="25" class="circle"></circle>
+						<circle r="25" class="circle bar"></circle>
+					</svg>
+					<p>906칼로리 소모</p>
+				</li>
+				<li class="daily-item active-time">
+					<svg class="ring-graph">
+						<circle r="25" class="circle"></circle>
+						<circle r="25" class="circle bar"></circle>
+					</svg>
+					<p>0분(활동적 시간)</p>
+				</li>
+			</ul>
+		
 	</div>
 	</section>
 
@@ -76,5 +109,8 @@
 		<button type="button" class="setting-btn">설정하기</button>
 	</div>
 </aside>
+
+
+<script src="../assets/js/bar-animation.js"></script>
 </body>
 </html>
