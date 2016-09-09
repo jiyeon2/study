@@ -1,0 +1,27 @@
+.tooltip {
+position: absolute;
+height: auto;
+padding:10px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    }
+.tooltip:before{
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 20px solid white;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	position: absolute;
+	bottom:0;
+	left: 50%;
+	transform: translate(-50%, 100%);
+}
+.tooltip.hidden {
+	display: none;
+    }
+body{
+	background: #efefef;
+}
