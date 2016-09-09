@@ -24,43 +24,53 @@
 			<h1 class="dashboard-title">오늘</h1>
 			<ul>
 				<li class="daily-item walk">
-					<svg class="ring-graph">
-						<circle r="40" class="circle"></circle>
-						<circle r="40" class="circle bar"></circle>
-						<circle r="3" cy="50%" cx="90%" fill="white"></circle>
-					</svg>
+					<div class="svg-container">
+						<svg class="ring-graph">
+							<circle r="40" cx="50" cy="50" class="circle"></circle>
+							<circle r="40" cx="50" cy="50" class="circle bar"></circle>
+							<circle r="3" cy="50" cx="90" fill="white"></circle>
+						</svg>
+					</div>
 					<p>237걸음</p>
 				</li>
 				<li class="daily-item stair">
-					<svg class="ring-graph">
-						<circle r="25" class="circle"></circle>
-						<circle r="25" class="circle bar"></circle>
-						<circle r="3" cy="50%" cx="75%" fill="white"></circle>
-					</svg>
+					<div class="svg-container">
+						<svg class="ring-graph">
+							<circle r="25" cx="50" cy="50" class="circle"></circle>
+							<circle r="25" cx="50" cy="50" class="circle bar"></circle>
+							<circle r="3" cy="50" cx="75" fill="white"></circle>
+						</svg>
+					</div>
 					<p>0층<br>(오른 층 수)</p>
 				</li>
 				<li class="daily-item distance">
-					<svg class="ring-graph">
-						<circle r="25" class="circle"></circle>
-						<circle r="25" class="circle bar"></circle>
-						<circle r="3" cy="50%" cx="75%" fill="white"></circle>
-					</svg>
+					<div class="svg-container">
+						<svg class="ring-graph">
+							<circle r="25" cx="50" cy="50" class="circle"></circle>
+							<circle r="25" cx="50" cy="50" class="circle bar"></circle>
+							<circle r="3" cy="50" cx="75" fill="white"></circle>
+						</svg>
+					</div>
 					<p>0.16 km</p>
 				</li>
 				<li class="daily-item kcal">
-					<svg class="ring-graph">
-						<circle r="25" class="circle"></circle>
-						<circle r="25" class="circle bar"></circle>
-						<circle r="3" cy="50%" cx="75%" fill="white"></circle>
-					</svg>
+					<div class="svg-container">
+						<svg class="ring-graph">
+							<circle r="25" cx="50" cy="50" class="circle"></circle>
+							<circle r="25" cx="50" cy="50" class="circle bar"></circle>
+							<circle r="3" cy="50" cx="75" fill="white"></circle>
+						</svg>
+					</div>
 					<p>906칼로리<br>소모</p>
 				</li>
 				<li class="daily-item active-time">
-					<svg class="ring-graph">
-						<circle r="25" class="circle"></circle>
-						<circle r="25" class="circle bar"></circle>
-						<circle r="3" cy="50%" cx="75%" fill="white"></circle>
-					</svg>
+					<div class="svg-container">
+						<svg class="ring-graph">
+							<circle r="25" cx="50" cy="50" class="circle"></circle>
+							<circle r="25" cx="50" cy="50" class="circle bar"></circle>
+							<circle r="3" cy="50" cx="75" fill="white"></circle>
+						</svg>
+					</div>
 					<p>0분<br>(활동적 시간)</p>
 				</li>
 			</ul>
@@ -70,44 +80,45 @@
 
 	<section class="dashboard-section heart-rate">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title">심박수</h1>
-			<div>
-				<svg>
+			<h1 class="dashboard-title readable-hidden">심박수</h1>
+			<div class="svg-container">
+				<svg viewBox="-80 -40 300 200">
 					<path class="heart-icon" d="M127,44.205c0-18.395-14.913-33.308-33.307-33.308c-12.979,0-24.199,7.441-29.692,18.276  c-5.497-10.835-16.714-18.274-29.694-18.274C15.912,10.898,1,25.81,1,44.205C1,79,56.879,117.104,64.001,117.104  C71.124,117.104,127,79.167,127,44.205z"/>
+					<path class="heart-icon big" d="M127,44.205c0-18.395-14.913-33.308-33.307-33.308c-12.979,0-24.199,7.441-29.692,18.276  c-5.497-10.835-16.714-18.274-29.694-18.274C15.912,10.898,1,25.81,1,44.205C1,79,56.879,117.104,64.001,117.104  C71.124,117.104,127,79.167,127,44.205z"/>
 				</svg>
-				<p>63bpm(안정시)</p>
+				<p>63 bpm</p>
 			</div>
 		</div>
 	</section>
 
 	<section class="dashboard-section sleep">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title">수면패턴 분석</h1>
+			<h1 class="readable-hidden">수면패턴 분석</h1>
 		</div>
 	</section>
 
 	<section class="dashboard-section active-per-time">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title">시간 별 움직임</h1>
+			<h1 class="readable-hidden">시간 별 움직임</h1>
 			<div>움직일 준비가 되었습니까?</div>
 		</div>
 	</section>
 
 	<section class="dashboard-section workout">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title">이번 주 운동</h1>
+			<h1 class="readable-hidden">이번 주 운동</h1>
 		</div>
 	</section>
 
 	<section class="dashboard-section badge">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title">35,000걸음</h1>
+			<h1 class="readable-hidden">35,000걸음</h1>
 		</div>
 	</section>
 
 	<section class="dashboard-section water">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title">0ml 마셨음(오늘)</h1>
+			<h1 class="readable-hidden">0ml 마셨음(오늘)</h1>
 		</div>
 	</section>
 
