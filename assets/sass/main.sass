@@ -70,19 +70,23 @@ $fit-green: #55C2C2
 	float: left
 	border: 2px solid $light-gray
 	background-color: white
+
 	&.summary
 		width: 100%
-
-	.dashboard-contents
-		+absolute(top 0 left 0)
-		width: 100%
-		text-align: center
 	&:after
 		content: ''
 		display: block
 		width: 100%
 		padding-bottom: 100%
-
+	
+	.dashboard-contents
+		+absolute(top 0 left 0)
+		width: 100%
+		text-align: center
+		padding-top: 2rem
+		.dashboard-title
+			margin-bottom: 1rem
+		
 @media only screen and (min-width: 500px ) and (max-width: 799px )
 	.dashboard-section
 		width: 33.3%
@@ -118,8 +122,9 @@ $fit-green: #55C2C2
 // svg ring graph
 ///////////////////////////
 svg.ring-graph
-	width: 100%
-	height: 50%
+	+size(50px, 50px)
+	&:first-child
+		+size(100px, 100px)
 
 svg .circle
 	cx: 50%
@@ -128,8 +133,28 @@ svg .circle
 	stroke: $light-gray
 	stroke-width: 0.5em
 	stroke-linecap: round
-	transition: stroke-dashoffset 1s ease-out
+	transition: stroke-dashoffset 0.8s ease-out
 	&.bar
+
+///////////////////////
+// section .heart-rate
+///////////////////////
+
+.heart-rate svg
+
+
+@keyframes heartbeat
+	0%, 100%
+		transform: scale(1)
+	30%
+		transform: scale(1.2)
+
+.heart-icon
+ 	fill: red
+ 	transform-origin: center
+ 	animation: heartbeat 1s infinite
+
+
 
 ///////////////////////
 // util-btns

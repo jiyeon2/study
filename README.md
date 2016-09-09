@@ -30,14 +30,15 @@ overflow: hidden
 ```
 
 
-- 문제점 : dashboard-section width값을 퍼센트로 지정, float:left함, section마다 높이가 안맞아서 section이 차례대로 왼쪽으로 붙지 않음
-
-
+- dashboard-section width값을 퍼센트로 지정, float:left함, section마다 높이가 안맞아서 section이 차례대로 왼쪽으로 붙지 않음
+- svg로 그린 그래프가 화면 커지고 작아짐에 따라 자연스럽게 움직이지 않음. 한번 그려진 상태로 고정됨
+    + svg 컨테이너 만들고, svg크기에 딱 맞게 그래프 그리기
 
 ## 해야 할 것!
 
-### section
-### svg 애니메이션
+### section별 뷰 구현 - 이미지 마저 넣기
+### svg 애니메이션 - 그래프별 색깔, 위치 다르게
+### 차트 만들기
    
 
 
@@ -45,7 +46,7 @@ overflow: hidden
 |날짜|내용|
 |---|---|
 |0907 수| dashboard index.html코딩, sass로 레이아웃 작업 |
-|0908 목| svg로 원형 그래프 그리기,
+|0908 목| svg로 원형 그래프 그리고 애니메이션|
 
 
 ### 참고
