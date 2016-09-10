@@ -19,186 +19,154 @@ div, a, section, main, h1, p, ul, li
 	padding: 0
 	margin: 0
 
-
-
 %clearfix
 	&:after
 		content: ''
 		display: block
 		clear: both
-
-
-
 ///////////////////////////////////////
 // color
 ///////////////////////////////////////
 $light-gray: #f2f5f5
 $fit-green: #55C2C2
 
+//dashboard페이지
+@import 'dashboard'
 
-//////////////////////////////////////////
-// gnb
-//////////////////////////////////////////
-.gnb
-	@extend %clearfix
-	width: 100%
-	max-width: 970px
-	text-align: center
-	.gnb-item
-		+size(20%)
-		+ir
-		padding: 1rem
-		float: left
-		transition: all 0.2s ease-out
-		+width-from('970px')
-			text-indent: 6rem
-		//상태디자인 필요 hover,focus, active
-		&:hover
-			background-size: 2rem
+//challenge 페이지
 
-
-@each $icon in challenge, dashboard, friend, myInfo, notification
-	.gnb-item.#{$icon}
-		background: url(../img/icon/#{$icon}.svg) no-repeat center
-		background-size: 1.5rem
-
-
-///////////////////////
-// dashboard
-///////////////////////
-.dashboard:not(.gnb-item)
-	@extend %clearfix
-	background-color: $light-gray
-
-.dashboard-section
-	+relative
-	width: 50%
-	float: left
-	border: 2px solid $light-gray
-	background-color: white
-
-	&.summary
-		width: 100%
-	&:after
-		content: ''
-		display: block
-		width: 100%
-		padding-bottom: 100%
-	
-	.dashboard-contents
-		+absolute(top 0 left 0)
-		width: 100%
-		text-align: center
-		padding-top: 2rem
-		.dashboard-title
-			margin-bottom: 1rem
-
-.readable-hidden
-	overflow: hidden
-	position: absolute
-	width: 1px
-	height: 1px
-	margin: -1px
-	border: 0
-	padding: 0
-
-@media only screen and (min-width: 500px ) and (max-width: 799px )
-	.dashboard-section
-		width: 33.3%
-	.dashboard-section.summary
-		width: 66.6%
-
-@media only screen and (min-width: 800px ) and (max-width: 1259px)
-	.dashboard-section
-		width: 25%
-	.dashboard-section.summary
-		width: 50%
-
-+width-from('1260px')
-	.dashboard-section
-		width: 20%
-	.dashboard-section.summary
-		width: 40%
-
-////////////////////
-//section .daily
-////////////////////
-.daily ul
-	@extend %clearfix
-
-.daily-item
-	float: left
-	width: 25%
-	&:first-child
-		width: 100%
-
-
-//////////////////////////
-// svg ring graph
-///////////////////////////
-svg.ring-graph
-	&:first-child
-		+size(100px, 100px)
-
-svg .circle
-	fill: transparent
-	stroke: $light-gray
-	stroke-width: 0.5em
-	stroke-linecap: round
-	transition: stroke-dashoffset 0.8s ease-out
-
-///////////////////////
-// section .heart-rate
-///////////////////////
-
-@keyframes heartbeat
-	0%, 100%
-		transform: scale(0.9)
-		fill: rgba(#f44, 0.5)
-	50%
-		transform: scale(1.3)
-		fill: rgba(#E86363, 0.5)
-
-.heart-icon
- 	fill: #E86363
- 	transform-origin: center
- 	&.big
- 		fill: rgba(#E86363, 0.3)
- 		animation: heartbeat 2s infinite ease
-
-.heart-rate .svg-container svg
-	width: 160px
-	margin:
-		left: auto
-		right: auto
-
-///////////////////////
-// util-btns
-///////////////////////
-.utils
-	@extend %clearfix
-	+fixed(bottom 0 left 0)
-	width: 100%
+.container
 	background: $light-gray
-	+width-from('1260px')
+
+.my-activity, .adventure, .challenge
+	padding: 1rem 2rem
+
+.my-activity-list
+	@extend %clearfix
+
+.my-activity-item
+	float: left
+	width: 100%
+	max-width: 400px
+	margin:
+		right: 1rem
+		bottom: 1rem
+	& a
+		+relative
+		padding: 1rem
+		border-radius: 10px
+		background: #fff
+		color: black
+		&:active
+			transform: scale(0.95)
+		&:hover, &:focus
+			outline: none
+			&:after
+				content: ''
+				display: block
+				border-radius: 10px
+				+absolute(top 0 left 0 right 0 bottom 0)
+				background-color: rgba(0,0,0,0.5)
+		img
+			float: left
+			margin-right: 1rem
+			& +*
+				vertical-align: bottom
+
+[class*="-list"]
+	[class*="-title"]
+		font:
+			size: 1.2rem
+			weight: bold
+
+
+[class*="-header"]
+	margin-bottom: 1em
+	h1
+		font-weight: bold
+		margin-bottom: 0.5em
+		font-size: 1.5rem
+	p
+		font-size: 1.2rem
+		color: #888
+
+.adventure, .challenge
+	[class*="-list"]
+		@extend %clearfix
 		width: auto
-		+absolute(top 0 right 0 left initial bottom initial)
-		background: none
+		height: 220px
+		overflow-x: scroll
+		overflow-y: hidden
+		white-space: nowrap
+	[class*="-item"]
+		display: inline-block
+		margin:
+			right: 1rem
+		text-align: center
+		a
+			width: 200px
+			+relative
+			border-radius: 10px
+			transition: all 0.2s ease
+			&:after
+				content: ''
+				display: block
+				border-radius: 10px
+				padding-bottom: 100%
+			&:active
+				transform: scale(0.95)
+			&:hover, &:focus
+				outline: none
+				&:after
+					background-color: rgba(0,0,0,0.5)
 
-.util-btns
-	float: right
-	&> button
-		+ir
-		width: 4rem
-		padding: 1em
-		border: none
 
-@each $icon in add, setting
-	.util-btns .#{$icon}-btn
-		background: url(../img/icon/#{$icon}.svg) no-repeat center
-		background-size: 1.5rem
+
+	// @each $icon in challenge, dashboard, friend, myInfo, notification
+	// .gnb-item.#{$icon}
+		// background: url(../img/icon/#{$icon}.svg) no-repeat center
+		// background-size: cover
+.adventure-item a
+	background: url(../img/challenge/myactivity.png) no-repeat center
+	background-size: cover
+	color: white
 
 
 
+.adventure-title
+	+absolute(left 50% top 50%)
+	+size(100%)
+	transform: translate(-50%, -50%)
+.adventure-info
+	+absolute(left 50% top 70%)
+	+size(100%)
+	transform: translateX(-50%)
+	&:before
+		content: ''
+		display: inline-block
+		+size(16px, 16px)
+		background: url(../img/icon/foot_steps_feet.png) no-repeat center
+		background-size: contain
 
+				
+.challenge-item a
+	border: 1px solid darken($light-gray, 10%)
+	background: url(../img/challenge/myactivity.png) no-repeat center 10%
+	background-color: white
+	background-size: 50%
+	color: black
 
+.challenge-title
+	+horizontal-center
+	top: 60%
+
+.challenge-info
+	+horizontal-center
+	bottom: 1rem
+
+[class*="-item"]:last-child.seemore a
+	color: $fit-green
+	background: white
+	& [class*="-title"]
+		top: 50%
+		transform: translate(-50%,-50%)

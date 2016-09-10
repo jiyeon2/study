@@ -47,9 +47,25 @@ overflow: hidden
 |---|---|
 |0907 수| dashboard index.html코딩, sass로 레이아웃 작업 |
 |0908 목| svg로 원형 그래프 그리고 애니메이션|
+|0909 금| 하트 애니메이션, d3.js연습
+|0910 토| 
+|0911 일| 
+|0912 월| 
+|0913 화| 
+|0914 수| 
+|0915 목| 
+|0916 금| 
+|0917 토| 
+|0918 일| 
+|0919 월| _발표준비시작
+|0920 화| 
+|0921 수| 
+|0922 목| 
+|0923 금| _하이어링데이!_
 
 
 ### 참고
 - [Top 10 Screen Resolutions](https://www.w3counter.com/globalstats.php)
 - [ir기법](http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
 - [circle progress bar animation trick with css, JS](http://stackoverflow.com/questions/26781576/svg-progress-circle-with-percentage)
+- [Scroll Page Horizontally With Mouse Wheel](https://css-tricks.com/snippets/jquery/horz-scroll-with-mouse-wheel/)

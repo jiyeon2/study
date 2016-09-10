@@ -1,4 +1,122 @@
-<section role="tabpanel" class="tab-content">
-	<h2>챌린지</h2>
-	<p>챌린지입니다</p>
-</section>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>fitbit | challenge</title>
+	<link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<main class="container">
+	
+	<section class="my-activity">
+		<header class="my-activity-header">
+			<h1>현재 활동 중</h1>
+		</header>
+		<ul class="my-activity-list">
+			<li class="my-activity-item"><a href="">
+				<img src="../../assets/img/challenge/myactivity.png" alt="나의 프로필 사진">
+				<div class="my-activity-info">
+					<p class="my-activity-title">버널 폭포</p>
+					<p class="my-activity-content"><span>2일</span>후에 완료됨</p>
+					<p class="my-activity-state">종료됨</p>
+				</div>
+			</a></li>
+			<li class="my-activity-item"><a href="">
+				<img src="../../assets/img/challenge/myactivity.png" alt="나의 프로필 사진">
+				<div class="my-activity-info">
+					<p class="my-activity-title">주말 워리어 챌린지</p>
+					<p class="my-activity-content"><span>wesbix</span>님으로부터의 초대
+					<p class="my-activity-state">회신 대기중</p>
+				</div>
+			</a></li>
+		</ul>
+	</section>
+	
+	<section class="adventure">
+		<header class="adventure-header">
+			<h1>어드벤처</h1>
+			<p>걸음 수를 사용하여 흥미로운 목적지를 찾아 보세요.</p>
+		</header>
+		<div>
+			<ul class="adventure-list">
+				<li class="adventure-item waterfall"><a href="">
+					<p class="adventure-title">요세미티<br> 버널 폭포</p>
+					<p class="adventure-info">15,000 걸음</p>
+				</a></li>
+				<li class="adventure-item valley"><a href="">
+					<p class="adventure-title">요세미티<br> 밸리 루프</p>
+					<p class="adventure-info">24,000 걸음</p>
+				</a></li>
+				<li class="adventure-item trail"><a href="">
+					<p class="adventure-title">요세미티<br> 포호노 트래일</p>
+					<p class="adventure-info">42,000 걸음</p>
+				</a></li>
+				<li class="adventure-item seemore"><a href="">
+					<p class="adventure-title">모든 어드벤처 보기</p>
+				</a></li>
+			</ul>
+		</div>
+	</section>
+	
+	<section class="challenge">
+		<header class="challenge-header">
+			<h1>챌린지</h1>
+			<p>친구 및 가족과 경쟁하여 더 많이 움직이세요.</p>
+		</header>
+		<div>
+			<ul class="challenge-list">
+				<li class="challenge-item goal"><a href="">
+						<p class="challenge-title">목표 달성일</p>
+						<span class="challenge-info">
+							<span class="entry">1 - 10</span>
+							<span class="deadline">1일</span>
+						</span>
+				</a></li>
+				<li class="challenge-item weekend"><a href="">
+						<p class="challenge-title">주말 워리어 챌린지</p>
+						<span class="challenge-info">
+							<span class="entry">2 - 10</span>
+							<span class="deadline">2일</span>
+						</span>
+				</a></li>
+				<li class="challenge-item today"><a href="">
+						<p class="challenge-title">일일 데일리 챌린지</p>
+						<span class="challenge-info">
+							<span class="entry">2 - 10</span>
+							<span class="deadline">1일</span>
+						</span>
+				</a></li>
+				<li class="challenge-item weekday"><a href="">
+						<p class="challenge-title">주중 허슬 챌린지</p>
+						<span class="challenge-info">
+							<span class="entry">2 - 10</span>
+							<span class="deadline">5일</span>
+						</span>
+				</a></li>
+				<li class="challenge-item seemore"><a href="">
+						<p class="challenge-title">모든 챌린지 보기</p>
+				</a></li>
+			</ul>
+		</div>
+	</section>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="../../assets/lib/jquery.mousewheel.js"></script>
+<script>
+
+	(function($){
+		'use strict';
+		$(".adventure-list").mousewheel(function(event, delta) {
+			this.scrollLeft -= (delta * 30);
+			event.preventDefault();
+		});
+		$(".challenge-list").mousewheel(function(event, delta) {
+			this.scrollLeft -= (delta * 30);
+			event.preventDefault();
+		});
+	})(this.jQuery);
+</script>
+</body>
+</html>
