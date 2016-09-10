@@ -69,3 +69,5 @@ overflow: hidden
 - [ir기법](http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
 - [circle progress bar animation trick with css, JS](http://stackoverflow.com/questions/26781576/svg-progress-circle-with-percentage)
 - [Scroll Page Horizontally With Mouse Wheel](https://css-tricks.com/snippets/jquery/horz-scroll-with-mouse-wheel/)
+- [Custom Scrollbars Mixin](https://css-tricks.com/snippets/sass/custom-scrollbars-mixin/)
+- [Custom scrollbars for IE, Chrome and Firefox using CSS](http://codemug.com/html/custom-scrollbars-using-css/)

@@ -15,14 +15,23 @@
 	.gnb-item
 		+size(20%)
 		+ir
+		+relative
 		padding: 1rem
 		float: left
 		transition: all 0.2s ease-out
+		color: black
 		+width-from('970px')
 			text-indent: 6rem
+		&:after
+			content: ''
+			+absolute(left 0 bottom 0 right 0 top 100%)
+			background: $fit-green
+			transition: all 0.2s ease
 		//상태디자인 필요 hover,focus, active
-		&:hover
+		&:hover, &:focus, &:active
 			background-size: 2rem
+			&:after
+				top: 90%
 
 
 @each $icon in challenge, dashboard, friend, myInfo, notification
@@ -132,7 +141,7 @@ svg .circle
  	transform-origin: center
  	&.big
  		fill: rgba(#E86363, 0.3)
- 		animation: heartbeat 2s infinite ease
+ 		animation: heartbeat 1.5s infinite ease
 
 .heart-rate .svg-container svg
 	width: 160px

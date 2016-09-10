@@ -6,7 +6,7 @@
 //$large: '1260px'
 ///////////////////////////////////////
 
-
+// width 이상일때 적용되는 미디어쿼리
 @mixin width-from($w)
 	@media only screen and (min-width: #{$w})
 		@content
@@ -41,7 +41,7 @@
 						@if $i
 								#{$dir}: nth($args, $i + 1)
 
-//단축 믹스인
+//position 단축 믹스인
 @mixin relative($args: null)
 	@include position(relative, $args)
 
@@ -52,7 +52,27 @@
 	@include position(fixed, $args)
 
 
-
+//x축 가운데 정렬
 @mixin horizontal-center
 	+absolute(left 50%)
 	transform: translateX(-50%)
+
+//scrollbar css (webkit과 ie만!)
+//$target: 적용대상 (default: body)
+//$size: 스크롤바 너비
+//$bar-color: 스크롤바 색
+//$rail-color: 스크롤바 뒷부분 줄 색
+@mixin scrollbars( $size, $bar-color, $target: 'body',$rail-color: mix($bar-color, white, 50%)) 
+  #{$target}::-webkit-scrollbar 
+      width:  $size
+      height: $size
+  #{$target}::-webkit-scrollbar-thumb 
+      background: $bar-color
+      border-radius: 10px
+  #{$target}::-webkit-scrollbar-track 
+      background: $rail-color
+      border-radius: 10px
+  // ie만 적용
+  #{$target} 
+    scrollbar-face-color: $bar-color
+    scrollbar-track-color: $rail-color
