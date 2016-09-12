@@ -7,13 +7,44 @@
 	<title>fitbit dashboard</title>
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<style>
+		.svg-container{
+			width: 60%;
+			height: 60%;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+		}
+		.svg-container img{
+			width: 100%;
+		}
+		.drink{
+			background: blue;
+			position: absolute;
+			width: 100%;
+			height: 0;
+		}
+		.glass{
+			border: 5px solid black;
+			border-top-color: transparent;
+		}
+		.glass:before{
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100px;
+		}
+		main.dashboard{
+			padding-bottom: 4rem;
+		}
+	</style>
 </head>
 <body>
 
 <nav class="gnb">
-	<a href="views/graph/sleep.html" class="gnb-item dashboard">대시보드</a>
+	<a href="#" class="gnb-item dashboard">대시보드</a>
 	<a href="views/challenge.html" class="gnb-item challenge">챌린지</a>
-	<a href="friend.html" class="gnb-item friend">친구</a>
+	<a href="views/friend.html" class="gnb-item friend">친구</a>
 	<a href="notification.html" class="gnb-item notification">알림</a>
 	<a href="myInfo.html" class="gnb-item myInfo">계정</a>
 </nav>
@@ -31,7 +62,7 @@
 							<circle r="3" cy="50" cx="90" fill="white"></circle>
 						</svg>
 					</div>
-					<p>237걸음</p>
+					<p contenteditable="true">237걸음</p>
 				</li>
 				<li class="daily-item stair">
 					<div class="svg-container">
@@ -94,6 +125,12 @@
 	<section class="dashboard-section sleep">
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">수면패턴 분석</h1>
+			<a href="views/graph/sleep.html">
+			<div class="svg-container">
+				<img src="../assets/img/icon/sleep.svg" alt="">
+				수면 시간 그래프 보기
+			</div>
+			</a>
 		</div>
 	</section>
 
@@ -101,27 +138,39 @@
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">시간 별 움직임</h1>
 			<div>움직일 준비가 되었습니까?</div>
+			<div class="svg-container">
+				<img src="../assets/img/icon/yoga.svg" alt="">
+			</div>
 		</div>
 	</section>
 
 	<section class="dashboard-section workout">
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">이번 주 운동</h1>
+			<div class="svg-container">
+				<img src="../assets/img/icon/workout.svg" alt="">
+			</div>
 		</div>
 	</section>
 
-	<section class="dashboard-section badge">
+	<section class="dashboard-section meal">
 		<div class="dashboard-contents">
-			<h1 class="readable-hidden">35,000걸음</h1>
+			<h1 class="readable-hidden">식사</h1>
+			<div class="svg-container">
+				<img src="../assets/img/icon/spoon.svg" alt="">
+			</div>
 		</div>
 	</section>
 
 	<section class="dashboard-section water">
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">0ml 마셨음(오늘)</h1>
+			<div class="svg-container">
+				<img src="../assets/img/icon/water_glass.svg" alt="">
+			</div>
+				<button class="water-btn">마심</button>
 		</div>
 	</section>
-
 </main>
 
 <aside class="utils">

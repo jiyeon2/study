@@ -1,22 +1,26 @@
 
-var body=d3.select('body');
-var num = 40; // 막대그래프 길이보정값
 
 d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 
-	var w = 700;
+	var w = 1100;
 	var h = 500;
-
+	var body=d3.select('body');
+	var y = d3.scale.linear()//선형척도
+					.domain([0,d3.max(data, function(element){return element.sleepTime;})]) //실제수면시간(정의역)
+					.range([h,0]); //표시되는 수면시간길이(치역)
+ var x = d3.scale.ordinal()//순서척도
+ 					.domain(data.map(function(element){return element.date;}))
+ 					.rangeBands([0, w], 0.2, 0);
 	var svg = body.append('svg') //svg 태그 생성
 			.attr({
 				width : w,
 				height : h,
-				// viewBox: '0,0, 600, 500' // 사이즈,위치 조절 가능
+				class: 'svg sleep',
+				// viewBox: '0,0, 1500, 500' // 사이즈,위치 조절 가능
 			})
 			.style({
 				padding: '20px',
-				margin: '20px',
-				border: '1px solid blue'
+				margin: '20px'
 			});
 
 	var bar_group = svg.append('g') //svg태그 자식으로 <g class="bars">생성
@@ -27,17 +31,16 @@ d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 			.enter()								//각 데이터가 들어갈 객체 생성
 			.append('rect')					//객체와 연결된 rect요소들을 생성
 			.attr({									//각각의 rect에 속성할당
-				fill: '#89dc75',
-				x: function(d,i){ return i*20; } , 
-				// d: data, i: index / 각 rect x좌표값을 index*20으로 설정 -> 20px씩 떨어져있게됨
-				y: 500, // 초기 y값을 맨 아래에 둠
-				width: 14,
+				fill: '#55C2C2',
+				x: function(d,i){return x(d.date)},
+				y: h, // 초기 y값을 맨 아래에 둠
+				width: x.rangeBand(),
 				height: 0
 				}) 
 			.transition() //애니메이션 추가. 애니메이션 지정할 속성을 .transition()을 아래에 쓴다
-			.attr('y', function(d,i){return 500 - d.sleepTime*num; })
-			.attr('height',function(d,i){return d.sleepTime*num;})
-			.duration(1000) //1000ms 후 시작
+			.attr('y', function(d,i){return y(d.sleepTime); })
+			.attr('height',function(d,i){return h - y(d.sleepTime);})
+			.duration(1000) 
 			.delay(function(d,i){return i*50}); // 각 rect마다 지연시간을 줌
 
 
@@ -48,7 +51,7 @@ d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 					.transition()
 					.attr('fill','#45ac67');
 
-				var xPos = parseFloat(d3.select(this).attr('x')) - 30; //툴팁의 x좌료
+				var xPos = parseFloat(d3.select(this).attr('x')-25); //툴팁의 x좌표
 				
 				var yPos = parseFloat(d3.select(this).attr('y'))/ 2 + h/7; //툴팁의 y좌표
 				var time_minute = (d.sleepTime+'').split('.'), 
@@ -67,8 +70,35 @@ d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 			.on('mouseout', function(){ //마우스가 나갔을 때 이벤트 설정
 				d3.select(this)
 					.transition()
-					.attr('fill','#89dc75');
+					.attr('fill','#55C2C2');
 				d3.select('.tooltip').classed('hidden',true);
 			})
 
+//y축 수면시간 레이블
+var yAxis = d3.svg.axis() //축 생성자 생성
+	.scale(y)
+	.orient('left')
+	.ticks(8); //축의 척도를 정함
+
+	svg.append('g')
+	.attr('class','yAxis')
+	.call(yAxis);
+
+//그래프 내 시간별 줄긋기
+	var axis_lines = svg.select('.yAxis').selectAll('line')[0],
+			axis_lines_length = axis_lines.length,
+			i=0;
+	for(; i<axis_lines_length;i++){
+	axis_lines[i].setAttribute('x1', w);
+	}
+
+	//x축 수면시간
+var xAxis =d3.svg.axis()
+						.scale(x)
+						.orient('bottom');
+
+		svg.append('g')
+				.call(xAxis)
+				.attr('class','x_axis')
+				.style('transform','translateY('+h+'px)')
 });

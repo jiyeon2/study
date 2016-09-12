@@ -35,3 +35,88 @@ $fit-green: #55C2C2
 
 //challenge 페이지
 @import 'challenge'
+
+//friend 페이지
+// @import 'friend'
+@mixin border-circle
+	border-radius: 50%
+
+main.friend
+	@extend %clearfix
+	+width-from('500px')
+		display: flex
+
+.friend-list
+	max-width: 30rem
+	& >:nth-child(2n)
+		background: #efefef
+	+width-from('500px')
+		flex-basis: 40%
+
+.friend-list a
+	color: #555
+	&:hover, &:focus
+		background: #EAF7F7
+
+.friend-item
+	@extend %clearfix
+	+size(100%)
+	display: flex
+	align-items: center
+	padding: 1em 0
+
+	.order
+		flex-basis: 10%
+		max-width: 2.5rem
+		padding-left: 1em
+	.thumbnail
+		flex-basis: 40%
+		max-width: 5rem
+		img
+			+border-circle
+	.name
+		flex-basis: 50%
+		max-width: 20rem
+
+.friend-info
+	+absolute(left 0 top 0 right 0 bottom 0)
+	display: none
+	line-height: 1.8
+	background: white
+	button
+		+absolute(top 2rem right 2rem)
+		border: 1px solid currentColor
+		border-radius: 10px
+		padding: 0.5em 1em
+		color: white
+		background: transparent
+		transition: all 0.2s ease
+		&:hover, &:focus, &:active
+			background: darken($fit-green, 20%)
+	& >*:not(button)
+		padding: 2rem
+	&.show
+		display: block
+	.info-label
+		font-size: 2rem
+		color: #555
+		border-bottom: 1px solid #999
+		margin-bottom: 1rem
+	+width-from('500px')
+		+relative
+		display: block
+		flex-basis: 60%
+		flex-grow: 1
+
+	.friend-brief
+		background: $fit-green
+		color: white
+		img
+			+border-circle
+		.name
+			font-size: 2rem
+
+	.friend-register .label
+		display: inline-block
+		color: #555
+		width: 10rem

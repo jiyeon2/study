@@ -1,4 +1,57 @@
-<section role="tabpanel" class="tab-content">
-	<h2>친구</h2>
-	<p>친구입니다</p>
-</section>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>friend</title>
+	<link rel="stylesheet" href="../../assets/css/main.css">
+	<style>
+
+	</style>
+</head>
+<body>
+
+<main class="friend"  data-ng-app="fitbitApp" data-ng-controller="friendCtrl">
+	<ul class="friend-list"> 
+		<li data-ng-repeat="(key, value) in friend">
+		<a href="" data-ng-click=getThisUserInfo()>
+			<ul class="friend-item">
+				<li class="order">{{key + 1}}</li>
+				<li class="thumbnail">
+				<img ng-src="{{value.picture.thumbnail}}" alt></li>
+				<li class="name">{{value.name.first | uppercase}} {{value.name.last | uppercase}}</li>
+			</ul>
+		</a>
+		</li>
+	</ul>
+
+
+	<div class="friend-info" data-ng-class="show">
+		<button ng-click="initInfo()" type="button">x</button>
+		<ul class="friend-brief">
+			<li><img ng-src="{{clicked_person.picture.medium}}" alt></li>
+			<li class="name">{{clicked_person.name.first | uppercase}} {{clicked_person.name.last | uppercase}}</li>
+			<li>{{clicked_person.nat}}</li>
+			<li>{{clicked_person.gender}}</li>
+			<li>{{clicked_person.dob.split(' ')[0]}}</li>
+		</ul>
+		<ul class="friend-contact">
+			<li class="info-label">Contact</li>
+			<li>{{clicked_person.location.state}} {{clicked_person.location.city}} {{clicked_person.location.street}}</li>
+			<li><a href="mailto:{{clicked_person.email}}">{{clicked_person.email}}</a></li>
+			<li><a href="tel:{{clicked_person.cell}}">{{clicked_person.cell}}</a></li>
+		</ul>
+		<ul class="friend-register">
+			<li class="info-label">Information</li>
+			<li><span class="label">USER ID</span>{{clicked_person.login.username}}</li>
+			<li><span class="label">REGISTER DATE</span>{{(clicked_person.registered).split(' ')[0]}}</li>
+		</ul>
+	</div>
+
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
