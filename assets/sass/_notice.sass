@@ -1,0 +1,155 @@
+
+$msg-bg-color: darken(white, 10%)
+$msg-box-color: #ECEE6A
+$chat-bg-color: darken(white, 15%)
+
+.notice-container
+	+relative
+	height: 100vh
+
+.message-list a, .notice-list a
+	color: black
+
+.message-list a
+	+st-change-bg($chat-bg-color)
+
+.notice-list a
+	+st-change-bg($msg-bg-color)
+
+.on 
+	background: $chat-bg-color
+
+.notice.message, .notice.badge
+	.notice-title
+		+subtitle-style($fz: 1.5rem, $color: #888)
+			margin: 2rem
+			padding-bottom: 1rem
+
+	.notice-item
+		display: flex
+		padding: 1rem
+		align-items: center
+		.notice-img
+			flex-basis: 20%
+			max-width: 5rem
+			text-align: center
+			img
+				display: inline-block
+				+border-circle
+				+size(44px)
+
+.msg-box
+	+relative
+	background: $msg-box-color
+	padding: 1em
+	border-radius: 10px
+	&:before
+		content: ''
+		display: block
+		+absolute(left -10px top 50%)
+		border:
+			right: 10px solid $msg-box-color
+			top: 5px solid transparent
+			bottom: 5px solid transparent
+
+.notice.message
+	.new-msg-btn
+		display: block
+		+size(80%)
+		max-width: 20rem
+		margin:
+			left: auto
+			right: auto
+		padding: 0.5em 0
+		border: none
+		border-radius: 5px
+		background: $fit-green
+		transition: all 0.2s ease
+		+st-change-bg(darken($fit-green, 20%))
+			color: white
+		&:active
+			transform: scale(0.95)
+
+.notice.badge
+	order: 0
+	.notice-img img
+		border: 3px solid $fit-green
+
+
+$input-radius: 10px
+.chat.hide
+	display: none
+	+width-from('1390px')
+		display: block
+
+.chat 
+	+absolute(left 0 top 0 right 0 bottom 0)
+	background: $chat-bg-color
+	.back-btn
+		+absolute(right 2rem top 2rem)
+		+size(2rem, 2rem)
+		border: none
+		background: url(../../assets/img/icon/back-arrow.svg) no-repeat center
+		background-size: cover
+		padding: 1rem
+		text-indent: -9990px
+		transition: all 0.2s ease
+		overflow: hidden
+		&:hover, &:focus, &:active
+			transform: scale(1.3)
+	.chat-title 
+		margin: 2rem
+		.user-id
+			color: $fit-green
+			font-size: 2rem
+			margin-right: 0.2rem
+
+	.chat-form
+		+absolute(left 0 right 0 bottom 2rem)
+		text-align: center
+		input
+			width: 80%
+			padding: 0.5em
+			border: none
+			border-radius: $input-radius 0 0 $input-radius
+			margin-right: -5px
+		button
+			border: none
+			padding: 0.5em 1em
+			border-radius: 0 $input-radius $input-radius 0
+			background: $fit-green
+.chat-item
+	display: flex
+	padding: 1rem
+	align-items: center
+	.notice-img
+		flex-basis: 20%
+		max-width: 5rem
+		text-align: center
+		img
+			display: inline-block
+			+border-circle
+			+size(44px)
+
++width-from('800px')
+	.notice-container
+		display: flex
+	.notice.badge
+		order: 1
+		flex-basis: 50%
+	.notice.message
+		order: 2
+		flex-basis: 50%
+		background: $msg-bg-color
+
++width-from('1390px')
+	.notice.badge
+		order: 1
+		flex-basis: 33%
+	.notice.message
+		order: 2
+		flex-basis: 33%
+	.chat
+		position: relative
+		order: 3
+		flex-grow: 1

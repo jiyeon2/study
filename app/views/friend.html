@@ -13,13 +13,14 @@
 <body>
 
 <main class="friend"  data-ng-app="fitbitApp" data-ng-controller="friendCtrl">
+<a href="../index.html" style="position: absolute;">대시보드로 이동</a>
 	<ul class="friend-list"> 
-		<li data-ng-repeat="(key, value) in friend">
+		<li data-ng-cloak data-ng-repeat="(key, value) in friend">
 		<a href="" data-ng-click=getThisUserInfo()>
 			<ul class="friend-item">
 				<li class="order">{{key + 1}}</li>
 				<li class="thumbnail">
-				<img ng-src="{{value.picture.thumbnail}}" alt></li>
+				<img data-ng-src="{{value.picture.thumbnail}}" alt></li>
 				<li class="name">{{value.name.first | uppercase}} {{value.name.last | uppercase}}</li>
 			</ul>
 		</a>
@@ -30,7 +31,7 @@
 	<div class="friend-info" data-ng-class="show">
 		<button ng-click="initInfo()" type="button">x</button>
 		<ul class="friend-brief">
-			<li><img ng-src="{{clicked_person.picture.medium}}" alt></li>
+			<li><img data-ng-src="{{clicked_person.picture.medium}}" alt></li>
 			<li class="name">{{clicked_person.name.first | uppercase}} {{clicked_person.name.last | uppercase}}</li>
 			<li>{{clicked_person.nat}}</li>
 			<li>{{clicked_person.gender}}</li>

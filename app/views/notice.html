@@ -1,4 +1,90 @@
-<section role="tabpanel" class="tab-content">
-	<h2>알림</h2>
-	<p>알림입니다</p>
-</section>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>알림</title>
+	<link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+<a href="../index.html" style="position: absolute; top:0;">대시보드로 이동</a>
+<main class="notice">
+<div class="notice-container">
+			<section class="notice message">
+				<h3 class="notice-title">메시지</h3>
+				<button type="button" class="new-msg-btn">새로운 메시지 보내기</button>
+				<ul class="message-list">
+					<li class><a href=""><ul class="notice-item">
+							<li class="notice-img"><img src="../../assets/img/challenge/myactivity.jpg" alt=""></li>
+							<li class="notice-content">
+								<p class="msg-box">새 친구가 되신것을 환영합니다! 이번 주도 잘 보내세요!!</p>
+								<p><span>anonymous</span>, <span>1일 전</span></p>
+							</li>
+						</ul></a></li>
+					<li><a href=""><ul class="notice-item">
+							<li class="notice-img"><img src="../../assets/img/challenge/valley.jpg" alt=""></li>
+							<li class="notice-content">
+								<p class="msg-box">.</p>
+								<p><span>sea</span>, <span>2일 전</span></p>
+							</li>
+						</ul></a></li>
+				</ul>
+			</section>
+
+			<section class="chat hide">
+				<button type="button" class="back-btn">뒤로가기</button>
+				<h4 class="chat-title"><span class="user-id">anonymous</span>와의 대화</h4>
+				<div class="chat-board">
+				<ul class="chat-item">
+							<li class="notice-img"><img src="../../assets/img/challenge/myactivity.jpg" alt=""></li>
+							<li class="notice-content">
+								<p class="msg-box">새 친구가 되신것을 환영합니다! 이번 주도 잘 보내세요!!</p>
+								<p><span>anonymous</span>, <span>1일 전</span></p>
+							</li>
+				</ul>
+				</div>
+				<form action="" method="" class="chat-form" name="msg">
+					<input type="text" placeholder="메시지를 입력하세요">
+					<button type="button">전송</button>
+				</form>
+			</section>
+
+			<section class="notice badge">
+				<h3 class="notice-title">뱃지</h3>
+				<ul class="notice-list">
+					<li>
+						<a href=""><ul class="notice-item">
+								<li class="notice-img"><img src="../../assets/img/challenge/myactivity.jpg" alt=""></li>
+								<li class="notice-content">와! FDS 수료 뱃지를 얻었어요!</li>
+							</ul></a>
+					</li>
+					<li>
+						<a href=""><ul class="notice-item">
+								<li class="notice-img"><img src="../../assets/img/challenge/trail.jpg" alt=""></li>
+								<li class="notice-content">요세미티 어드벤처에서 버널 폭포 트레일을 완료하셨습니다.</li>
+							</ul></a>
+					</li>
+				</ul>
+			</section>
+</div>
+</main>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+
+$('.message-list').find('a').on('click',function(e){
+	e.preventDefault();
+	$this = $(this);
+	$parent = $this.parent();
+	$parent.addClass('on');
+	$parent.siblings('.on').removeClass('on');
+	$('.chat.hide').removeClass('hide');
+
+	$('.back-btn').on('click',function(){
+		$('.chat').addClass('hide');
+	});
+})
+</script>
+</body>
+</html>

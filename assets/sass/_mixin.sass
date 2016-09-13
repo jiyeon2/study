@@ -76,3 +76,19 @@
   #{$target} 
     scrollbar-face-color: $bar-color
     scrollbar-track-color: $rail-color
+
+//원형테두리
+@mixin border-circle
+	border-radius: 50%
+
+//소제목 스타일
+@mixin subtitle-style($fz: 2rem, $color: '#555')
+	font-size: $fz
+	color: $color
+	border-bottom: 1px solid currentColor
+	@content
+
+@mixin st-change-bg($bg: #EAF7F7)
+		&:hover, &:focus
+			background: $bg
+			@content
