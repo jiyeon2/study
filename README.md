@@ -48,10 +48,10 @@ overflow: hidden
 |0907 수| dashboard index.html코딩, sass로 레이아웃 작업 |
 |0908 목| svg로 원형 그래프 그리고 애니메이션|
 |0909 금| 하트 애니메이션, d3.js연습
-|0910 토| 
-|0911 일| 
-|0912 월| 
-|0913 화| 
+|0910 토| sleep.html
+|0911 일| challenge.html
+|0912 월| friend.html
+|0913 화| notice.html
 |0914 수| 
 |0915 목| 
 |0916 금| 
@@ -71,3 +71,6 @@ overflow: hidden
 - [Scroll Page Horizontally With Mouse Wheel](https://css-tricks.com/snippets/jquery/horz-scroll-with-mouse-wheel/)
 - [Custom Scrollbars Mixin](https://css-tricks.com/snippets/sass/custom-scrollbars-mixin/)
 - [Custom scrollbars for IE, Chrome and Firefox using CSS](http://codemug.com/html/custom-scrollbars-using-css/)
+- [<input type="text" />태그에서 Enter 칠때 웹페이지 reload 되는 현상의 해결법](http://bryan7.tistory.com/207)
+- [채팅창 스크롤 포커싱script](http://jong8.tistory.com/entry/%EC%B1%84%ED%8C%85%EC%B0%BD-%EC%8A%A4%ED%81%AC%EB%A1%A4-%ED%8F%AC%EC%BB%A4%EC%8B%B1script)
+- [scroll to top](http://jsfiddle.net/neeklamy/RpPEe/)
