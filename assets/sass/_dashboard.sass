@@ -1,51 +1,16 @@
-
-//////////////////////////////////////////
-// dashboard sass
-//////////////////////////////////////////
-
-
-//////////////////////////////////////////
-// gnb
-//////////////////////////////////////////
-.gnb
-	@extend %clearfix
-	width: 100%
-	max-width: 970px
-	text-align: center
-	.gnb-item
-		+size(20%)
-		+ir
-		+relative
-		padding: 1rem
-		float: left
-		transition: all 0.2s ease-out
-		color: black
-		+width-from('970px')
-			text-indent: 6rem
-		&:after
-			content: ''
-			+absolute(left 0 bottom 0 right 0 top 100%)
-			background: $fit-green
-			transition: all 0.2s ease
-		//상태디자인 필요 hover,focus, active
-		&:hover, &:focus, &:active
-			background-size: 2rem
-			&:after
-				top: 90%
-
-
-@each $icon in challenge, dashboard, friend, myInfo, notification
-	.gnb-item.#{$icon}
-		background: url(../img/icon/#{$icon}.svg) no-repeat center
-		background-size: 1.5rem
-
+main
+	background: linear-gradient(to bottom, white 56px, $light-gray 56px)
+	padding-top: 56px
+	height: 100vh
+	overflow-y: scroll
+	@media only screen and (max-width: 800px )
+		padding-bottom: 56px
 
 ///////////////////////
 // dashboard
 ///////////////////////
 .dashboard:not(.gnb-item)
 	@extend %clearfix
-	background-color: $light-gray
 
 .dashboard-section
 	+relative
@@ -66,7 +31,7 @@
 		+absolute(top 0 left 0)
 		width: 100%
 		text-align: center
-		padding-top: 2rem
+		padding-top: 5%
 		.dashboard-title
 			margin-bottom: 1rem
 
@@ -104,21 +69,25 @@
 	@extend %clearfix
 
 .daily-item
+	+relative
 	float: left
 	width: 25%
 	&:first-child
 		width: 100%
 
++width-from(1200px)
+	.daily-item
+		margin:
+			top: 10%
+			bottom: 15%
 
 //////////////////////////
 // svg ring graph
 ///////////////////////////
 svg.ring-graph
-	&:first-child
 		+size(100px, 100px)
 
 svg .circle
-	fill: transparent
 	stroke: $light-gray
 	stroke-width: 0.5em
 	stroke-linecap: round
@@ -177,5 +146,30 @@ svg .circle
 
 
 
+////////////////////////
+.svg-container
+	width: 60%
+	height: 60%
+	margin-left: auto
+	margin-right: auto
+	+relative
+.svg-container img
+	width: 100%
+.drink
+	background: blue
+	position: absolute
+	width: 100%
+	height: 0
+.glass
+	border: 5px solid black
+	border-top-color: transparent
+.glass:before
+	content: ''
+	display: block
+	width: 100%
+	height: 100px
 
 
+.test
+	+absolute(top 50% left 50%)
+	transform: translate(-50%, -50%)

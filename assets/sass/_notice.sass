@@ -1,30 +1,39 @@
 
-$msg-bg-color: darken(white, 10%)
 $msg-box-color: #ECEE6A
-$chat-bg-color: darken(white, 15%)
 
-.notice-container
+
+$chat-base-color: $bg-base-color
+$msg-bg-color: $bg-sub-color
+$chat-bg-color: $bg-sub-sub-color
+$guide-msg-color: darken($bg-base-color, 55%)
+
+$input-radius: 10px
+
+main.notice
 	+relative
-	height: 100vh
+	display: flex
+	flex-direction: column
+	// height: 100vh
+// @media only screen and (max-width: 1259px)
+// 	main.notice
+// 		height: 80vh
 
+//상태디자인 
 .message-list a, .notice-list a
 	color: black
-
 .message-list a
 	+st-change-bg($chat-bg-color)
-
 .notice-list a
 	+st-change-bg($msg-bg-color)
-
-.on 
+.notice .on 
 	background: $chat-bg-color
 
+//message, badge section 공통
 .notice.message, .notice.badge
 	.notice-title
 		+subtitle-style($fz: 1.5rem, $color: #888)
 			margin: 2rem
 			padding-bottom: 1rem
-
 	.notice-item
 		display: flex
 		padding: 1rem
@@ -38,66 +47,62 @@ $chat-bg-color: darken(white, 15%)
 				+border-circle
 				+size(44px)
 
-.msg-box
-	+relative
-	background: $msg-box-color
-	padding: 1em
-	border-radius: 10px
-	&:before
-		content: ''
-		display: block
-		+absolute(left -10px top 50%)
-		border:
-			right: 10px solid $msg-box-color
-			top: 5px solid transparent
-			bottom: 5px solid transparent
-
+//message section만 해당
 .notice.message
 	.new-msg-btn
-		display: block
-		+size(80%)
+		+base-btn
 		max-width: 20rem
-		margin:
-			left: auto
-			right: auto
-		padding: 0.5em 0
-		border: none
-		border-radius: 5px
 		background: $fit-green
 		transition: all 0.2s ease
 		+st-change-bg(darken($fit-green, 20%))
 			color: white
 		&:active
 			transform: scale(0.95)
+	.msg-box 
+		& +p
+			color: $guide-msg-color
 
+//badge section만 해당
 .notice.badge
 	order: 0
 	.notice-img img
 		border: 3px solid $fit-green
 
 
-$input-radius: 10px
-.chat.hide
+
+.guide-msg.hide, .chat-board.hide, .chat-form.hide, .chat.hide
 	display: none
-	+width-from('1390px')
-		display: block
+
+.guide-msg
+	+absolute(left 50% top 50%)
+	transform: translate(-50%, -50%)
+	text-align: center
+	font-size: 1.4rem
+	color: $guide-msg-color
+
+.back-btn
+	display: block
+	width: 100%
+	text-indent: -9999px
+	border: none
+	background: url(../../assets/img/icon/back-arrow.svg) no-repeat 1rem center, linear-gradient(to right, $bg-sub-sub-color, $bg-sub-sub-color)
+	background-size: 24px 24px, cover
+	&:hover, &:focus
+		background: url(../../assets/img/icon/back-arrow.svg) no-repeat 1rem center, linear-gradient(to right, darken($bg-sub-sub-color, 10%), darken($bg-sub-sub-color, 10%))
+		background-size: 24px 24px, cover
+	.chat &
+		+absolute(left 0 top 0)
 
 .chat 
-	+absolute(left 0 top 0 right 0 bottom 0)
-	background: $chat-bg-color
-	.back-btn
-		+absolute(right 2rem top 2rem)
-		+size(2rem, 2rem)
-		border: none
-		background: url(../../assets/img/icon/back-arrow.svg) no-repeat center
-		background-size: cover
-		padding: 1rem
-		text-indent: -9990px
-		transition: all 0.2s ease
-		overflow: hidden
-		&:hover, &:focus, &:active
-			transform: scale(1.3)
+	+absolute(left 0 top 56px right 0 bottom 56px)
+	background: $msg-bg-color
+
+	.chat-board
+		overflow: auto
+		padding-top: 80px
+		height: 80vh
 	.chat-title 
+		+absolute(left 0 top 0)
 		margin: 2rem
 		.user-id
 			color: $fit-green
@@ -108,7 +113,7 @@ $input-radius: 10px
 		+absolute(left 0 right 0 bottom 2rem)
 		text-align: center
 		input
-			width: 80%
+			width: 70%
 			padding: 0.5em
 			border: none
 			border-radius: $input-radius 0 0 $input-radius
@@ -118,22 +123,47 @@ $input-radius: 10px
 			padding: 0.5em 1em
 			border-radius: 0 $input-radius $input-radius 0
 			background: $fit-green
+
 .chat-item
 	display: flex
 	padding: 1rem
 	align-items: center
 	.notice-img
-		flex-basis: 20%
-		max-width: 5rem
+		flex-basis: 15%
+		max-width: 4rem
 		text-align: center
 		img
 			display: inline-block
 			+border-circle
 			+size(44px)
+	.msg-box
+		+relative
+		background: $msg-box-color
+		padding: 1em
+		border-radius: 10px
+		&:before
+			content: ''
+			display: block
+			+absolute(left -10px top 50%)
+			border:
+				right: 10px solid $msg-box-color
+				top: 5px solid transparent
+				bottom: 5px solid transparent
+	&.mychat
+		flex-direction: row-reverse
+		.msg-box 
+			& +p
+				text-align: right
+			&:before
+				left: 100%
+				border:
+					right: none
+					left: 10px solid $msg-box-color
+		
 
 +width-from('800px')
-	.notice-container
-		display: flex
+	main.notice
+		flex-direction: row
 	.notice.badge
 		order: 1
 		flex-basis: 50%
@@ -142,7 +172,7 @@ $input-radius: 10px
 		flex-basis: 50%
 		background: $msg-bg-color
 
-+width-from('1390px')
++width-from('1290px')
 	.notice.badge
 		order: 1
 		flex-basis: 33%
@@ -151,5 +181,13 @@ $input-radius: 10px
 		flex-basis: 33%
 	.chat
 		position: relative
+		top: 0
+		bottom: 0
 		order: 3
+		background: $chat-bg-color
 		flex-grow: 1
+	.chat.hide
+		display: block
+	.msg-box
+		max-width: 35rem
+

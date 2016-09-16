@@ -1,34 +1,11 @@
 @import 'normalize'
 @import 'mixin'
 
-a
-	display: block
-	text-decoration: none
+//color변수, 요소 스타일 초기화
+@import 'common'
 
-button:hover
-	cursor: pointer
-
-ul
-	list-style: none
-
-html
-	font: 16px/1.5 'Noto Sans', sans-serif
-
-div, a, section, main, h1, h3, h4, p, ul, li, img
-	box-sizing: border-box
-	padding: 0
-	margin: 0
-
-%clearfix
-	&:after
-		content: ''
-		display: block
-		clear: both
-///////////////////////////////////////
-// color
-///////////////////////////////////////
-$light-gray: #f2f5f5
-$fit-green: #55C2C2
+//global nav
+@import 'gnb'
 
 //dashboard페이지
 @import 'dashboard'
@@ -42,3 +19,5 @@ $fit-green: #55C2C2
 //notice 페이지
 @import 'notice'
 
+//mypage 페이지
+@import 'mypage'

@@ -92,3 +92,28 @@
 		&:hover, &:focus
 			background: $bg
 			@content
+
+@mixin base-btn($size: 80%)
+	+size($size)
+	display: block
+	margin:
+		left: auto
+		right: auto
+	padding: 0.5em 0
+	border: none
+	border-radius: 5px
+	@content
+
+@mixin st-change-scale($scale: 0.95)
+	&:active
+		transform: scale($scale)
+
+
+//mypage에 적용되는 공통 박스스타일
+@mixin box-style
+	padding: 0.7em 0
+	&::before
+		content: ''
+		+size(44px, 44px)
+		margin: 0.5em 1em
+		float: left

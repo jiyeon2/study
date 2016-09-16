@@ -1,0 +1,139 @@
+$mypage-sub-color: #999
+$fit-red: #F43C6F
+//mypage공통
+.mypage
+	font-size: 1.3rem
+	.box
+		@extend %clearfix
+		+box-style
+	.mypage-title
+		+subtitle-style(1.5rem, $mypage-sub-color)
+			padding: 1rem 0.5rem
+			margin: 1rem
+	.main-col [class*="-btn"]
+		+base-btn
+		color: white
+		max-width: 20rem
+		margin-top: 1rem
+		margin-bottom: 1rem	
+		transition: all 0.2s ease
+		+st-change-scale
+	.search, .mygoal, .settings 
+		.box
+			+st-change-bg
+			color: $mypage-sub-color
+		.box-title
+			color: #333
+			font-weight: bold
+
+//아이콘이미지
+@each $icon in yoga, burn, diet, sleep, compat-app, helps, license, heart, setting
+	.box.#{$icon}::before
+		background: url(../../assets/img/icon/#{$icon}.svg) no-repeat center
+		background-size: cover
+
+//내계정
+.myinfo .box
+	background: $fit-green
+	color: white
+	+st-change-bg(darken($fit-green, 10%))
+	&.user::before
+		+border-circle
+		background: url('../../assets/img/challenge/myactivity.jpg') no-repeat center
+		background-size: cover
+	&.tracker::before
+		background: url('../../assets/img/trackers/charge.png') no-repeat center
+		background-size: contain
+
+.set-tracker-btn
+	background: $fit-green
+	+st-change-bg(darken($fit-green, 20%))
+
+//설정
+.settings
+	.logout-btn
+		+st-change-bg(darken($fit-red, 20%))
+		background: $fit-red
+
+
+// sub-col
+
+//sub-contents
+.sub-content-title
+	+subtitle-style(1.5rem, #555)
+		margin: 1rem
+	form &
+		margin: 1rem 0
+.sub-contents
+	padding: 1rem
+	.btn-group
+		@extend %clearfix
+		.set-btn, .clear-btn
+			+base-btn(6rem)
+			float: right
+			margin-right: 1rem
+			color: white
+			transition: all 0.2s ease
+			+st-change-scale
+			+st-change-bg(darken($fit-green, 10%))
+			background-color: $fit-green
+
+.sub-content-label
+	display: block
+	color: #777
+	margin-bottom: 0.5em
+.sub-content-input
+	display: block
+	width: 95%
+	padding: 0.4em
+	margin-bottom: 1em
+	border: 2px solid #bbb
+
+//////////////레이아웃
+[class*='-col']
+	+relative
+	overflow: auto
+	&.hide
+		display: none
+	&.cover
+		+absolute(left 0 top 0)
+		width: 100%
+
+main.mypage
+	display: flex
+	+relative
+
+.main-col, .sub-col, .sub-sub-col
+	flex-grow: 1
+	flex-basis: 30%
+	padding-bottom: 56px
+	background: $bg-base-color
+
++width-from('800px')
+	.sub-col.hide
+		display: block
+	[class*='-col'].cover
+		+relative
+	.sub-col
+		background: $bg-sub-color
+	.sub-sub-col
+		background: $bg-sub-sub-color
+
++width-from('1290px')
+	.sub-sub-col.hide
+		display: block
+
+.sub-col .sub-sec
+	display: none
+
+.sub-sec.show
+	display: block
+
+.main-col .on
+	background: $bg-sub-color
+
+.myinfo .on
+	background: darken($fit-green, 10%)
+
+.sub-col .on
+	background: $bg-sub-sub-color

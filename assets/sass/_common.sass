@@ -1,0 +1,32 @@
+a
+	display: block
+	text-decoration: none
+
+button:hover
+	cursor: pointer
+
+ul
+	list-style: none
+
+html
+	font: 16px/1.5 'Noto Sans', sans-serif
+
+div, a, section, main, h1, h3, h4, p, ul, li, img
+	box-sizing: border-box
+	padding: 0
+	margin: 0
+
+%clearfix
+	&:after
+		content: ''
+		display: block
+		clear: both
+///////////////////////////////////////
+// color
+///////////////////////////////////////
+$light-gray: #f2f5f5
+$fit-green: #55C2C2
+
+$bg-base-color: white
+$bg-sub-color: darken($bg-base-color, 10%)
+$bg-sub-sub-color: darken($bg-base-color, 15%)

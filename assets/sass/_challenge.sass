@@ -1,5 +1,3 @@
-.container
-	background: $light-gray
 
 .my-activity, .adventure, .challenge
 	padding: 1rem 2rem
@@ -20,8 +18,7 @@
 		border-radius: 10px
 		background: #fff
 		color: black
-		&:active
-			transform: scale(0.95)
+		+st-change-scale
 		&:hover, &:focus
 			outline: none
 			&:after
@@ -154,3 +151,6 @@
 
 @include scrollbars(10px, $fit-green, "[class*='-list']",transparent)
 
+@media only screen and (max-width: 1259px)
+	main.container
+		padding-bottom: 4rem

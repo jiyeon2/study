@@ -4,51 +4,42 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>알림</title>
+	<title>fitbit dashboard</title>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
-<a href="../index.html" style="position: absolute; top:0;">대시보드로 이동</a>
+
+<nav class="gnb">
+	<a href="./../index.html" class="gnb-item dashboard">대시보드</a>
+	<a href="./challenge.html" class="gnb-item challenge">챌린지</a>
+	<a href="./friend.html" class="gnb-item friend">친구</a>
+	<a href="./notice.html" class="gnb-item notification">알림</a>
+	<a href="./mypage.html" class="gnb-item myInfo">계정</a>
+</nav>
+
 <main class="notice">
-<div class="notice-container">
 			<section class="notice message">
 				<h3 class="notice-title">메시지</h3>
 				<button type="button" class="new-msg-btn">새로운 메시지 보내기</button>
 				<ul class="message-list">
 					<li class><a href=""><ul class="notice-item">
-							<li class="notice-img"><img src="../../assets/img/challenge/myactivity.jpg" alt=""></li>
+							<li class="notice-img"><img src="../../assets/img/challenge/thelove.jpg" alt=""></li>
 							<li class="notice-content">
 								<p class="msg-box">새 친구가 되신것을 환영합니다! 이번 주도 잘 보내세요!!</p>
-								<p><span>anonymous</span>, <span>1일 전</span></p>
+								<p><span class="user-id">thelove</span>, <span class="sent-time">1일 전</span></p>
 							</li>
 						</ul></a></li>
 					<li><a href=""><ul class="notice-item">
 							<li class="notice-img"><img src="../../assets/img/challenge/valley.jpg" alt=""></li>
 							<li class="notice-content">
-								<p class="msg-box">.</p>
-								<p><span>sea</span>, <span>2일 전</span></p>
+								<p class="msg-box">(사진)</p>
+								<p><span class="user-id">바다</span>, <span class="sent-time">2일 전</span></p>
 							</li>
 						</ul></a></li>
 				</ul>
 			</section>
 
-			<section class="chat hide">
-				<button type="button" class="back-btn">뒤로가기</button>
-				<h4 class="chat-title"><span class="user-id">anonymous</span>와의 대화</h4>
-				<div class="chat-board">
-				<ul class="chat-item">
-							<li class="notice-img"><img src="../../assets/img/challenge/myactivity.jpg" alt=""></li>
-							<li class="notice-content">
-								<p class="msg-box">새 친구가 되신것을 환영합니다! 이번 주도 잘 보내세요!!</p>
-								<p><span>anonymous</span>, <span>1일 전</span></p>
-							</li>
-				</ul>
-				</div>
-				<form action="" method="" class="chat-form" name="msg">
-					<input type="text" placeholder="메시지를 입력하세요">
-					<button type="button">전송</button>
-				</form>
-			</section>
 
 			<section class="notice badge">
 				<h3 class="notice-title">뱃지</h3>
@@ -67,24 +58,28 @@
 					</li>
 				</ul>
 			</section>
-</div>
+
+			<section class="chat hide">
+				<button type="button" class="back-btn">뒤로가기</button>
+				<h4 class="guide-msg">왼쪽의 메시지를 선택하여 해당 인물과 채팅을 시작하세요.</h4>
+				<div class="chat-board"></div>
+				<form action="#" method="POST" class="chat-form hide" name="msg">
+					<input type="text" placeholder="메시지를 입력하세요">
+					<button type="button">전송</button>
+				</form>
+			</section>
 </main>
 
+<aside class="utils">
+	<div class="util-btns">
+		<button type="button" class="add-btn">기록하기</button>
+		<button type="button" class="setting-btn">설정하기</button>
+	</div>
+</aside>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script>
+<script src="../../assets/js/dom-helper.js"></script>
+<script src="../../assets/js/notice.js"></script>
 
-$('.message-list').find('a').on('click',function(e){
-	e.preventDefault();
-	$this = $(this);
-	$parent = $this.parent();
-	$parent.addClass('on');
-	$parent.siblings('.on').removeClass('on');
-	$('.chat.hide').removeClass('hide');
-
-	$('.back-btn').on('click',function(){
-		$('.chat').addClass('hide');
-	});
-})
-</script>
 </body>
 </html>

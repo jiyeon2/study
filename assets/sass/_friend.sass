@@ -10,6 +10,8 @@ main.friend
 		background: #efefef
 	+width-from('500px')
 		flex-basis: 40%
+	max-height: 90vh
+	overflow: auto
 
 .friend-list a
 	color: #555
@@ -36,8 +38,9 @@ main.friend
 		max-width: 20rem
 
 .friend-info
-	+absolute(left 0 top 0 right 0 bottom 0)
+	+absolute(left 0 top 56px bottom 56px right 0)
 	display: none
+	overflow: auto
 	line-height: 1.8
 	background: white
 	a
@@ -63,6 +66,7 @@ main.friend
 		+subtitle-style
 	+width-from('500px')
 		+relative
+		top: 0
 		display: block
 		flex-basis: 60%
 		flex-grow: 1

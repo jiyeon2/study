@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>friend</title>
+	<title>fitbit dashboard</title>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../../assets/css/main.css">
-	<style>
-
-	</style>
 </head>
 <body>
 
-<main class="friend"  data-ng-app="fitbitApp" data-ng-controller="friendCtrl">
-<a href="../index.html" style="position: absolute;">대시보드로 이동</a>
+<nav class="gnb">
+	<a href="./../index.html" class="gnb-item dashboard">대시보드</a>
+	<a href="./challenge.html" class="gnb-item challenge">챌린지</a>
+	<a href="#" class="gnb-item friend">친구</a>
+	<a href="./notice.html" class="gnb-item notification">알림</a>
+	<a href="./mypage.html" class="gnb-item myInfo">계정</a>
+</nav>
+
+<main class="friend" data-ng-app="fitbitApp" data-ng-controller="friendCtrl">
 	<ul class="friend-list"> 
 		<li data-ng-cloak data-ng-repeat="(key, value) in friend">
 		<a href="" data-ng-click=getThisUserInfo()>
@@ -29,7 +34,7 @@
 
 
 	<div class="friend-info" data-ng-class="show">
-		<button ng-click="initInfo()" type="button">x</button>
+		<button data-ng-click="initInfo()" type="button">x</button>
 		<ul class="friend-brief">
 			<li><img data-ng-src="{{clicked_person.picture.medium}}" alt></li>
 			<li class="name">{{clicked_person.name.first | uppercase}} {{clicked_person.name.last | uppercase}}</li>
@@ -49,8 +54,14 @@
 			<li><span class="label">REGISTER DATE</span>{{(clicked_person.registered).split(' ')[0]}}</li>
 		</ul>
 	</div>
-
 </main>
+
+<aside class="utils">
+	<div class="util-btns">
+		<button type="button" class="add-btn">기록하기</button>
+		<button type="button" class="setting-btn">설정하기</button>
+	</div>
+</aside>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="../js/app.js"></script>
