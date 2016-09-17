@@ -4,9 +4,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>fitbit dashboard</title>
+	<title>Fitbit | Dashboard</title>
 	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -21,120 +22,118 @@
 <main class="dashboard">
 	<section class="dashboard-section daily summary">
 	<div class="dashboard-contents">
-			<h1 class="dashboard-title">오늘</h1>
+			<h1 class="section-title">오늘</h1>
 			<ul>
-				<li class="daily-item walk">
-
-						<svg class="ring-graph">
-							<circle r="40" cx="50" cy="50" fill="transparent" class="circle"></circle>
-							<circle r="40" cx="50" cy="50" fill="transparent" class="circle bar"></circle>
-							<circle r="3" cy="50" cx="90" fill="white"></circle>
-						</svg>
-					<p>237걸음</p>
+				<li class="daily-item foot-steps">
+					<div class="svg-container"></div>
+					<div class="daily-content">
+						<p class="readable-hidden">걸음 수</p>
+						<p class="daily-value"><span>2485</span>걸음</p>
+					</div>
 				</li>
 				<li class="daily-item stair">
-
-						<svg class="ring-graph">
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle"></circle>
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle bar"></circle>
-							<circle r="3" cy="50" cx="75" fill="white"></circle>
-						</svg>
-					<p>0층<br>(오른 층 수)</p>
+					<div class="svg-container"></div>
+					<div class="daily-content">
+						<p class="readable-hidden">오른 층 수</p>
+						<p class="daily-value"><span>12</span>층</p>
+					</div>
 				</li>
-				<li class="daily-item distance">
-
-						<svg class="ring-graph">
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle"></circle>
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle bar"></circle>
-							<circle r="3" cy="50" cx="75" fill="white"></circle>
-						</svg>
-					<p>0.16 km</p>
+				<li class="daily-item location">
+					<div class="svg-container"></div>
+					<div class="daily-content">
+						<p class="readable-hidden">이동 거리</p>
+						<p class="daily-value"><span>4</span>km</p>
+					</div>
 				</li>
-				<li class="daily-item kcal">
-
-						<svg class="ring-graph">
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle"></circle>
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle bar"></circle>
-							<circle r="3" cy="50" cx="75" fill="white"></circle>
-						</svg>
-					<p>906칼로리<br>소모</p>
+				<li class="daily-item burn">
+					<div class="svg-container"></div>
+					<div class="daily-content">
+						<p class="readable-hidden">소모 칼로리</p>
+						<p class="daily-value"><span>840</span>kcal</p>
+					</div>
 				</li>
 				<li class="daily-item active-time">
-
-						<svg class="ring-graph">
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle"></circle>
-							<circle r="25" cx="50" cy="50" fill="transparent" class="circle bar"></circle>
-							<circle r="3" cy="50" cx="75" fill="white"></circle>
-						</svg>
-					<p>0분<br>(활동적 시간)</p>
+					<div class="svg-container"></div>
+					<div class="daily-content">
+						<p class="readable-hidden">활동적인 시간</p>
+						<p class="daily-value"><span>35</span>분</p>
+					</div>
 				</li>
 			</ul>
-		
 	</div>
 	</section>
 
 	<section class="dashboard-section heart-rate">
 		<div class="dashboard-contents">
-			<h1 class="dashboard-title readable-hidden">심박수</h1>
-			<div class="svg-container">
-				<svg class="test" viewBox="-80 -40 300 200">
-					<path class="heart-icon" d="M127,44.205c0-18.395-14.913-33.308-33.307-33.308c-12.979,0-24.199,7.441-29.692,18.276  c-5.497-10.835-16.714-18.274-29.694-18.274C15.912,10.898,1,25.81,1,44.205C1,79,56.879,117.104,64.001,117.104  C71.124,117.104,127,79.167,127,44.205z"/>
-					<path class="heart-icon big" d="M127,44.205c0-18.395-14.913-33.308-33.307-33.308c-12.979,0-24.199,7.441-29.692,18.276  c-5.497-10.835-16.714-18.274-29.694-18.274C15.912,10.898,1,25.81,1,44.205C1,79,56.879,117.104,64.001,117.104  C71.124,117.104,127,79.167,127,44.205z"/>
-				</svg>
-				<p>63 bpm</p>
-			</div>
+			<h1 class="readable-hidden">심박수</h1>
+			<img class="heart-img static" src="../assets/img/icon/heart.svg" alt="하트모양">
+			<img class="heart-img pumping" src="../assets/img/icon/heart.svg" alt="하트모양">
+			<p class="heart-rate-value"><span contenteditable="true">62</span>bpm</p>
+		</div>
+	</section>
+
+	<section class="dashboard-section water">
+		<div class="dashboard-contents">
+			<h1 class="readable-hidden">물 마시기</h1>
+			<div class="water-in-cup"></div>
+			<img class="water-img" src="../assets/img/icon/water_glass.svg" alt="물컵 픽토그램">
+			<p class="water-drink-value">
+				<span contenteditable="true">500</span>ml 마셨음<br>
+				<span class="small">(오늘 마신 물의 양)</span>
+			</p>
 		</div>
 	</section>
 
 	<section class="dashboard-section sleep">
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">수면패턴 분석</h1>
-			<a href="views/graph/sleep.html">
-			<div class="svg-container">
-				<img src="../../assets/img/icon/sleep.svg" alt="">
-				수면 시간 그래프 보기
-			</div>
-			</a>
+			<img class="sleep-img" src="../assets/img/icon/sleep.svg" alt="자는사람">
+			<a class="sleep-graph-link" href="views/graph/sleep.html">수면 시간 그래프 보기</a>
 		</div>
 	</section>
 
 	<section class="dashboard-section active-per-time">
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">시간 별 움직임</h1>
-			<div>움직일 준비가 되었습니까?</div>
-			<div class="svg-container">
-				<img src="../../assets/img/icon/yoga.svg" alt="">
-			</div>
+			<img class="moving-img" src="../assets/img/icon/yoga.svg" alt="움직이는 사람 픽토그램">
+			<p class="moving-time-value">
+				<span>0</span> / 9 시간 <br>
+				<span class="small">(250걸음 이상 걸은 시간)</span>
+			</p>
 		</div>
 	</section>
 
 	<section class="dashboard-section workout">
 		<div class="dashboard-contents">
-			<h1 class="readable-hidden">이번 주 운동</h1>
-			<div class="svg-container">
-				<img src="../../assets/img/icon/workout.svg" alt="">
-			</div>
+			<h1 class="readable-hidden">운동</h1>
+			<img class="workout-img" src="../assets/img/icon/workout.svg" alt="운동하는 사람 픽토그램">
+			<p class="workout-time-value">
+				<span>0</span> / 7 일 <br>
+				<span class="small">(이번 주 운동 횟수)</span>
+			</p>
 		</div>
 	</section>
 
 	<section class="dashboard-section diet">
 		<div class="dashboard-contents">
 			<h1 class="readable-hidden">식사</h1>
-			<div class="svg-container">
-				<img src="../../assets/img/icon/diet.svg" alt="">
-			</div>
+			<img class="spoon-img" src="../assets/img/icon/diet.svg" alt="포크와 스푼 픽토그램">
+			<p class="diet-value">
+				오늘은 무엇을 드셨나요?
+			</p>
 		</div>
 	</section>
 
-	<section class="dashboard-section water">
-		<div class="dashboard-contents">
-			<h1 class="readable-hidden">0ml 마셨음(오늘)</h1>
-			<div class="svg-container">
-				<img src="../../assets/img/icon/water_glass.svg" alt="">
+<section class="sleep-graph modal">
+	<div class="modal-content">
+		<button type="button" class="back-btn modal-close-btn">대시보드로 이동</button>
+			<h1 class="modal-title">7월 수면그래프</h1>
+			<div class="tooltip hidden">
+				<p>수면시간 <b class="value"></b></p>
 			</div>
-				<button class="water-btn">마심</button>
-		</div>
-	</section>
+	</div>
+</section>
+
 </main>
 
 <aside class="utils">
@@ -145,6 +144,9 @@
 </aside>
 
 <script src="../assets/js/bar-animation.js"></script>
-
+<script src="../assets/js/dashboard.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../assets/lib/jquery.mousewheel.js"></script>
+<script src="../assets/js/sleep_graph.js"></script>
 </body>
 </html>

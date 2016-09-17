@@ -4,14 +4,14 @@ d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 
 	var w = 1100;
 	var h = 500;
-	var body=d3.select('body');
+	var modal_content=d3.select('.modal-content');
 	var y = d3.scale.linear()//선형척도
 					.domain([0,d3.max(data, function(element){return element.sleepTime;})]) //실제수면시간(정의역)
 					.range([h,0]); //표시되는 수면시간길이(치역)
  var x = d3.scale.ordinal()//순서척도
  					.domain(data.map(function(element){return element.date;}))
  					.rangeBands([0, w], 0.2, 0);
-	var svg = body.append('svg') //svg 태그 생성
+	var svg = modal_content.append('svg') //svg 태그 생성
 			.attr({
 				width : w,
 				height : h,
@@ -49,11 +49,13 @@ d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 			.on('mouseover', function(d){ //마우스 올라갔을 때 이벤트 설정
 				d3.select(this)
 					.transition()
-					.attr('fill','#45ac67');
+					.attr('fill','#8BFDFD');
 
-				var xPos = parseFloat(d3.select(this).attr('x')-25); //툴팁의 x좌표
+				// var xPos = parseFloat(d3.select(this).attr('x')-25); //툴팁의 x좌표
+				var xPos = parseFloat(d3.select(this).attr('x')-40); //툴팁의 x좌표
 				
-				var yPos = parseFloat(d3.select(this).attr('y'))/ 2 + h/7; //툴팁의 y좌표
+				// var yPos = parseFloat(d3.select(this).attr('y'))/ 2 + h/7; //툴팁의 y좌표
+				var yPos = parseFloat(d3.select(this).attr('y'))+h/30; //툴팁의 y좌표
 				var time_minute = (d.sleepTime+'').split('.'), 
 						time        = time_minute[0], //수면 시간
 						minute      = time_minute[1]; //수면 분
@@ -102,3 +104,36 @@ var xAxis =d3.svg.axis()
 				.attr('class','x_axis')
 				.style('transform','translateY('+h+'px)')
 });
+
+//sleep-graph modal
+(function(global){
+	'use strict';
+	 var modal =document.querySelector('.modal');
+	 var sleep_graph_link = document.querySelector('.sleep-graph-link');
+	 var modal_close_btn = document.querySelector('.modal-close-btn');
+
+	 sleep_graph_link.addEventListener('click',function(e){
+	 	e.preventDefault();
+	 	modal.style.display = 'block';
+	 });
+
+	 	modal_close_btn.addEventListener('click',function(){
+	 	modal.style.display = 'none';
+	 });
+
+	 	global.addEventListener('click', function(e){
+	 		if (e.target == modal){
+	 			modal.style.display = 'none';
+	 		}
+	 	});
+})(this);
+
+
+//sleep-graph 마우스 휠
+(function($){
+		'use strict';
+		$('.modal').mousewheel(function(event, delta) {
+			this.scrollLeft -= (delta * 30);
+			event.preventDefault();
+		});
+	})(this.jQuery);
