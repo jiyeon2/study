@@ -7,14 +7,14 @@
 	<title>Pizzeria</title>
 	<link rel="stylesheet" href="css/main.css">
 	<style>
-.info{
+/*.info{
 	opacity:0;
 	transition: all 0.5s ease-out;
 }
 .info.fade-in{
 opacity:1;
 transform: translateY(-50px);
-}
+}*/
 	</style>
 
 
@@ -151,14 +151,45 @@ transform: translateY(-50px);
 		<div class="copyright">Copyright &copy; 2014 피제리아수드</div>
 	</footer>
 	<!-- 끝: .body-footer -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+
+<script>
+	var grid_btn = document.querySelector('.grid-btn');
+	var grid_on = false;
+	grid_btn.addEventListener('click',function(){
+		if(!grid_on){
+		document.querySelector('style').innerHTML = 'body::after {display: block}';
+		grid_on = !grid_on;
+		}else{
+		document.querySelector('style').innerHTML = '';
+		grid_on = !grid_on;
+		}
+	});
+
+	var menu_show_btn = document.querySelector('.menu-btn');
+	var nav_links = document.querySelector('.nav-links');
+	var menu_close_btn = document.createElement('button');
+	menu_close_btn.setAttribute('type','button');
+	menu_close_btn.setAttribute('class','menu-close-btn');
+	menu_close_btn.addEventListener('click',function(){
+		nav_links.setAttribute('class','nav_links');
+		nav_links.removeChild(menu_close_btn);
+	});
+
+	menu_show_btn.addEventListener('click',function(){
+		nav_links.setAttribute('class','nav_links show');
+		nav_links.appendChild(menu_close_btn);
+		console.log(nav_links);
+	});
+</script>
+
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-	<!-- scrollMagic GSAP Plugin -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+ -->	<!-- scrollMagic GSAP Plugin -->
+<!-- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js
-"></script>
-<script src="app.js"></script>
+"></script> -->
+<!-- <script src="app.js"></script> -->
 </body>
 
 </html>
