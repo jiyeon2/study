@@ -1,0 +1,74 @@
+//footer style
+.body-footer
+	background: #4a6788
+.footer-contents
+	padding:
+		top: $leading
+		bottom: $leading
+.location
+	color: white
+	&:before
+		content: ''
+		display: block
+		+size(2rem, $leading*2)
+		background: url(../img/footer/location-icon.png) no-repeat center
+		float: left
+.foot-links a
+	color: white
+	padding:
+		right: 5%
+		left: 5%
+	&:hover, &:focus
+		color: #E64C4C
+.twitter, .facebook
+	text-indent: -9999px
+	+size( $leading*2, $leading*2)
+	margin-right: 10%
+.twitter
+	background: url(../img/footer/twitter-icon.png) no-repeat center
+	background-size: contain
+.facebook
+	background: url(../img/footer/facebook-icon.png) no-repeat center
+	background-size: contain
+.copyright-container
+	color: white
+	background: #2b2b2b
+.copyright
+	text-align: center
+
+@media #{$breakpoint-mobile}
+	.foot-links, .location, .sns
+		+isolated-float
+	.foot-links
+		+offset(2,0)
+	.location
+		+offset(0,2)
+	.sns
+		+offset(8,2)
+
+@media #{$breakpoint-tablet}
+	.foot-links, .location, .sns
+		+isolated-float
+	.foot-links
+		+offset(3,1)
+	.location
+		+offset(0,1)
+		&:before
+			+size(1rem , $leading)
+			background-size: contain
+	.sns
+		+offset(10,1)
+	.twitter, .facebook
+		+size($leading*1.5,$leading*1.5)
+		margin-right: 0
+	// @media #{$breakpoint-desktop}
+
+.go-top-btn
+	+fixed(bottom #{$leading} right #{$leading})
+	+size($leading*2, $leading*2)
+	text-indent: -9999px
+	border: 1px solid transparent
+	border-radius: 5px
+	transition: all 0.2s 
+	background: url(../img/footer/ChevronUpCircle.svg) no-repeat center
+	background-size: cover

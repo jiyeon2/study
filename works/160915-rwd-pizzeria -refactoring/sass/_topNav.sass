@@ -1,0 +1,58 @@
+//top-nav
+.top-nav
+	.grid-btn, .menu-btn, .nav-links-item
+		padding:
+			top: $leading 
+			bottom: $leading 
+		+uppercase
+		&:hover, &:focus
+			color: white
+			background: #E64C4C
+			outline: none
+
+.grid-btn, .menu-btn
+	+relative
+	border: 1px solid currentColor
+	border-radius: 5px
+	transition: all 0.2s 
+
+.grid-btn
+	color: #E64C4C
+	
+.nav-ilnks
+	@extend %clearfix
+
+.nav-links-item
+	+relative
+	float: right
+	color: #666
+	transition: all 0.2s
+	padding:
+		right: 1em
+		left: 1em
+	&:not(:first-child):after
+			content: '|'
+			display: block
+			color: #bbb
+			+absolute(top 50% right -3px)
+			transform: translateY(-50%)
+
+
+
+
+
+@media #{$breakpoint-mobile}
+	.menu-btn
+		display: block
+	.nav-links
+		display: none
+@media #{$breakpoint-tablet}
+	.menu-btn
+		display: none
+	.nav-links-item
+		padding:
+			right: 0.7em
+			left: 0.7em
+@media #{$breakpoint-desktop}
+	.menu-btn
+		display: none

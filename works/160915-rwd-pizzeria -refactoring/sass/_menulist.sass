@@ -1,0 +1,130 @@
+//menulist
+.menulist
+	+relative
+	padding:
+		top: $leading
+		bottom: $leading
+	text-align: center
+	background: #E6EAF5
+
+.menulist-bg
+	+absolute(top 0 bottom 0)
+	width: 100%
+	@extend %clearfix
+
+.foods
+	display: block
+	float: left
+	+isolated-float
+
+
+.menu-set, .menu-pizza, .menu-drinks, .menu-pasta, .menu-sides, .menu-salad
+	+relative
+	background: white
+	margin-bottom: $leading *2
+	opacity: 0
+	transform: translateY(50%)
+	transition: all 1s ease-out
+	&.fade-in
+		opacity: 1
+		transform: translateY(0)
+
+.menu-title-style
+	+bigger-font
+	+uppercase
+	+relative
+	font-weight: normal
+	margin-top: $leading *1
+
+.menu-list-style
+	padding: $leading *1
+
+.dish
+	width: 100%
+	@extend %clearfix
+	.price
+		float: right
+		color: #999
+
+@media #{$breakpoint-desktop}
+	.menu-pizza, .menu-drinks, .menu-pasta, .menu-sides, .menu-set, .menu-salad
+		+isolated-float
+	.menu-set
+		+offset(3,0)
+	.menu-pizza
+		+offset(1,0)
+	.menu-drinks
+		+offset(7,3)
+	.menu-pasta
+		+offset(5,3)
+	.menu-sides
+		+offset(1,8)
+	.menu-salad
+		+offset(1,0)
+
+	.foods
+		&.pizza-piece
+			+offset(0,8)
+		&.cheese
+			+offset(1,20)
+		&.egg
+			+offset(2,0)
+		&.procoli
+			+offset(3,30)
+		&.shrimp
+			+offset(4,10)
+		&.sosige
+			+offset(5,40)
+		&.whole-pizza
+			+offset(6,9)
+		&.slice
+			+offset(10,0)
+		&.wine
+			+offset(8,25)
+
+@media #{$breakpoint-tablet}
+	.menu-pizza, .menu-drinks, .menu-pasta, .menu-sides, .menu-set, .menu-salad
+		+isolated-float
+	.menu-set
+		+offset(2,0)
+	.menu-pizza
+		+offset(2,0)
+	.menu-drinks
+		+offset(5,12)
+	.menu-pasta
+		+offset(2,0)
+	.menu-sides
+		+offset(2,12)
+	.menu-salad
+		+offset(5,21)
+	
+	.foods
+		&.pizza-piece
+			+offset(0,8)
+		&.cheese
+			+offset(1,40)
+		&.egg
+			+offset(2,20)
+		&.procoli
+			+offset(3,30)
+		&.shrimp
+			+offset(2,60)
+		&.sosige
+			+offset(5,60)
+		&.whole-pizza
+			+offset(8,12)
+		&.slice
+			+offset(10,2)
+		&.wine
+			+offset(8,45)
+
+@media #{$breakpoint-mobile}
+	.row
+		.menu-pizza, .menu-drinks, .menu-pasta, .menu-sides, .menu-set,.menu-salad
+			width: 90%
+			float: none
+			margin:
+				left: auto
+				right: auto
+	.foods
+		margin: 2rem

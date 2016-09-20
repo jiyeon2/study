@@ -1,0 +1,52 @@
+.welcome-board
+	+relative
+	text-align: center
+	background: white
+	padding:
+		top: $leading
+		bottom: $leading
+
+.welcome-board-item
+	+relative
+	padding: $leading
+	transform: translateY(50%)
+	transition: all 1s ease-out
+	&.fade-in
+		opacity: 1
+		transform: translateY(0)
+	p
+		text-align: justify
+		padding: 0 $leading $leading
+	.fin
+		display: block
+		text-align: right
+	opacity: 0
+
+.event-link
+	width: 50%
+	margin-left: 50%
+	color: #E64C4C
+	padding: 1em
+	border: 1px solid currentColor
+	border-radius: 10px
+	transition: all 0.3s
+	&:hover, &:focus
+		background: #E64C4C
+		color: white
+
+.welcome-board-title
+	+bigger-font
+	+uppercase
+	font-weight: normal
+	text-align: left
+	margin-bottom: $leading
+
+.welcome-img
+	+size(auto)
+	max-width: $leading * 8
+	border-radius: 50%
+	background: #F7ECE4
+	margin-bottom: $leading
+// @media #{$breakpoint-mobile}
+// @media #{$breakpoint-tablet}
+// @media #{$breakpoint-desktop}
