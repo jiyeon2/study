@@ -39,7 +39,7 @@
 
 	 	$http({
 	 		'method':'GET',
-	 		'url':'//api.randomuser.me/?results=10',
+	 		'url':'https://api.randomuser.me/?results=10',
 	 		'headers': "{'Content-Type': 'application/json; charset=utf-8'}"
 	 	}).then(successAjaxCall, errorAjaxCall);
 
