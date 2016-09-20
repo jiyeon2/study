@@ -1,5 +1,3 @@
-
-
 d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 
 	var w = 1100;
@@ -51,10 +49,7 @@ d3.csv('../../../assets/data/july_sleep.csv', function(error, data){
 					.transition()
 					.attr('fill','#8BFDFD');
 
-				// var xPos = parseFloat(d3.select(this).attr('x')-25); //툴팁의 x좌표
 				var xPos = parseFloat(d3.select(this).attr('x')-40); //툴팁의 x좌표
-				
-				// var yPos = parseFloat(d3.select(this).attr('y'))/ 2 + h/7; //툴팁의 y좌표
 				var yPos = parseFloat(d3.select(this).attr('y'))+h/30; //툴팁의 y좌표
 				var time_minute = (d.sleepTime+'').split('.'), 
 						time        = time_minute[0], //수면 시간
