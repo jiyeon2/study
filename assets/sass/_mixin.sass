@@ -62,16 +62,16 @@
 //$size: 스크롤바 너비
 //$bar-color: 스크롤바 색
 //$rail-color: 스크롤바 뒷부분 줄 색
-@mixin scrollbars( $size, $bar-color, $target: 'body',$rail-color: mix($bar-color, white, 50%)) 
+@mixin scrollbars( $size, $bar-color, $target: 'body',$rail-color: mix($bar-color, white, 50%), $radius: 10px) 
   #{$target}::-webkit-scrollbar 
       width:  $size
       height: $size
   #{$target}::-webkit-scrollbar-thumb 
       background: $bar-color
-      border-radius: 10px
+      border-radius: $radius
   #{$target}::-webkit-scrollbar-track 
       background: $rail-color
-      border-radius: 10px
+      border-radius: $radius
   // ie만 적용
   #{$target} 
     scrollbar-face-color: $bar-color
