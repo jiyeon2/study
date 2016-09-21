@@ -1,4 +1,3 @@
-
 d3.csv('july_sleep.csv', function(error, data){
 
 	var w = 1100;
