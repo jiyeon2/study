@@ -42,8 +42,8 @@
 
     $http({
       'method': 'GET',
-      // 'url':'http://api.randomuser.me/?results=30', //동일 url 정책으로 json 파일로 대체
-      'url': '/app/assets/data/random-users.json',
+      'url':'http://api.randomuser.me/?results=30', //동일 url 정책으로 json 파일로 대체
+      // 'url': '/app/assets/data/random-users.json',
       'headers': "{'Content-Type': 'application/json; charset=utf-8'}"
     }).then(successAjaxCall, errorAjaxCall);
 
