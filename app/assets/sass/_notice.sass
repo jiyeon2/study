@@ -1,7 +1,6 @@
 
 $msg-box-color: #ECEE6A
 
-
 $chat-base-color: $bg-base-color
 $msg-bg-color: $bg-sub-color
 $chat-bg-color: $bg-sub-sub-color
@@ -13,10 +12,6 @@ main.notice
 	+relative
 	display: flex
 	flex-direction: column
-	// height: 100vh
-// @media only screen and (max-width: 1259px)
-// 	main.notice
-// 		height: 80vh
 
 //상태디자인 
 .message-list a, .notice-list a
@@ -162,7 +157,7 @@ main.notice
 					right: none
 					left: 10px solid $msg-box-color
 
-@include scrollbars(10px, darken($fit-green,10%), ".chat-scroll",rgba(#444,0.4), 0)
+@include scrollbars(10px, darken($fit-green, 15%) , ".chat-scroll",rgba(#444,0.4), 0)
 
 +width-from('800px')
 	main.notice

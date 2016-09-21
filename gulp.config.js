@@ -1,7 +1,7 @@
 // @private project {}
 var project = {
-  'source': './assets/',
-  'destination': './assets/'
+  'source': './app/assets/',
+  'destination': './app/assets/'
 };
 
 // @exports config {}

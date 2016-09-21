@@ -1,161 +1,125 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Fitbit | My page</title>
-	<link href='//fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="../../assets/css/main.css">
-</head>
-<body>
+<div data-ng-controller="MyPageCtrl">
+  <main class="mypage">
+    <div class="main-col">
+      <section class="myinfo">
+        <a class="box user" href="">
+          <h4 class="readable-hidden">나의 정보</h4>
+          <p class="box-title">jiyeon lee</p>
+          <p class="box-content">가입: <span>2016-06-13</span></p>
+        </a>
+        <a class="box tracker" href="">
+          <p class="box-title">tracker</p>
+          <p class="box-content">동기화: <span>오늘, 약 2시간 전</span></p>
+        </a>
+        <button type="button" class="set-tracker-btn">기기 설정</button>
+      </section>
+      <section class="mygoal">
+        <h4 class="mypage-title">목표</h4>
+        <a class="box yoga" href="">
+          <p class="box-title">활동</p>
+          <p class="box-content">일일 활동 목표 설정</p>
+        </a>
+        <a class="box diet" href="">
+          <p class="box-title">영양 및 신체</p>
+          <p class="box-content">몸무게, 물 섭취량 및 음식 목표 설정</p>
+        </a>
+        <a class="box burn" href="">
+          <p class="box-title">운동</p>
+          <p class="box-content">일일 운동 목표 설정</p>
+        </a>
+        <a class="box sleep" href="">
+          <p class="box-title">수면</p>
+          <p class="box-content">수면 목표 설정</p>
+        </a>
+      </section>
+      <section class="search">
+        <h4 class="mypage-title">발견</h4>
+        <a class="box compat-app" href="">
+          <p class="box-title">호환 가능한 앱</p>
+          <p class="box-content">fitbit과 호환되는 앱을 확인하세요.</p>
+        </a>
+        <a class="box helps" href="">
+          <p class="box-title">도움말</p>
+          <p class="box-content">기기 및 FAQ가 있는 도움말</p>
+        </a>
+        <a class="box license" href="">
+          <p class="box-title">라이선스</p>
+          <p class="box-content">라이선스를 확인하세요.</p>
+        </a>
+      </section>
+      <section class="settings">
+        <h4 class="mypage-title">설정</h4>
+        <a class="box heart" href="">
+          <p class="box-title">심박동 구간</p>
+          <p class="box-content">심박동 구간 설정</p>
+        </a>
+        <a class="box setting" href="">
+          <p class="box-title">고급 설정</p>
+          <p class="box-content">국가, 음식 데이터베이스, 단위, 시간대 및 시간 표시 편집</p>
+        </a>
+        <button class="logout-btn" type="button">로그아웃</button>
+      </section>
+    </div>
+    <div class="sub-col hide">
+      <button type="button" class="back-btn">뒤로가기</button>
+      <p class="guide-msg">설정할 내용을 선택해주세요</p>
+      <section class="yoga sub-sec">
+        <h4 class="sub-content-title">활동</h4>
+        <div class="sub-contents">
+          <form action="#" method="get">
+            <label for="walk_count" class="sub-content-label">걸음 수</label>
+            <input type="text" id="walk_count" class="sub-content-input" placeholder="10,000">
+            <label for="dist_count" class="sub-content-label">이동 거리</label>
+            <input type="text" id="dist_count" class="sub-content-input" placeholder="10.00 km">
+            <label for="kcal_count" class="sub-content-label">칼로리 소모량</label>
+            <input type="text" id="kcal_count" class="sub-content-input" placeholder="2,500 칼로리">
+            <label for="activity_count" class="sub-content-label">활동적 시간(분)</label>
+            <input type="text" id="activity_count" class="sub-content-input" placeholder="60 분">
+            <label for="climb_count" class="sub-content-label">오른 층 수</label>
+            <input type="text" id="climb_count" class="sub-content-input" placeholder="20 층">
+            <label for="move_count" class="sub-content-label">시간당 활동 목표</label>
+            <input type="text" id="move_count" class="sub-content-input" placeholder="9시간 / 일">
+            <div class="btn-group">
+              <button class="set-btn">설정</button>
+              <button class="clear-btn">초기화</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="burn sub-sec">
+        <h4 class="sub-content-title">운동</h4>
+      </section>
+      <section class="diet sub-sec">
+        <div class="sub-contents">
+          <form action="#" method="get">
+            <h4 class="sub-content-title">영양 성분</h4>
+            <label for="water_to_drink" class="sub-content-label">물</label>
+            <input type="text" id="water_to_drink" class="sub-content-input" placeholder="2,000 ml">
+            <label for="cal_limit" class="sub-content-label">일일 칼로리 섭취 감소량</label>
+            <input type="text" id="cal_limit" class="sub-content-input" placeholder="-500 칼로리">
+            <h4 class="sub-content-title">신체</h4>
+            <label for="weight_wish" class="sub-content-label">목표 몸무게</label>
+            <input type="text" id="weight_wish" class="sub-content-input" placeholder="48.0 kg">
+            <label for="weight_now" class="sub-content-label">시작 몸무게</label>
+            <input type="text" id="weight_now" class="sub-content-input" placeholder="몸무게를 입력하세요">
+            <label for="fat_ratio_wish" class="sub-content-label">목표 체지방</label>
+            <input type="text" id="fat_ratio_wish" class="sub-content-input" placeholder="20 %">
+            <label for="fat_ratio_now" class="sub-content-label">시작 체지방 % </label>
+            <input type="text" id="fat_ratio_now" class="sub-content-input" placeholder="현재 체지방을 입력하세요">
+            <div class="btn-group">
+              <button class="set-btn">설정</button>
+              <button class="clear-btn">초기화</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="sleep sub-sec">
+        <h4 class="sub-content-title">수면</h4>
+      </section>
+    </div>
+    <div class="sub-sub-col hide"></div>
+  </main>
 
-<nav class="gnb">
-	<a href="./../index.html" class="gnb-item dashboard">대시보드</a>
-	<a href="./challenge.html" class="gnb-item challenge">챌린지</a>
-	<a href="./friend.html" class="gnb-item friend">친구</a>
-	<a href="./notice.html" class="gnb-item notification">알림</a>
-	<a href="./mypage.html" class="gnb-item myInfo now-on">계정</a>
-</nav>
-
-<main class="mypage">
-	<div class="main-col">
-		<section class="myinfo"> 
-			<a class="box user" href="">
-			<h4 class="readable-hidden">나의 정보</h4>
-				<p class="box-title">jiyeon lee</p>		
-				<p class="box-content">가입: <span>2016-06-13</span></p>
-			</a>
-			<a class="box tracker" href="">
-				<p class="box-title">tracker</p>		
-				<p class="box-content">동기화: <span>오늘, 약 2시간 전</span></p>
-			</a>
-			<button type="button" class="set-tracker-btn">기기 설정</button>
-		</section>
-	
-		<section class="mygoal">
-			<h4 class="mypage-title">목표</h4>
-			<a class="box yoga" href="">
-				<p class="box-title">활동</p>		
-				<p class="box-content">일일 활동 목표 설정</p>
-			</a>
-			<a class="box diet" href="">
-				<p class="box-title">영양 및 신체</p>		
-				<p class="box-content">몸무게, 물 섭취량 및 음식 목표 설정</p>
-			</a>
-			<a class="box burn" href="">
-				<p class="box-title">운동</p>		
-				<p class="box-content">일일 운동 목표 설정</p>
-			</a>
-			<a class="box sleep" href="">
-				<p class="box-title">수면</p>		
-				<p class="box-content">수면 목표 설정</p>
-			</a>
-		</section>
-	
-		<section class="search">
-			<h4 class="mypage-title">발견</h4>
-			<a class="box compat-app" href="">
-				<p class="box-title">호환 가능한 앱</p>		
-				<p class="box-content">fitbit과 호환되는 앱을 확인하세요.</p>
-			</a>
-			<a class="box helps" href="">
-				<p class="box-title">도움말</p>		
-				<p class="box-content">기기 및 FAQ가 있는 도움말</p>
-			</a>
-			<a class="box license" href="">
-				<p class="box-title">라이선스</p>		
-				<p class="box-content">라이선스를 확인하세요.</p>
-			</a>
-		</section>
-	
-		<section class="settings">
-			<h4 class="mypage-title">설정</h4>
-			<a class="box heart" href="">
-				<p class="box-title">심박동 구간</p>		
-				<p class="box-content">심박동 구간 설정</p>
-			</a>
-			<a class="box setting" href="">
-				<p class="box-title">고급 설정</p>		
-				<p class="box-content">국가, 음식 데이터베이스, 단위, 시간대 및 시간 표시 편집</p>
-			</a>
-			<button class="logout-btn" type="button">로그아웃</button>
-		</section>
-	</div>
-
-	<div class="sub-col hide">
-		<button type="button" class="back-btn">뒤로가기</button>
-		<p class="guide-msg">설정할 내용을 선택해주세요</p>
-
-		<section class="yoga sub-sec">
-			<h4 class="sub-content-title">활동</h4>
-			<div class="sub-contents">
-				<form action="#" method="get">
-					<label for="walk_count" class="sub-content-label">걸음 수</label>
-					<input type="text" id="walk_count" class="sub-content-input" placeholder="10,000">
-					<label for="dist_count" class="sub-content-label">이동 거리</label>
-					<input type="text" id="dist_count" class="sub-content-input" placeholder="10.00 km">
-					<label for="kcal_count" class="sub-content-label">칼로리 소모량</label>
-					<input type="text" id="kcal_count" class="sub-content-input" placeholder="2,500 칼로리">
-					<label for="activity_count" class="sub-content-label">활동적 시간(분)</label>
-					<input type="text" id="activity_count" class="sub-content-input" placeholder="60 분">
-					<label for="climb_count" class="sub-content-label">오른 층 수</label>
-					<input type="text" id="climb_count" class="sub-content-input" placeholder="20 층">
-					<label for="move_count" class="sub-content-label">시간당 활동 목표</label>
-					<input type="text" id="move_count" class="sub-content-input" placeholder="9시간 / 일">
-					<div class="btn-group">
-						<button class="set-btn">설정</button>
-						<button class="clear-btn">초기화</button>
-					</div>
-				</form>
-			</div>
-		</section>
-
-		<section class="burn sub-sec">
-			<h4 class="sub-content-title">운동</h4>
-		</section>
-
-		<section class="diet sub-sec">
-			<div class="sub-contents">
-				<form action="#" method="get">
-					<h4 class="sub-content-title">영양 성분</h4>
-					<label for="water_to_drink" class="sub-content-label">물</label>
-					<input type="text" id="water_to_drink" class="sub-content-input" placeholder="2,000 ml">
-					<label for="cal_limit" class="sub-content-label">일일 칼로리 섭취 감소량</label>
-					<input type="text" id="cal_limit" class="sub-content-input" placeholder="-500 칼로리">
-					<h4 class="sub-content-title">신체</h4>
-					<label for="weight_wish" class="sub-content-label">목표 몸무게</label>
-					<input type="text" id="weight_wish" class="sub-content-input" placeholder="48.0 kg">
-					<label for="weight_now" class="sub-content-label">시작 몸무게</label>
-					<input type="text" id="weight_now" class="sub-content-input" placeholder="몸무게를 입력하세요">
-					<label for="fat_ratio_wish" class="sub-content-label">목표 체지방</label>
-					<input type="text" id="fat_ratio_wish" class="sub-content-input" placeholder="20 %">
-					<label for="fat_ratio_now" class="sub-content-label">시작 체지방 % </label>
-					<input type="text" id="fat_ratio_now" class="sub-content-input" placeholder="현재 체지방을 입력하세요">
-					<div class="btn-group">
-						<button class="set-btn">설정</button>
-						<button class="clear-btn">초기화</button>
-					</div>
-				</form>
-			</div>
-		</section>
-
-		<section class="sleep sub-sec">
-			<h4 class="sub-content-title">수면</h4>
-		</section>
-
-	</div>
-	<div class="sub-sub-col hide"></div>
-</main>
-
-<aside class="utils">
-	<div class="util-btns">
-		<button type="button" class="add-btn">기록하기</button>
-		<button type="button" class="setting-btn">설정하기</button>
-	</div>
-</aside>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="../../assets/js/mypage.js"></script>
-</body>
-</html>
+  <!-- mypage js -->
+  <script src="/app/assets/js/mypage.js"></script>
+</div>

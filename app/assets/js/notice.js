@@ -17,7 +17,7 @@ var makeMsg = function(){
 	//다음의 요소를 만든다
 	var ul_chat_item = helper.newNode_class('ul','chat-item mychat'), 		//메시지 컨테이너
 			li_img       = helper.newNode_class('li','notice-img'),						//이미지 컨테이너
-			myimg        = helper.newNode_attr('img','src','../../assets/img/challenge/myactivity.jpg'),//이미지요소
+			myimg        = helper.newNode_attr('img','src','/app/assets/img/challenge/myactivity.jpg'),//이미지요소
 			li_content   = helper.newNode_class('li','notice-content'),				//메시지 내용 컨테이너
 			msg_box      = helper.newNode_class('p','msg-box'),								//메시지 내용
 			info         = document.createElement('p'),												//메시지 정보 컨테이너
@@ -53,6 +53,7 @@ $('.message-list').find('a').on('click',function(e){
 	$('.chat-board.hide').removeClass('hide');
 	$('.chat-form.hide').removeClass('hide');
 	$('.guide-msg').addClass('hide');
+	$('.chat-form input').focus();
 
 //해당 대화창 눌렀을 때 대화 내용 가져오기
 	var img_src    = this.querySelector('img').src,

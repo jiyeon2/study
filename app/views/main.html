@@ -1,0 +1,123 @@
+<div data-ng-controller="MainCtrl">
+  <main class="dashboard">
+    <section class="dashboard-section daily summary">
+      <div class="dashboard-contents">
+        <h1 class="section-title">오늘</h1>
+        <ul>
+          <li class="daily-item foot-steps">
+            <div class="svg-container"></div>
+            <div class="daily-content">
+              <p class="readable-hidden">걸음 수</p>
+              <p class="daily-value"><span>2485</span>걸음</p>
+            </div>
+          </li>
+          <li class="daily-item stair">
+            <div class="svg-container"></div>
+            <div class="daily-content">
+              <p class="readable-hidden">오른 층 수</p>
+              <p class="daily-value"><span>12</span>층</p>
+            </div>
+          </li>
+          <li class="daily-item location">
+            <div class="svg-container"></div>
+            <div class="daily-content">
+              <p class="readable-hidden">이동 거리</p>
+              <p class="daily-value"><span>4</span>km</p>
+            </div>
+          </li>
+          <li class="daily-item burn">
+            <div class="svg-container"></div>
+            <div class="daily-content">
+              <p class="readable-hidden">소모 칼로리</p>
+              <p class="daily-value"><span>840</span>kcal</p>
+            </div>
+          </li>
+          <li class="daily-item active-time">
+            <div class="svg-container"></div>
+            <div class="daily-content">
+              <p class="readable-hidden">활동적인 시간</p>
+              <p class="daily-value"><span>35</span>분</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="dashboard-section heart-rate">
+      <div class="dashboard-contents">
+        <h1 class="readable-hidden">심박수</h1>
+        <img class="heart-img static" src="/app/assets/img/icon/heart.svg" alt="하트모양">
+        <img class="heart-img pumping" src="/app/assets/img/icon/heart.svg" alt="하트모양">
+        <p class="heart-rate-value"><span contenteditable="true">62</span>bpm</p>
+      </div>
+    </section>
+    <section class="dashboard-section water">
+      <div class="dashboard-contents">
+        <h1 class="readable-hidden">물 마시기</h1>
+        <div class="water-in-cup"></div>
+        <img class="water-img" src="/app/assets/img/icon/water_glass.svg" alt="물컵 픽토그램">
+        <p class="water-drink-value">
+          <span contenteditable="true">500</span>ml 마셨음
+          <br>
+          <span class="small">(오늘 마신 물의 양)</span>
+        </p>
+      </div>
+    </section>
+    <section class="dashboard-section sleep">
+      <div class="dashboard-contents">
+        <h1 class="readable-hidden">수면패턴 분석</h1>
+        <img class="sleep-img" src="/app/assets/img/icon/sleep.svg" alt="자는사람">
+        <a class="sleep-graph-link" href="views/graph/sleep.html">수면 시간 그래프 보기</a>
+      </div>
+    </section>
+    <section class="dashboard-section active-per-time">
+      <div class="dashboard-contents">
+        <h1 class="readable-hidden">시간 별 움직임</h1>
+        <img class="moving-img" src="/app/assets/img/icon/yoga.svg" alt="움직이는 사람 픽토그램">
+        <p class="moving-time-value">
+          <span>0</span> / 9 시간
+          <br>
+          <span class="small">(250걸음 이상 걸은 시간)</span>
+        </p>
+      </div>
+    </section>
+    <section class="dashboard-section workout">
+      <div class="dashboard-contents">
+        <h1 class="readable-hidden">운동</h1>
+        <img class="workout-img" src="/app/assets/img/icon/workout.svg" alt="운동하는 사람 픽토그램">
+        <p class="workout-time-value">
+          <span>0</span> / 7 일
+          <br>
+          <span class="small">(이번 주 운동 횟수)</span>
+        </p>
+      </div>
+    </section>
+    <section class="dashboard-section diet">
+      <div class="dashboard-contents">
+        <h1 class="readable-hidden">식사</h1>
+        <img class="spoon-img" src="/app/assets/img/icon/diet.svg" alt="포크와 스푼 픽토그램">
+        <p class="diet-value">
+          오늘은 무엇을 드셨나요?
+        </p>
+      </div>
+    </section>
+    <section class="sleep-graph modal">
+      <div class="modal-content">
+        <button type="button" class="back-btn modal-close-btn">대시보드로 이동</button>
+        <h1 class="modal-title">7월 수면그래프</h1>
+        <div class="tooltip hidden">
+          <p>수면시간 <b class="value"></b></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  <!-- jquery plugin -->
+  <script src="/app/assets/lib/jquery.mousewheel.js"></script>
+  
+  <!-- Assets Scripts -->
+  <script src="/app/assets/js/dom-helper.js"></script>
+  <script src="/app/assets/js/bar-animation.js"></script>
+  <script src="/app/assets/js/dashboard.js"></script>
+  <script src="/app/assets/js/sleep_graph.js"></script>
+</div>

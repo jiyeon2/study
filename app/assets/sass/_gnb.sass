@@ -1,6 +1,3 @@
-//////////////////////////////////////////
-// gnb
-//////////////////////////////////////////
 .gnb
 	@extend %clearfix
 	+position(fixed)
@@ -25,10 +22,18 @@
 			background: $fit-green
 			transition: all 0.2s ease
 		//상태디자인 필요 hover,focus, active
-		&:hover, &:focus, &:active , &.now-on
+		&:hover, &:focus, &:active 
 			background-size: 2rem
 			&:after
 				top: 90%
+		&.active
+			background-size: 2rem
+			&:after
+				top: 90%
+				background: darken($fit-green, 20%)
+
+
+
 
 @each $icon in challenge, dashboard, friend, myInfo, notification
 	.gnb-item.#{$icon}

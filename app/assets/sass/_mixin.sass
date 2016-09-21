@@ -16,6 +16,7 @@
 	width: $w
 	height: $h
 
+
 @mixin readable-hidden
 	overflow: hidden
 	position: absolute
@@ -23,6 +24,8 @@
 	margin: -1px
 	padding: 0
 	border: 0
+
+
 
 @mixin ir
 	white-space: nowrap
@@ -62,7 +65,7 @@
 //$size: 스크롤바 너비
 //$bar-color: 스크롤바 색
 //$rail-color: 스크롤바 뒷부분 줄 색
-@mixin scrollbars( $size, $bar-color, $target: 'body',$rail-color: mix($bar-color, white, 50%), $radius: 10px) 
+@mixin scrollbars( $size, $bar-color, $target: 'body',$rail-color: mix($bar-color, 'white', 50%), $radius: 10px) 
   #{$target}::-webkit-scrollbar 
       width:  $size
       height: $size

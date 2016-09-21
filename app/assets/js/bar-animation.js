@@ -30,7 +30,7 @@ var makeRing = function(svg_width, c_color,c_percent){
 	var circle_r		 	= circle_pos - stroke_width; //원의 반지름
 	//그래프 애니메이션
 	var movepath 			= function(e, len, per){
-		len = len - 10; 
+		len = len - 10;
 		if (len <10){ len =0;};
 		e.style.strokeDashoffset = len;
 		if(len > getArcLength(circle_pos)*((100-per)/100)){
@@ -40,7 +40,7 @@ var makeRing = function(svg_width, c_color,c_percent){
 
 //회색 배경이 되는 원
 	var circle = getNode('circle',{
-												'cx': circle_pos, 
+												'cx': circle_pos,
 												'cy': circle_pos,
 												'r': circle_r,
 												'stroke-width': stroke_width,
@@ -65,7 +65,7 @@ var makeRing = function(svg_width, c_color,c_percent){
 
 global.setTimeout(function(){
 movepath(move_c, getArcLength(circle_pos), c_percent)
-}, 500);	
+}, 500);
 
 	return svg;
 }

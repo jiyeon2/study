@@ -16,14 +16,17 @@ div, a, section, main, h1, h3, h4, p, ul, li, img
 	padding: 0
 	margin: 0
 
+//ng-view 로딩시 스크롤바 생겨서 축 움직이는거 방지
+body
+	overflow: hidden
+
 %clearfix
 	&:after
 		content: ''
 		display: block
 		clear: both
-///////////////////////////////////////
+
 // color
-///////////////////////////////////////
 $light-gray: #f2f5f5
 $fit-green: #55C2C2
 
@@ -31,7 +34,7 @@ $bg-base-color: white
 $bg-sub-color: darken($bg-base-color, 10%)
 $bg-sub-sub-color: darken($bg-base-color, 15%)
 
-/////////animation
+//animation
 @keyframes beating
 	0%, 100%
 		transform: translate(-50%, -50%) scale(1)
