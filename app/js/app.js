@@ -23,8 +23,8 @@
 			'registered':'2016-06-15'
 		};
 
+
 	 fitbitApp.controller('friendCtrl',['$scope','$http',function($scope,$http){
-	 	
 		$scope.clicked_person = myInfo;
 		$scope.initInfo = function(){
 			$scope.clicked_person = myInfo; 
@@ -39,7 +39,8 @@
 
 	 	$http({
 	 		'method':'GET',
-	 		'url':'http://api.randomuser.me/?results=10',
+	 		// 'url':'http://api.randomuser.me/?results=10', //동일 url 정책으로인해 로컬에서만 랜덤으로 불러올 수 있음
+	 		'url':'../data/random-users.json',//github에 올릴 때
 	 		'headers': "{'Content-Type': 'application/json; charset=utf-8'}"
 	 	}).then(successAjaxCall, errorAjaxCall);
 

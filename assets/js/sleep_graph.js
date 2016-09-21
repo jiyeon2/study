@@ -1,4 +1,5 @@
-d3.csv('/assets/data/july_sleep.csv', function(error, data){
+
+d3.csv('july_sleep.csv', function(error, data){
 
 	var w = 1100;
 	var h = 500;

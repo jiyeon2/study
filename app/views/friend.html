@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fitbit | Friends</title>
-	<link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 </nav>
 
 <main class="friend" data-ng-app="fitbitApp" data-ng-controller="friendCtrl">
-	<ul class="friend-list"> 
+	<ul class="friend-list friend-scroll"> 
 		<li data-ng-cloak data-ng-repeat="(key, value) in friend">
 		<a href="" data-ng-click=getThisUserInfo()>
 			<ul class="friend-item">
@@ -36,7 +36,7 @@
 	<div class="friend-info" data-ng-class="show">
 		<button data-ng-click="initInfo()" type="button">x</button>
 		<ul class="friend-brief">
-			<li><img data-ng-src="{{clicked_person.picture.medium}}" alt></li>
+			<li><img data-ng-src="{{clicked_person.picture.medium}}" width="77" height="77" alt></li>
 			<li class="name">{{clicked_person.name.first | uppercase}} {{clicked_person.name.last | uppercase}}</li>
 			<li>{{clicked_person.nat}}</li>
 			<li>{{clicked_person.gender}}</li>
