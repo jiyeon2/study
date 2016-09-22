@@ -5,8 +5,6 @@
 [demo page로 가기](https://jiyeon2.github.io/fitbit-dashboard)
 
 
-
-
 ### 참고
 - [Top 10 Screen Resolutions](https://www.w3counter.com/globalstats.php)
 - [ir기법](http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/)
