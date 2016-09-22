@@ -1,14 +1,9 @@
-# portpolio - fitbit dashboard
+# Portfolio - Fitbit dashboard
 
 
-## 반응형 웹을 위한 화면 breakpoint 정하기
 
-- fitbit app 사이즈별 레이아웃 변화 참고
+[demo page로 가기](https://jiyeon2.github.io/fitbit-dashboard)
 
-- small(기본, mobile first) : ~ 500px
-- medium : 501px ~ 800px
-- large : 801px ~ 1260px
-- wide-view: 1260px ~
 
 
 
