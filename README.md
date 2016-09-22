@@ -1,7 +1,7 @@
 # Portfolio - Fitbit dashboard
 
 
-
+![main dashboard page](https://jiyeon2.github.io/fitbit-dashboard/dashboard_main.jpg)
 [demo page로 가기](https://jiyeon2.github.io/fitbit-dashboard)
 
 
