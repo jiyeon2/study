@@ -31,17 +31,25 @@
     + [preference > key bindings - users]에서 다음의 코드 추가
         `{"keys":["ctrl+."], "command": "run_emmet_action","args":{"action":"balance_inward"}}` 
 
+----- 
+
 
 커서 이동
 - `ctrl`+좌우방향키 : 띄어쓰기 단위로 커서 이동
 - `ctrl`+`alt`+좌우방향키 : 태그 단위로 커서 이동
 - `shift`+`ctrl`+`,`/`.` : 태그이름, 속성, 속성 값으로 커서 이동
 
+
+-----
+
+
 - `shift`+`ctrl`+`/` : 해당 요소만 코멘트 설정
 
 - `shift`+`ctrl`+`;` : 해당 태그만 제거
 
 - `ctrl`+`u`: 이미지 width, height 속성 값 설정
+
+-----
 
 - `shift`+`ctrl`+`y` : 수학식 계산
 
