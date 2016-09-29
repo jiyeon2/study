@@ -1,0 +1,40 @@
+[1mdiff --git a/app.js b/app.js[m
+[1mindex e69de29..fe75688 100644[m
+[1m--- a/app.js[m
+[1m+++ b/app.js[m
+[36m@@ -0,0 +1,6 @@[m
+[32m+[m[32m(function(global){[m
+[32m+[m	[32m'use strict';[m
+[32m+[m	[32m if(!global){[m
+[32m+[m	[41m [m	[32mglobal.alert('console 사용할 수 없음');[m
+[32m+[m	[32m }[m
+[32m+[m[32m})(window);[m
+\ No newline at end of file[m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex e69de29..78b4927 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html lang="ko">[m
+[32m+[m[32m<head>[m
+[32m+[m	[32m<meta http-equiv="X-UA-Compatible" content="IE=Edge">[m
+[32m+[m	[32m<meta charset="UTF-8">[m
+[32m+[m	[32m<meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+[32m+[m	[32m<title>명령어 기반 인터페이스로 Git 사용</title>[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m<h1>Git Command List</h1>[m
+[32m+[m[32m<dl>[m
+[32m+[m	[32m<dt>git init</dt>[m
+[32m+[m	[32m<dd>git 저장소 초기화</dd>[m
+[32m+[m	[32m<dt>git status</dt>[m
+[32m+[m	[32m<dd>git 상태 확인</dd>[m
+[32m+[m	[32m<dt>git add [file, *]</dt>[m
+[32m+[m	[32m<dd>파일 버전관리 스냅샷 생성</dd>[m
+[32m+[m	[32m<dt>git commit -m '메모'</dt>[m
+[32m+[m	[32m<dd>영구적으로 버전관리 스냅샷 파일 기록</dd>[m
+[32m+[m[32m</dl>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
