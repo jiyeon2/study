@@ -1,1 +1,2 @@
-# algo_intermediate
+# 알고리즘 문제풀이 스터디 - 중급1
+
