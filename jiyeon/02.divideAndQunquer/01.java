@@ -15,7 +15,6 @@ class Main{
                 return search(arr, target, mid+1,last);
             }
         }
-
     }
 
     public static void main(String[] args){
