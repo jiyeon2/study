@@ -35,6 +35,6 @@ class Main{
             System.out.print(search(myCards, target, 0, myCards.length -1)+ " ");
         }
 
-        }
-
     }
+
+}

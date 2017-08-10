@@ -33,6 +33,5 @@ class Main{
             int thisCard = sc.nextInt();
             System.out.print(search(myCards, thisCard, 0, myCards.length -1)+ " ");
         }
-
     }
 }
