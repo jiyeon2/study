@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css variables</title>
+    <style>
+        :root{
+            --color:#f93ac9;
+            --blur: 10px;
+            --skew: 10deg;
+        }
+        .color-variable{
+            color: var(--color);
+        }
+        img{
+            filter: blur(var(--blur));
+            transform: skew(var(--skew));
+        }
+        body, main, h1, div, input, label{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        main{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-container{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>CSS <span class="color-variable">variables</span> and JS</h1>
+        <div class="controlers">
+            <label for="color">color
+                <input name="color" id="color" type="color" value="#f93ac9"></label>
+            <label for="blur">blur
+                <input name="blur" id="blur" min="-25" max="16" value="10" type="range"></label>
+            <label for="skew">skew
+                <input name="skew" id="skew" min="-20" max="20" value="10" type="range"></label>
+        </div>
+        <div class="image-container">
+            <img src="cat_400.jpg" alt="cat">
+        </div>
+    </main>
+    <script>
+        const colorInput = document.querySelector('#color');
+        colorInput.addEventListener('change', (e) => {
+            // document.documentElement returns the Element that is the root element of the document.
+            document.documentElement.style.setProperty('--color',e.target.value);
+        })
+
+        const blurInput = document.querySelector('#blur');
+        blurInput.addEventListener('change', (e) => {
+            document.documentElement.style.setProperty('--blur', Math.abs(e.target.value)+'px');
+        })
+
+        const skewInput = document.querySelector('#skew');
+        skewInput.addEventListener('change', (e) => {
+            document.documentElement.style.setProperty('--skew', e.target.value+'deg');
+        })
+    </script>
+</body>
+</html>
