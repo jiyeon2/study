@@ -111,10 +111,13 @@
 
         function findDataInCities(userInput){
             const re = new RegExp(userInput, 'gi');
+            // TODO: 길이 limit
             return cities.filter(city => city.city.match(re) || city.state.match(re))
         }
 
         function displayData(data, userInput) {
+            // TODO: 검색한 문자열 부분 하이라이트 적용
+            // TODO: 인구수 , 적용
             const html = data.map(city => {
                 return `
                 <li>
