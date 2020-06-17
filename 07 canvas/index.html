@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>html5 canvas</title>
     <style>
+        html, body, canvas{
+            margin: 0;
+            padding: 0;
+        }
         canvas{
             border: 1px solid black;
         }
@@ -12,35 +16,51 @@
 </head>
 <body>
     <h1>draw something!</h1>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" width="500" height="500"></canvas>
     <script>
         const canvas = document.querySelector('#canvas');
-        canvas.width = window.innerWidth;
+        canvas.width = window.innerWidth; // innerWidth했는데 왜 body보다 캔버스가 클까
         canvas.height = window.innerHeight;
+        console.log(window.innerHeight);
+        console.log(window.innerWidth);
 
         const ctx = canvas.getContext('2d');
         let isDrawing = false;
         let lastX = 0;
         let lastY = 0;
+        let hue = 0;
+        let increasing = false;
 
-        ctx.fillStyle = 'red';
+        ctx.strokeStyle = 'red'; // strokeStyle과 fillStyle 차이는 무엇?
         ctx.lineWidth = 20;
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
 
         function draw(e){
             if (!isDrawing) return;
+            if (lastY<= e.offsetY) {
+                increasing = false;
+            } else if (ctx.lineWidth <= 1){
+                increasing = true;
+            }
+            ctx.lineWidth = increasing
+                            ? ctx.lineWidth+1
+                            : ctx.lineWidth-0.5;
+
+            ctx.strokeStyle = `hsl(${hue}, 100%, 40%)`; // beginPath하기 전에 색 정해줘야함
             ctx.beginPath();
             ctx.moveTo(lastX,lastY);
-            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY); // offsetX 는 뭐지?
             ctx.stroke();
             lastX = e.offsetX;
             lastY = e.offsetY;
+            hue = (hue+1)%360;
         }
 
         
         canvas.addEventListener('mousemove', draw);
         canvas.addEventListener('mousedown', (e) => {
+            ctx.lineWidth = 20;
             isDrawing = true;
             lastX = e.offsetX;
             lastY = e.offsetY;
