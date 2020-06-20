@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hold shift to check multiple checkboxes</title>
+    <style>
+        li.checked{
+            text-decoration-line: line-through;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <input id="checkbox1" type="checkbox">
+            <label for="checkbox1">first item</label>
+        </li>
+        <li>
+            <input id="checkbox2" type="checkbox">
+            <label for="checkbox2">second item</label>
+        </li>
+        <li>
+            <input id="checkbox3" type="checkbox">
+            <label for="checkbox3">third item</label>
+        </li>
+        <li>
+            <input id="checkbox4" type="checkbox">
+            <label for="checkbox4">fourth item</label>
+        </li>
+        <li>
+            <input id="checkbox5" type="checkbox">
+            <label for="checkbox5">fifth item</label>
+        </li>
+        <li>
+            <input id="checkbox6" type="checkbox">
+            <label for="checkbox6">sixth item</label>
+        </li>
+    </ul>
+
+    <script>
+        let shiftPressed = false;
+        let lastClickedBoxIndex = null;
+        const checkboxes = document.querySelectorAll('input[type=checkbox]');
+        checkboxes.forEach((checkbox,index) => {
+            checkbox.addEventListener('change', (e) => {
+                e.target.parentElement.classList.toggle('checked');
+            })
+            checkbox.addEventListener('change', multiSelect);            
+            checkbox.addEventListener('change', saveLastClickedIndex);
+        })
+
+        function saveLastClickedIndex(e){
+            if(e.target.checked){
+                    lastClickedBoxIndex = Array.prototype.indexOf.call(checkboxes,this);
+                }
+        }
+
+        function multiSelect(e){
+            if(!shiftPressed || lastClickedBoxIndex === null) return;
+
+            // checkboxes내에서 자기 인덱스 찾기
+            const currentIndex = Array.prototype.indexOf.call(checkboxes,this);
+
+            // 자신~가까운 박스 인덱스까지 돌면서 체크하기
+            const low = Math.min(currentIndex,lastClickedBoxIndex);
+            const high = Math.max(currentIndex,lastClickedBoxIndex);
+            for (let i = low+1; i<high; i++){
+                if (!checkboxes[i].checked){
+                    checkboxes[i].checked = true;
+                    checkboxes[i].parentElement.classList.toggle('checked');
+                }
+            }
+        }
+
+        window.addEventListener('keydown',(e) => {
+            if (e.keyCode !== 16) return;
+            shiftPressed = true;
+        })
+        window.addEventListener('keyup', (e) => {
+            if (e.keyCode !== 16) return;
+            shiftPressed = false;
+        })
+    </script>
+</body>
+</html>
