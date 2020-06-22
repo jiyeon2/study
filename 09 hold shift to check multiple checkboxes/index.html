@@ -5,12 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hold shift to check multiple checkboxes</title>
     <style>
-        li.checked{
-            text-decoration-line: line-through;
+        /* 
+        :checked  (radio, checkbox, option 태그가 선택된 경우 적용)
+         */
+        input:checked+label{
+            text-decoration: line-through;
+            background-color: #efefee;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            padding: 50px;
+            width: 100vw;
+            height: 100vh;
+            background-color: papayawhip;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start ;
+        }
+        h1{
+            margin-bottom: 15px;
+        }
+        ul{
+            margin-top: 30px;
+            width: 40%;
+            background-color: snow;
+            box-shadow: 8px 9px 8px 0px rgba(0,0,0,0.3);
+        }
+        li{
+            list-style: none;
+            display: flex;
+        }
+        li+li label{
+            border-top: 1px solid #cdcdcd;
+        }
+        input{
+            align-self: center;
+            flex:1;
+        }
+        label{
+            padding:10px;
+            flex:4;
+            border-left: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
+    <h1>
+        Multiple select checkbox
+    </h1>
+    <p>hold <kbd>shift</kbd> and click checkboxes</p>
     <ul>
         <li>
             <input id="checkbox1" type="checkbox">
@@ -38,7 +87,7 @@
         </li>
     </ul>
 
-    <script>
+    <!-- <script>
         let shiftPressed = false;
         let lastClickedBoxIndex = null;
         const checkboxes = document.querySelectorAll('input[type=checkbox]');
@@ -81,6 +130,8 @@
             if (e.keyCode !== 16) return;
             shiftPressed = false;
         })
-    </script>
+    </script> -->
+
+    <script src="multiSelectCheckbox.js"></script>
 </body>
 </html>
