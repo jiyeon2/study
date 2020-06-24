@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class='video-conatiner'>
-        <video id="video">
-            <source src="park.MOV" type="video/webm">
+    <h1>custom video player controls</h1>
+    <div class="video-conatiner">
+        <video id="video" src="park.MOV">
             Sorry, your browser doesn't support embedded videos.
         </video>
     
         <div class="controls">
-            <input id="progress" min="0" value="0" type="range">
-            <button id="play">play</button>
-            <button id="stop">stop</button>
-            <button id="skip-backward">&lt;&lt;</button>
-            <button id="skip-forward">&gt;&gt;</button>
+            <button id="play">►</button>
+            <progress id="progress-bar" value="4"></progress>
+            <label for="volume">	&#128266;</label>
+            <input id="volume" min="0" max="1" value="0" step="0.1" type="range">            
+            <button id="skip-backward">&lt;&lt; 1초</button>
+            <button id="skip-forward">1초 &gt;&gt;</button>
+            <button id="full-screen">&#x26F6;</button>
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <script src="script_after_taking_lesson.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>

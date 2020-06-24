@@ -3,7 +3,6 @@
 const video = document.querySelector('video');
 const progressBar = document.querySelector('#progress');
 const playButton = document.querySelector('#play');
-const stopButton = document.querySelector('#stop');
 const skipforwardButton = document.querySelector('#skip-forward');
 const skipBackwardButton = document.querySelector('#skip-backward');
 
@@ -26,7 +25,6 @@ function skip(second){
 video.addEventListener('timeupdate',(e) => {progressBar.value = e.target.currentTime;})
 video.addEventListener('loadedmetadata', () => {progressBar.max = video.duration});
 playButton.addEventListener('click', playVideo);
-stopButton.addEventListener('click', stopVideo);
 skipBackwardButton.addEventListener('click', () => {skip(-1)});
 skipforwardButton.addEventListener('click', () => {skip(1)});
 progressBar.addEventListener('change',(e) => {
