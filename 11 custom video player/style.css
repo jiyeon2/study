@@ -1,11 +1,14 @@
 h1{
     text-align: center;
 }
-.video-conatiner{
+.video-container{
     margin: 0 auto;
     max-width: 800px;
     position: relative;
     overflow: hidden;
+}
+.video-container.fullscreen{
+    /* max-width: 100%; */
 }
 button{
     border:none;
@@ -36,10 +39,11 @@ button{
 }
 #progress-bar{
     flex: 5;
+    cursor: col-resize;
 }
 label{
     text-align: center;
 }
-.video-conatiner:hover .controls{
+.video-container:hover .controls{
     transform: translate(0%,-100%);
 }
