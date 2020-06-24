@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <video width="800">
-        <source src="park.MOV" type="video/webm">
-        Sorry, your browser doesn't support embedded videos.
-    </video>
-
-    <div class="controls">
-        <input id="progress" min="0" value="0" type="range">
-        <button id="play">play</button>
-        <button id="stop">stop</button>
-        <button id="skip-backward">&lt;&lt;</button>
-        <button id="skip-forward">&gt;&gt;</button>
+    <div class='video-conatiner'>
+        <video id="video">
+            <source src="park.MOV" type="video/webm">
+            Sorry, your browser doesn't support embedded videos.
+        </video>
+    
+        <div class="controls">
+            <input id="progress" min="0" value="0" type="range">
+            <button id="play">play</button>
+            <button id="stop">stop</button>
+            <button id="skip-backward">&lt;&lt;</button>
+            <button id="skip-forward">&gt;&gt;</button>
+        </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

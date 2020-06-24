@@ -1,0 +1,24 @@
+.video-conatiner{
+    position: relative;
+    overflow: hidden;
+}
+#video{
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+}
+.controls{
+    position: absolute;
+    left:0;
+    right:0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    transform: translate(0%,0%);
+    transition: transform 0.4s ease;
+    background-color: rgba(0,0,0,0.5);
+}
+.video-conatiner:hover .controls{
+    transform: translate(0%,-100%);
+}
