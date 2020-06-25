@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key sequence detecting(Konami code)</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .apple{
+            display:inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: red;
+            position: relative;
+        }
+        .apple::after{
+            content:'';
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: rotate(45deg);
+            width: 5px;
+            height: 10px;
+            background-color: brown;
+        }
+        .lemon{
+            display: inline-block;
+            width: 25px;
+            height: 30px;
+            background-color: yellow;
+            border-radius: 10% 50%;
+        }
+        #display-typing{
+            background-color: #efefef;
+            padding: 10px;
+            font-family: monospace;
+            min-width: 85px;
+            min-height: 25px;
+            text-align: center;
+        }
+        #box{
+            background-color: green;
+            border-radius: 10px;
+            width: 80%;
+            padding: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        kbd{
+            background-color: #efefef;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1><span class="apple"></span>key sequence detecting<span class="lemon"></span></h1>
+    <p>add apple<span class="apple"></span> and lemon<span class="lemon"></span> by typing <kbd>apple</kbd> and <kbd>lemon</kbd></p>
+    <p id="display-typing"></p>
+    <div id="box">
+        <span class="apple"></span>
+        <span class="lemon"></span>
+    </div>
+    <script>
+        const displayTyping = document.querySelector('#display-typing');
+        const box = document.querySelector('#box');
+        
+        let sequence = [];
+        const SECRETCODES = {
+            "apple": function() {
+                const apple = document.createElement('span');
+                apple.classList.add('apple');
+                box.appendChild(apple);
+            },
+            "lemon": function() {
+                const lemon = document.createElement('span');
+                lemon.classList.add('lemon');
+                box.appendChild(lemon);
+            }
+        }
+        window.addEventListener('keyup', (e) => {
+            sequence.push(e.key);
+            sequence = sequence.slice(-10);
+
+            const input = sequence.join('');
+            displayTyping.innerHTML = input;
+
+            const codes = Object.keys(SECRETCODES);
+            codes.forEach(code => {
+                if (input.includes(code)){
+                    SECRETCODES[code]();
+                    sequence = []
+                }
+            })
+        })
+    </script>
+</body>
+</html>
