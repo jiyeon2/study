@@ -5,24 +5,19 @@ const items = [];
 const input = form.querySelector('.text-input');
 const addButton = form.querySelector('.add-button');
 
+const checkAllButton = form.querySelector('.all-check-button');
+const uncheckAllButton = form.querySelector('.all-uncheck-button');
+
 function initList(){
     const list = JSON.parse(localStorage.getItem('muketList')) || [];
     list.forEach(item => items.push(item));
     createList(list);
 }
-initList();
-
 
 function updateLocalStorage(){
     localStorage.setItem('muketList',JSON.stringify(items));
 }
-foodList.addEventListener('click', (e) => {
-    const target = e.target;
-    if (target.tagName === 'INPUT'){
-        items[target.id].done = target.checked;
-        updateLocalStorage();
-    }
-})
+
 function createList(list) {
     const html = list.map((item, index) => {
         return `
@@ -45,4 +40,14 @@ function addItem(e) {
     createList(items);
 }
 
+
+initList();
+
 addButton.addEventListener('click', addItem);
+foodList.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.tagName === 'INPUT'){
+        items[target.id].done = target.checked;
+        updateLocalStorage();
+    }
+})

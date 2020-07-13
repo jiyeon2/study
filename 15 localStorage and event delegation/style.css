@@ -8,6 +8,7 @@ main{
   border-radius: 5px;
 }
 h1 {
+  max-width: 150px;
   width: 20%;
   margin: 100px auto 20px;
   color: white;
@@ -29,6 +30,7 @@ a {
 }
 
 main {
+  min-width: 400px;
   max-width: 40%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.8);
