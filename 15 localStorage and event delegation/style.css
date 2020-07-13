@@ -53,6 +53,8 @@ li+li{
 }
 label{
   cursor: pointer;
+  display: block;
+  width: 100%;
 }
 .muket-list input{
     display: none;

@@ -6,19 +6,29 @@ const input = form.querySelector('.text-input');
 const addButton = form.querySelector('.add-button');
 
 function initList(){
-    const list = JSON.parse(localStorage.getItem('muketList'));
+    const list = JSON.parse(localStorage.getItem('muketList')) || [];
     list.forEach(item => items.push(item));
     createList(list);
 }
 initList();
 
+
+function updateLocalStorage(){
+    localStorage.setItem('muketList',JSON.stringify(items));
+}
+foodList.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.tagName === 'INPUT'){
+        items[target.id].done = target.checked;
+        updateLocalStorage();
+    }
+})
 function createList(list) {
     const html = list.map((item, index) => {
-        const id = `${item.name}_${index}`;
         return `
         <li>
-            <input type="checkbox" id="${id}" ${item.done ?'checked':''}>
-            <label for="${id}">${item.name}</label>
+            <input type="checkbox" id="${index}" ${item.done ?'checked':''}>
+            <label for="${index}">${item.name}</label>
         </li>
         `;
     }).join('');
@@ -30,7 +40,7 @@ function addItem(e) {
     const foodName = input.value;
     if (!foodName) return;
     items.push({name:foodName, done: false});
-    localStorage.setItem('muketList',JSON.stringify(items));
+    updateLocalStorage();
     input.value = '';
     createList(items);
 }
