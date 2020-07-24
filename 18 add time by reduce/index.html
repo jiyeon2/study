@@ -209,6 +209,24 @@
     timeNodes.forEach(node => {
         node.innerHTML += `<time>${node.dataset.time}</time>`
     })
+
+    const times = Array.from(timeNodes)
+        .map(node => node.dataset.time)
+        .map(time => {
+            const [min, sec] = time.split(':').map(parseFloat);
+            return min*60 + sec;
+            })
+        .reduce((total, secs) => total + secs, 0); // if initial value not provided, first value of secs used as initial value
+
+    const hour = Math.floor(times / 3600);
+    let leftSeconds = times % 3600;
+
+    const minutes = Math.floor(leftSeconds / 60);
+    leftSeconds = leftSeconds % 60;
+
+    console.log(hour, minutes, leftSeconds);
+    const totalTimeDisplay = document.querySelector('.total-time time');
+    totalTimeDisplay.innerHTML = `${hour}:${minutes}:${leftSeconds}`;
 </script>
 </body>
 </html>
