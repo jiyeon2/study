@@ -17,6 +17,7 @@ body {
 h1{
     text-align: center;
     margin-bottom: 0;
+    color:  #fdcbd4;
     color: var(--scappy-color, #fdcbd4);
 }
 
@@ -32,6 +33,7 @@ h1{
 .head,
 .body {
   border: 2px solid black;
+  background-color:  #fdcbd4;
   background-color: var(--scappy-color,#fdcbd4);
 }
 
@@ -56,6 +58,7 @@ h1{
   position: absolute;
   width: 27px;
   height: 48px;
+  background:  #fdcbd4;
   background: var(--scappy-color,#fdcbd4);
   border-radius: 50% 50% 18% 24%/ 42% 52% 4% 50%;
   border: 2px solid black;
@@ -129,8 +132,8 @@ h1{
       transparent 20%,
       white 20%,
       white 30%,
-      var(--scappy-color,#fdcbd4) 30%,
-      var(--scappy-color,#fdcbd4) 100%
+      #fdcbd4 30%,
+      #fdcbd4 100%
     ),
     linear-gradient(
       213deg,
@@ -150,8 +153,8 @@ h1{
       circle,
       white 0%,
       white 30%,
-      var(--scappy-color) 30%,
-      var(--scappy-color) 100%
+      #fdcbd4 30%,
+      #fdcbd4 100%
     );
 }
 
@@ -164,6 +167,7 @@ h1{
 }
 .arm {
   position: absolute;
+  background-color: #fdcbd4;
   background-color: var(--scappy-color,#fdcbd4);
   top: -4px;
   width: 20px;
@@ -189,6 +193,7 @@ h1{
 }
 .leg {
   position: absolute;
+  background-color: #fdcbd4;
   background-color: var(--scappy-color);
   border-radius: 0 0 89% 47%/ 0 0 63% 82%;
   width: 10px;
