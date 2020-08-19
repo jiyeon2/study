@@ -41,6 +41,11 @@
     // 2. add event handler to mouseover event
     // what is the difference between mouseover and mouseenter??
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event
+
+    // mouseover triggers when mouse enters target and its children
+    // mouseover sent to the deepest element of the DOM tree, then bubbles up 
+    // mouseenter only triggers when mouse enters target itself
+    // mouseenter doesn't bubble, not sent to any children when mouse moves inside the target
     document.addEventListener('mouseover', moveHighlight);
 
     function moveHighlight(e){
