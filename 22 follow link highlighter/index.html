@@ -26,7 +26,47 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    /*
+    mouseover on <a> -> highlight on <a>
+    highlight follows mouse move
+    and adjust itself to size of <a>
+    */
+
+    // 1. create highlight
+    const highlight = document.createElement('span');
+    highlight.classList.add('highlight');
+    document.body.append(highlight);
+
+
+    // 2. add event handler to mouseover event
+    // what is the difference between mouseover and mouseenter??
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event
+    document.addEventListener('mouseover', moveHighlight);
+
+    function moveHighlight(e){
+      if (e.target.tagName !== 'A') return;
+      highlightLink(e.target);
+    }
+
+    function highlightLink(a) {
+      // get size of <a>
+      const aInfo = a.getBoundingClientRect();
+      const coords = {
+        left : aInfo.left,
+        top : aInfo.top,
+        width: aInfo.width,
+        height: aInfo.height,
+      }
+
+      highlight.style.width = `${coords.width}px`; // neesd 'px'!!!
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.top = `${coords.top + window.scrollY}px`;
+      highlight.style.left = `${coords.left + window.scrollX}px`;
+
+      /*
+      If you need the bounding rectangle relative to the top-left corner of the document, just add the current scrolling position to the top and left properties (these can be obtained using window.scrollX and window.scrollY) to get a bounding rectangle which is independent from the current scrolling position.
+      */
+    }
   </script>
 </body>
 </html>

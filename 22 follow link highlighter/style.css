@@ -11,6 +11,7 @@ html {
     margin: 0; /* Important! */
     font-family: sans-serif;
     background:
+      radial-gradient(ellipse at 10% 1%, rgb(223, 213, 74) 0%, hsla(340, 100%, 55%, 0) 50%),
       linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
       linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
       linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
