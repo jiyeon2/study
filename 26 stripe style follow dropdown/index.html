@@ -223,6 +223,35 @@
 </style>
 
 <script>
+  const lis = document.querySelectorAll('.cool>li');
+  const bg = document.querySelector('.dropdownBackground');
+
+  function handleMouseLeave(e){
+    this.classList.remove('trigger-enter', 'trigger-enter-active');
+
+    bg.classList.remove('open');
+  }
+  function handleMouseOver(e){
+    this.classList.add('trigger-enter');
+    setTimeout(() => {this.classList.add('trigger-enter-active')},100);
+
+    bg.classList.add('open');
+    const dropdown = this.querySelector('.dropdown');
+    const coord = dropdown.getBoundingClientRect();
+    bg.style.width = coord.width+'px';
+    bg.style.height = coord.height+'px';
+    bg.style.left = coord.left+'px';
+    bg.style.top = coord.top+'px';
+    console.log(coord);
+  }
+
+
+  lis.forEach(li => {
+    li.addEventListener('mouseenter', handleMouseOver)
+    li.addEventListener('mouseleave', handleMouseLeave)
+  })
+
+  console.log(lis);
 </script>
 
 </body>
