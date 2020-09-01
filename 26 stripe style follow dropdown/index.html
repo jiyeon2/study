@@ -5,6 +5,7 @@
   <title>Follow Along Nav</title>
 </head>
 <body>
+  <h1>hi</h1>
   <h2>Cool</h2>
   <nav class="top">
     <div class="dropdownBackground">
@@ -225,6 +226,7 @@
 <script>
   const lis = document.querySelectorAll('.cool>li');
   const bg = document.querySelector('.dropdownBackground');
+  const nav = document.querySelector('.top');
 
   function handleMouseLeave(e){
     this.classList.remove('trigger-enter', 'trigger-enter-active');
@@ -233,25 +235,40 @@
   }
   function handleMouseOver(e){
     this.classList.add('trigger-enter');
-    setTimeout(() => {this.classList.add('trigger-enter-active')},100);
+    // trigger-enter 클래스 명을 먼저 붙여서 display: block; 으로 보이게 한 후
+    setTimeout(() => {
+      // 시간차를 두고 trigger-enter-active클래스 명을 붙여서 opacity값 변경(트랜지션)
+      // 100ms 지나기도 전에 mouseleave 발생하면 trigger-enter만 사라지고 trigger-enter-active남는 경우 생김
+      this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active')
+      },100);
 
     bg.classList.add('open');
+
     const dropdown = this.querySelector('.dropdown');
     const coord = dropdown.getBoundingClientRect();
-    bg.style.width = coord.width+'px';
-    bg.style.height = coord.height+'px';
-    bg.style.left = coord.left+'px';
-    bg.style.top = coord.top+'px';
-    console.log(coord);
+    const navCoords = nav.getBoundingClientRect();
+
+    const newCoords = {
+      height: coord.height,
+      width: coord.width,
+      left : coord.left - navCoords.left, // nav가 밀리면(위쪽에 새로운 요소나 광고 등이 추가된다거나) 밀린만큼 위치를 빼줘야함
+      top : coord.top - navCoords.top
+    }
+    
+    bg.style.setProperty('width', `${newCoords.width}px`);
+    bg.style.setProperty('height', `${newCoords.height}px`);
+    bg.style.setProperty('top', `${newCoords.top}px`);
+    bg.style.setProperty('left', `${newCoords.left}px`);
+
   }
 
 
   lis.forEach(li => {
+    //mouseover쓰면 버블링으로 다른 요소에서도 이벤트핸들러 발생함 정확한 이유는 자 ㄹ모르겠음
     li.addEventListener('mouseenter', handleMouseOver)
     li.addEventListener('mouseleave', handleMouseLeave)
   })
 
-  console.log(lis);
 </script>
 
 </body>
