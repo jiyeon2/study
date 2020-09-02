@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click and Drag</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="items">
+    <div class="item item1">01</div>
+    <div class="item item2">02</div>
+    <div class="item item3">03</div>
+    <div class="item item4">04</div>
+    <div class="item item5">05</div>
+    <div class="item item6">06</div>
+    <div class="item item7">07</div>
+    <div class="item item8">08</div>
+    <div class="item item9">09</div>
+    <div class="item item10">10</div>
+    <div class="item item11">11</div>
+    <div class="item item12">12</div>
+    <div class="item item13">13</div>
+    <div class="item item14">14</div>
+    <div class="item item15">15</div>
+    <div class="item item16">16</div>
+    <div class="item item17">17</div>
+    <div class="item item18">18</div>
+    <div class="item item19">19</div>
+    <div class="item item20">20</div>
+    <div class="item item21">21</div>
+    <div class="item item22">22</div>
+    <div class="item item23">23</div>
+    <div class="item item24">24</div>
+    <div class="item item25">25</div>
+  </div>
+
+<script>
+  const slider = document.querySelector('.items');
+  let isMouseDown = false;
+  let startX = null;
+  let scrollLeft = null;
+
+  slider.addEventListener('mousedown', (e)=>{
+    e.preventDefault(); // 텍스트 선택 등 마우스다운 기본동작 방지
+    
+    isMouseDown = true;
+    slider.classList.add('active');
+    // 마우스 클릭 일어난 좌표 저장, slider를 기준으로 한 x좌표 구할거임, 그 안에서 움직인 만큼만 스크롤바 움직일거니까
+    startX = e.pageX - slider.offsetLeft; //element.offsetLeft : offsetParent노드에서 얼만큼 떨어져있는지, offsetX속성은 마우스이벤트에 있는 속성임
+    scrollLeft = slider.scrollLeft;
+    /*
+    마우스 이벤트 좌표
+    clientX/Y : window 기준 얼마나 떨어져 있는지(fixed좌표와 비슷하다)
+    pageX/Y : document 기준으로 얼마나 떨어져있는지(absolute좌표와 비슷)
+    */
+  })
+  slider.addEventListener('mouseup', () => {
+    // 
+    isMouseDown = false;
+    slider.classList.remove('active');
+  })
+  slider.addEventListener('mouseleave', () => {
+    isMouseDown = false; //슬라이더 영역 벗어나면 마우스누름 취소한거랑 같음
+    slider.classList.remove('active');
+  })
+  slider.addEventListener('mousemove', (e) => {
+    if (!isMouseDown) return;
+    // 마우스가 눌린 상태일때만
+    // 마우스가 움직인 x 좌표만큼 스크롤값에 더해준다
+    const currentX = e.pageX - slider.offsetLeft;
+    const walk = currentX - startX;
+
+    let amount;
+    let behavior = 'smooth';
+    const base = 400;
+
+    if (walk >= base){
+      amount = Math.max(scrollLeft - base*2, 0);
+    } else if (walk <= -base){
+      amount = Math.min(scrollLeft + base*2, slider.scrollWidth);
+    } else {
+      amount = scrollLeft - walk;
+      behavior = 'auto';
+    }
+    slider.scrollTo({
+        top: slider.scrollTop,
+        left: amount,
+        behavior: behavior
+      });
+    
+  })
+  
+</script>
+
+  </body>
+</html>
