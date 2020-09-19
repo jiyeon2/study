@@ -1,8 +1,33 @@
 let timerInterval;
 const timeDisplay = document.querySelector(".display__time-left");
 const endTimeDisplay = document.querySelector(".display__end-time");
+const buttons = document.querySelectorAll("[data-time]");
+const form = document.customForm;
+
+const buttonHandler = (e) => {
+  const seconds = +e.target.dataset.time;
+  timer(seconds);
+};
+const submitHandler = (e) => {
+  e.preventDefault();
+  const min = +e.target.minutes.value;
+  e.target.minutes.value = "";
+  if (isNaN(min)) {
+    alert("숫자를 입력해주세요");
+    e.target.minutes.focus();
+    return;
+  }
+  timer(min * 60);
+};
+buttons.forEach((button) => button.addEventListener("click", buttonHandler));
+form.addEventListener("submit", submitHandler);
+// input[name=minutes]에 submit이벤트핸들러 달았더니 작동 안함
+// 폼에서 submit 발생하는 경우
+// 1. to click <input type="submit"> or <input type="image">.
+// 2. press Enter on an input field
 
 const timer = (seconds) => {
+  timerInterval && clearInterval(timerInterval);
   let now = Date.now(); // 타임스탬프(1970년 1월 1일부터 현재까지의 밀리초) 반환
   let finishTime = now + seconds * 1000; // 밀리초 단위이므로 초에 1000을 곱해야 한다
   displayTime(seconds);
