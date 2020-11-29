@@ -23,3 +23,6 @@
   - a태그는 inline요소이므로 패딩값 넣고싶으면 inline-block으로 바꿔야함
 
 
+해결 못한 것
+- 페이지 로딩 시 css에 선언된 색상 변수값을 가져와 input[type=color]의 value로 설정하려 함. '#f0f4f5'와 같이 알파벳이 들어간 값에서 오류 발생하여 input의 색상을 초기화하지 못함
+> The format is "#rrggbb" where rr, gg, bb are two-digit hexadecimal numbers.
