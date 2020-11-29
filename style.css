@@ -1,9 +1,18 @@
+/* css 변수 */
+:root {
+    --text-color: #f0f4f5;
+    --background-color:#283593;
+    --accent-color: #d81b60;
+}
+
 /* 스타일 초기화 */
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
+  background-color: #f1d7e1;
+  font-family: "Source Sans Pro";
 }
 
 a {
@@ -28,8 +37,8 @@ button {
 
 /* header */
 header {
-  color: #e9e9e9;
-  background-color: #283593;
+  color: var(--text-color);
+  background-color: var(--background-color);
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -45,7 +54,7 @@ header {
   padding: 8px 12px;
 }
 .logo i {
-  color: #d81b60;
+  color: var(--accent-color);
 }
 /* nav */
 .nav {
@@ -64,7 +73,7 @@ header {
   padding: 8px 12px;
 }
 .nav a:hover{
-    background-color:  #d81b60;
+    background-color:  var(--accent-color);
     border-radius: 5px;
 }
 
@@ -83,7 +92,7 @@ header {
   padding: 8px;
 }
 .sns a:hover{
-    color: #d81b60;
+    color: var(--accent-color);
 }
 
 /* hamberger button */
@@ -93,7 +102,7 @@ header {
   right: 0;
   top: 0;
   font-size: 24px;
-  color: #d81b60;
+  color: var(--accent-color);
   cursor: pointer;
 }
 

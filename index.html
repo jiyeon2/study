@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <title>Responsive Header Practice</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/79e5a713e6.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <script src="color.js" defer></script>
 </head>
 <body>
     <header>
@@ -33,6 +37,22 @@
         </div>
         <button type="button" class="btn-toggle js-btn-toggle"><i class="fas fa-bars"></i></button>
     </header>
-    <script src="script.js"></script>
+    
+    <form name="color">
+        <div>
+            <label for="background_color">background color : </label>
+            <input type="color" id="background_color" name="background-color">
+        </div>
+        <div>
+            <label for="text_color">text color : </label>
+            <input type="color" id="text_color" name="text-color">
+        </div>
+        <div>
+            <label for="accent_color">accent color : </label>
+            <input type="color" id="accent_color" name="accent-color">
+        </div>
+        
+    </form>
+    
 </body>
 </html>

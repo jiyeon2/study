@@ -9,3 +9,6 @@ function toggleVisibility() {
   snsContainer.classList.toggle(VISIBLE_CLASSNAME);
 }
 btnToggle.addEventListener("click", toggleVisibility);
+
+// script defer attribute
+// https://ko.javascript.info/script-async-defer
