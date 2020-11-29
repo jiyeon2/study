@@ -1,0 +1,84 @@
+/* 스타일 초기화 */
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 12px;
+
+}
+li{
+    list-style: none;
+}
+
+button{
+    border: none;
+    background-color: transparent;
+    color: inherit;
+}
+
+
+/* header */
+header{
+    color: #e9e9e9;
+    background-color: #283593;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* logo */
+.logo>a{
+    padding: 8px 12px;
+}
+/* nav */
+.nav{
+    display: none;
+}
+.nav.active{
+    display: block;
+}
+.nav>ul{
+    display: flex;
+    flex-flow: column nowrap;
+}
+.nav a{
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
+}
+
+/* sns */
+.sns{
+    display: none;
+}
+.sns.active{
+    display: block;
+}
+.sns>ul{
+    display: flex;
+    justify-content: center;
+}
+.sns a{
+    padding: 8px;
+}
+
+/* hamberger button */
+.btn-toggle{
+    position: absolute;
+    padding: 12px 12px;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+}
