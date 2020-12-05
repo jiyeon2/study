@@ -1,0 +1,139 @@
+/* css 변수 */
+:root {
+    --text-color: #f0f4f5;
+    --background-color:#283593;
+    --accent-color: #d81b60;
+}
+
+/* 스타일 초기화 */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #f1d7e1;
+  font-family: "Source Sans Pro";
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 12px;
+}
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+/* header */
+header {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* logo */
+.logo{
+    align-self: flex-start;
+    white-space: nowrap;
+}
+.logo > a {
+  padding: 8px 12px;
+}
+.logo i {
+  color: var(--accent-color);
+}
+/* nav */
+.nav {
+  display: none;
+}
+.nav.active {
+  display: block;
+}
+.nav > ul {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.nav a {
+  width: 100%;
+  text-align: center;
+  padding: 8px 12px;
+}
+.nav a:hover{
+    background-color:  var(--accent-color);
+    border-radius: 5px;
+}
+
+/* sns */
+.sns {
+  display: none;
+}
+.sns.active {
+  display: block;
+}
+.sns > ul {
+  display: flex;
+  justify-content: center;
+}
+.sns a {
+  padding: 8px;
+}
+.sns a:hover{
+    color: var(--accent-color);
+}
+
+/* hamberger button */
+.btn-toggle {
+  position: absolute;
+  padding: 12px 12px;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+
+
+
+/* 
+    mobile을 기준으로 스타일 작성 후,
+    미디어쿼리로 넓은 화면일때 스타일 적용
+*/
+@media screen and (min-width: 785px) {
+  ul {
+    margin-bottom: 0;
+  }
+  header {
+    flex-direction: row;
+  }
+
+  .nav {
+    display: block;
+  }
+  .nav > ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sns {
+    display: block;
+  }
+
+  .btn-toggle {
+    display: none;
+  }
+}
