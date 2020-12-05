@@ -1,0 +1,64 @@
+@mixin border-radius($radius: 4px)
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius
+	border-radius: $radius
+
+@mixin background-origin($origin: padding-box)
+	-webkit-background-origin: $origin
+	-moz-background-origin: $origin
+	background-origin: $origin
+
+@mixin background-clip($content: padding-box)
+	-webkit-background-clip: $content
+	-moz-background-clip: $content
+	background-clip: $content
+
+@mixin circle($diameter: 10px, $bgcolor: black)
+	width: $diameter
+	height: $diameter
+	background: $bgcolor
+	@include border-radius($diameter/2)
+	@include background-clip
+
+
+//삼각형 도형 만드는 믹스인
+@mixin triangle($base, $direction, $bgcolor)
+	width: 0
+	height: 0
+	$half-base: $base/2
+	@if $direction == top
+		border:
+			left: $half-base solid transparent
+			right: $half-base solid transparent
+			bottom: $half-base solid $bgcolor
+	@else if $direction == bottom
+		border:
+			left: $half-base solid transparent
+			right: $half-base solid transparent
+			top: $half-base solid $bgcolor
+	@else if $direction == left
+		border:
+			top: $half-base solid transparent
+			bottom: $half-base solid transparent
+			right: $half-base solid $bgcolor
+	@else if $direction == right
+		border:
+			top: $half-base solid transparent
+			bottom: $half-base solid transparent
+			left: $half-base solid $bgcolor
+
+@mixin triangle-top($base, $bgcolor)
+	@include triangle($base, top, $bgcolor)
+
+@mixin triangle-right($base, $bgcolor)
+	@include triangle($base, right, $bgcolor)
+
+@mixin triangle-bottom($base, $bgcolor)
+	@include triangle($base, bottom, $bgcolor)
+@mixin triangle-left($base, $bgcolor)
+	@include triangle($base, left, $bgcolor)
+.test
+	@include triangle-top(10px, red)
+
+.test2
+	@include triangle-left(20px, blue)

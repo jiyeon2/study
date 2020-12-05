@@ -1,0 +1,33 @@
+.info
+	text-align: center
+	padding:
+		top: $leading
+		bottom: $leading 
+
+.info-item
+	+relative
+	padding:
+		top: $leading
+		bottom: $leading 
+	&:not(:last-child):after
+		content: ''
+		display: block
+		+absolute(top 10% bottom 10% right 0)
+		width: 2px
+		background: #4a6788
+		transform: rotate(10deg)
+
+.info-title
+	+bigger-font
+	+uppercase
+	font-weight: normal
+	margin-bottom: $leading
+
+@media #{$breakpoint-mobile}
+	.info-item
+		&:not(:last-child):after
+			+absolute(left 10% right 10% top 99% bottom 0)
+			width: 80%
+			transform: rotate(-15deg)
+// @media #{$breakpoint-tablet}
+// @media #{$breakpoint-desktop}

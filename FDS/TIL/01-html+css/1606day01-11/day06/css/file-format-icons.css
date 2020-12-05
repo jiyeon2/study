@@ -1,0 +1,104 @@
+/*.lecture*/
+
+.reset-list ul, .reset-list ol, ul.reset-list, ol.reset-list /*일일이 ul, ol에 주기보다 목록을 포함하는 "부모 요소에 reset-list" 주면 reset-list적용된 부모 아래 모든 목록 스타일 초기화 가능*/
+{
+/*기본적인 리스트 스타일 초기화*/
+/*@@@@@@@정말 자주 사용되는 코드(재사용 가능)@@@@@@@*/
+list-style-type: none;
+margin-top: 0;
+margin-bottom: 0;
+padding-left: 0;
+}
+
+/*파일 타입 이미지 제공을 위한 기본 디자인*/
+.lecture-file-list a{
+	display: block; /*a요소는 클릭 영역 지정을 위해 display: block으로 설정하는 경우가 많다*/
+	/*font-size: 38px;*/
+	font-size: 2.38em;
+	text-decoration: none;
+	text-indent: 40px; /*배경 이미지가 글자 앞에 오도록 공간만듦. text-indent는 block요소에만 적용 가능. padding-left 값 줘도 되긴 함*/
+	background-repeat: no-repeat;
+	background-position: 0 10px;
+}
+
+/*파일 포맷에 따라 자동적으로 아이콘을 배경 이미지로 설정하는 스타일*/
+/*속성 값 한글자라도 다르면 적용 안됨!! 주소같은거 오타 주의하기! */
+a[href^="http://www.fastcampus.co.kr"][target="_blank"]{
+	/*배경 이미지 설정*/
+	background-image: url("../images/external-link.png");
+	
+}
+
+a[href$=".psd"]{
+	background-image: url("../images/psd.png");
+	color:#1b2682;}
+
+a[href$=".avi"]{
+	background-image: url("../images/avi.png");
+	color:#8e8e8e;}
+
+a[href$=".ai"]{
+	background-image: url("../images/ai.png");
+	color:#43300e;}
+
+a[href$=".txt"]{
+	background-image: url("../images/txt.png");
+	color:#bbbcbb;}
+
+a[href$=".mov"]{
+	background-image: url("../images/mov.png");
+	color: #81c0bf;}
+
+a[href$=".pdf"]{
+	background-image: url("../images/pdf.png");
+	color: #d10804;}
+
+	a[href$=".aac"]{
+	background-image: url("../images/aac.png");
+	color:#07CED5;}
+
+a[href$=".doc"]{
+	background-image: url("../images/doc.png");
+	color:#067FCB;}
+
+a[href$=".flac"]{
+	background-image: url("../images/flac.png");
+	color:#7342D8;}
+
+a[href$=".gif"]{
+	background-image: url("../images/gif.png");
+	color:#EBC200;}
+
+a[href$=".html"]{
+	background-image: url("../images/html.png");
+	color: #BBCACF;}
+
+a[href$=".jpg"]{
+	background-image: url("../images/jpg.png");
+	color: #E28500;}
+
+	a[href$=".js"]{
+	background-image: url("../images/js.png");
+	color:#2B2B2B;}
+
+a[href$=".mp3"]{
+	background-image: url("../images/mp3.png");
+	color:#2D25DE;}
+
+a[href$=".mp4"]{
+	background-image: url("../images/mp4.png");
+	color:#435055;}
+
+a[href$=".png"]{
+	background-image: url("../images/png.png");
+	color:#D15AE3;}
+
+a[href$=".tiff"]{
+	background-image: url("../images/tiff.png");
+	color: #7B0000;}
+
+a[href$=".xls"]{
+	background-image: url("../images/xls.png");
+	color: #79AC00;}
+
+

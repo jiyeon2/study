@@ -1,0 +1,39 @@
+/*float 속성
+<img> 요소롤 좌우로 부유시켜 텍스트가 이미지를 둘러싸도록 설정하기 위해 고안된 기술. 오늘날 그리드시스템(멀티 컬럼 레이아웃)에 활용됨.
+
+html 모든 요소는 float 속성 기본값이 none으로 설정되어 있습니다. 이를 사용자가 필요에 따라 float 방향을 왼쪽(left), 오른쪽(right)으로 설정 가능.
+이에따라 float가 적용된 요소 뒤쪽에 마크업(구조화)된 요소는 float의 영향을 받음
+*/
+
+
+/*float demo*/
+body{
+	
+}
+
+.image-container{
+	width: 550px;
+	border: 4px solid #34c0ff;
+	padding: 1rem;
+	margin: 2rem 20%;
+	line-height: 1.45;
+}
+.image-container img{
+	float: left;
+	margin-right: 10px;
+}
+.image-container img + *{
+	overflow: hidden;
+}
+/*이미지 자체에 멀티클래스 주거나, 이미지의 부모에 멀티클래스, 구조화는 각자 고려해서*/
+
+
+
+.image-container p {
+	margin-bottom: 1.5rem;
+	color:#13415b;
+	font-size: 0.875rem; /*14px*/
+}
+
+/*단락에 이미지 너비만큼 패딩주는 방법 말고 다른 해결법*/
+/*float 적용된 요소 뒤에 overflow:hidden 하면 padding주지 않고도 정렬 가능.논리적 설명 안됨. 그냥 암기! 이미지 다음 요소가 1개일때만 적용됨 */

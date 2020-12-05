@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>rwd</title>
+	<link media="(max-width:800px)" rel="stylesheet" href="../../resrouce/common.css">
+	<!-- 미디어쿼리 조건이 참이든 거짓이든 다운은 받음. 거짓일 경우 적용은안됨 -->
+	<link rel="stylesheet" href="../../resrouce/initialization/normalize.css">
+	<!-- <link rel="stylesheet" href="../../resrouce/grid-system/grid-fluid-1280-8.css"> -->
+	<link rel="stylesheet" href="css/rwd.css">
+<style>
+
+/*Hi-DPI 이미지를 처리하기 위한 미디어 쿼리 구문- 스니펫*/
+@media 
+	(-webkit-min-device-pixel-ratio:${1:2}),
+	(min--moz-device-pixel-ratio:${1:2}),
+	(min-resolution:${1:2}dppx),
+	(min-resolution:96*${1:2}$2dpi){   
+		$0
+}
+		/*고해상도 처리를 위한 bitmap 이미지 코드*/
+/*192dpi = 96dpi x 2 */
+
+	.container{
+		max-width: 630px;  
+		margin-left: auto;
+		margin-right: auto;
+		background: hsl(0, 0%, 80%);
+		height:100vh;
+	}
+	.container h2{
+		margin-top: 0;
+	}
+	.rwd-video{
+		max-width: 1920px; /*이거 지정하지 않으면 화면 꽉 차게 커짐*/
+		width:100%;
+		height:auto;/*height:auto 지정하지 않으면 */
+	}
+	iframe{
+		border:0;
+	}
+	.rwd-media-container{
+		position:relative;
+		width:100%;
+		height:0;  /*지금은 부모가 absolute만 감싼 상태라 높이 0이라 필요없지만, 임의의 상황에서 필요. padding-bottom + height 하면 높이가 더 커짐*/
+		padding-top: 30%; /*letterbox 검은 부분 필요하면 지정할것. padding-top은 꼭 지정하지 않아도 괜찮음*/
+		padding-bottom: 56.25%; /*height는 부모크기에따라  % 적용이 안되니까 부모의 너비의 비율에 맞게 크기 조절하기 위해 패딩 사용 */
+		/*스크린 비율 (가로x세로)
+		4:3 = 75%
+		16:9 = 56.25%
+		21:9 = 42.85714857%*/
+	}
+	.rwd-media{
+		position: absolute;
+		top: 0;
+		width:100%;
+		height:100%; /*높이 100% 하지 않으면 기본으로 가지고 있는 width값 의 비율에 맞는 높이만 가짐. 100%해야 부모 padding부분까지 다 채워서 커짐*/
+	}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+	
+	<h2>RWD video</h2>
+
+	<video 
+	class="rwd-video" 
+	src="img/loopimal.mp4" 
+	poster="img/loopimal-poster.jpg" 
+	width="640"
+	height="360" 
+	controls>
+	</video>
+
+	<hr>
+
+	<h3> &lt;iframe&gt; 예시</h3>
+	<!-- iframe, (objec, imbeb -예전코드)는 컨테이너 필요 -->
+	<div class="rwd-media-container">
+		<iframe 
+		src="https://player.vimeo.com/video/130329584?color=b3d9b6&title=0&byline=0&portrait=0" 
+		class="rwd-media" 
+		width="640" 
+		height="360" 
+		allowfullscreen>
+		</iframe>
+	</div>
+	<hr>
+
+<h3>유투브 예시</h3>
+<div class="rwd-media-container">
+		
+		<iframe 
+		class="rwd-media" 
+		width="560" 
+		height="315" 
+		src="https://www.youtube.com/embed/hssjoq9hWEs?rel=0" 
+		allowfullscreen></iframe>
+		
+	</div>
+
+
+<div class="rwd-media-container parent">
+		
+		<iframe 
+		class="rwd-media child" 
+		width="560" 
+		height="315" 
+		src
+		allowfullscreen></iframe>
+		
+	</div>
+</div>
+
+
+</body>
+</html>

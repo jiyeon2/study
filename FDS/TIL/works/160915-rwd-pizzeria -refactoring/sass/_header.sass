@@ -1,0 +1,34 @@
+//header style
+.body-header
+	.logo
+		h1
+			text-indent: -9999px
+			background: url(../img/header-nav/logo.png) no-repeat center
+			background-size: contain
+			margin:
+				top: $leading
+				bottom: $leading
+	.util-link
+		&:after
+			content: ''
+			display: block
+			clear: both
+		& >a
+			float: right
+			+uppercase
+			padding: $leading
+			color: #333 
+			&:hover, &:focus
+				color: #E64C4C
+
+@media #{$breakpoint-mobile}
+	.body-header .util-link >a
+		padding:
+			left: 1em
+			right: 1em
+@media #{$breakpoint-tablet}
+	.body-header .util-link >a
+		padding:
+			left: $leading*0.5
+			right: $leading*0.5
+// @media #{$breakpoint-desktop}

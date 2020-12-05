@@ -1,0 +1,32 @@
+@charset "UTF-8"
+//---------------------------
+//*헤더
+.body-header
+	@extend %capitalize
+	+flex-box(row wrap, space-around, center)
+	+bg(60px, repeat, 10px 0)
+		background: linear-gradient(to right, #C30006 50%, #ED1920 50%) 
+	position: relative
+	height: $leading * 2
+	font-size: $header-font-size
+
+	a
+		color: white 
+
+	&::after
+		content: ''
+		display: block
+		width: 100%
+		position: absolute
+		left: 0
+		bottom: 8px
+		border-bottom: 1px solid yellow
+
+.logo
+	+flex-item(0.55 1 auto)
+	h1
+		font-size: $header-font-size
+
+.util-link
+	+flex-item(0.1 1 auto)
+	+flex-box($main: space-around)

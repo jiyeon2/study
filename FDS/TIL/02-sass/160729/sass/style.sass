@@ -1,0 +1,54 @@
+//@import color-custom-function
+
+// body
+// 	color: _hsla(#3d96ff, 0.3)
+// 	background: adjust-hue(#3d96ff, -100deg)
+// 	background: complement(red) //f00->0ff ,보색
+// 	background: invert(darkred) //반전색- 색상판에서 반대쪽에 있는 색 255-각 값
+// 	p
+// 		color: complement(#190000)
+//color함수 이용해서 버튼 ui kit 만들면 편함
+
+//---------------------------
+//*@for문
+// $total: 12
+// @for $k from 1 through $total
+// 	.grid
+// 		@extend %cf
+// 	.col-#{$k}
+// 		@extend %col
+// 		width: width($k)
+
+//---------------------------
+//*@each
+$icons: play pause stop prev next forward backward
+//@debug length($icons)
+@each $icon in $icons
+	.icon-#{$icon}
+		background: url("../img/icon-#{icon}.png")
+
+//스프라이트 이미지의 경우! 리스트 대신 맵 사용
+
+$headings: (h1: 3rem 1.2, h2: 2rem 1.45, h3: 1.5rem 1.6)
+
+// @each $heading in $headings
+// 	// @debug $heading
+// 	$h: nth($heading,1) // h1
+// 	$v: nth($heading,2) // 3rem 1.2
+// 	$fz: nth($v, 1) //3rem
+// 	$lh: nth($v, 2) //1.2
+// 	#{$h}
+// 		font-size: $v
+// 		line-height: $lh
+
+
+
+@each $heading, $info in $headings
+	// @debug $info
+	// $h: nth($heading,1) // h1
+	// $v: nth($heading,2) // 3rem 1.2
+	$fz: nth($info, 1) //3rem
+	$lh: nth($info, 2) //1.2
+	#{$heading}
+		font-size: $fz
+		line-height: $lh

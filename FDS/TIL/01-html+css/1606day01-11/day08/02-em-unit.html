@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 단위 em 적용 어려움의 문제점</title>
+	<link rel="stylesheet" href="../resrouce/reset.css">
+	<link rel="stylesheet" href="../resrouce/common.css">
+	<link rel="stylesheet" href="css/02-em-unit.css">
+	<!-- 모바일 최적화, 사용자 이용 편의를 위해 user-scalable=no, max-scale=1  쓰지 않는다, 확대 막는다면 다른 방식 제공해줘야한다 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="wrapper-parent">
+		wrapper-parent
+		<div class="parent">
+			parent
+			<div class="child">
+				child
+				<div class="inner-child">
+				inner-child
+				</div>
+				<!-- /.inner-child -->
+			</div>
+			<!-- /.child -->
+		</div>
+		<!-- /.parent -->
+	</div>
+	<!-- /.wrapper-parent -->
+</body>
+</html>

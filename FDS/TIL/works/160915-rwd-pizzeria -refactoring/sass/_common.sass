@@ -1,0 +1,93 @@
+%clearfix
+	&::after
+		content: ''
+		display: block
+		clear: both
+
+%readable-hidden
+	width: 1px
+	height: 1px
+	position: absolute
+	margin: -1px
+	border: 0
+	padding: 0
+	overflow: hidden
+
+.readable-hidden
+	@extend %readable-hidden
+	
+//*mixin
+@mixin size($width:100%, $height: auto)
+	width: $width
+	height: $height
+
+@mixin position($position, $args: null)
+		position: $position
+		@if $args != null
+				@each $dir in top, left, bottom, right, z-index
+						$i: index($args, $dir)
+						@if $i
+								#{$dir}: nth($args, $i + 1)
+
+//position 단축 믹스인
+@mixin relative($args: null)
+	@include position(relative, $args)
+
+@mixin absolute($args: null)
+	@include position(absolute, $args)
+
+@mixin fixed($args: null)
+	@include position(fixed, $args)
+
+@mixin max-width($w: null)
+	max-width: $w
+
+@mixin isolated-float
+	margin:
+		top: -100%
+		right: -100%
+
+@mixin offset($row: 0, $col: 0)
+	margin:
+		top: ($leading)*($col)
+		left: ($base-unit-width)*($row)
+
+@mixin uppercase
+	text-transform: uppercase
+
+//---------------------------
+//* 초기화
+
+
+
+body, h1, h2, h3, h4, p, ul, li
+	margin: 0
+	padding: 0
+
+a
+	text-decoration: none
+	display: inline-block
+
+button
+	font-size: inherit
+	border: none
+	background: transparent
+	&:hover
+		cursor: pointer
+
+ul
+	list-style: none
+
+img
+	vertical-align: bottom
+
+header, main, section, nav, footer, h1, h2, h3, h4, div, a, button, ul, li
+	box-sizing: border-box
+
+
+//main-contents
+.section-title
+	+biggest-font
+	+uppercase
+
+

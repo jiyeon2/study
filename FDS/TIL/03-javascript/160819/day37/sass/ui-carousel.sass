@@ -1,0 +1,89 @@
+//normalize module
+@import normalize
+//*--------------------------------------
+// configuration
+//-----------------------------------------*/
+//function
+@function shade($color, $amount: 50%, $mix: #000)
+	@return mix($color, $mix, $amount)
+
+@function tint($color, $amount: 50%, $mix: #fff)
+	@return mix($color, $mix, $amount)
+
+//mixin
+=flex-align-center($orientation: both, $flow: row nowrap)
+	display: flex
+	flex-flow: $flow
+	@if $orientation == both
+		justify-content: center
+		align-items: center
+	@if $orientation == h
+		justify-content: center
+	@if $orientation == v
+		align-items: center
+
+// placeholder Selector
+%reset-button
+	background: transparent
+	border: none
+
+//variables
+$carousel-prefix: ui-carousel
+$content-bg: #56c0ff
+$content-width: 800px
+$content-height: 400px
+$content-buttons-width: $content-width /12
+//-----------------------------------------------------
+body.demonstration
+	+flex-align-center
+	min-height: 100vh
+//--------------------------------------------------------
+//ui carousel component style
+// depth 3개 이상 들어가지 않겠다 등 개인 기준 정하고 시작하기
+.#{$carousel-prefix}
+	position: relative //absolute된 버튼 그룹의 offsetParent로 설정하기 위함
+	border : 4px solid #bebebe
+	height: $content-height
+	width: $content-width
+	overflow: auto // 스크립트 지원하지않는 환경에서 스크롤 지원하기 위해
+	.js & //스크립트 지원되는 경우
+		overflow: hidden
+	
+	.#{$carousel-prefix}--content__wrapper
+		position: absolute
+		top: 0
+		left: 0
+
+
+	.#{$carousel-prefix}--content
+		+flex-align-center
+		width: $content-width - $content-buttons-width
+		height: $content-height
+		color: #fff
+		@for $i from 1 through 6
+			&:nth-child(#{$i})
+				background: shade($content-bg, 15% * $i, #888)
+		.no-js &
+			width: 100%
+
+	.#{$carousel-prefix}--navigation__buttons
+		display: flex
+		flex-wrap: wrap
+		position: absolute
+		top: 0
+		right: 0
+		height: $content-height
+		width: $content-buttons-width
+		button
+			$button-color: #404345 
+			@extend %reset-button !optional
+			width: 100%
+			cursor: pointer
+			background: $button-color
+			color: #fff
+			transition: all 0.2s
+			&:hover,
+			&:focus
+				background: tint($button-color)
+			&[class*="__prev_button"]
+				margin-bottom: 2px

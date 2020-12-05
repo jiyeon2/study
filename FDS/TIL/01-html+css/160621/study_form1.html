@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>form 연습</title>
+	<style>
+
+	table, th, td{
+		border: 1px solid red;
+	}
+	table{
+		border-collapse: collapse;
+	}
+</style>
+</head>
+
+<body>
+<form action="#" method="POST" enctype="multipart/form-data" name="submit_form">
+<table>
+<caption>Submit Form Selections</caption>
+<tr><td colspan="2">
+
+	<label for="url">Enter a URL for this link :</label></td></tr>
+
+	<tr><td colspan="2"><!-- select에는 label 어떻게 붙이지???-->
+	<select name="url" id="url">
+		<option value="">---------------Select URL------------------</option>
+		<option value="url1">asdf@fkdf.com</option>
+		<option value="url2">qwer@fkdf.com</option>
+			<optgroup label="other">
+				<option value="url3">dfzx@fkdf.com</option>
+				<option value="url4">ghfgh@fkdf.com</option>
+			</optgroup>
+	</select>
+	</td></tr>
+
+	<tr><td rowspan="3">
+	<fieldset>
+		<legend>Export Format</legend>
+			<ul>
+				<li>
+					<label><input type="radio" name="export-format" value="fdf" checked>FDF Include:</label>
+						<ul>
+							<li><label><input type="checkbox" name="FDF-include" value="field-data" checked>Field data</label></li>
+							<li><label><input type="checkbox" name="FDF-include" value="comments">Comments</label></li>
+							<li><label><input type="checkbox" name="FDF-include" value="incremental">Incremental changes to the PDF</label></li>
+						</ul>
+				</li>
+				
+				<li><label><input type="radio" name="export-format" value="html">HTML</label></li>
+
+				<li>
+					<label><input type="radio" name="export-format" value="xfdf">XFDF Include:</label>
+						<ul>
+							<li><label><input type="checkbox" name="xFDF-include" value="xfdf-field-data">Field data</label></li>
+							<li><label><input type="checkbox" name="xFDF-include" value="xfdf-comments">Comments</label></li>
+						</ul>
+				</li>
+				
+				<li><label><input type="radio" name="export-format" value="pdf">PDF The complete document</label></li>
+			</ul>
+	</fieldset>
+</td>
+<td>
+	<fieldset>
+		<legend>Field Selection</legend>
+			<ul>
+				<li><label><input type="radio" name="field-selection" value="all">All fields</label></li>
+				<li><label><input type="radio" name="field-selection" value="only">Only these...</label><input type="file" name="Select-fields"></li>
+			</ul>
+	</fieldset>
+</td>
+</tr>
+
+
+<tr><td>
+	<fieldset>
+		<legend>Date Options</legend>
+		<label><input type="checkbox" name="date-options" value="convert">Covert dates to standard format</label>
+		<p>Dates are submitted in D:YYYYMMDD format instead of passign the user typed values through unchanged.</p>
+	</fieldset>
+</td></tr>
+
+<tr><td>
+	<button type="submit">OK</button>
+	<button type="reset">Cancel</button>
+</td></tr>
+
+</table>
+</form>
+
+</body>
+</html>

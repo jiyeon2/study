@@ -1,0 +1,22 @@
+$base-font-size: 16px
+$base-line-height: 1.5
+$type-scale: 1.25
+
+html
+	font-size: $base-font-size
+	line-height: $base-line-height
+	font-family:  'Lato', sans-serif
+	
+p
+	font-size: $base-font-size // 1em = 16px
+
+@mixin bigger-font
+	font-size: $base-font-size * $type-scale
+
+@mixin biggest-font
+	font-size: $base-font-size * $type-scale *$type-scale
+	line-height: $base-line-height *2
+
+@mixin huge-font
+	font-size: $base-font-size * $type-scale *$type-scale *$type-scale*$type-scale
+	line-height: $base-line-height *3

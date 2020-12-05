@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM Script Basic</title>
+</head>
+
+<body>
+
+<div>
+	<p title="time is gold">오늘 잠시 존 시간은 더이상 오지않는다</p>
+	<p id="comment">보충은 다음주부터 시작</p>
+</div>
+
+<div>
+	<h2 id="heading-01">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<div>
+	<h2 id="heading-02">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<div>
+	<h2 id="heading-03">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<div>
+	<h2 id="heading-04">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<script>
+	//문서(document)에서 단락 요소에 접근(선택, selecting)한다
+	//유사배열(like Array): nodelist or htmlCollection
+
+
+	//문서에서 이미 찾은 대상요소를 다시 찾는 바보같은 짓을 하고싶지 않다
+// 우리에게 필요한 것은 메모리(기억)할 수 있는 공간(variable)이 필요하다
+
+//자바스크립트 변수선언
+// 선언된 메모리 공간(변수)에 레이블(이름주기표)을 단다
+
+function tag(name){
+	//test1 : return이 없는 함수의 경우
+	 // document.getElementsByTagName(name);
+	//test2 : return이 있는 함수의 경우
+	return document.getElementsByTagName(name);
+}
+
+function id(name){
+	return document.getElementByID(name);
+}
+
+var h2_1= id('heading-01');
+var h2_2= id('heading-02');
+var h2_3= id('heading-03');
+var h2_4= id('heading-04');
+
+var paras, divs, uls, lis, headings, links;
+
+paras    = tag('p');
+divs     = tag('div');
+uls      = tag('ul');
+lis      = tag('li');
+headings = tag('h2');
+links    = tag('a');
+//레이블이 달린 메모리공간(변수)에 사물(데이터)를 담는다
+//대입연산자(=)
+//변수= 데이터(값)
+
+function print(msg){
+	return console.log(msg);
+}
+
+print(paras);
+print(h2_1);
+console.log('문서에서 단락 요소의 개수',document.getElementsByTagName('p',length));
+console.log('수집된 문서의 단락 요소 중 첫번째 요소', document.getElementsByTagName('p').item(0));
+console.log('수집된 문서의 단락 요소 중 두번째 요소', document.getElementsByTagName('p')[1]);
+// console.log(document.getElementsByTagName('p').length);
+// console.log(document.getElementsByTagName('p').item(0));//첫번째 아이템 빼옴 
+
+	//접근한 단락 요소의 노드 유형을 콘솔 패널에 기록(log)한다
+ console.log(document.getElementsByTagName('p')[0].nodeType); 
+
+ 	// //함수
+ 	// 	@function log($msg){
+ 	// 		@return $msg;
+ 	// 	}
+
+ console.log(paras.length);
+ console.log(paras.item(0));
+ console.log(paras[1]);
+ console.log(paras[0].nodeType);
+
+</script>
+</body>
+
+</html>

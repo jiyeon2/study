@@ -1,0 +1,46 @@
+ul, button{
+	padding: 0;
+	margin: 0;
+}
+button{
+	border:none;
+	outline:1px solid blue;
+	cursor: pointer;
+}
+ul{list-style-type: none;}
+
+.hidden{
+	display:none;
+}
+
+.col-8{background-color: #dcdcdc;}
+.col-1{background-color: #4c4c4c;}
+.col-2:nth-child(2n){background-color: #afafaf;}
+.col-2:nth-child(2n-1){background-color: #efefef;}
+.col-4{background-color: #c4c4c4;}
+
+.top-header.col-8{height:80px;}
+/*events*/
+.col-6{
+	height:480px;
+	background-color: #ff6600;
+}
+.events li.col-2{
+	height:120px;
+}
+
+.events .col-4{height:240px;}
+.events .col-2{height:240px;}
+
+/*featured- producs*/
+
+.featured-products .col-2, .products .col-2, .blog .col-2{height:240px;}
+
+
+/**/
+.what-people-say.col-4, .about.col-4{height:480px;}
+
+.brand-list>.col-1{height:120px;}
+
+.foot-nav, .sns, .card{height:60px;}
+.foot-logo, .user-info{height:120px;}

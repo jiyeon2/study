@@ -1,0 +1,14 @@
+@charset "utf-8";
+body{
+	font: 0.875rem/1.5rem "Spoqa Han Sans", sans-serif;
+	color: #202020;
+}
+/*유연한 그리드에서는 주로 패딩 사용*/
+.column{
+background-color: #333;
+color: #fff;
+text-align: center;
+/*%는 부모 너비 기준이라 자기 크기를 기준으로 하지 않는다*/
+background-clip: content-box; 
+background-origin: content-box;
+}

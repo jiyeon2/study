@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js flex">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery rwd</title>
+	<script src="../../../resource/lib/jquery-3.1.0.min.js"></script>
+	<script>
+//정적 메소드 - 함수 자체가 가진 메소드
+//인스턴스 메소드 - 함수의 프로토타입의 메소드 - 생성자 함수로 만들어진 인스턴스 객체에 상속되는 메소드
+//$('a').each - 제이쿼리객체'a'가 쓰는 메소드/ 인스턴스 메소드
+//$.each - 제이쿼리함수 $가 쓰는 메소드/정적 메소드 
+
+(function(global){
+	'use strict';
+	 //Object.keys 사용자의 웹 브라우저가 지원하지 않는 경우 크로스 브라우징 위해서
+	 // 추상화하여 jQuery 함수의 속성으로 동일한 일을 수행하는 메소드  추가
+	if(!$.keys){
+		$.keys = function(obj){
+			if( $.type(obj) !== 'object'){ throw new Error('객체를 전달해야 합니다.')}
+			var keys = [];
+			for (var prop in obj){
+				if (obj.hasOwnProperty(prop)){
+					keys.push(prop);
+				}
+			}
+			return keys;
+		}
+	}
+})(this.jQuery);
+
+
+//처음엔 그냥 기능 구현하고, 반복 사용되는 코드는 묶어서 함수로 만든다. 
+//유지보수를 위해 값을 바꿔서 사용해야 하는 경우 변수로 대체한다
+
+
+
+		(function(global,$){
+			'use strict';
+			//--------------------------
+			//step1
+			 //페이지가 로드될 때 다음의 기기인지를 확인한다
+			 // 아래 조건을 확인하여 <html> 요소 또는 <body>요소에 class 속성 값으로 추가한다
+			 // mobile : 0 ~ 767
+			 // tablet : 768 ~ 1024
+			 // desktop : 1025 ~ 1366
+			 // wide-screen : 1367 ~
+			//--------------------------
+	var $html = $('html'), breakpoints;
+
+	breakpoints = {
+		'xs' : [767],
+		'md' : [768, 1024],
+		'lg' : [1025, 1366]
+	}
+
+//ES 5
+// console.log(Object.keys(breakpoints));
+// var breakpoints_keys = [];
+// for (var prop in breakpoints){
+//	breakpoints_keys.push(prop);
+//}
+
+//console.log(breakpoints_keys);
+
+//jQuery 정적 메소드 확장 $.keys()
+var breakpoints_keys = $.keys(breakpoints); // ['xs','md','lg']
+// console.log(breakpoints_keys);
+
+function changeDeviceMode(screen, first_exe){ //screen은 jQuery 객체
+	var screen_width = screen.width();
+	screen.removeClass( function(index, current_class){
+		if(first_exe){
+			//초기 실행 될 때 <html>요소의 class 속성 값을 가져와 메모리 함
+			screen.data('original-class', current_class); 
+		}
+		return breakpoints_keys.join(''); //breakpoints_keys 문자열 - 해당 클래스를 삭제함
+	});
+
+	if (!screen.hasClass(screen.data('original-class'))){
+		screen.addClass(screen.data('original-class'));
+	}
+
+// breakpoints_keys[0] -> 'xs',
+// breakpoints[breakpoints_keys[0]] -> breakpoints['xs'] -> [767],
+// breakpoints[breakpoints_keys[0]][0] ->[767][0] -> 767
+	if( screen_width < breakpoints[breakpoints_keys[0]][0]+1){ 
+		screen.addClass(breakpoints_keys[0]);
+	} else if (screen_width >= breakpoints[breakpoints_keys[1]][0] && screen_width < breakpoints[breakpoints_keys[1]][1]+1){
+		screen.addClass(breakpoints_keys[1]);
+	} else if (screen_width >= breakpoints[breakpoints_keys[2]][0] && screen_width < breakpoints[breakpoints_keys[2]][1]+1){
+		screen.addClass(breakpoints_keys[2]);
+	}else{
+		screen.addClass('wide-screen');
+	}
+}
+
+//changeDeviceMode($html);
+
+
+//--------------------------
+//step2
+//창 크기를 조정하면 step 1에서 수행했던 결과를 다시 실행하여 class 속성 처리를 변경한다	
+//--------------------------
+
+
+//객체합성패턴, 이벤트 함수 앞의 객체는 이벤트 함수에 전달되는 이벤트객체와 합쳐져서 들어감
+$(window).on('load resize', {'i':0}, function(event){
+changeDeviceMode($html, event.data.i++ === 0? true : false); //최초실행인지 아닌지판단
+});
+
+})(this, this.jQuery);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

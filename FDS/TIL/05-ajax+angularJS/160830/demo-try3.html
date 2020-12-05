@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko" data-ng-app>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>앵귤러 이해를 위한 실습3</title>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	    <script src="demo-try3.js"></script>
+	    <style>
+pre{
+	padding: 1rem;
+	background: #ececec;
+
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.a11y-hidden{
+	overflow:hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+}
+tr:nth-child(2n){
+	background: #ffffee;
+}
+th,td{
+	padding: 0.5em 1em;
+}
+img{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+}
+button{
+	border: 1px solid currentColor;
+	background: transparent;
+	padding: 1em;
+	border-radius: 10px;
+	color:#12ac23;
+}
+#people-table button{
+	padding: 0.3em;
+}
+</style>
+
+</head>
+<body data-ng-init="
+order_reverse= true;
+birth_reverse=true;
+name_reverse=true;
+sortBy='name';
+limit_count= people.length;
+
+">
+<!-- <button type="button" data-ng-click="birth_reverse = !birth_reverse">생일순 정렬 토글</button> -->
+
+<!-- 나이순 sorting -->
+<!-- <p>
+<label><input type="radio" name="age" data-ng-click ="order_reverse= true">내림차순</label>
+<label><input type="radio" name="age" data-ng-click ="order_reverse= false">오름차순</label>
+</p>
+
+
+
+<!-- limit to -->
+<label for="count">limit count</label><input id="count" type="text" data-ng-model="limit_count">
+
+<!-- filter  -->
+<p>
+<label for="person_age">Age: </label><input id="person_age" type="text" data-ng-model="search.age">
+<label for="person_name">Name: </label><input id="person_name" type="text" data-ng-model="search.name">
+</p>
+
+<!-- json 형태로 search를 보여줌 -->
+<!-- <pre>
+	{{search | json}}
+</pre> -->
+
+
+<button type="button" data-ng-click="sortBy='name'; order_reverse=!order_reverse; name_reverse=!name_reverse">이름 {{name_reverse? '내림차순':'오름차순'}} 정렬</button>
+<button type="button" data-ng-click="sortBy='birthday'; order_reverse=!order_reverse; birth_reverse=!birth_reverse">생일 {{birth_reverse? '내림차순':'오름차순'}} 정렬</button>
+<table>
+<tr>
+	<th>name </th>
+	<th>age</th>
+	<th>birthday</th>
+	<th>email</th>
+	<th>money</th>
+	<th>image</th>
+</tr>
+	<tr data-ng-repeat="person in people | filter:search | limitTo: limit_count| orderBy:sortBy:order_reverse ">
+	<!-- uppercase filter -->
+	<td data-ng-bind="person.name | uppercase"></td>
+	<td data-ng-bind="person.age"></td>
+	<td data-ng-bind="person.birthday | date:'yyyy년 MM월 dd일'" ></td>
+	<!-- lowercase filter -->
+	<td>{{person.mail | lowercase}}</td>
+	<!-- angular filter -->
+	<!-- Currency:symbol:fraction size -->
+	<td>{{person['has-money'] | currency :'$':0}}</td>
+	<!-- <td>{{person['has-money'] | number:0}}원</td> -->
+	<td>
+	<!-- 게으른 로딩 ngSrc: Lazy loading -->
+		<img 
+			data-ng-src="{{person.picture.src}}" 
+			alt="{{person.name}}"
+			width="{{person.picture.width}}" 
+			height="{{person.picture.height}}" 
+		>
+	</td>
+	</tr>
+</table>
+
+<!-- {{people.length}} -->
+<pre>
+	<code>
+	<!-- json filter -->
+		{{people | json}}
+	</code>
+</pre>
+
+<!-- ngController 디렉티브 통해 컨트롤러와 뷰 연결 -->
+<table id="people-table" data-ng-controller="tableController">
+	<caption class="a11y-hidden">people table list</caption>
+	<tr>
+		<td>Name
+			<button 
+				type="button" 	
+				class="toggle-order-by-name-button"
+				data-ng-click="changeOrder('name')">{{ name_r? '^':'v'}}</button>
+		</td>
+		<td>Age
+				<button 
+				type="button" 	
+				class="toggle-order-by-name-button"
+				data-ng-click="changeOrder('age')">{{ age_r? '^':'v'}}</button>
+		</td>
+		<td>Mail
+				<button 
+				type="button" 	
+				class="toggle-order-by-name-button"
+				data-ng-click="changeOrder('mail')">{{ mail_r? '^':'v'}}</button>
+
+
+		</td>
+		<td>Bitrhday
+				<button 
+				type="button" 	
+				class="toggle-order-by-name-button"
+				data-ng-click="changeOrder('birthday')">{{ birthday_r? '^':'v'}}</button>
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4">
+			<pre>
+				{{this.people[0] | json}}
+			</pre>
+		</td>
+	</tr>
+	<tr data-ng-repeat="person in this.people | orderBy:sort">
+		<td>{{person.name}}</td>
+		<td>{{person.age}}</td>
+		<td>{{person.mail}}</td>
+		<td>{{person.birthday | date : 'yyyy년 MM월 dd일'}}</td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+aside {
+  width: 400px;
+  height: 720px;
+  margin-right: 20px;
+  margin-bottom: 24px;
+  background-color: pink;
+  float: left;
+}
+
+div {
+  width: 1200px;
+}
+
+div::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/*# sourceMappingURL=grid.css.map */

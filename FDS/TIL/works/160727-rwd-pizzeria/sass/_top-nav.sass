@@ -1,0 +1,119 @@
+@charset "UTF-8"
+//---------------------------
+//*top-nav
+$logo-width: 192px
+.top-nav
+	@extend %clearfix
+	@extend %capitalize
+	//top-nav가 slide 위에 보이도록
+	+flex-box(row nowrap, space-around, center)
+	& >*
+		+flex-item(1 1 auto)
+	+pos-z
+	+bg(1px $logo-width /2 + 6, repeat)
+		background: linear-gradient(to bottom, #fff 50%, #ddd 50%, transparent 54%)
+	+mq-m
+		background-size: 1px 150px
+	width: 100%
+	transition: all 0.2s
+	text-align: center
+	.logo
+		+flex-box(row wrap, center)
+		order: 2
+		+pos-z
+		&:hover,
+		&:focus
+			border: none
+		a
+			@extend %margin-auto
+			@extend %ir
+			+bg(contain)
+				background: url(../img/header-nav/center-logo.png), #fff
+					origin: content-box
+			+mq-m
+				$logo-width: 288px
+				max-width: $logo-width
+				height: $logo-width /2
+				padding: 1rem
+			width: 30%
+			min-width: $logo-width
+			height: $logo-width /2
+			padding: 0.3rem
+			box-shadow: 0 1px 0 rgba(#ccc,0.5)
+			border: 
+				bottom: 1px solid #ddd
+					left-radius: 50%
+					right-radius: 50%
+
+
+
+
+	button
+		@extend %btn-shape
+		@extend %capitalize
+
+.grid-btn
+	+flex-box($main: flex-start)
+	max-width: 50px
+	align-self: flex-start
+	order: 1
+	margin:
+			top: 10px
+			left: 10px
+	.top-nav &
+		+mq-m
+			border: none
+			background: none
+			padding: 0
+			font-size: 16px
+			&::before
+				+size(16px, 16px)
+				margin:
+					left: auto
+					right: auto
+					bottom: 0.5em
+				content: ''
+				display: block
+				+bg
+					background: url(../img/header-nav/hamberger-btn.png)
+
+.menu-btn
+	+flex-box($main: flex-end)
+	max-width: 50px
+	align-self: flex-start
+	order: 3
+	margin:
+			top: 10px
+			right: 10px
+	+mq-m
+		display: none
+
+.nav-links
+	display: none
+	+mq-m
+		+flex-item(0 1 auto, flex-start, 2)
+		display: block
+		margin:
+			top: 10px
+			right: 10px
+		& >a
+			color: red
+	$items: about menu event comunity
+	@each $item in $items
+		.#{$item}
+			&::before
+				+size(16px, 16px)
+				@extend %margin-auto
+				margin-bottom: 0.5em
+				content: ''
+				display: block
+				+bg
+					background: url(../img/header-nav/#{$item}-btn.png)
+
++mq-m
+	.grid-btn, .nav-links
+		margin-top: $leading
+
+.nav-links.show
+	display: block
+	background: red

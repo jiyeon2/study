@@ -1,0 +1,64 @@
+$silver-two: #b8c5cc 
+$light-grey-blue: #95b8ce
+$dark-grey-blue: #353b59
+$purple-brown: #1b191a
+$white-bg: #fcfcfc
+// +flexible-font
+.product2
+	font-size: 0.9rem
+	.item
+		+flex-box(center,stretch)
+			flex-flow: column nowrap
+
+	.item-title
+		order: 2
+
+	.item-price
+		order: 3
+		color: $sand
+		margin:
+			bottom: 1.8rem
+
+	.item-picture
+		@extend %box-sizing
+		padding: 5% 10%
+		order: 1 
+
+
+	.item-quantity
+		order: 4
+
+	.item-color
+		order: 5
+
+	.add-btn
+		font-size: 1rem
+
+.item-quantity, .item-color
+	+flex-box(flex-start, center)
+	background: $white-bg
+	margin:
+		bottom: 1em
+		left: 1em
+		right: 1em
+	padding: 1em 0
+	color: #bfbfbf
+
+.item-label
+	+flex-box(flex-start, center)
+	font-size: 0.8rem
+	padding-left: 1em
+	flex: 0.2 1 auto
+	& ~span
+		flex: 0.1 1 auto
+
+
+.item-color
+	& >span:nth-of-type(2)
+		+color-radio($silver-two, #fff, 2rem 2rem)
+	& >span:nth-of-type(3)
+		+color-radio($light-grey-blue, #fff, 2rem 2rem)
+	& >span:nth-of-type(4)
+		+color-radio($dark-grey-blue, #fff, 2rem 2rem)
+	& >span:nth-of-type(5)
+		+color-radio($purple-brown, #fff, 2rem 2rem)

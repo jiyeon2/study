@@ -1,0 +1,86 @@
+@charset "utf-8";
+/*! common.css © yamoo9.net, 2016 */
+
+/* 목록 초기화 재사용 가능한 스타일 모듈 */
+.reset-list-group ul,
+.reset-list-group ol,
+.reset-list{
+  margin-top:    0;
+  margin-bottom: 0;
+  padding-left:  0;
+  list-style:    none;
+}
+
+/* 이미지 하단의 공백을 제거하는 속성 */
+img {
+  vertical-align: bottom;
+}
+
+/* 이미지 하단에 공백을 형성하여 옆으로 배치되는 글들이 동일한 공간을 가질 수 있도록 설정 */
+.blank-bottom-img img + *,
+img.blank-bottom + * {
+  overflow: hidden;
+}
+
+/*콘텐츠 이미지<img>에 적용되는 fluid image*/
+img.flex-img {
+  width: 100%;
+  height: auto;
+}
+img.keep-original-scale{
+  max-width: 100%; /* width:100%만 해두면 이미지의 본래 크기보다 더 커질 수 있음. max-width:100%하면 본래 크기보다 더 커지지 않음*/
+}
+/*배경이미지(css)에 적용되는 fluid BG image*/
+.flex-media{
+  width:100%;
+  padding-bottom:;  /*이미지 (세로폭/가로폭)*100 */
+  background:url(images/);
+}
+.flex-img-3-4{
+  width:100%;
+  padding-bottom: 75%;
+  background-size: cover;
+  background-position: center center;
+}
+.flex-img-9-16{
+    width:100%;
+  padding-bottom: 56.25%;
+  background-size: cover;
+  background-position: center center;
+}
+
+img.horizontal-center-img {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 클리어 픽스 */
+.clearfix::after,
+.cf::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.lt-ie8 .clearfix,
+.lt-ie8 .cf {
+  zoom: 1;
+}
+
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  width:    1px;
+  height:   1px;
+  margin:   -1px;
+  border:   0;
+  padding:  0;
+}
+.readable-hidden.focusable:focus {
+  overflow: visible;
+  position: static;
+  clip:     auto;
+  width:    auto;
+  height:   auto;
+  margin:   0;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "sass-angular-project",
+  "version": "1.0.0",
+  "description": "pug + sass + angularJS + browserify project startkit widh Gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo hihi"
+  },
+  "keywords": [
+    "sass",
+    "angular",
+    "browserify",
+    "jade",
+    "gulp"
+  ],
+  "author": "jiyeon",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-if": "^2.0.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2"
+  }
+}

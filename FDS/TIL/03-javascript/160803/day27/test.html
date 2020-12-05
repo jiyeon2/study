@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>제목</title>
+	<style>
+		#button-group{display: flex; position:fixed; top:0; left:0; width: 100%;}
+		#button-group button{flex:1; border:none; padding: 1em; background: #000; color: #fff; text-shadow: 0 0 3px rgba(0,0,0,0.36);}
+		#button-group button:nth-child(1){background:#bb3030;}
+		#button-group button:nth-child(2){background:#dd22f3;}
+		#button-group button:nth-child(3){background:#449afd;}
+		#button-group button:nth-child(4){background:#44fa9f;}
+		#button-group button:nth-child(5){background:#f8da1f;}
+
+
+
+	</style>
+</head>
+
+<body>
+
+<div id="button-group" role="group">
+	<button type="button">#bb3030</button>
+	<button type="button">#dd22f3</button>
+	<button type="button">#449afd</button>
+	<button type="button">#44fa9f</button>
+	<button type="button">#f8da1f</button>
+</div>
+
+
+
+<div>
+	<p title="time is gold">오늘 잠시 존 시간은 더이상 오지않는다</p>
+	<p id="comment">보충은 다음주부터 시작</p>
+</div>
+
+<div>
+	<h2 id="heading-01">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<div>
+	<h2 id="heading-02">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<div>
+	<h2 id="heading-03">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+<div>
+	<h2 id="heading-04">headline</h2>
+	<ul>
+		<li><a href="">item-01</a></li>
+		<li><a href="">item-02</a></li>
+		<li><a href="">item-03</a></li>
+	</ul>
+</div>
+
+<script>
+	// var paras;
+	// paras = document.getElementsByTagName('p');
+	// console.log(paras);
+	// console.log(paras[1]);//두번째요소
+	// console.log(paras[1].nodeType);//두번째요소의 노드타입
+
+	// function print(msg){
+	// 	return console.log(msg);
+	// }
+
+	
+//중복되는 body 요소 메모리하자(변수 필요!)
+//캐시(cache)-서버에 요청했던 데이터 
+
+// var body = document.getElementsByTagName('body')[0]; //body는 문서에 하나
+// var body = tag('body')[0]; //tag함수 이용
+
+var body= document.body; //DOM Legacy(Lv.0), HTML DOM 에서만 사용 가능. XML DOM에서는 사용할 수 없다
+// console.log(body.onmouseover);//이벤트속성 초기상태는 비어있다 null
+
+	//body요소에 사용자가 마우스를 올리면 배경색이 붉은색으로 변경된다
+	//body요소에 사용자가 마우스를 올리면 배경색이 하얀색으로 변경된다
+// body.onmouseenter = function(){//onmouseover 말고 onmouseenter 쓰기!
+// 	// 어떤 일을 수행(할 일)
+// 	// console.log('mouse over on body');
+// 	body.style.backgroundColor='#dc0018';
+// }
+// body.onmouseleave = function(){
+// 	body.style.backgroundColor = '#fff';
+// }
+
+
+</script>
+<script>
+	var btn_group = document.getElementById('button-group');
+	// console.log(btn_group);
+
+	var btns = btn_group.getElementsByTagName('button');
+	console.log(btns);
+	var btn_1= btns[0];
+	var btn_2= btns[1];
+	var btn_3= btns[2];
+	var btn_4= btns[3];
+	var btn_5= btns[4];
+
+// function(){
+// 		var wanted_color = this.firstChild.nodeValue;
+// 		console.log(wanted_color);
+// 		body.style.backgroundColor = wanted_color;
+// 	}
+// 익명함수
+// var tempfc = function(){
+// 		var wanted_color = this.firstChild.nodeValue;
+// 		console.log(wanted_color);
+// 		body.style.backgroundColor = wanted_color;
+// 	}
+// btn_1.onclick = tempfc;  //이렇게 쓸 수 있다, 만들어져 있는 함수를 참조함으로써 실행, 이벤트 발생시 연결된 함수 실행
+
+//tempfc(this); //전역에서 실행시 이벤트 실행 주제인 window가 this 됨
+
+//이벤트속성에 함수 넣어두면 실행주체는 버튼이 되므로 this는 버튼
+
+
+
+//this는 이벤트 함수 실행 주체, firstChild는 button의 첫번째노드=텍스트
+	// btn_1.onclick = function(){
+	// 	var wanted_color = this.firstChild.nodeValue;
+	// 	console.log(wanted_color);
+	// 	body.style.backgroundColor = wanted_color;
+	// }
+	// btn_2.onclick = function(){
+	// 	var wanted_color = this.firstChild.nodeValue;
+	// 	console.log(wanted_color);
+	// 	body.style.backgroundColor = wanted_color;
+	// }
+	// btn_3.onclick = function(){
+	// 	var wanted_color = this.firstChild.nodeValue;
+	// 	console.log(wanted_color);
+	// 	body.style.backgroundColor = wanted_color;
+	// }
+	// btn_4.onclick = function(){
+	// 	var wanted_color = this.firstChild.nodeValue;
+	// 	console.log(wanted_color);
+	// 	body.style.backgroundColor = wanted_color;
+	// }
+	// btn_5.onclick = function(){
+	// 	var wanted_color = this.firstChild.nodeValue;
+	// 	console.log(wanted_color);
+	// 	body.style.backgroundColor = wanted_color;
+	// }
+for ( var i = 0; i < btns.length; i++) {
+ btns[i].onclick = function() {
+   var color = this.firstChild.nodeValue;
+   body.style.backgroundColor = color;
+ }
+}
+//공통된 코드를 함수로 만들어 냄
+// function changeColor(){
+// 	var wanted_color = this.firstChild.nodeValue;
+// 		console.log(wanted_color);
+// 		body.style.backgroundColor = wanted_color;
+// }
+
+// btn_1.onmouseenter =
+// btn_2.onmouseenter =
+// btn_3.onmouseenter =
+// btn_4.onmouseenter =
+// btn_5.onmouseenter = changeColor;
+</script>
+</body>
+
+</html>

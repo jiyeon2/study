@@ -1,0 +1,39 @@
+//---------------------------
+//* ie7 핵 믹스인
+=ie7hack($selector)
+	*+html #{selector}
+		@content
+
+//---------------------------
+//*IE8에서 미디어쿼리 핵 믹스인
+// @media \0screen {}
+// ie8에서만 처리되는 코드
+
+// 핵 말고 feature detecture? 추천
+
+
+// sass
+=ie8hack
+	@media \0screen
+		@content
+
+// scss
+	@mixin ie8hack{
+		@media \0screen {
+			@content;
+		}
+	}
+
+// 믹스인 호출
++ie8hack
+	body
+		margin: 0 auto
+	.content-block
+		padding:
+			top: 20%
+
+
+//id는 괜찮은데 클래스. 는 문자로 전달해야함
+//#selector (o) .selector(x) '.selector'(o)
++ie7hack('0.demo')
+	color: #303030

@@ -1,0 +1,55 @@
+@charset "utf-8";
+/*워크스페이스에서 작업시 한글 깨지지 않도록 함*/
+
+/*
+css 선형 그레디언트 그리기
+------------------------------------
+background-image: <linear-gradient>;
+
+<linear-gradient>문법 정리
+linear-gradient(방향, 색상점1(시작), 위치(%, <lenght>), 색상점2, 색상점3, ... , 색상점N (끝))
+
+<linear-gradient>사용 예시
+포토샵으로 먼저 그려보면 쉽다  hsla(0, 100%, 50%, 1)
+*/
+
+.grid-container{
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.grid-container.show-guide{
+	height:100vh;
+	background: linear-gradient(to bottom, transparent 9px, hsla(248, 99%, 71%, 0.7) 9px);
+	background-size: 1px 10px;}
+
+.grid-container.show-columns{
+	height:100vh;
+	background: linear-gradient(to right, transparent 10px,hsla(340, 99%, 71%, 0.2) 10px, hsla(340, 99%, 71%, 0.2) 70px,transparent 70px);
+	background-size: 80px 1px;
+}
+
+.grid-container.show-all-grid{
+	height:200vh;
+	background:linear-gradient(to bottom, transparent 9px, hsla(248, 99%, 71%, 0.2) 9px),linear-gradient(to right, transparent 10px,hsla(340, 99%, 71%, 0.2) 10px, hsla(340, 99%, 71%, 0.2) 70px,transparent 70px);
+	background-size: 1px 10px,80px 1px;
+}
+
+.row::after{
+	content:'';
+	display: block;
+	clear: both;
+}
+.unit-1{
+	float:left;
+	margin-left: 10px;
+	margin-right: 10px;
+	width:60px;
+}
+.unit-2{
+	float:left;
+	margin-left: 10px;
+	margin-right: 10px;
+	width:60px;
+}

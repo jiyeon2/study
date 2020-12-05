@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>플렉스박스 연습하기!</title>
+	<link rel="stylesheet" href="../resrouce/initialization/normalize.css">
+	<link rel="stylesheet" href="css/flex-box-ex.css">
+</head>
+
+<body>
+	<section class="flex-box1">
+		<div class="sale-item">
+			<h2>hamburger</h2>
+			<p>이것은 햄버거입니다</p>
+			<ul>
+				<li>가격</li>
+				<li>가격</li>
+				<li>가격</li>
+				<li>가격</li>
+			</ul>
+			<img src="ham.jpg" alt="" width="275" height="183">
+			<button>buy</button>
+		</div>
+
+		<div class="sale-item">
+			<h2>김</h2>
+			<p>이것은 김입니다</p>
+			<ul>
+				<li>가격</li>
+				<li>가격</li>
+				<li>가격</li>
+				<li>가격</li>
+			</ul>
+			<img src="http://placehold.it/200x100/000/efefef/" alt="{5:alt}">
+			<button>buy</button>
+		</div>
+	</section>
+<p>order로 보이는 순서 변경 가능!</p>
+
+<hr>
+	<section class="flex-box2">
+		<h2>flex적용 전 flex items</h2>
+		<div class="item1">블럭요소</div>
+		<div class="item2 float">float 된 요소</div>
+		<!-- 태그로 묶이지 않은 요소는 인라인처럼 배치됨 -->
+		태깅 안된 요소
+		<span class="item4 inline">
+			인라인요소
+			<q class="block">블럭요소임</q>
+			인라인요소
+		</span>
+	</section>
+
+		<section class="flex-box3">
+		<h2>flex적용 후flex item</h2>
+		<div class="item1">블럭요소</div>
+		<div class="item2 float">float 된 요소</div>
+		태깅 안된 요소
+		<span class="item4 inline">
+			인라인요소
+			<q class="block">블럭요소임</q>
+			인라인요소
+		</span>
+	</section>
+
+	<p>flex 적용된 컨테이너 내부 직계 자식들은 모두 flex item으로 작동? 함</p>
+<hr>
+	<section class="flex-box4">
+		<h2>absolutely positioned flex children</h2>
+		<p class="static">position: staticposition: staticposition: staticposition: staticposition: staticposition: staticposition: staticposition: static</p>
+		<p class="absolute">position: absoluteposition: absoluteposition: absoluteposition: absoluteposition: absoluteposition: absoluteposition: absolute</p>
+		<p class="relative">position: relativeposition: relativeposition: relativeposition: relativeposition: relativeposition: relativeposition: relativeposition: relative</p>
+		<p class="fixed">position: fixedposition: fixedposition: fixedposition: fixedposition: fixedposition: fixedposition: fixedposition: fixed</p>
+	</section>
+	<p>4.1. Absolutely-Positioned Flex Children 무슨 의민지 잘 모르겠다</p>
+</body>
+<hr>
+<section class="flex-box5">
+	<h2>flex item의 패딩과 마진</h2>
+	<div class="flex-item">item1</div>
+	<div class="flex-item">item2</div>
+	<div class="flex-item">item3</div>
+	<div class="flex-item">item4</div>
+
+</section>
+<p>flex box는 margin-collapsing 발생 안함</p>
+<p>chrome브라우저에서 flex item의 padding, margin %값은 부모 요소 너비의 %</p>
+<p>margin auto는 남는 공간 다 밀어버림</p>
+<hr>
+
+<section class="flex-box6">
+	<h2>7.2 flex-grow, flex-shrink, flex-basis</h2>
+	
+</section>
+</html>

@@ -1,0 +1,8 @@
+// display값을 block혹은 inline-block으로 만들기
+
+@mixin block($display: null)
+	@if $display == inline
+		$display: inline-block
+	@else
+		$display: block
+	display: $display

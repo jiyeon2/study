@@ -1,0 +1,7 @@
+//---------------------------
+//* 마우스 hover 시 커서 모양 변경
+// 매개변수 쓰지 않으면 기본으로 '포인터'로 지정
+
+@mixin mouse-cursor($cursor:pointer)
+	&:hover
+		cursor: $cursor

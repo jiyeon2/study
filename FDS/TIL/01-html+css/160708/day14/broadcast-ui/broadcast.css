@@ -1,0 +1,38 @@
+body{
+	width:1440px;
+}
+
+
+/*맨 위 헤더*/
+.top-header{
+	height: 100px;
+	background-color: #3a3a3a;
+}
+
+/*메인 상단*/
+.article-box{
+	width:480px;
+	height:430px;
+	float:left;
+	background-color: red;
+}
+.article-box.large{
+	width:960px;
+	height:660px;
+	background-color: blue;
+}
+.breaking-news{
+	width:480;
+	height:660;
+	background-color: yellow;
+}
+.happening-now{
+	padding:90px;
+}
+.happening-now-news .article-box{
+	background-color: green;
+}
+.happening-now-news .article-box{
+	background-color: lightpink;
+}
+

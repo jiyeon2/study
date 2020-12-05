@@ -1,0 +1,23 @@
+.have-not-class-attribute{
+	text-decoration: overline underline;
+	background: #ededed;
+	color: #fe9865;
+}
+.even{
+	background: #ededed;
+}
+
+li{
+	list-style: none;
+	color: #feacaa;
+	
+}
+a{
+	color: inherit;
+	text-decoration: none;
+}
+li:hover, li:focus{
+	color: #fff;
+	background: #de89cd;
+}
+

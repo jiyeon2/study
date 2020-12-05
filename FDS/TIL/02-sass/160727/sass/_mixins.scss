@@ -1,0 +1,111 @@
+// 믹스인(mixin) 정의
+// 코드를 섞다
+
+// 믹스인 정의
+// @mixin 믹스인이름($매개변수) {
+// 	섞고자 하는 코드
+// 	섞고자 하는 코드
+// 	섞고자 하는 코드
+// 	섞고자 하는 코드
+// 	섞고자 하는 코드
+// }
+
+@mixin box-sizing ($size: border-box){
+	-webkit-box-sizing: $size;
+	-moz-box-sizing: $size;
+	box-sizing: $size;
+}
+
+@mixin reset-list{
+	list-style: none;
+	padding-left: 0;
+	margin: {
+		top: 0;
+		bottom: 0;
+	}
+}
+
+@mixin test($top-bottom, $left-right){
+	margin: $top-bottom $left-right;
+	padding: $top-bottom $left-right;
+}
+
+@mixin size($width : null, $height:auto){
+	width: $width;
+	height: $height;
+}
+
+@mixin rounder($r: 4px){
+	-webkit-border-radius: $r;
+	-moz-border-radius: $r;
+	border-radius: $r;
+}
+
+@mixin test($w:null,$h:null){
+	width: $w;
+	height: $h;
+}
+
+@mixin transition($props...){
+	-webkit-transition: $props;
+	-moz-transition: $props;
+	-o-transition: $props;
+	-ms-transition: $props;
+	transition: $props;
+}
+
+@mixin arrow-up($edge: 50px, $color: red){
+	display: block;
+	width: 0;
+	height: 0;
+	border-right: $edge/2 solid transparent;
+	border-left: $edge/2 solid transparent;
+	border-bottom: $edge solid $color;
+		&::after{
+			content: '';
+			display: block;
+		}
+}
+
+
+%zero-wh{
+	width:0;
+	height:0;
+}
+//---------------------------
+//* sass draw css shape
+@mixin triangle-top($color, $width) {
+	@extend %zero-wh;
+	border:{
+		bottom: $width $color solid;
+		left: $width transparent solid;
+		right: $width transparent solid;
+	}
+}
+
+@mixin triangle-bottom($color, $width) {
+	@extend %zero-wh;
+	border:{
+		top: $width $color solid;
+		left: $width transparent solid;
+		right: $width transparent solid;
+	}
+}
+
+@mixin triangle-left($color, $width) {
+	@extend %zero-wh;
+	border:{
+		right: $width $color solid;
+		top: $width transparent solid;
+		bottom: $width transparent solid;
+	}
+}
+
+@mixin triangle-bottom($color, $width) {
+	@extend %zero-wh;
+	border:{
+		top: $width $color solid;
+		left: $width transparent solid;
+		right: $width transparent solid;
+	}
+}

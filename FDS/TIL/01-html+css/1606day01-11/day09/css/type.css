@@ -1,0 +1,65 @@
+html{
+	font-size: 100%;
+}
+body{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	/*font-size: 0.875rem;  가급적 상대적인 값 쓰는 게 좋다, 14px */
+	font-size: 1rem;
+	/*행간설정 1rem * 1.5 = 24px */
+	line-height: 1.5rem;
+	/*포토샵에서 만든 패턴이미지를 배경이미지로 지정*/
+	background-image: url("../image/leading-24px.png");
+}
+/*단락 간격 지정*/
+p{
+	margin-bottom: 1.5rem;
+}
+
+img{
+	vertical-align: bottom;
+}
+
+.small-caps{
+	font-variant: small-caps;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+.lowercase{
+	text-transform: lowercase;
+}
+.capitalize{
+	text-transform: capitalize;
+}
+
+.font-short-properties{
+	/*font: 1.2rem/2em Helvetica, Sans-Serif;
+	font: italic 1.2rem/2em Helvetica, Sans-Serif;
+	font: bold 1.2rem/2em Helvetica, Sans-Serif;
+	font: bold italic 1.2rem/2em Helvetica, Sans-Serif;
+	font: italic bold 1.2rem/2em Helvetica, Sans-Serif;
+	font: italic bold small-caps 1.2rem/2em Helvetica, Sans-Serif;*/
+}
+
+.spoqa{
+	font-family: 'Spoqa Han Sans';
+	letter-spacing: -0.02rem;
+	color: green;
+}
+
+/*IR 테크닉(이미지 대체 기법)*/
+.brand-tweetle{
+	/*overflow: hidden;*/
+	/*display: block;*/
+	width:32px;
+	height: 32px;
+	background-image: url("https://cdn4.iconfinder.com/data/icons/tweetle/rest_in_tweetle_peace.png");
+  background-repeat: no-repeat;
+  text-indent: -9999em;
+}
+
+.brand-tweetle a {
+  display: block;
+}

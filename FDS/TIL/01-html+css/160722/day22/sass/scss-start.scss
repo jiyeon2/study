@@ -1,0 +1,33 @@
+// sass variable
+$blank: 20px;
+
+
+/*css comment*/ 
+body{
+	margin:$blank;
+}
+
+//sass singleline comment
+body{
+	margin:$blank;
+}
+
+//nested rule
+.page{
+	.page-header{
+	height:100;
+	}
+	.page-navigation ul{
+	padding-left:$blank;
+	li{
+	list-style:none;
+	}
+	}
+}
+
+
+/*
+Sass 
+multiline
+comment
+*/

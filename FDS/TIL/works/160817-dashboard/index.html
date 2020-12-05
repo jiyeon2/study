@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>dashboard</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<link rel="stylesheet" href="css/dashboard.css">
+	<!-- 구글차트 지도 -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type='text/javascript'>
+    //지도 복붙
+     google.charts.load('current', {'packages': ['geochart', 'corechart']});
+     google.charts.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['Country',   'Population'],
+        ['USA',  65700000],
+        ['Australia', 81890000],
+        ['France',  38540000],
+        ['Brazil',  38540000],
+        ['China',  38540000],
+        ['Thailand',  38540000]
+      ]);
+
+      var options = {
+        region: 'world', 
+        displayMode: 'markers'
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+
+    //파이차트 복붙
+   	google.charts.setOnLoadCallback(drawChart);
+
+   	function drawChart(){
+   		var data = new google.visualization.DataTable();
+   		data.addColumn('string','Customer type');
+   		data.addColumn('number','amount');
+   		data.addRows([
+   			['New', 180],
+   			['Returning',39],
+   			['Referrals',54],
+   			]);
+
+   		var options = {
+   			'width': 300,
+   			'height': 200
+   		};
+
+   		var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+   		chart.draw(data, options);
+   	}
+    </script>
+  </head>
+<body>
+
+<section class="top-bar">
+	<h2 class="readable-hidden">top menu bar</h2>
+	<a href="" class="top-bar--logo" aria-label="go to main page">
+		<img src="img/top-bar-logo.png" alt>
+	</a>
+	<div class="top-bar--menu">
+		<button type="button" class="top-bar--menu__projects dropdown">projects</button>
+		<a href="" class="top-bar--menu__activity">Activity</a>
+		<a href="" class="top-bar--menu__teammates">Teammates</a>
+	</div>
+	<button type="button" class="top-bar--profile dropdown" aria-label="go to my profile">
+		<span class="top-bar--profile__myinfo"></span>
+	</button>
+</section>
+
+<div class="dash-board-container">
+	<section class="dash-board">
+		<h2 class="readable-hidden">Dash board contents</h2>
+		<div class="dash-board--main-stats">
+			<div class="dash-board--main-stats__item">
+				<p class="dash-board--main-stats__item-value">354</p>
+				<p class="dash-board--main-stats__item-title">CUSTOMERS</p>
+			</div>
+			<div class="dash-board--main-stats__item">
+				<p class="dash-board--main-stats__item-value">54%</p>
+				<p class="dash-board--main-stats__item-title">TARGET ACHIEVED</p>
+			</div>
+			<div class="dash-board--main-stats__item">
+				<p class="dash-board--main-stats__item-value">13%</p>
+				<p class="dash-board--main-stats__item-title">NEW SALES</p>
+			</div>
+			<div class="dash-board--main-stats__item">
+				<p class="dash-board--main-stats__item-value">21</p>
+				<p class="dash-board--main-stats__item-title">NEW CUSTOMERS</p>
+			</div>
+		</div>
+
+		<div class="dash-board--items">
+			<div class="dash-board--items-container">
+				<article class="dash-board--item-card half">
+					<h3>World Wide</h3>
+					<div id="chart_div" style="width: 300px; height: 200px;"></div>
+				</article>
+				<article class="dash-board--item-card half">
+					<h3>Product Sales</h3>
+						<dl class="product-sales--item">
+							<dt class="procudt-cat">Business for Newbies</dt>
+							<dd class="product-amount"><span>332</span></dd>
+						</dl>
+				</article>
+			</div>
+			<div class="dash-board--items-container">
+				<article class="dash-board--item-card triple"><h3>Daily Sales</h3></article>
+				<article class="dash-board--item-card triple"><h3>Customers</h3>
+					<div id="pie_chart"></div>
+				</article>
+				<article class="dash-board--item-card triple"><h3>Profit</h3></article>
+			</div>
+		</div>
+	</section>
+	<section class="following">
+		<heading class="following-heading">
+			<h2>FOLLOWING</h2>
+			<button aria-label="settings"><img src="img/setting-btn.png" alt></button>
+		</heading>
+		<div class="follower goya">
+			<span class="follower-image"></span>
+			<div class="follower-desc">
+				<p class="follower-name">goya</p>
+				<p class="follower-state">Started following you</p>
+			</div>
+			<span class="follower-connect">4d</span>
+		</div>
+	</section>
+</div>
+
+<script src="../../resource/DOMHelper/index.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

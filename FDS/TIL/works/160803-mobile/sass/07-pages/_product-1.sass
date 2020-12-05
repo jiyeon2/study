@@ -1,0 +1,80 @@
+$sand: color(sand)
+$light-grey: #eaeaea
+
+body
+	+font
+
+.container
+	max-width: 375px
+	+position(relative)
+	.product2 &
+		background: $light-grey
+
+.status-bar
+	padding:
+		left: 0.5em
+		right: 0.5em
+
+img
+	.status-bar &, .item-picture &
+		+block(inline)
+		+size(100%)
+	.move-btns &
+		+size(16px)
+
+
+.move-btns
+	@extend %cf
+	.back-btn
+		float: left
+		& > img:hover
+			 filter: hue-rotate(220deg) saturate(5)
+			 
+	.shopping-btns
+		float: right
+
+.item
+	+flex-box(center, stretch)
+		flex-flow: column nowrap
+	text-align: center
+	&.intro::before
+		content: ''
+		+block
+		width: 100%
+		padding-top: calc(100% - 76px) // absolute되어 뜬 이미지높이만큼 padding-top지정
+
+.item-picture
+	+size(100%,auto)
+	.intro &
+		+position(absolute, top 0 left 0 z-index -1)
+
+
+.item-tag
+	+flex-box(space-between)
+	padding: 1em
+	color: #fff
+	background-color: black
+ 
+.item-info
+	+flex-box(center, stretch)
+	padding: 1em
+	color: rgba(black, 0.3)
+	font-style: italic
+	& span
+		+block
+		font-size: (60 / 28) * 1rem
+		font-weight: 800
+		color: $sand
+	& >*
+		flex: 1 1 auto
+
+	.color
+		+color-radio
+
+button
+	@extend %btn-default
+	&.add-btn
+		+size(100%)
+		background-color: $sand
+		color: #fff
+

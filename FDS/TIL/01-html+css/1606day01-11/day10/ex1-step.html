@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>speakers list</title>
+	<link rel="stylesheet" href="css/ex1-step.css">
+	<link rel="stylesheet" href="../resrouce/reset.css">
+</head>
+<body>
+	<!-- "구조 파악" 먼저! (이미지+사람설명)이 한 덩어리. 
+	발표순서라면 ol, 랜덤순서라면 ul, 꼭 목록일 필요는 없음.
+	우선 전체를 감싸는 컨테이너 필요.
+	-->
+	<!-- 여기 쓴 div들은 의미없는 게 아니라 다 필요해서 쓴 것 -->
+	<!-- "문법 검사 먼저" 하고  css들어가기!! -->
+	<!-- 컨테이너 폭 상관없이 작업 가능해야 함. 
+	코드재사용, 유지보수 위해 half, 새로운 클래스를 새로 만들기! -->
+	<div class="speakers-container clearfix">
+<!-- 하나 구
+조화 한 다음 나머지 복사하면 됨 -->
+		<div class="speaker clearfix">
+			<img src="img/speaker_1.jpg" alt="PETER LONGMAN" class="speaker-photo" width="640" height="327">
+			<div class="speaker-bio">
+				<h2 class="speaker-name">PETER LONGMAN</h2>
+				<p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita.</p>
+				<a href="" aria-label="go to speaker's twitter"></a><!-- 연설자 트위터로 이동 -->
+			</div>
+		</div>
+
+		<div class="speaker clearfix layout-half">
+			<img src="img/speaker_2.jpg" alt="JOAN MARTINEZ" class="speaker-photo" width="320" height="327">
+			<div class="speaker-bio">
+				<h2 class="speaker-name">JOAN MARTINEZ</h2>
+				<p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam.</p>
+				<a href="" aria-label="go to speaker's twitter"></a><!-- 연설자 트위터로 이동 -->
+			</div>
+		</div>
+
+		<div class="speaker clearfix layout-half">
+			<img src="img/speaker_3.jpg" alt="MICHAEL DOE" class="speaker-photo" width="320" height="327">
+			<div class="speaker-bio">
+				<h2 class="speaker-name">MICHAEL DOE</h2>
+				<p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus.</p>
+				<a href="" aria-label="go to speaker's twitter"></a><!-- 연설자 트위터로 이동 -->
+			</div>
+		</div>
+
+		<div class="speaker clearfix layout-half">
+			<img src="img/speaker_4.jpg" alt="SAUL GOODMAN" class="speaker-photo align-right" width="320" height="327">
+			<div class="speaker-bio">
+				<h2 class="speaker-name">SAUL GOODMAN</h2>
+				<p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis.</p>
+				<a href="" aria-label="go to speaker's twitter"></a><!-- 연설자 트위터로 이동 -->
+			</div>
+		</div>
+
+		<div class="speaker clearfix layout-half">
+			<img src="img/speaker_5.jpg" alt="HUGH LAURENCE" class="speaker-photo align-right" width="320" height="327">
+			<div class="speaker-bio">
+				<h2 class="speaker-name">HUGH LAURENCE</h2>
+				<p class="speaker-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus.</p>
+				<a href="" aria-label="go to speaker's twitter"></a><!-- 연설자 트위터로 이동 -->
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

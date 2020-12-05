@@ -1,0 +1,64 @@
+//---------------------------
+//*info
+
+$info-font-color: #975122
+
+.info
+	position: relative
+	padding:
+		top: $leading * 2
+		left: 22px
+		right: 22px
+		bottom: 26px
+	color: $info-font-color
+	text-align: center
+	background: url('../img/info/bg-wood.png'), #f6d49d
+	+mq-m
+		+flex-box(column wrap, center, stretch)
+		padding:
+			bottom: 0
+	&::before
+		+size(60px, 50px)
+		content: ''
+		position: absolute
+		top: -5px
+		left: 50%
+		transform: translateX(-50%)
+		+bg
+			background-image: url('../img/info/riborn.png')
+		+mq-m
+			+size(80px, 65px)
+
+	h3
+		@extend %ir
+		height: $leading * 2
+		+bg(contain)
+			background-image: url('../img/info/restaurant-information.png')
+			@extend %margin-auto
+			max-width: 200px
+		+mq-m
+			width: 30%
+			max-width: 400px
+			margin:
+				bottom: $leading * 1
+				top: $leading * 1
+
+.info-wrapper
+	+mq-m
+		+flex-box(row nowrap, space-around, stretch)
+
+
+.info-item
+	border-radius: 3px
+	border: 1px solid $info-font-color
+	padding: 0.5em
+	margin-bottom: $leading * 1
+	+mq-m
+		+flex-item(0.25 1 30%)
+		padding:
+			top: $leading
+			bottom: $leading
+
+.info-title
+	@extend %capitalize
+	margin-bottom: $leading

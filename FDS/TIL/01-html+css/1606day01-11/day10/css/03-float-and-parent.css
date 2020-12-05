@@ -1,0 +1,93 @@
+/*무한 float*/
+/*첫번째 방법 - 부모요소도 float을 적용*/
+/*.wrapper{
+	float:left;
+	width:960px;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+.page-nav{float: left;}
+.page-nav ul{float: left;}
+.page-nav li {float: left;}
+.page-nav a {float: left;}
+.page-nav img {float: left;}*/
+
+/*of-type선택자는 같은 클래스 가졌을 뿐 아니라 선택자 적용된 엘리먼트 요소도 같아야 적용됨*/
+
+/*두번째 방법 - 의미는 없되 표현을 위한 목적으로 div요소 생성하여 class="clear"설정. 권장하지 않음*/
+.clear{
+	clear:both;
+}
+
+
+/*세번째 방법
+부모요소에 overflow: hidden | auto 값을 설정하면 자식 요소만큼 높이가 생긴다
+간단하지만 권장하지 않음
+부모밖으로 삐져나가는 다른 요소가 보이지 않게 됨
+*/
+.float-container{
+	overflow: hidden;
+	overflow: auto;
+	/*overflow: visible; 은 안됨*/
+}
+
+/*네번째방법*/
+/*두번째 방법을 의미적으로 사용할 수 있도록 응용한방법
+많이 사용됨
+*/
+/*자식 감싸는 부모에게 .clearfix*/
+/*legacy methodv1*/
+.clearfix::after{
+ content: 'pseudo element';
+ display: block;
+ clear: both;
+ visibility: hidden;
+ height: 0;
+}
+/*legacy method1.1*/
+.micro-clearfix::after{
+ content: '';
+ display: block;
+ clear: both;
+}
+/*display inline이면 감싸지 못해서 block에 clear both;*/
+.micro-clearfix::before,
+.micro-clearfix::after{
+	content:'';
+	display: table;
+}
+.micro-clearfix::after{
+	clear: both';
+}
+.parent{
+	/*방법1. 부모 요소도 띄우기 float 적용 - 모두 float시켜야하므로 좋은 방법은 아님*/
+	/*float:left;*/
+	width: 720px;
+	/*height: 100px;*/
+	margin-left: auto;
+	margin-right:auto;
+	margin-bottom: 2rem;
+	/*border: 1px solid hsl(180, 3%, 93%);*/
+	background: #efefef;
+}
+.child{
+	/*자식요소들에게 플로트 적용*/
+	float:left;
+	width: 140px;
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	color: #fff;
+}
+.child:first-child{
+background-color: #3c1323;
+}
+.child:nth-child(2){
+background-color: #1c4e36;
+height:140px;
+}
+.child:last-child{
+	/*display:none;*/
+background-color: #1514ed;
+}

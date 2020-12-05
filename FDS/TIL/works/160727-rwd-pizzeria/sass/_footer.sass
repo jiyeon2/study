@@ -1,0 +1,96 @@
+//---------------------------
+//*footer
+$footer-font-color: #fff
+
+
+.body-footer
+	+flex-box($main: center, $cross: stretch)
+	color: $footer-font-color
+	font-size: 12px
+	background: linear-gradient(to right, #465970 1px, transparent 1px), linear-gradient(to bottom, #465970 1px, transparent 1px), #4B5E77
+	background-size: 20px 1px, 1px 20px, cover
+	& .footer-contents
+		+size(100%, 60%)
+		+flex-box($main: center, $cross: stretch)
+		flex: 0.6 1 60
+	+mq-m
+		height: $leading *9
+		flex-flow: column nowrap
+	>*
+		height: $leading *2
+
+
+	a
+		color: $footer-font-color
+	
+.copyright
+	+flex-item(1 1 100%, null, 3)
+	+flex-box(row nowrap, center, center)
+	background: #2B2B2B
+	+mq-m
+		flex: 0.4 1 40%
+		justify-content: flex-end
+		padding-right: 17% //foot-link와 끝나는 지점 맞추는 값/
+
+.sns
+	+flex-box(row nowrap, flex-start, center)
+	+flex-item(1 1 25%, null, 3)
+	a
+		@extend %ir
+		+size(30px,30px)
+		+bg(contain)
+		margin-right: 5%
+
+.facebook
+	background-image: url('../img/footer/facebook-icon.png')
+.twitter
+	background-image: url('../img/footer/twitter-icon.png')
+
+.foot-links
+	+flex-item(1 1 100%, null, 1)
+	+flex-box(row nowrap, space-around, center)
+	+mq-m
+		justify-content: flex-end
+		&>*
+			flex: 0.1 1 auto
+	border-bottom: 1px dashed #303C4B 
+	padding:
+		top: $leading * 0.5
+		bottom: $leading * 0.5
+	a
+		&::before
+			+bg(auto)
+				background-image: url(../img/footer/check-icon.png)
+			display: inline-block
+			vertical-align: bottom
+			content: ''
+			+size(14px, 12px)
+			margin-right: 0.2em
+
+.location
+	+flex-item(1 1 75%, null, 2)
+	+flex-box(column wrap, center, center)
+	// padding-left: 16px
+	p
+		align-self: flex-start
+	&::before
+		content: ''
+		+flex-item(1 1 100%)
+		+size(20px, 30px)
+		display: inline-block
+		background: url(../img/footer/location-icon.png) no-repeat center
+
++mq-m
+	.location
+		+flex-item(0.3 1 25%, stretch, 1)
+	.foot-links
+		+flex-item(0.5 1 50%, stretch, 2)
+		padding: 0
+		border:
+			bottom: none
+			left: 1px dashed #303c4b
+	.sns
+		+flex-item(0.2 1 10%, stretch, 3)
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스포카</title>
+</head>
+<body>
+
+<button class="font-weight-btn" type="button" aria-label="폰트굵기조절">regular</button>
+<div class="font-size-set">
+	<button type="button" aria-label="폰트크기감소" class="font-small-btn">-</button>
+	<input type="text" aria-label="폰트크기입력" class="font-input">
+	<button type="button" aria-label="폰트크기증가" class="font-big-btn">+</button>
+</div>
+<div class="color-change">
+	<button type="button" class="tint-btn">밝게</button>
+	<button type="button" class="shade-btn">어둡게</button>
+</div>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+
+<script src="../../resource/DOMHelper/index.js"></script>
+<script>
+	var font_weight_btn = query('.font-weight-btn'); // 폰트굵기버튼
+	var font_small_btn = query('.font-small-btn');// 폰트 크기 작게하는 버튼
+	var font_big_btn = query('.font-big-btn');// 폰트 크기 크게하는 버튼
+	var input= query('.font-input');//폰트크기입력창
+	var tint_btn=query('.tint-btn');
+	var shade_btn=query('.shade-btn');
+	var textarea = query('textarea');
+	textarea.setAttribute('placeholder','글자를 입력하세요');
+</script>
+</div>
+</body>
+</html>

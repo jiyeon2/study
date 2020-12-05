@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>css박스모델 크기 설정</title>
+	<style>
+		body{
+			margin: 5% 15%;
+			font: 1rem/1.5 Verdana;
+			color: #494949; 
+		}
+		/*박스 디자인*/
+		[class$="-box"]{
+			width:240px;
+			margin-bottom: 1rem;
+			padding-top: 0.45rem;
+			padding-bottom: 0.45rem;
+			outline: 1px dotted #484848;
+			text-align: center;
+			/*box-sizing비교*/
+			border: 5px solid ;#b9121b;
+			padding-left: 20px;
+
+		}
+/*box-sizing: padding-box는 현재 파이어폭스만 지원됨*/
+		.content-box{ 
+			box-sizing: content-box; 
+			background: #f6e497;
+		}
+		.border-box{ 
+			box-sizing: border-box; 
+			background: #cab34e;
+		}
+
+		/*컨테이너*/
+		.container{
+			background: #eee;
+		}
+		.row::after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.col{
+			float: left;
+			width: 33.33333%;
+			text-align: center;
+			color: #fff;
+			box-sizing: border-box;
+		}
+		.col:nth-child(1){background: #8e2899;}
+		.col:nth-child(2){background: #513421;}
+		.col:nth-child(3){background: #410000;
+			border-right: 1px solid green;
+			padding-top: 50%;}
+	</style>
+</head>
+<body>
+ <div class="content-box">content-box</div>
+ <div class="border-box">border-box</div>
+
+ <div class="container">
+ 	<div class="row">
+ 		<div class="col">column</div>
+ 		<div class="col">column</div>
+ 		<div class="col">column</div>
+ 	</div>
+ </div>
+</body>
+</html>

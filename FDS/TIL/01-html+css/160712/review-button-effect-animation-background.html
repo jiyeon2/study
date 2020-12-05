@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>16일차 복습- 버튼이펙트, 애니메이션, 배경속성이용하기</title>
+	<link rel="stylesheet" href="review-style.css">
+</head>
+<body>
+	링크이펙트
+
+	a요소에 hover, focus 시 css로 이펙트 추가하기.
+
+	링크 요소에 마우스가 올라갔을 때 링크요소 아래쪽 테두리가 fadein되며 나타나게 하기!
+
+	0. <a href="">기본 링크 이펙트</a> 기본적으로 a요소에 지정된 text-decoration:underline은 글자와 붙어있어서 읽기 힘들다. border-bottom과 padding-bottom을 이용하여 글자와 떨어진 테두리를 만들 수 있다. border 색 지정 안하면 color의 색을 상속받는다. ( currentColor : 해당 요소의 color값을 가져온다. color:inherit 같은것? 컬러값을 변수처럼 사용하는것?! 다른 요소와 상관없이 앞에 적용된 색을 따른다...?? <a href="http://www.quirksmode.org/css/color/currentcolor.html#">예제 : http://www.quirksmode.org/css/color/currentcolor.html#</a> )
+
+	1. 테두리가<div class="parent">
+		 <a class="slide-border-left" href="">왼쪽에서 오른쪽</a>
+	</div>으로 나옴
+	2. 테두리가 <a class="slide-border-right" href="">오른쪽에서 왼쪽</a>으로 나옴
+	3. 테두리가 <a class="slide-border-center" href="">가운데에서 양쪽</a>으로 나옴
+
+	1. a요소에 가상요소 ::before나 ::after를 만든다.
+	2. 가상요소는 display값이 inline임. display:inline-block;과 width지정하고 border가 나타나게 한다. 가상요소의 너비가 부모요소인 a의 100%가 되게 하려면 부모인 a에도 display:inline-block지정한다. a는 inline요소라 자식요소에게 width 상속이 안되는듯하다. a에 inline-block지정하지 않으면 a 상위 부모 중 width가진 요소의 너비값의 100%가 된다.
+	3. 가상요소에 position:absolute 지정하여 노말플로우에서 벗어나 위로 뜨게 한다. 상위 부모 중 position값 지닌 요소의 너비의 100%가 된다. 부모인 a요소에는 relative를 지정하여 a를 기준으로 한다.
+	4. 가상요소에 left나 top등 값을 지정하여 링크텍스트 바깥쪽으로 위치하게 만든다 여기서는 left:-100%하여 링크텍스트 왼쪽으로 링크텍스트 너비만큼, top:100% 하여 링크텍스트 아래쪽에 위치하게 했다.
+	hover, focus 시 x축 위치만 링크텍스트 아래 위치하도록 left:0을 지정한다.
+	5. 뚝뚝 끊어지는 느낌이 나므로 transition속성을 이용한다.(transform이 아님!!) 
+	- transition : 해당속성 지속시간;
+	지속시간은 s(초), ms(1/1000초) 단위로 씀
+	6.hover시 링크텍스트 왼쪽에 위치하던 테두리가 링크텍스트 아래로 부드럽게 이동한다!
+	7. 이제 테두리가 hover상태가 아닌 경우에 안보이면 됨! 부모요소 범위 밖에 있을 때 안보이게 하기 위해 가상요소에 overflow:hidden! 해도 보이는 테두리...
+	8.overflow:hidden은 display:block, inline-block만 적용된다. inline요소는 텍스트만큼의 범위만 가지기에! 그래서 부모인 a 요소에 display:inline-block!
+	9. 하면 링크텍스트가 위쪽으로 올라간다. 이걸 아래로 내려오게 하기 위해 vertical-align:bottom;을 이용한다...vertical-align은 인라인 요소만 가능하다
+		10.overflow:hidden했더니 안보이는데, hover했을 때도 안보인다 왜???? 가상요소(테두리) top 값이 100%이라 부모요소 패딩 안쪽만큼 오지 않는다. 값을 줄여서 부모 요소 쪽에 배치되게 한다.
+
+overflow hidden 쓰지 않고도 가상요소 테두리 width 0했다가 hover시 너비100해도 되겠다. -> 이건 왼쪽에서 오른쪽으로 슬라이드 하는것만 가능
+
+가상요소 테두리에 width값 지정하고 left만 이용하는 방법으로 오른쪽에서 왼쪽으로 슬라이드되는 것은 left:100%했다가 hover시 left:0하면 됨
+
+이 두 방법으론 테두리가 가운데서 양쪽으로 퍼지는 효과 만들긴 어렵다
+-------------------
+
+		혹은!
+		부모요소에 width를 주지 않고 ,
+		이건 부모요소 width:0이 아니라 아예 width가 지정하지 않아야 가능 함. 부모요소 width:0이면 아예 보이지 않으며, 가상요소 left,right아무리 늘려도 나타나지 않음...
+		 left, right 값을 이용해서 마치 width줄였다 늘였다 하는 것처럼 보이기!
+		가상요소에
+		left:0, right:0; 하면 부모요소 width의 100%
+		top:0, bottom:0 하면 부모요소 height의 100%
+		<a href="" class="slide-separate">left와 right 값을 동시에 쓸 수 있다는 건 몰랐는데 이번에 알게됨!</a>
+가상요소에 content없으면 나타나지 않음..
+부모요소인 링크가 너-무 길어서 라인브레이크(줄바꿈) 일어났을 때, 가상요소가 부모만큼의 너비와 같다면(줄바꿈에 걸리는 위치?너비?) 있다면 화면에 나타나지 않음 ㅜㅜ
+
+
+
+</body>
+</html>

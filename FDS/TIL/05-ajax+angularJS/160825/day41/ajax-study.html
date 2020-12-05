@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>비동기 통신을 위한 AJAX를 공부해보자!@!@</title>
+	<style>
+	h1{
+		color: #704bdb;
+		font-size: 5rem;
+		font-weight: 200
+	}
+		.call-ajax-data-btn, .test_btn{
+			background: none;
+			color: #704bdb;
+			border: 1px solid currentColor;
+			border-radius: 5px;
+			padding: 1em 2em;
+			transition: all 0.3s;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.call-ajax-data-btn:hover, .call-ajax-data-btn:focus,
+		, .test_btn:hover, .test_btn:focus{
+			cursor: pointer;
+			background: #704bdb;
+			color: #fff;
+		}
+
+		.call-ajax-data-btn:active, .test_btn:active{
+			position: relative;
+			top: 2px;
+			box-shadow: 2px 2px 2px #aaa;
+			outline: none;
+		}
+	.test_btn{
+		display: inline-block;
+	}
+		body{
+			margin: 6rem;
+
+		}
+		.ajax-result{
+			margin-top: 3rem;
+			border: 3px solid currentColor;
+			padding: 1rem;
+			color: #704bdb;
+			text-align: center;
+		}
+
+		.test{
+		margin-top: 3rem;
+		}
+	.content{
+		padding: 2rem;
+		border: 2px solid #704bdb;
+	}
+	.circle{
+		border-radius: 50%;
+	}
+	</style>
+</head>
+<body>
+<h1>AJAX</h1>
+<button class="call-ajax-data-btn" type="button" class="call-ajax-data">view update</button>
+<div class="ajax-result">
+	stand ready
+</div>
+
+<div class="test">
+	<button type="button" class="test_btn">About</button>
+	<button type="button" class="test_btn">ITEMS</button>
+	<button type="button" class="test_btn">SERVICE</button>
+	<div class="content">content</div>
+</div>
+
+<!-- 로컬 서버 작동
+
+http-server -o -a localhost -p 8081
+
+ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/ajax-communication.js"></script>
+</body>
+</html>

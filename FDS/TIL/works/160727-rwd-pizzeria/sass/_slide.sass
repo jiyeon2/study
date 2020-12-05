@@ -1,0 +1,54 @@
+//---------------------------
+//*slide
+
+.slide
+	max-height: $leading * 12
+	margin-top: -($leading * 2)
+	+mq-m
+		max-height: $leading * 22
+		margin-top: -($leading * 3)
+		overflow: visible
+	position: relative
+	overflow: hidden
+	+bg
+		background: url(../img/slide/slide-bg.gif)
+	h3
+		@extend %readable-hidden
+	
+	.left
+		@extend %slide-arrow
+		left: 0
+		+bg(contain)
+			background: url(../img/slide/left-arrow.png)
+			
+	.right
+		@extend %slide-arrow
+		right: 0
+		+bg(contain)
+			background: url(../img/slide/right-arrow.png)
++mq-m
+	.slide 
+		.left, .right
+			+size(70px,100px)
+
+.slide-page
+	img
+		@extend %margin-auto
+		+size(100%)
+		display: block
+		padding:
+			top: $leading * 2
+		max-width: 530px
+		+mq-m
+			max-width: 870px
+
+.slide-btn
+	position: absolute
+	bottom: 10px
+	left: 50%
+	transform: translateX(-50%)
+	a
+		@extend %ir
+		+size(20px, 20px)
+		+bg(80%)
+			background: url(../img/slide/slide-dot.png)

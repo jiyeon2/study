@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*MQ.css*/
+body{
+	height: 100vh;
+	min-width:30rem;
+	background-color: #468254;
+	font: 1rem/100vh "Spoqa Han Sans", sans-serif;
+	text-align: center;
+	transition:all 1s;
+}
+
+body::before{
+	content: 'mobile view';
+	font-size: 3rem;
+	color: #fff;
+		transition:all 2s;
+}
+
+/*@media (min-height: 600px) and (orientation:landscape){*/
+@media (orientation:landscape){
+	body{
+		background: #904654;
+	}
+	body::before{
+		color:#000;
+		content:'landscape view';
+	}
+}
+@media (max-height:300px){
+body::before{
+		content:'mobile view+min hiehgt';
+	}
+}
+@media (min-width:600px){
+	body{
+			background: #904654;
+	}
+	body::before{
+		content:'tablet view';
+		display: none;
+	}
+}
+
+@media (min-width:1000px){
+	body{
+			background: #123548;
+	}
+	body::before{
+		color:yellow;
+		content:'tablet view';
+		display: inline-block;
+	}
+}

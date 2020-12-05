@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* css comment 이건 컴파일 됨
+ 여러 줄 라인일 경우 출력됨?
+ 첫 칸 띄어써야함
+ 	뒤쪽에 닫는 기호 없어도 됨 */
+/*
+	여러
+	줄
+	라인
+	sass
+	사용시
+	주석 */
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .row::before, .container .row::after {
+  content: '';
+  display: table;
+}
+
+.container .row::after {
+  clear: both;
+}
+
+.lt-ie8 .container .row {
+  zoom: 1;
+}
+
+.col-1, .col-2 {
+  float: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.col-1 {
+  width: 80px;
+}
+
+.col-2 {
+  width: 160px;
+}
+
+/*# sourceMappingURL=../map/sass-review.css.map */

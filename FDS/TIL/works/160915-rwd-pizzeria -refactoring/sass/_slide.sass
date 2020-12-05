@@ -1,0 +1,56 @@
+.slide-container
+	+size(100%)
+	+relative
+	overflow: hidden
+	&:before
+		content: ''
+		display: block
+		width: 100%
+		padding-top: 31.25%
+
+.slide-img
+	+size
+	+absolute(top 0 left 0)
+
+.slide-container .grid-container
+	+absolute(top 50% left 0 right 0 bottom 0)
+	// transform: translateY(-50%)
+.slide-move
+	+absolute
+	text-indent: -9999px
+	overflow: hidden
+	+size($leading*2, $leading*2)
+	background: white
+	&.left
+		left: 0
+		transform: rotate(180deg)
+		background:url(../img/slide/RightCircle.svg) no-repeat center
+		background-size: contain
+	&.right
+		right: 0
+		background:url(../img/slide/RightCircle.svg) no-repeat center
+		background-size: contain
+
+.slide-location-dots
+	+absolute(left 50% bottom $leading)
+	transform: translateX(-50%)
+	@extend %clearfix
+
+.slide-dot, .stop-slide-btn
+	display: block
+	text-indent: -9999px
+	overflow: hidden
+	float: left
+	margin-right: 1em
+	background: white
+	+size($leading*0.7, $leading*0.7)
+.slide-dot
+	border-radius: 50%
+	&.active
+		background: red
+.stop-slide-btn
+	margin-left: 1em
+	background: linear-gradient(to right, white 33%, transparent 33%, transparent 66%, white 66%)
+	// @media #{$breakpoint-mobile}
+	// @media #{$breakpoint-tablet}
+	// @media #{$breakpoint-desktop}

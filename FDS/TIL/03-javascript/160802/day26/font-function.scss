@@ -1,0 +1,22 @@
+// font-shorthand() 믹스인이 활용하는 함수, 외부에 공개하지 않는 함수 이름 앞에 _붙인형태
+@function _font-shorthand($fz: 14px, $lh: 1.5){
+	@return #{$fz} / #{$lh};
+}
+
+//정규 믹스인 font-shorthand
+@mixin font-shorthand(
+	$fz: null, 
+	$ff: null, 
+	$lh: 1.5, 
+	$etc:null
+){
+	@if $fz == null of $ff == null{
+		@error "font-size, font-family는 필수값입니다. 값을 입력해주세요"
+	}
+	font: $etc _font-shorthand($fz, $lh) $ff;
+}
+
+//단축 믹스인
+@mixin font($args...){
+	@include font-shorthand($args...);
+}

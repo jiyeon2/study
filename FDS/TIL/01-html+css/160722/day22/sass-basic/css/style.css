@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/*----
+ *중첩규칙
+ * & 부모 참조 선택자
+ */
+.page .page-header {
+  position: relative;
+  height: 20vh;
+}
+
+.page .brand {
+  overflow: hidden;
+  position: absolute;
+  left: 10%;
+}
+
+.page .brand a {
+  color: #fc414b;
+}
+
+.ho-woo .page .brand a:hover {
+  color: #f6b141;
+}
+
+.page-sample a {
+  color: #342234;
+}
+
+.page-sample a:focus {
+  color: #342342;
+}
+
+.page-sample a:focus, .page-sample a:active {
+  outline: none;
+}
+
+.page-sample a span {
+  font-weight: 900;
+}
+
+/* 중첩 속성 */
+.page {
+  margin: 20px 0 10px;
+  margin-left: 40px;
+  font: 1rem/1.5 "Spoqa Han Sans", sans-serif;
+  font-weight: 200;
+  font-variant: small-caps;
+  border-top-color: red;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-left-color: transparent;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-right-color: hotpink;
+  border-right-style: dashed;
+  border-right-width: 2px;
+}
+
+aside.page-sidebar {
+  float: left;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  aside.page-sidebar {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1100px) {
+  aside.page-sidebar {
+    width: 33.3333%;
+  }
+}
+
+@media (min-width: 400px) {
+  .ho-woo aside.page-sidebar {
+    width: 22.22222%;
+  }
+}
+
+.yamoo9-button, .jiyeon-button, .jiji-button {
+  display: inline-block;
+  padding: 0.6em 1em;
+  text-align: center;
+  background: #eaeaea;
+}
+
+.primary.yamoo9-button, .primary.jiyeon-button, .primary.jiji-button {
+  background: #2789cd;
+  color: #a0cded;
+}
+
+.secondary.yamoo9-button, .secondary.jiyeon-button, .secondary.jiji-button {
+  background: #e32a2c;
+  color: #f5b1b2;
+}
+
+.round.yamoo9-button, .round.jiyeon-button, .round.jiji-button {
+  border-radius: 2px;
+}
+
+.rounder.yamoo9-button, .rounder.jiyeon-button, .rounder.jiji-button {
+  border-radius: 4px;
+}
+
+.roundest.yamoo9-button, .roundest.jiyeon-button, .roundest.jiji-button {
+  border-radius: 8px;
+}
+
+.button-error {
+  background: #f00;
+  color: #fff;
+  border: 3px solid #290000;
+}
+
+.jiji-button {
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=../map/style.css.map */

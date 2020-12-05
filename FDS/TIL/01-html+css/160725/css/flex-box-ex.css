@@ -1,0 +1,104 @@
+hr {
+  margin-bottom: 3rem; }
+
+body {
+  padding: 2rem; }
+
+.flex-box1 {
+  display: flex;
+  flex-flow: row wrap; }
+
+.sale-item {
+  padding: 1rem;
+  border: 3px solid green;
+  border-radius: 10px;
+  margin-right: 1rem;
+  background: lightgreen;
+  flex-basis: 30%;
+  display: flex;
+  flex-flow: column;
+  text-align: center; }
+  .sale-item > img {
+    order: -1;
+    align-self: center; }
+  .sale-item > button {
+    border: 1px solid green;
+    background: transparent;
+    margin-top: auto; }
+    .sale-item > button:hover {
+      cursor: pointer; }
+
+.flex-box2 > * {
+  outline: 1px solid red; }
+
+.flex-box2 .float {
+  float: left; }
+
+.flex-box2 .block {
+  display: block; }
+
+.flex-box3 {
+  display: flex; }
+  .flex-box3 > * {
+    outline: 1px solid blue; }
+  .flex-box3 .float {
+    float: left; }
+  .flex-box3 .block {
+    display: block; }
+
+.flex-box4 {
+  display: flex;
+  padding: 1rem;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #3c3c3c; }
+  .flex-box4 > .static {
+    position: static;
+    background: #fff; }
+  .flex-box4 > .absolute {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: green;
+    align-self: auto; }
+  .flex-box4 > .relative {
+    position: relative;
+    background: yellow;
+    top: 50px;
+    right: 0; }
+  .flex-box4 > .fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: pink; }
+
+.flex-box5 {
+  display: flex;
+  flex-flow: column wrap;
+  width: 600px;
+  height: 500px; }
+  .flex-box5 > :nth-child(1) {
+    background: red; }
+  .flex-box5 > :nth-child(2) {
+    background: orange;
+    margin-bottom: 1rem;
+    margin-top: auto; }
+  .flex-box5 > :nth-child(3) {
+    background: yellow;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto; }
+  .flex-box5 > :nth-child(4) {
+    background: green;
+    padding-top: 10%;
+    padding-bottom: 20%;
+    padding-left: 10%;
+    padding-right: 20%; }
+  .flex-box5 > :nth-child(5) {
+    background: blue;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    margin-left: 10%;
+    margin-right: 20%; }

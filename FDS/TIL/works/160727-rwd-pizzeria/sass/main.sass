@@ -1,0 +1,177 @@
+@charset "UTF-8"
+//---------------------------
+//*변수 g
+$grid-on: true
+$leading: 24px
+
+$main-color: #E6171F
+$welcome-font-color: #777
+
+$header-font-size: 13px
+$btn-font-size: 10px
+$welcome-font-size: 12px
+
+//미디어쿼리 분기점 
+$small-screen: 320px 
+$medium-screen: 960px
+$large-screen: 1200px
+//---------------------------
+//*mixin
+@mixin mq-m
+	@media (min-width: $medium-screen)
+		@content
+@mixin mq-l
+	@media (min-width: $large-screen)
+		@content
+
+
+//기본 (cover, no-repeat)배경이미지 넣기. bg믹스인 호출하고 background-image: url() 쓰기!
+@mixin bg($size:cover,$repeat:no-repeat, $position:center)
+	@content
+	background-size: $size
+	background-repeat: $repeat
+	background-position: $position
+
+
+//width, height 지정.
+@mixin size($width:100%, $height: auto)
+	width: $width
+	height: $height
+
+//position과 z-index지정
+@mixin pos-z($position: relative, $z-index: 1)
+	position: $position
+	z-index: $z-index
+
+//플렉스 박스(컨테이너)
+@mixin flex-box($flex-flow:row wrap, $main:space-around, $cross:center)
+	display: flex
+	flex-flow: $flex-flow
+	justify-content: $main
+	align-items: $cross
+	@content
+
+//플렉스 아이템
+@mixin flex-item($flex: 1 1 auto, $align: null, $order: null)
+	flex: $flex
+	align-self: $align
+	order: $order
+
+
+//---------------------------
+//* 초기화
+body, h1, h2, h3, h4, p
+	margin: 0
+
+a
+	text-decoration: none
+	display: inline-block
+	&:hover,
+	&:focus
+		border-bottom: 1px solid currentColor
+
+button
+	background: none
+	border: none
+	font-size: $btn-font-size
+
+header, main, section, nav, footer, h1, h2, h3, h4, div, a, button
+	box-sizing: border-box
+
+//---------------------------
+//*대체선택자
+
+//클리어픽스
+%clearfix
+	&::after
+		content: ''
+		display: block
+		clear: both
+
+//버튼 기본스타일
+%btn-shape
+	border: 1px solid #cdcdcd
+	background: linear-gradient(to bottom, #fff, #efefef)
+	color: $main-color
+	padding: 1em
+	border-radius: 3px
+
+//대문자화
+%capitalize
+	text-transform: uppercase
+
+//화면에 나타나지 않지만 읽을 수 있게 함
+//section, article사용 시 해당 섹션의 제목이 불분명할 때 섹션의 클래스 명을 h$태그에 컨텐츠로 넣고 h$태그가 해당 선택자 export 하기
+%readable-hidden
+	width: 1px
+	height: 1px
+	position: absolute
+	margin: -1px
+	border: 0
+	padding: 0
+	overflow: hidden
+
+//이미지 대체기법 사용
+%ir
+	text-indent: -999rem
+	overflow: hidden
+
+//_slide 의 arrow style
+%slide-arrow
+	@extend %ir
+	position: absolute
+	width: 45px
+	height: 60px
+	top: 50%
+	transform: translateY(-50%)
+
+//_welcome
+//상자 윗부분 그림자 style
+%box-top-shadowing
+	border-radius: 10px
+	box-shadow: -2px -2px 3px #ccc
+
+//welcome 아이템 박스 스타일
+%welcome-box-style
+	@extend %clearfix
+	padding: 15px 22px
+	font-size: $welcome-font-size
+	line-height: 1.5
+	background-color: #fff
+	div
+		text-align: center
+	img
+		+size(31%)
+
+//block 요소 가운데 정렬- margin left, right : auto
+%margin-auto
+	margin:
+		left: auto
+		right: auto
+
+//---------------------------
+//*body
+
+
+
+@if $grid-on == true
+	body
+		&::after
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			min-height: 200vh
+			background: linear-gradient(to bottom, transparent 23px, #0000ff 23px)
+			background-size: 1px 24px
+			display: none
+
+
+@import header
+@import top-nav
+@import slide
+@import welcome
+@import info
+@import imagebox
+@import footer

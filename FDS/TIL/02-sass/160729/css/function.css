@@ -1,0 +1,114 @@
+.grid-container {
+  background: blue;
+}
+
+.test {
+  color: #232323;
+  background-color: #565656;
+}
+
+.test2 {
+  color: #234234;
+  background-color: #468569;
+}
+
+.test3 {
+  color: #555534;
+  background-color: #94945b;
+}
+
+.grid .unit-1 {
+  width: 130px;
+}
+
+.grid .unit-2 {
+  width: 290px;
+}
+
+.grid .unit-3 {
+  width: 450px;
+}
+
+.grid .unit-4 {
+  width: 610px;
+}
+
+.grid .unit-5 {
+  width: 770px;
+}
+
+.grid .unit-6 {
+  width: 930px;
+}
+
+.grid .unit-7 {
+  width: 1090px;
+}
+
+.grid .unit-8 {
+  width: 1250px;
+}
+
+.grid .unit-9 {
+  width: 1410px;
+}
+
+.grid .unit-10 {
+  width: 1570px;
+}
+
+.grid .unit-11 {
+  width: 1730px;
+}
+
+.grid .unit-12 {
+  width: 1890px;
+}
+
+.grid .unit-13 {
+  width: 2050px;
+}
+
+.grid .unit-14 {
+  width: 2210px;
+}
+
+.grid .unit-15 {
+  width: 2370px;
+}
+
+.grid .unit-16 {
+  width: 2530px;
+}
+
+.grid .unit-17 {
+  width: 2690px;
+}
+
+.grid .unit-18 {
+  width: 2850px;
+}
+
+.grid .unit-19 {
+  width: 3010px;
+}
+
+.grid .unit-20 {
+  width: 3170px;
+}
+
+.grid .unit-21 {
+  width: 3330px;
+}
+
+.grid .unit-22 {
+  width: 3490px;
+}
+
+.grid .unit-23 {
+  width: 3650px;
+}
+
+.grid .unit-24 {
+  width: 3810px;
+}

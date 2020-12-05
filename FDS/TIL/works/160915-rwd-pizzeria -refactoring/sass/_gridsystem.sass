@@ -1,0 +1,82 @@
+$total-column: 12
+
+$breakpoint-mobile: 'only screen and (max-width: 599px)'
+$breakpoint-tablet: 'only screen and (min-width: 600px) and (max-width: 1219px)'
+$breakpoint-desktop: 'only screen and (min-width: 1220px)'
+
+
+$leading: $base-font-size * $base-line-height
+$base-unit-width: 100% /$total-column
+
+////////////////////////////////
+//컨테이너 모듈 row
+.row
+	@extend %clearfix
+	box-sizing: border-box
+
+////////////////////////////////
+//유닛 모듈 box
+.row [class*='box-']
+	float: left
+	width: 100%
+	box-sizing: border-box
+
+@media #{$breakpoint-mobile}
+	@for $i from 1 through $total-column
+		.row .box-m-#{$i}#{-$total-column}
+			width: $base-unit-width * $i
+
+@media #{$breakpoint-tablet}
+	@for $i from 1 through $total-column
+		.row .box-t-#{$i}#{-$total-column}
+			width: $base-unit-width * $i
+
+@media #{$breakpoint-desktop}
+	@for $i from 1 through $total-column
+		.row .box-d-#{$i}#{-$total-column}
+			width: $base-unit-width * $i
+
+////////////////////////////////
+//거터모듈
+.gutter, .gutter-group [class*='box-']
+	padding:
+		right: 1em
+	background-clip: content-box
+
+.no-gutter
+	padding:
+		right: 0
+////////////////////////////////
+//옵셋 모듈
+@media #{$breakpoint-mobile}
+	@for $i from 1 through $total-column
+		.offset-m-#{$i}#{-$total-column}
+			margin-left: $base-unit-width * $i
+
+@media #{$breakpoint-tablet}
+	@for $i from 1 through $total-column
+		.offset-t-#{$i}#{-$total-column}
+			margin-left: $base-unit-width * $i
+
+@media #{$breakpoint-desktop}
+	@for $i from 1 through $total-column
+		.offset-d-#{$i}#{-$total-column}
+			margin-left: $base-unit-width * $i
+
+
+////////////////////////////
+//grid-container
+.grid-container
+	+relative
+	max-width: 1220px
+	margin:
+		right: auto
+		left: auto
+
+.grid-container.show-grid::before
+	content: ''
+	+absolute(top 0 left 0 right 0 bottom 0)
+	+size(100%)
+	z-index: 10000
+	background: linear-gradient(90deg, rgba(#afa, 0.3) 94%, transparent 94%), linear-gradient(rgba(#000,0) 23px, #26923f 23px)
+	background-size: 8.4% 1px, 1px $leading

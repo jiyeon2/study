@@ -1,0 +1,74 @@
+//---------------------------
+//* reset 관련 믹스인
+// 모든 reset 적용시 @include global-reset
+
+$use-global-reset: true;
+
+@mixin reset-box
+	margin: 0
+	border: 0
+	padding: 0
+
+@mixin reset-table
+	border-collapse: collapse
+	border-spacing: 0
+
+@mixin reset-table-cell
+	text-align: left
+	font-weight: normal
+	vertical-align: middle
+
+@mixin reset-font
+	font: inherit
+	font-size: 100%
+	vertical-align: baseline
+
+@mixin reset-focus
+	outline: 0
+
+@mixin reset-body
+	line-height: 1
+
+@mixin reset-quotation
+	quotes: none
+	&::before, &::after
+		content: ''
+
+@mixin reset-list
+	list-style: none
+
+@mixin reset-img
+	border: 0
+	vertical-align: bottom // 이미지 하단 공백 제거
+
+$html5-block: "article, aside, details, figcaption, figure, footer, header, main, nav, section, summary" !default
+
+@mixin reset-html5-block
+	#{$html5-block}
+		display: block
+
+$html-elements:  "div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video" !default; 
+
+@mixin nested-reset
+	#{$html-elements}
+		@include reset-box
+		@include reset-font
+	table
+		@include reset-table
+	caption, th, td
+		@include reset-table-cell
+	q, blockquote
+		@include reset-quotation
+	a img
+		@include reset-img
+@mixin global-reset
+	html
+		@include reset-body
+	@include nested-reset
+	@include reset-html5-block
+/*reset*/
+@if ($use-global-reset == true)
+	@include global-reset
+/*reset*/
+
+

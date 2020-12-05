@@ -1,0 +1,27 @@
+/*box-model.css*/
+
+/*마진이 상하 방향으로 접히는 현상*/
+
+h1{
+	margin-bottom: 30px;
+	font-weight:bolder; /*숫자값 이해못하는 구형 브라우저 하위 호환 고려*/
+	font-weight:900; /* 100-400(normal) -700(bold ) - 900(border)  */
+	/*font-size: 32px; rem 지원하지 않는 브라우저에 적용*/
+	font-size: 2.2em;
+}
+p{
+	margin-top: 20px;
+	color:#323130;
+	font-size: 0.875em; /* 14px */
+}
+
+p a {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background: #000;
+	color:#fff;
+}
+p span{
+	color: #ff0;
+	 background-color: #ff0000;
+}

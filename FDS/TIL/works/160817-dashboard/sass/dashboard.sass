@@ -1,0 +1,268 @@
+
+// mixin---------------------------------
+//포지션
+@mixin position($position, $args: null)
+		position: $position
+		@if $args != null
+				@each $dir in top, left, bottom, right, z-index
+						$i: index($args, $dir)
+						@if $i
+								#{$dir}: nth($args, $i + 1)
+@mixin relative($args: null)
+	@include position(relative, $args)
+
+@mixin absolute($args: null)
+	@include position(absolute, $args)
+
+@mixin fixed($args: null)
+	@include position(fixed, $args)
+
+//플렉스박스
+@mixin flex($main: flex-start, $cross: center, $dir: row)
+	display: flex
+	justify-content: $main
+	align-items: $cross
+	flex-direction: $dir
+	@content
+
+//사이즈
+@mixin size($w: 100%, $h: auto)
+	width: $w
+	height: $h
+
+@mixin circle($r)
+	+size($r, $r)
+	border-radius: 50%
+
+//대쉬보드 래핑
+@mixin wrapping
+	width: 80%
+	max-width: 900px
+	margin:
+		left: auto
+		right: auto
+
+//포커스 아웃라인
+@mixin focus
+	&:focus, &:focus
+		outline: 2px solid orange
+
+//placeholder----------------
+%cf
+	&::after
+		content: ''
+		display: block
+		clear: both
+ .lt-ie8 &
+ 		zoom: 1
+//readable-hidden 화면에 보이지 않지만 스크린리더가 읽을 수 있게 함
+%readable-hidden
+	overflow: hidden
+	position: absolute
+	+size(1px, 1px)
+	margin: -1px
+	border: 0
+	padding: 0
+	&:focus
+		overflow: visible
+		position: static
+		clip: auto
+		+size(auto, auto)
+		margin: 0
+
+
+//초기화--------------------------------
+@import normalize
+
+ul
+	list-style: none
+	padding: 0
+
+a
+	text-decoration: none
+	+focus
+
+p
+	margin: 0
+
+button
+	font-size: inherit
+	color: inherit
+	background: none
+	border: none
+	cursor: pointer
+	padding: 0
+	+focus
+
+dd
+	margin: 0
+
+//-------------------------------------
+$top-bar-bg: #2097f0
+$top-bar-text-color: #fff
+$following-bg: #273142
+$dash-board-bg: #eff3f6
+$main-stats-title-color: #aaa
+
+html
+	font-family: 'Source Sans Pro', sans-serif
+
+.readable-hidden
+	@extend %readable-hidden
+
+//top bar
+.top-bar
+	@extend %cf
+	+flex(flex-start)
+	padding: 0.5rem 1.5rem
+	background: $top-bar-bg
+	color: $top-bar-text-color
+
+	a
+		color: $top-bar-text-color
+
+	.dropdown
+		+relative
+		&:after
+			+absolute(top 50% right -1rem)
+			transform: translateY(-50%)
+			content: ''
+			background: url(../img/top-bar-dropdown.png) no-repeat center
+			+size(1rem, 1rem)
+
+.top-bar--logo
+	background: #1166a5
+	padding: 0.7em
+	border-radius: 3px
+
+.top-bar--menu
+	flex-grow: 1
+	& > * 
+		margin-left: 2em
+
+.top-bar--profile__myinfo
+	display: block
+	+circle(3rem)
+	background: url(../img/avatar/jy.jpg) no-repeat center
+	background-size: cover
+
+
+//dash board---------------------------------
+
+
+.dash-board-container
+	+flex(center, flex-start)
+
+.dash-board
+	width: 100%
+
+.dash-board--main-stats
+	+wrapping
+	+flex(space-between, center)
+	& >*
+		flex: 1 1 25%
+
+.dash-board--main-stats__item
+	text-align: center
+	padding: 1em
+	+relative
+	&:not(:last-child):after
+		content: ''
+		+absolute(top 20% bottom 20% right 0 )
+		border-right: 1px solid #ddd
+
+.dash-board--main-stats__item-value
+	font:
+		size: 2rem
+		weight: bold
+
+.dash-board--main-stats__item-title
+	margin-top: 0.5em
+	color: $main-stats-title-color
+
+
+.dash-board--items
+	background: $dash-board-bg
+	padding: 2rem 0
+
+
+.dash-board--items-container
+	+flex(space-between, stretch)
+	+wrapping
+	&:not(:last-child)
+		margin-bottom: 2rem
+
+.dash-board--item-card
+	border: 1px solid #ddd
+		radius: 5px
+	background: #fff
+	&.half
+		border-top: 2px solid $top-bar-bg
+		flex-basis: 47%
+	&.triple
+		flex-basis: 30%
+
+//following
+.following
+	width: 20%
+	min-width: 300px
+	background: $following-bg
+
+.following-heading
+	+flex(space-between)
+	padding: 2em 1em
+	h2
+		margin: 0
+		color: #fff
+		font-size: 1rem
+	img
+		vertical-align: middle
+
+
+.follower
+	+flex(space-around, center)
+	padding: 1em 0
+
+.follower-image
+	display: block
+	+circle(3rem)
+	background: red
+	background-size: cover
+
+.follower-desc
+	flex-basis: 55%
+.follower-name
+	color: #fff
+.follower-desc
+
+.follower-state
+	color: #aaa
+
+.follower-connect
+	color: #aaa
+
+$users: jy js goya
+
+@each $user in $users
+	.follower[class*=#{$user}]
+		.follower-image
+			background-image: url(../img/avatar/#{$user}.jpg)
+
+//product sales 
+.product-sales--item
+	padding: 1em
+	+relative
+
+	.procudt-cat
+
+	.product-amount
+		border-radius: 10px
+		background: #eff3f6
+		transform: translateY(100%)
+		& > span
+		&::before
+			content: ''
+			display: block
+			background: repeating-linear-gradient(45deg, blue, blue 10px, red 10px, red 20px )
+			border-radius: 10px
+			+absolute(top 0 bottom 0 left 0  right 30%)

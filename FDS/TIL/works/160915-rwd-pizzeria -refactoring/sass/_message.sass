@@ -1,0 +1,38 @@
+.message
+	+relative
+	width: 100%
+	text-align: center
+	background: url(../img/footer/fresh.jpg) no-repeat center
+	background-size: cover
+	&:before
+		content: ''
+		display: block
+		padding-top: 30%
+.message-title, .message-content
+	+absolute(left 50%)
+	transform: translateX(-50%)
+	color: white
+
+@media #{$breakpoint-mobile}
+	.message-title
+		+bigger-font
+		top: 30%
+	.message-content
+		top: 50%
+
+
+@media #{$breakpoint-tablet}
+	.message-title
+		+bigger-font
+		top: 30%
+	.message-content
+		top: 60%
+@media #{$breakpoint-desktop}
+	.message-title
+		+huge-font
+		+uppercase
+		top: 30%
+	.message-content
+		+bigger-font
+		width: 100%
+		top: 60%

@@ -1,0 +1,72 @@
+/* css comment 이건 컴파일 됨 
+ 여러 줄 라인일 경우 출력됨?
+ 첫 칸 띄어써야함 
+ 	뒤쪽에 닫는 기호 없어도 됨
+
+/*
+	여러
+	줄
+	라인
+	sass
+	사용시
+	주석
+
+// sass comment = single line comment 이건 css로 컴파일 되지 않음
+//singleline comment
+//not compile
+//sass comment
+
+//실제 서비스 시 주석 필요 없음
+//팀원만 볼거니까
+//single line comment 쓰는 게 좋다
+
+body
+	margin: 0
+
+//--------------------------------
+// 중첩속성/규칙
+// nested rules/ properties
+
+// Sass변수
+// *추후 분리!*
+$page-width: 1280px
+$columns: 16
+$column-width: $page-width/$columns
+
+.container
+	max-width: $page-width
+	margin:
+		left: auto
+		right: auto
+	.row
+		&::before,
+		&::after
+			content: ''
+			display: table
+		&::after
+			clear: both
+		.lt-ie8 &
+			zoom: 1 
+			// IE 가 문제 가지고 있는 haslayout 해결하는 핵
+
+// col의 공통 모듈
+// [class*="col-"]
+// 대체선택자 placehold selector 활용해 재사용 가능한 모듈 코드 정의
+
+%col-module
+	float: left
+	padding:
+		left: 1rem
+		right: 1rem
+
+//----------------
+//*컬럼 모듈
+.col-1
+	@extend [class*="col-"] !optional
+	@extend %col-module
+	width: $column-width
+.col-2
+	@extend %col-module
+	width: $column-width *2
+
+	

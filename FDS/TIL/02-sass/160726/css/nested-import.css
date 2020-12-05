@@ -1,0 +1,37 @@
+.box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.demo, .container {
+  font: 1em Arial, sans-serif;
+}
+
+.button {
+  border: none;
+  padding: 10px;
+  background: #efefef;
+}
+
+.container {
+  width: 55%;
+}
+
+.container .button {
+  border: none;
+  padding: 15px;
+  background: #efefef;
+}
+
+.container .box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=nested-import.css.map */

@@ -1,0 +1,53 @@
+//---------------------------
+//* day24 readme 복습
+
+//---------------------------
+//*인터폴레이션=보간법: 문자 접합
+
+$selector: class-name
+$pesudo-type: after
+
+.#{$selector}
+	&::#{$pesudo-type}
+		display: block
+
+//---------------------------
+//*day 25 readme복습
+
+/*단위값 제거하는 함수*/
+@function remove-unit($unit)
+	@return $unit/ ($unit*0+1)
+// sass 에 있는 unit() 함수는 인자값(숫자)의 단위(문자열)만 반환한다
+// $unit: 10px
+// unit($unit) = px (반환된 'px'은 string)
+// 1+ unit($unit) = 1px (문자 접합으로 string임)
+// $unit/(1+unit($unit))으로는 단위제거가 안됨..
+
+//unitless()함수는 인자값에 단위가 붙어있는지 아닌지 알려준다
+
+
+/*px단위를 rem단위로 변환
+ torem(px값, [기본폰트값])*/
+@function torem($px, $base-font-size: 16px)
+	@return ($px/$base-font-size)*1rem
+
+/* hsla($hue,$saturation,$lightness,$alpha)형태로 컬러값 반환하는 함수*/
+@function hsla($hex,$alpha)
+	$hue: floor(remove-unit(hue($hex)))//입력받은 hex컬러에서 hue값 얻어서(deg단위 붙어있음) 단위 제거
+	$saturation: floor(remove-unit(saturation($hex))) //입력받은 hex컬러에서 saturation값 얻어서(%값 붙어있음) 단위 제거
+	$lightness: floor(remove-unit(lightness($hex))) //입력받은 hex컬러에서 lightness값 얻어서(%값 붙어있음) 단위 제거
+	$result: "hsla(#{$hue},#{$saturation},#{$lightness},#{$alpha})"//result변수에 문자열로 저장. 기존 sass의 hsla()함수-rgba값으로 반환-가 있기에 쌍따옴표로 감싸지 않으면 rgba형태로 저장된다 = sass함수는 덮어쓸 수 있다
+	@return unquote($result) // 쌍따옴표를 풀어서 컬러값으로 반환한다
+
+/*색깔함수*/
+@function shade($hex, $amount) //색을 어둡게 만들어줌 
+//darken 함수도 있다. 색을 점진적으로 어둡게 하기에는 mix함수 사용하는 것이 낫다 (http://sass-guidelin.es/ko/)
+	@return mix(#000, $hex, $amount) //mix()함수는 두 색을 섞는데, amount가 0%에 가까우면 앞쪽색을 더 많이, 100%에 가까우면 뒤쪽색을 더 많이 섞는다???
+
+@function tint($hex, $amount)
+	@return mix(#fff, $hes, $amount)
+
+
+
+
+

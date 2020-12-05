@@ -1,0 +1,28 @@
+//---------------------------
+//*about pizzeria image box
+
+$imagebox-font-color: #fff
+
+.image-box
+	+bg(cover, no-repeat, center top)
+		background-image: url('../img/footer/imagebox-bg.gif')
+	text-align: center
+	color: $imagebox-font-color
+	h3
+		padding:
+			top: $leading
+			botton: $leading
+		font-size: 24px
+		margin-bottom: 1em
+		+mq-m
+			padding-top: $leading * 2
+		span
+			font-weight: normal
+	p
+		font-size: 13px
+		padding:
+			left: 22px
+			right: 22px
+			bottom: $leading
+		+mq-m
+			padding-bottom: $leading * 2

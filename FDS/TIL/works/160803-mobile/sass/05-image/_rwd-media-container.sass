@@ -1,0 +1,15 @@
+//---------------------------
+//* 반응형 이미지, 비디오 크기가 가로세로 비율 맞춰 유동적으로 변하게
+
+@mixin rwd-media-container($w: null, $h: null)
+	position: relative
+	+size(100%, 0)
+	padding-bottom: percentage($h/$w)
+	//스크린 비율(가로x세로)
+	// 4:3 = 75%
+	// 16:9 = 56.25%
+	// 21:9 = 42.857142857%
+	& >
+		position: absolute
+		top: 0
+		+size(100%, 100%)

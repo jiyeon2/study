@@ -1,0 +1,88 @@
+//의존 function 모듈
+@import "functions/percent";
+
+
+%reset-list-group ul,
+%reset-list-group ol,
+%reset-list{
+  margin-top:    0;
+  margin-bottom: 0;
+  padding-left:  0;
+  list-style:    none;
+}
+
+%remove-img-blank{
+	vertical-align: bottom;
+}
+
+%align-img-bottom img + *{
+  overflow: hidden;
+}
+
+%rwd-media{
+	width: 100%;
+	height: auto;
+}
+%keep-original-scale{
+	max-width: 100%;
+}
+
+// 외부에 노출하지 않는 대체선택자는 이름 앞에 _붙인다
+%_rwd-media-ratio{
+	width: 100%;
+	height:0;
+	background-size: cover;
+  background-position: center center;
+}
+
+
+%rwd-media-4-3{
+	@extend %_rwd-media-ratio;
+  padding-bottom: 75%;
+ // @return $target/$context*100%
+}
+%rwd-media-16-9{
+  @extend %_rwd-media-ratio;
+  padding-bottom: 56.25%;
+}
+
+%rwd-media-21-9{
+	@extent %_rwd-media-ratio;
+	padding-bottom: 42.857142857%;
+}
+
+.img-horizontal-center{
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+.clearfix,
+.cf
+	&::after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.lt-ie8 & {
+		zoom: 1;
+	}
+
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  width:    1px;
+  height:   1px;
+  margin:   -1px;
+  border:   0;
+  padding:  0;
+  .focusable:focus{
+  	overflow: visible;
+  	position: static;
+  	clip:     auto;
+  	width:    auto;
+  	height:   auto;
+  	margin:   0;
+  }
+}
+
+

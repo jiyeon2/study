@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>flexbox layout</title>
+	<link rel="stylesheet" href="../../resrouce/initialization/normalize.css">
+	<link rel="stylesheet" href="../../resrouce/common.css">
+	<style>
+
+	body{margin:3rem;}
+
+/*
+.center-x-y{
+	justify-content: center;
+align-items: center;
+}*/
+		.flex-container{
+			display: flex;
+				/*흐름 값은 container에 지정*/
+			/*flex-direction:row;*/
+			/*flex-direction:row-reverse;*/
+			flex-direction:column;
+			/*flex-direction:column-reverse;*/
+			/*overflow: hidden;*/
+			/*flex-wrap: nowrap;*/
+			/*flex-wrap: wrap;*/
+			/*flex-wrap: wrap-reverse;*/
+			/*justify-content: center;*/
+			justify-content: flex-start;
+			/*justify-content: flex-end;*/
+			align-items: stretch;
+			/*align-items: center;*/
+			/*align-items: flex-start;*/
+			/*align-items: flex-end;*/
+			margin:2rem;
+			border:2px solid #333;
+			padding:0.625rem;
+			height:700px;
+		}
+.container2{
+	display: flex;
+	align-self: stretch;
+	flex-direction:row;
+			/*flex-direction:row-reverse;*/
+			/*flex-direction:column;*/
+			/*flex-direction:column-reverse;*/
+			/*overflow: hidden;*/
+			/*flex-wrap: nowrap;*/
+			/*flex-wrap: wrap;*/
+			/*flex-wrap: wrap-reverse;*/
+			/*justify-content: center;*/
+			/*justify-content: flex-start;*/
+			/*justify-content: flex-end;*/
+			align-items: stretch;
+			/*align-items: center;*/
+			/*align-items: flex-start;*/
+			/*align-items: flex-end;*/
+}
+		.flex-container>.flex-items{
+			width:100px;
+			height:100px;
+			color:#fff;
+		}
+		.container2>.flex-items{
+			width:100px;
+			height:100px;
+			color:yellow;
+		}
+		.item-1{/*height: 80px;*/ background:#c57896;}
+		.item-2{/*height: 150px;*/ background:#514834;}
+		.item-3{/*height: 100px; */background:#bb5656;}
+		.item-4{/*height: 80px;*/ background:#456856;}
+		.item-5{/*height: 150px;*/ background:#021534;}
+		.item-6{/*height: 100px; */background:#b54666;}
+	
+		.demo{
+			display: flex;
+		}
+		.lbox{
+			background-color: #555;
+			margin:0.2rem;
+			width:0.5rem;
+			width:0.5rem;
+		}
+	</style>
+</head>
+
+<body>
+
+<img src="http://placehold.it/200X120/000/efefef/?text=Mario" alt="{5:alt}">
+
+<div class="flex-container">
+	<div class="flex-items item-1 center-x-y">flexbox 1</div>
+	<div class="flex-items item-2 center-x-y">flexbox 2</div>
+	<div class="flex-items item-3 center-x-y">flexbox 3</div>
+	<div class="container2">
+		<div class="flex-items item-4 center-x-y">flexbox 4</div>
+		<div class="flex-items item-5 center-x-y">flexbox 5</div>
+		<div class="flex-items item-6 center-x-y">flexbox 6
+			<div class="lbox"></div>
+			<div class="lbox"></div>
+			<div class="lbox"></div>
+			<div class="lbox"></div>
+			<div class="lbox"></div>
+			<div class="lbox"></div>
+		</div>
+	</div>
+</div>
+
+<img src="http://placehold.it/200X120/000/efefef/?text=Mario" alt="{5:alt}">
+<div class="demo">
+	<p>Lorem ipsum dolor sit amet.</p>
+	<p>Inventore, sit, error? Cum, excepturi!</p>
+	<p>Doloremque, qui impedit laboriosam quia.</p>
+	<p>Ipsum adipisci saepe assumenda quidem!</p>
+	<p>Unde odit, accusamus non distinctio.</p>
+	<p>Libero enim, perspiciatis laborum ab?</p>
+	<p>Cum ea, unde quas laborum.</p>
+	<p>Ea vel beatae dolore, fuga?</p>
+</div>
+</body>
+
+</html>
