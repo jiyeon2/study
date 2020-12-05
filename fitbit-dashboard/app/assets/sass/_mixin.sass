@@ -1,0 +1,132 @@
+///////////////////////////////////////
+//mediaquery
+//(mobile first - smamll(~500px)이 기준)
+//$small: '500px'
+//$medium: '800px'
+//$large: '1260px'
+///////////////////////////////////////
+
+// width 이상일때 적용되는 미디어쿼리
+@mixin width-from($w)
+	@media only screen and (min-width: #{$w})
+		@content
+
+
+@mixin size($w:100%,$h:auto)
+	width: $w
+	height: $h
+
+
+@mixin readable-hidden
+	overflow: hidden
+	position: absolute
+	+size(1px,1px)
+	margin: -1px
+	padding: 0
+	border: 0
+
+
+
+@mixin ir
+	white-space: nowrap
+	text-indent: 150%
+	overflow: hidden
+
+
+///////////////////////////////
+//position
+///////////////////////////////
+@mixin position($position, $args: null)
+		position: $position
+		@if $args != null
+				@each $dir in top, left, bottom, right, z-index
+						$i: index($args, $dir)
+						@if $i
+								#{$dir}: nth($args, $i + 1)
+
+//position 단축 믹스인
+@mixin relative($args: null)
+	@include position(relative, $args)
+
+@mixin absolute($args: null)
+	@include position(absolute, $args)
+
+@mixin fixed($args: null)
+	@include position(fixed, $args)
+
+
+//x축 가운데 정렬
+@mixin horizontal-center
+	+absolute(left 50%)
+	transform: translateX(-50%)
+
+//scrollbar css (webkit과 ie만!)
+//$target: 적용대상 (default: body)
+//$size: 스크롤바 너비
+//$bar-color: 스크롤바 색
+//$rail-color: 스크롤바 뒷부분 줄 색
+@mixin scrollbars( $size, $bar-color, $target: 'body',$rail-color: mix($bar-color, 'white', 50%), $radius: 10px) 
+  #{$target}::-webkit-scrollbar 
+      width:  $size
+      height: $size
+  #{$target}::-webkit-scrollbar-thumb 
+      background: $bar-color
+      border-radius: $radius
+  #{$target}::-webkit-scrollbar-track 
+      background: $rail-color
+      border-radius: $radius
+  // ie만 적용
+  #{$target} 
+    scrollbar-face-color: $bar-color
+    scrollbar-track-color: $rail-color
+
+//원형테두리
+@mixin border-circle
+	border-radius: 50%
+
+//소제목 스타일
+@mixin subtitle-style($fz: 2rem, $color: '#555')
+	font-size: $fz
+	color: $color
+	border-bottom: 1px solid currentColor
+	@content
+
+@mixin st-change-bg($bg: #EAF7F7)
+		&:hover, &:focus
+			background: $bg
+			@content
+
+@mixin base-btn($size: 80%)
+	+size($size)
+	display: block
+	margin:
+		left: auto
+		right: auto
+	padding: 0.5em 0
+	border: none
+	border-radius: 5px
+	@content
+
+@mixin st-change-scale($scale: 0.95)
+	&:active
+		transform: scale($scale)
+
+
+//mypage에 적용되는 공통 박스스타일
+@mixin box-style
+	padding: 0.7em 0
+	&::before
+		content: ''
+		+size(44px, 44px)
+		margin: 0.5em 1em
+		float: left
+
+//가운데 정렬
+@mixin centered($size_w: 50%, $size_h: $size_w)
+	+absolute(left 50% top 50%)
+	+size($size_w, $size_h)
+	transform: translate(-50%, -50%)
+
+//dashboard의 데이터값 스타일
+@mixin data-value-style($mt: 80%)
+	margin-top: $mt

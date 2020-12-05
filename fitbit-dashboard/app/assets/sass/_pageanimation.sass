@@ -1,0 +1,22 @@
+@keyframes slidein
+	from
+		opacity: 0
+		transform: translateX(-40%)
+	to
+		opacity: 1
+		transform: translateX(0)
+
+@keyframes slideout
+	from
+		opacity: 1
+		transform: translateX(0)
+	to
+		opacity: 0
+		transform: translateX(10%)
+
+.view-page
+	&.ng-enter
+		animation: 1s slidein 
+	&.ng-leave 
+		animation: 0.5s slideout
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko" data-ng-app="fitbitApp">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fitbit</title>
+	<link href='//fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/app/assets/css/main.css">
+  <!-- jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+
+<div data-ng-controller="IndexCtrl">
+  <div data-ng-include="'/app/views/navigation.html'"></div>
+  <!-- Angular View -->
+  <div class="view-page" data-ng-view></div>  
+</div>
+
+<aside class="utils">
+  <div class="util-btns">
+    <button type="button" class="add-btn">기록하기</button>
+    <button type="button" class="setting-btn">설정하기</button>
+  </div>
+</aside>
+
+
+
+<!-- Angular & Modules -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+
+<!-- Angular Ctrollers -->
+<script src="/app/js/app.js"></script>
+<script src="/app/js/controller/ChallengeCtrl.js"></script>
+<script src="/app/js/controller/FriendCtrl.js"></script>
+<script src="/app/js/controller/MainCtrl.js"></script>
+<script src="/app/js/controller/MyPageCtrl.js"></script>
+<script src="/app/js/controller/NoticeCtrl.js"></script>
+</body>
+</html>

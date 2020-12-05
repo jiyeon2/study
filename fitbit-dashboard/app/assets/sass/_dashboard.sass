@@ -1,0 +1,263 @@
+main
+	+relative
+	background: linear-gradient(to bottom, white 56px, $light-gray 56px)
+	padding-top: 56px
+	height: 100vh
+	overflow-y: auto
+	@media only screen and (max-width: 1260px )
+		padding-bottom: 56px
+
+.dashboard:not(.gnb-item)
+	@extend %clearfix
+
+.dashboard-section
+	+relative
+	width: 50%
+	float: left
+	border: 2px solid $light-gray
+	background-color: white
+	min-width: 200px
+	&.summary
+		width: 100%
+		min-width: 400px
+	&:after
+		content: ''
+		display: block
+		width: 100%
+		padding-bottom: 100%
+	
+	.dashboard-contents
+		@extend %clearfix
+		+absolute(top 0 left 0)
+		width: 100%
+		height: 100%
+		text-align: center
+
+
+
+@media only screen and (min-width: 500px ) and (max-width: 799px )
+	.dashboard-section
+		width: 33.3333%
+	.dashboard-section.summary
+		width: 66.6666%
+
+@media only screen and (min-width: 800px ) and (max-width: 1259px)
+	.dashboard-section
+		width: 25%
+	.dashboard-section.summary
+		width: 50%
+	.daily-item
+		margin-bottom: 5%
+
+
++width-from('1260px')
+	.dashboard-section
+		width: 20%
+	.dashboard-section.summary
+		width: 40%
+	.daily-item
+		margin-bottom: 10%
+
+.readable-hidden
+	overflow: hidden
+	position: absolute
+	width: 1px
+	height: 1px
+	margin: -1px
+	border: 0
+	padding: 0
+
+
+///////////////////////
+// util-btns
+///////////////////////
+.utils
+	@extend %clearfix
+	+fixed(bottom 0 left 0)
+	width: 100%
+	background: $light-gray
+	+width-from('1260px')
+		width: auto
+		+absolute(top 0 right 0 left initial bottom initial)
+		background: none
+
+.util-btns
+	float: right
+	&> button
+		+ir
+		width: 4rem
+		padding: 1em
+		border: none
+
+@each $icon in add, setting
+	.util-btns .#{$icon}-btn
+		background: url(../img/icon/#{$icon}.svg) no-repeat center
+		background-size: 1.5rem
+
+////////////////////
+//daily section
+.daily .dashboard-contents ul
+	@extend %clearfix
+.daily-item:first-child
+	width: 100%
+.daily-item
+	width: 25%
+	float: left
+.svg-container
+	+relative
+	&:after
+		content: ''
+		display: block
+		+absolute(left 50% top 50%)
+		transform: translate(-50%, -50%)
+		+size(35px, 35px)
+		.foot-steps &
+			+size(75px, 75px)
+
+@each $icon in foot-steps, stair, location, burn, active-time
+	.#{$icon} .svg-container::after
+		background: url(../img/icon/#{$icon}.svg) no-repeat center
+		background-size: contain
+
+
+.section-title
+	margin:
+		top: 5%
+		bottom: 5%
+
+.heart-img
+	+centered(30%)
+	&.pumping
+		opacity: 0.5
+		transform: translate(-50%, -50%)
+		animation-name: beating
+		animation-iteration-count: infinite
+		animation-duration: 2s
+	&.pumping.rapid
+		animation-duration: 0.7s
+.heart-rate-value
+	+data-value-style
+	&:hover
+		cursor: pointer
+
+.water-img
+	+centered(40%)
+.water-drink-value
+	+data-value-style(75%)
+	&:hover
+		cursor: pointer
+.water .dashboard-contents
+	&:after
+		+absolute(top 30% left 20%)
+		content: '2,000ml ---'
+		display: block
+		font-size: 0.5em
+//top 67% = 0, top 33% = 100
+.water-in-cup
+		+absolute(top 58% left 42% right 42% bottom 33%)
+		transition: all 0.4s ease
+		border-radius: 0 0 8px 8px
+		background: #20BBE4
+
+.sleep-img
+	+centered(40%)
+	transform-origin: bottom
+	animation-name: grow-up-down
+	animation-iteration-count: infinite
+	animation-duration: 8s
+.sleep-graph-link
+	+data-value-style
+	color: black
+	+st-change-bg(#444)
+		color: white
+.sleep .dashboard-contents
+	&:before
+		+absolute(top 30% left 30%)
+		content: 'ZZZ'
+		color: #404B88
+		display: block
+		transform: rotate(-30deg)
+		animation: flow-char infinite 4s ease-out
+
+.moving-img
+	+centered(40%)
+.moving-time-value
+	+data-value-style(75%)
+.small
+	font-size: 0.8em
+	color: #777
+
+.workout-img
+	+centered
+.workout-time-value
+	+data-value-style(75%)
+
+.spoon-img
+	+centered(30%)
+.diet-value
+	+data-value-style(75%)
+
+
+
+
+
+// sleep-graph
+.modal
+	+fixed(left 0 top 0)
+	z-index: 1000
+	+size(100%, 100vh)
+	overflow: auto
+	display: none
+	background: rgba(#000,0.4)
+
+.modal-content
+	+relative
+	width: 1150px
+	margin-top: 10vh
+	margin-left: auto
+	margin-right: auto
+	background: linear-gradient(to bottom, #003047, #00A3B2)
+
+
+
+.modal-title
+	padding: 1em
+	font-size: 1.4rem
+	font-weight: bold
+	color: #dedede
+
+.yAxis line, .yAxis path
+	fill: none
+	stroke: #cdcdcd
+	font-size: 13px
+.x_axis line, .x_axis path
+	display: none
+
+.x_axis 
+	font-size: 0.5em
+
+$tooltop-color: #fefefe
+.tooltip 
+	+absolute
+	z-index: 10
+	+size(12rem)
+	text-align: center
+	padding: 10px
+	background-color: $tooltop-color
+	border-radius: 10px
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.4)
+    
+.tooltip:before
+	content: ''
+	display: block
+	width: 0
+	height: 0
+	border-top: 20px solid $tooltop-color
+	border-left: 10px solid transparent
+	border-right: 10px solid transparent
+	+absolute(bottom 0 left 50%)
+	transform: translate(-50%, 100%)
+
+.tooltip.hidden 
+	display: none
+    

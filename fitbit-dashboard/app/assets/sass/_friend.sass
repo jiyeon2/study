@@ -1,0 +1,86 @@
+main.friend
+	@extend %clearfix
+	+width-from('500px')
+		display: flex
+
+.friend-list
+	max-width: 30rem
+	& >:nth-child(2n)
+		background: #efefef
+	+width-from('500px')
+		flex-basis: 40%
+	max-height: 90vh
+	overflow: auto
+
+.friend-list a
+	color: #555
+	+st-change-bg
+
+.friend-item
+	@extend %clearfix
+	+size(100%)
+	display: flex
+	align-items: center
+	padding: 1em 0
+
+	.order
+		flex-basis: 10%
+		max-width: 2.5rem
+		padding-left: 1em
+	.thumbnail
+		flex-basis: 40%
+		max-width: 5rem
+		img
+			+border-circle
+	.name
+		flex-basis: 50%
+		max-width: 20rem
+
+.friend-info
+	+absolute(left 0 top 56px bottom 56px right 0)
+	display: none
+	overflow: auto
+	line-height: 1.8
+	background: white
+	a
+		color: darken($fit-green, 20%)
+		transition: all 0.2s ease
+		&:hover, &:focus
+			color: lighten($fit-green, 20%)
+	button
+		+absolute(top 2rem right 2rem)
+		border: 1px solid currentColor
+		border-radius: 10px
+		padding: 0.5em 1em
+		color: white
+		background: transparent
+		transition: all 0.2s ease
+		&:hover, &:focus, &:active
+			background: lighten($fit-green, 20%)
+	& >*:not(button)
+		padding: 2rem
+	&.show
+		display: block
+	.info-label
+		+subtitle-style
+	+width-from('500px')
+		+relative
+		top: 0
+		display: block
+		flex-basis: 60%
+		flex-grow: 1
+
+	.friend-brief
+		background: $fit-green
+		color: white
+		img
+			+border-circle
+		.name
+			font-size: 2rem
+
+	.friend-register .label
+		display: inline-block
+		color: #555
+		width: 10rem
+
+@include scrollbars(10px, darken($fit-green,10%), ".friend-scroll",rgba(#444,0.4), 0)

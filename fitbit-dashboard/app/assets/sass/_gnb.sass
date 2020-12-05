@@ -1,0 +1,41 @@
+.gnb
+	@extend %clearfix
+	+position(fixed)
+	z-index: 100
+	background: white
+	width: 100%
+	max-width: 970px
+	text-align: center
+	.gnb-item
+		+size(20%)
+		+ir
+		+relative
+		padding: 1rem
+		float: left
+		transition: all 0.2s ease-out
+		color: #787878
+		+width-from('970px')
+			text-indent: 6rem
+		&:after
+			content: ''
+			+absolute(left 0 bottom 0 right 0 top 100%)
+			background: $fit-green
+			transition: all 0.2s ease
+		//상태디자인 필요 hover,focus, active
+		&:hover, &:focus, &:active 
+			background-size: 2rem
+			&:after
+				top: 90%
+		&.active
+			background-size: 2rem
+			&:after
+				top: 90%
+				background: darken($fit-green, 20%)
+
+
+
+
+@each $icon in challenge, dashboard, friend, myInfo, notification
+	.gnb-item.#{$icon}
+		background: url(../img/icon/#{$icon}.svg) no-repeat center
+		background-size: 1.5rem
