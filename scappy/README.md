@@ -1,2 +1,3 @@
-# css-illustrations
-css illustrations for fun
+# scappy
+
+click and make a scappy on the page
