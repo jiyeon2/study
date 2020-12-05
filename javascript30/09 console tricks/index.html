@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>console tricks</title>
+</head>
+<body>
+    <p onclick="makeGreen()">xBREAKxDOWNx</p>
+    <!-- 개발자도구 창에서 
+        element 
+        > 우클릭 컨텍스트 메뉴에서 break on 
+        > attribute modification 체크하면 디버거 모드처럼 해당 부분에서 실행 멈춤  -->
+
+    <script>
+    const dogs = [{ name: 'Snickers', age: 2, height: 130 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('regular log')
+
+    // Interpolated
+    const word = 'whatever';
+    console.log('hi this is a %s log', 'interpolated');
+    console.log(`hi this is ${word} log`);
+
+    // Styled
+    console.log('%c Hi this is an awesome styled log',
+                'font-size: 30px; color: #c34; background: #3a9; text-shadow: 8px 8px 0 black;');
+
+    // warning!
+    console.warn('this is warning');
+
+    // Error :|
+    console.error('this is error');
+    
+    // Info - 영상에서는 느낌표가 보이는데 왜 없지? 브라우저마다 다른가 파이어폭스에서는 i 모양 보임
+    console.info('this should be a something informative');
+
+    // Testing
+    const p = document.querySelector('p');
+    console.assert(1 === 1, 'error message');
+    console.assert(2 === 1, 'error message');
+    console.assert(p.className.includes('something'), '<p> doesn\'t have class \'something\'');
+
+    // clearing
+    console.clear();
+
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    dogs.forEach(dog => {
+        const groupName = `${dog.name} information`;
+        // console.group(groupName);
+        console.groupCollapsed(groupName);
+        console.log(`This dog is ${dog.name}`);
+        console.log(`This dog is ${dog.year} years old`);
+        console.groupEnd(groupName);
+    })
+
+    // counting : 어디씀??
+    console.count('dog');
+    console.count('dog');
+    console.count('dog');
+    console.count('dog');
+    console.count('p');
+
+    // timing
+
+    console.time('timing');
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => {
+        console.timeEnd('timing');
+        console.log(json);
+    })
+        
+    console.table(dogs);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Speed Scrubber</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrapper">
+    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop controls></video>
+    <div class="speed">
+      <div class="speed-bar">1×</div>
+    </div>
+  </div>
+
+<script>
+  const video = document.querySelector('video');
+  const bar = document.querySelector('.speed');
+  const barHeight = bar.getBoundingClientRect().height; // 바 전체 높이
+  const innerBar = bar.querySelector('.speed-bar');
+  const MINSPEED = 0.4;
+  const MAXSPPED = 4;
+  // 바 위에서 마우스를 움직이면, 바 크기 변경 & 동영상 속도 변경
+  bar.addEventListener('mousemove', (e) => {
+    const pointerY = e.pageY - bar.offsetTop;
+    let percent = (pointerY / barHeight).toFixed(2);
+    
+    innerBar.style.height = `${percent*100}%`;
+    let displaySpeed = (percent* (MAXSPPED- MINSPEED))+ MINSPEED;
+    displaySpeed = displaySpeed.toFixed(1);
+    innerBar.textContent = `${displaySpeed}x`;
+    video.playbackRate = displaySpeed;
+  
+  })
+</script>
+</body>
+</html>

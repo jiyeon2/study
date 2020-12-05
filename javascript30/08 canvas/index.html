@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html5 canvas</title>
+    <style>
+        html, body, canvas, h1, main, div, label, button, select, option{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        canvas{
+            border: 1px solid black;
+            box-shadow: 4px 3px 0px 0px black;
+        }
+        main{
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .controls{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        .controls>*{
+            margin-left: 1rem;
+        }
+        select{
+            box-shadow: 4px 3px 0px 0px black;
+        }
+        #clear-button{
+            order: 3;
+            margin-left: auto;
+            padding: 0.4em;
+            font-size: 1rem;
+            background-color: greenyellow;
+            box-shadow: 4px 3px 0px 0px black;
+        }
+    
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>draw something!</h1>
+            <div class="controls">
+                <button type="button" id="clear-button">clear</button>
+                <label for="composition-select">Choose a comoposition option</label>
+                <select name="composition-select" id="composition-select">
+                    <option value="">-- please choose an composition option--</option>
+                    <option value="source-over">source-over</option>
+                    <option value="source-in">source-in</option>
+                    <option value="source-out">source-out</option>
+                    <option value="source-atop">source-atop</option>
+                    <option value="destination-over">destination-over</option>
+                    <option value="destination-in">destination-in</option>
+                    <option value="destination-out">destination-out</option>
+                    <option value="destination-atop">destination-atop</option>
+                    <option value="lighter">lighter</option>
+                    <option value="copy" selected="selected">copy</option>
+                    <option value="xor">xor</option>
+                    <option value="multiply">multiply</option>
+                    <option value="screen">screen</option>
+                    <option value="overlay">overlay</option>
+                    <option value="darken">darken</option>
+                    <option value="lighten">lighten</option>
+                    <option value="color-dodge">color-dodge</option>
+                    <option value="color-burn">color-burn</option>
+                    <option value="hard-light">hard-light</option>
+                    <option value="soft-light">soft-light</option>
+                    <option value="difference">difference</option>
+                    <option value="exclusion">exclusion</option>
+                    <option value="hue">hue</option>
+                    <option value="saturation">saturation</option>
+                    <option value="color">color</option>
+                    <option value="luminosity">luminosity</option>
+                </select>
+            </div>
+        </header>
+        
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </main>
+   
+    <script>
+        const canvas = document.querySelector('#canvas');
+        canvas.width = window.innerWidth-100; // innerWidth했는데 왜 body보다 캔버스가 클까
+        canvas.height = window.innerHeight-200;
+
+        const compositionSelect = document.querySelector("#composition-select");
+
+        const clearButton = document.querySelector("#clear-button");
+
+
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+        let hue = 0;
+        let increasing = false;
+
+        ctx.strokeStyle = 'red'; // strokeStyle과 fillStyle 차이는 무엇?
+        ctx.lineWidth = 20;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.globalCompositeOperation = 'luminosity';
+
+
+        function draw(e){
+            if (!isDrawing) return;
+            if (lastY<= e.offsetY) {
+                increasing = false;
+            } else if (ctx.lineWidth <= 1){
+                increasing = true;
+            }
+            ctx.lineWidth = increasing
+                            ? ctx.lineWidth+1
+                            : ctx.lineWidth-0.5;
+
+            ctx.strokeStyle = `hsl(${hue}, 100%, 40%)`; // beginPath하기 전에 색 정해줘야함
+            ctx.beginPath();
+            ctx.moveTo(lastX,lastY);
+            ctx.lineTo(e.offsetX, e.offsetY); // offsetX 는 뭐지?
+            ctx.stroke();
+            lastX = e.offsetX;
+            lastY = e.offsetY;
+            hue = (hue+1)%360;
+        }
+
+        
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mousedown', (e) => {
+            ctx.lineWidth = 20;
+            isDrawing = true;
+            lastX = e.offsetX;
+            lastY = e.offsetY;
+            });
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseout', () => isDrawing = false);
+
+
+        compositionSelect.addEventListener('change', (e) => {
+            ctx.globalCompositeOperation = e.target.value;
+        })
+
+        clearButton.addEventListener('click', () => {
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+        })
+    </script>
+</body>
+</html> 

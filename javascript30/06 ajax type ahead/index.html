@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax type ahead</title>
+    <style>
+        body, h1, div, form, label, input, ul, li, span{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: cadetblue;
+            font-size: 16px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 50%;
+            max-height: 70%;
+            max-width: 30%;
+        }
+        h1{
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        label{
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        #search{
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            padding: 0.8rem;
+            border: 1px solid #999;
+            border-bottom-color: #666;
+            box-shadow: 20px 5px 15px 10px rgba(0,0,0,0.4);
+        }
+        .suggestion{
+            width: 100%;
+            max-height: 70%;
+        }
+        .suggestion li{
+            list-style: none;
+            width: 100%;
+            padding: 0.3rem;
+            display: flex;
+            justify-content: space-evenly;
+            font-size: 0.7rem;
+            text-align: center;
+            background: white;
+            border: 1px solid #aaa;
+            border-top: none;
+            box-shadow: 9px 13px 8px 1px rgba(0,0,0,0.5);
+            transition: transform 1s;
+        }
+        .suggestion li:nth-child(2n+1){
+            transform-origin: top right;
+            transform: skewX(10deg);
+            background: linear-gradient(180deg, #fff 0%, #efefef 50%, #dedede 100%);
+        }
+        .suggestion li:nth-child(2n){
+            transform-origin: 0px 2rem;
+            transform: skewX(-10deg);
+            background: linear-gradient(0deg, #fff 0%, #efefef 80%, #dedede 100%);
+        }
+        .highlight{
+            background-color: rgb(247, 173, 201);
+        }
+    </style>
+</head>
+<body>
+    <h1>typeahead search input</h1>
+    <form>
+        <label for="search">Search city or state:</label>   
+        <input id="search" type="search" placeholder="type city or state name">
+         
+        <ul class="suggestion">
+            <li>Filter for a city</li>
+            <li>or a state</li>
+            <li>Filter for a city</li>
+            <li>or a state</li>
+        </ul>
+    </form>
+    
+
+    <script>
+        const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+        const cities = [];
+
+        const searchInput = document.querySelector('#search');
+        const suggestions = document.querySelector('.suggestion');
+
+        fetch(endpoint)
+            .then(response => response.json())
+            .then(data => {
+                cities.push(...data);
+                addEvents();
+                });
+        
+        function addEvents(){
+            searchInput.addEventListener('change', searchData);
+            searchInput.addEventListener('keyup', searchData);
+        }
+
+        function findDataInCities(userInput){
+            const re = new RegExp(userInput, 'gi');
+            return cities.filter(city => city.city.match(re) || city.state.match(re)).slice(0,15);
+        }
+
+        function displayData(data, userInput) {
+            // 검색한 문자열 부분 하이라이트 적용 : replace 사용하기 참고 : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+            // 인구수 , 적용 참고 :https://this-programmer.com/entry/JavaScript%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%88%AB%EC%9E%90-%EC%B2%9C-%EB%8B%A8%EC%9C%84%EB%A7%88%EB%8B%A4-%EC%BD%A4%EB%A7%88-%EC%B0%8D%EB%8A%94-%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98toLocaleString
+            const html = data.map(city => {
+                const matchString = new RegExp(userInput,'gi');
+                const cityName = city.city.replace(matchString, `<span class="highlight">${userInput}</span>`)
+                const stateName = city.state.replace(matchString, `<span class="highlight">${userInput}</span>`)
+                const population = +city.population;
+                return `
+                <li>
+                    <span>${cityName}, </span>
+                    <span>${stateName}</span>
+                    <span>${population.toLocaleString()}</span>
+                </li>
+            `;
+            }).join('');
+            suggestions.innerHTML = html;
+        }
+
+        function searchData(e){
+            const userInput = e.target.value;
+            const resultData = findDataInCities(userInput);
+            displayData(resultData, userInput);
+        }
+        
+    </script>
+</body>
+</html>

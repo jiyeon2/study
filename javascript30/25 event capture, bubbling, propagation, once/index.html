@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+</head>
+<body class="bod">
+
+  <div class="one">
+    <div class="two">
+      <div class="three">
+      </div>
+    </div>
+  </div>
+
+<style>
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after { 
+    box-sizing: inherit; 
+  }
+
+  div {
+    width: 100%;
+    padding: 100px;
+  }
+
+  .one {
+    background: thistle;
+  }
+
+  .two {
+    background: mistyrose;
+  }
+
+  .three {
+    background: coral;
+  }
+</style>
+
+<button></button>
+<script>
+
+const divs = document.querySelectorAll('div');
+function getClassName(e){
+    console.log(this.className);
+    // e.stopPropagation();
+}
+
+
+divs.forEach(div => div.addEventListener('click', getClassName, {
+    capture: true,
+    once: true
+}))
+/*
+addEventListener 옵션
+{
+    capture: true, // 캡처링 단계에서 이벤트 핸들러 동작
+    // false가 기본값이며 버블링단계에서 이벤트 핸들러 동작함
+    once: true, // 이벤트 핸들러가 한번 동작하고 난 후 unbind
+}
+*/
+
+/*
+이벤트 단계 
+캡처링 -> 타깃 -> 버블링
+
+three 클릭시
+capture:true일 때(캡처링단계) 클릭이벤트핸들러 실행 순서
+one - two - three (부모노드부터 타깃노드 순서로 실행됨)
+
+capture: false (버블링단계)
+three - two - one (타깃노드부터 부모노드 순서로 실행됨)
+*/
+
+/*
+버블링
+three 클릭시 'click'이벤트 발생함
+three에 할당된  click핸들러 동작하고,
+three의 부모인 two의 click핸들러 동작,
+two의 부모인 one의 click핸들러 동작, ... 
+최상단 조상요소 만날때까지 각 요소의 click 핸들러가 있다면 동작함
+*/
+
+/*
+버블링 중단 event.stopPropagation()
+*/
+
+document.body.addEventListener('click', getClassName);
+</script>
+</body>
+</html>

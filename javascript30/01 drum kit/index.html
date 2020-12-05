@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+        body, html{
+            margin: 0;
+            padding: 0;
+            background-color:mistyrose;
+        }
+        .key{
+            border: 3px solid green;
+            border-radius: 10px;
+            width: 100px;
+            height: 100px;
+            transition: all 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+        }
+        kbd{
+            font-size: 3rem;
+            font-family: 'Righteous', cursive;
+        }
+        .key.playing{
+            transform: scale(1.1);
+            border:2px solid yellow;
+        }
+        .keyArea{
+            width:100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            text-align: center;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="keyArea">
+        <h1>Sount kit</h1>
+        <div class="key" data-key="65">
+            <kbd>A</kbd>
+            <audio src="soundeffect/Bubble by megmcduffee Id-332597.wav"/>
+        </div>
+        <div class="key" data-key="83">
+            <kbd>S</kbd>
+            <audio src="soundeffect/Cello Slide by edsward Id-341869.wav"/>
+        </div>
+        <div class="key" data-key="68">
+            <kbd>D</kbd>
+            <audio src="soundeffect/Springy Bounce by EagleStealthTeam Id-238866.wav"/>
+        </div>
+        <div class="key" data-key="70">
+            <kbd>F</kbd>
+            <audio src="soundeffect/E5 02 by martian Id-185772.wav"/>
+        </div>
+    </div>
+    <script>
+//https://www.toneden.io/daydream_sound/post/vol-31 소리 다운받은곳
+
+        function transitionEnd(e){
+            e.target.parentElement.classList.remove('playing');
+        }
+        function playSound(e){
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            if (!key) return;
+            const sound = key.querySelector('audio');
+            sound.currentTime = 0;
+            sound.play();
+            key.classList.add('playing');
+        }
+
+        const sounds = document.querySelectorAll('audio');
+        sounds.forEach(sound => sound.addEventListener('ended', transitionEnd))
+
+        window.addEventListener('keydown', playSound);
+        //클릭햇을때도 소리나게 하고싶어
+    </script>
+</body>
+</html>
