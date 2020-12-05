@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>명령어 기반 인터페이스로 Git 사용</title>
+</head>
+<body>
+<h1>Git Command List</h1>
+<p>야무선생님의 책 '만들면서 배우는 모던 웹사이트 제작' 3장 cli 부분 실습</p>
+<dl>
+	<dt>git init</dt>
+	<dd>git 저장소 초기화</dd>
+	<dd>디렉터리를 git으로 관리할 때 가장 먼저 할 일!</dd>
+	<dd>.git 디렉터리가 생성됨, 저장소 버전 관리하는데 필요한 파일이 들어있다</dd>
+
+	<dt>git status</dt>
+	<dd>git 상태 확인</dd>
+
+	<dt>git add [file, *]</dt>
+	<dd>git 관리대상으로 파일을 추가</dd>
+	<dd>스테이지 상태로 파일을 올려준다</dd>
+	<dd>파일 버전관리 스냅샷 생성</dd>
+
+	<dt>git commit -m '메모'</dt>
+	<dd>스테이지 다음 상태인 git 저장소로 보내기</dd>
+	<dd>git 저장소는 프로젝트 메타데이터와 객체 데이터베이스를 저장 - > 프로젝트 버전 관리를 가능하게 하는 git의 핵심!</dd>
+	<dd>영구적으로 버전관리 스냅샷 파일 기록</dd>
+
+	<dt>git commit -a -m '메모 내용'</dt>
+	<dd>스테이지 건너뛰고(git add 생략) 커밋</dd>
+	<dd>-a 는 --all 옵션의 단축</dd>
+
+	<dt>git diff</dt>
+	<dd>커밋 이후 스테이지 되지 않은 변경사항을 화면에 출력</dd>
+
+	<dt>git diff --staged</dt>
+	<dd>스테이지 이후 변경사항을 화면에 출력</dd>
+
+	<dt>git log</dt>
+	<dd>커밋 히스토리를 화면에 출력</dd>
+	<dd>-p 옵션 : diff와 동일한 결과</dd>
+	<dd>-1 : 커밋 히스토리에서 출력할 커밋 개수</dd>
+
+	<dt>git commit --amend</dt>
+	<dd>바로 이전 단계 커밋을 새로운 커밋으로 덮어씀</dd>
+	<dd>vim 에디터에서 덮어쓸 커밋메시지 수정 가능</dd>
+
+	<dt>git reset HEAD^</dt>
+	<dd>커밋 결과를 커밋 이전상태로 되돌림</dd>
+	<dd>수정 내용은 워킹디렉토리 단계에 보존되어있음</dd>
+	<dd>git reset --hard HEAD^ 명령어는 워킹디렉토리 보존된 수정 내용까지 모두 삭제</dd>
+
+	<dt>git checkout -- 파일명</dt>
+	<dd>수정 전 상태로 복구</dd>
+	<dd>수정 이후 내용이 완전히 사라지므로 신중히 사용!</dd>
+
+	<dt>git remote add {원격 저장소 이름} "원격저장소 경로"</dt>
+	<dd>원격저장소 이름은 기본설정값이 origin</dd>
+	<dd>원격저장소 경로는 github에서 repo주소 복사해오기</dd>
+
+	<dt>git remote, git remote -v</dt>
+	<dd>원격저장소가 제대로 등록됐는지 확인하기</dd>
+	<dd>원격 저장소 이름 출력/ 원격저장소 이름과 fetch, push 할 수 있는 경로까지 출력</dd>
+
+	<dt>git push {원격저장소 이름} {브랜치 이름}</dt>
+	<dd>git push origin master</dd>
+</dl>
+<script src="app.js"></script>
+</body>
+</html>
