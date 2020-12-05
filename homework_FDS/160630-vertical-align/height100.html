@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>본문의 높이를 vh를 이용하지 않고 브라우저 창 가득 채우기</title>
+	<style>
+		html, body{
+			height: 100%;
+			width:100%;
+			margin:0;
+			text-align:center;}
+		#header{
+			width:100%;
+			height: 100px;
+			background-color: red;
+			line-height: 100px;
+			float:left;
+		}
+		#contents{
+			min-height:100%;
+			background-color: green;
+			margin-bottom:-100px;
+		}
+		#inner-contents{padding:100px 0;}
+		#footer{
+			height:100px;
+			background-color: orange;
+			line-height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">header</div>
+	<div id="contents">
+		contents
+		<div id="inner-contents">inner-contents</div>
+	</div>
+	<div id="footer">footer</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+@charset "utf-8";
+/*버튼 기본 모듈*/
+.button{
+	border:none;
+	font-size: 1rem;
+	font-weight: 900;
+	padding: 0.25em 0.5rem;
+	background-color: #45dcfa;
+	color:#efefef;
+	cursor: pointer;
+	border-bottom: 2px solid #939393;
+	text-transform: uppercase;
+/*	box-shadow: inset 0.5px 2px 4px #13abca;*/
+}
+.button.button-3d{
+	border-bottom:none;
+	box-shadow:
+	1px 1px 1px #939393, 
+	2px 2px 1px #939393, 
+	3px 3px 1px #939393, 
+	4px 4px 1px #939393, 
+	5px 5px 1px #939393;/*멀티shadow*/
+}
+.button-round{border-radius: 3px;}
+.button-rounder{border-radius: 10px;}
+.button-roundest {border-radius: 20px;}
+
+/* button.slide-from- 모듈*/
+button[class*="slide-"]{
+	overflow: hidden;
+	position: relative;
+	z-index: 1; /* 부모요소에 z인덱스 주는 순간 자식이 부모 위로 올라옴???*/
+	border: 5px solid #4a43af;
+	background: #4a43af;
+	color:#fff;
+}
+button[class*="slide-"]::after{
+	content:'';
+	position:absolute;
+	z-index: -1; /* z인덱스 값 음수로 줘서 아래로 내려감 */
+	background-color: #6655fb;
+	transition:all 0.2s;
+}
+
+button[class*="slide-"]:hover::after{
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+}
+
+button.slide-from-left::after{
+top:0;
+bottom:0;
+left:-100%;
+right:100%;
+}
+
+button.slide-from-right::after{
+	top:0;
+	bottom:0;
+	right:-100%;
+	left:100%;
+}
+
+button.slide-from-top::after{
+	top:-100%;
+	bottom:100%;
+	right:0;
+	left:0;
+}
+button.slide-from-bottom::after{
+	top:100%;
+	bottom:-100%;
+	right:0;
+	left:0;
+}
+
+/*button.grow-* 커지는 버튼*/
+button[class*="grow-"]{
+	position: relative;
+	z-index: 1;/*가상요소에 zindex음수값이면 부모 아래로 내려가서 안보임, 부모에 z-index 지정하면 부모 위에서 배치됨*/
+	border:4px solid #46d1aa;
+	padding: 0.725em, 0.9em;
+	background-color: #46d1aa;
+	color:#0d392d;
+	 overflow:hidden;  /*부모요소 넘어가는 부분은 안보이게*/
+}
+button[class*="grow-"]::before{
+	content: '';
+	position: absolute;
+	z-index: -1; /*부모 아래로 내려가서 안보임*/
+	/*border:3px solid #57fdcd;*/
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+	background-color: #a5efdc;
+	transition:all 0.2s;
+}
+
+button.grow-rectangle::before{
+	transform: scale(0);
+}
+
+button[class*="grow-"]:hover::before,
+button[class*="grow-"]:focus::before{
+	transform:scale(1);
+}
+
+
+button.button-round[class*="grow-"]::before{border-radius: 3px;}
+button.button-rounder[class*="grow-"]::before{border-radius: 10px;}
+button.button-roundest[class*="grow-"]::before{border-radius: 20px;}
+
+
+button.grow-ellipse::before{
+	border-radius: 50%;
+	transform:scale(0);
+}
+button.grow-ellipse:hover::before,
+button.grow-ellipse:focus::before{
+	transform:scale(1.5);
+}
+
+
+/*정원은 센터박스 하는거 이용*/
+button.grow-circle::before{
+	border-radius: 50%;
+	top:50%;
+	left:50%;
+	width:100px;
+	height:100px;
+	margin:-50px 0 0 -50px;
+	transform:scale(0);
+}
+,
+button.grow-circle:hover::before,
+button.grow-circle:focus::before{
+transform: scale(1.6);
+}
+
+/*skew는 부모 overflow hidden 풀어야보임*/
+button.grow-skew::before{
+left:50%;
+right:50%;
+transform: skewX(45deg);
+}
+button.grow-skew:hover::before,
+button.grow-skew:focus::before{
+ 	left:-20%;
+ 	right:-20%;
+}
+
+button.grow-skew-45::before{
+	left:20%;
+	right:80%;
+	transform:skew(-45deg);
+}
+button.grow-skew-45:hover::before,
+button.grow-skew-45:focus::before{
+ 	left:-20%;
+ 	right:-20%;
+}
+
+button.grow-spin::before{
+	transform:rotate(-180deg) scale(0);
+}
+button.grow-spin:hover::before,
+button.grow-spin:focus::before{
+	transform: rotate(0deg) scale(1);
+}
+
+button.grow-spin-ccw::before{
+	transform:rotate(180deg) scale(0);
+}
+button.grow-spin-ccw:hover::before,
+button.grow-spin-ccw:focus::before{
+	transform: rotate(0deg) scale(1);
+}
+.nimo{
+	position:relative;
+	top:0;
+	left:500px;
+	z-index: 1000;
+	transform-origin: center;
+	transform:translate(10px,0) rotate(30deg) scale(1);
+	animation: moving 2s infinite cubic-bezier(0.6,1.8,0.13,0.7);
+}
+@keyframes moving {
+	0%{transform:translate(-100px,0) scale(0.5);}
+	5%{opacity:0;}
+	20%{transform:translate(100px,10px) scale(0.7); opacity:1;}
+	25%{opacity:0;}
+	40%{transform:translate(-200px,20px) scale(1); opacity:1;}
+	45%{opacity:0;}
+	60%{transform:translate(200px,30px) scale(1.5); opacity:1;}
+	65%{opacity:0;}
+	80%{transform:translate(-300px,40px) scale(1.8); opacity:1;}
+	85%{opacity:0;}
+	100%{transform:translate(300px,100px)scale(3); opacity:1;}
+}

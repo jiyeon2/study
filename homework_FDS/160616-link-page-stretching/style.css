@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+.cf::after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.skip-to-main{
+	position:absolute;
+	left: -9999rem;
+}
+
+.container{
+	width:800px;
+	min-height:100vh;
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+}
+
+header{
+	position:fixed;
+	height:15vh;
+	border-bottom:1px solid pink;
+}
+
+nav{
+	width:25%;
+	padding-top: 20vh;
+	position: fixed;
+	border-right:1px solid lightblue;
+}
+
+nav>a{
+	display: block;
+	float:left;
+	width:100%;
+}
+.streching-pages{
+	padding-top: 20vh;
+	padding-left: 25%;
+}
+
+

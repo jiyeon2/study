@@ -1,0 +1,77 @@
+html{font-size:16px;
+line-height: 1.5;}
+body{text-align: center;
+margin:0;}
+body, header, div, nav, main{
+	box-sizing: border-box;
+}
+.wrapper{
+	width:980px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.clearfix::after{
+	content:'';
+	display: block;
+	clear: both;
+}
+.align-left{
+	float:left;
+}
+header{
+	width:98%;
+}
+
+header> .header{
+	height: 4.5rem;
+	background-color:#666;}
+header>nav{height:1.5rem;
+background-color: #999;}
+
+.box{
+	width:22.9%;
+	height:10.5rem;
+	background-color: #494949;
+	margin-bottom: 1.5rem;
+	float:left;
+	margin-right: 1.25rem;
+}
+.box.big{
+	width:98%;
+	height:22.5rem;
+	background-color: #898989;
+}
+
+.banner{
+	width:81.25%;
+	height:3rem;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom: 1.5rem;
+	background-color: #263711;
+}
+
+.articles{
+	width:71.27%;
+}
+.article-box{
+	width:46.26%;
+	height:15rem;
+	margin-right:1.25rem; 
+	margin-bottom: 1.5rem;
+	background-color: #dfc1ac;
+	float: left;
+}
+.advertise{
+	width:28.72%;
+}
+.ad{
+	width:93%;
+	height: 13rem;
+	margin-right:1.25rem;
+	margin-bottom: 1.5rem;
+	background-color: #c6d871;
+	float: left;
+}
+

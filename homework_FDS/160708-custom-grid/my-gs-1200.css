@@ -1,0 +1,132 @@
+@charset "utf-8";
+/*가로폭 1200px 고정, 컬럼: 12개, 컬럼70 : 거터 30 비율*/
+
+/*그리드 컨테이너*/
+.fixed-width{
+	width:1200px;
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+}
+.wrapper{
+	position:relative;
+}
+.wrapper::before{
+	display: block;
+	width:1200px;
+	height:1300px;
+	content:'';
+	width:100%;
+	min-height:200vh;
+	position: absolute;
+	z-index: 20;
+	left: 50%;
+	top:0;
+	transform: translateX(-50%);
+}
+
+.grid-on::before{
+	width:1200px;
+	background: url(./img/customgrid-15-70-15.png) repeat;
+}
+
+.wrapper.grid-off:hover::before{
+	background: none;
+	z-index: 0;
+}
+
+/*그리드 로우 모듈*/
+.row::after{
+	content: '';
+	clear:both;
+	display:block;
+}
+
+/*그리드 컬럼 모듈 
+컬럼 12개 : 컬럼 70px, 거터 30px
+*/
+[class*="col-"]{
+float: left;
+margin-left: 15px;
+margin-right: 15px;
+}
+[class*="col-"]:first-child:not([class*="row"]), .first, .alpha{
+	margin-left:0;
+}
+[class*="col-"]:last-child:not([class*="row"]), .last, .omega{
+	margin-right:0;
+}
+.col-1{width:70px; }
+.col-2{width:170px; }
+.col-3{width:270px; }
+.col-4{width:370px; }
+.col-5{width:470px; }
+.col-6{width:570px; }
+.col-7{width:670px; }
+.col-8{width:770px; }
+.col-9{width:870px; }
+.col-10{width:970px; }
+.col-11{width:1070px; }
+.col-12{width:1170px; }
+
+[class*="push-"]{
+  position:relative;
+}
+
+.push-1{left:100px;}
+.push-2{left:200px;}
+.push-3{left:300px;}
+.push-4{left:400px;}
+.push-5{left:500px;}
+.push-6{left:600px;}
+.push-7{left:700px;}
+.push-8{left:800px;}
+.push-9{left:900px; }
+.push-10{left:1000px; }
+.push-11{left:1100px; }
+.push-12{left:1200px; }
+
+[class*="pull-"]{
+  position:relative;
+}
+.pull-1{right:100px;}
+.pull-2{right:200px;}
+.pull-3{right:300px;}
+.pull-4{right:400px;}
+.pull-5{right:500px;}
+.pull-6{right:600px;}
+.pull-7{right:700px;}
+.pull-8{right:800px;}
+.pull-9{right:900px; }
+.pull-10{right:1000px; }
+.pull-11{right:1100px; }
+.pull-12{right:1200px; }
+
+
+/*prefix, suffix 모듈*/
+
+.prefix-1{margin-left:100px;}
+.prefix-2{margin-left:200px;}
+.prefix-3{margin-left:300px;}
+.prefix-4{margin-left:400px;}
+.prefix-5{margin-left:500px;}
+.prefix-6{margin-left:600px;}
+.prefix-7{margin-left:700px;}
+.prefix-8{margin-left:800px;}
+.prefix-9{margin-left:900px; }
+.prefix-10{margin-left:1000px; }
+.prefix-11{margin-left:1100px; }
+.prefix-12{margin-left:1200px; }
+
+.suffix-1{margin-right:100px;}
+.suffix-2{margin-right:200px;}
+.suffix-3{margin-right:300px;}
+.suffix-4{margin-right:400px;}
+.suffix-5{margin-right:500px;}
+.suffix-6{margin-right:600px;}
+.suffix-7{margin-right:700px;}
+.suffix-8{margin-right:800px;}
+.suffix-9{margin-right:900px; }
+.suffix-10{margin-right:1000px; }
+.suffix-11{margin-right:1100px; }
+.suffix-12{margin-right:1200px; }

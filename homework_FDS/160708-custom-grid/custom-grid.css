@@ -1,0 +1,281 @@
+@charset "utf-8";
+
+body{
+	text-align: center;
+	line-height:24px;
+	color:hsl(0, 0%, 100%);
+	font-family: "Spoqa Han Sans";
+}
+
+a{color:hsl(0, 0%, 100%); text-decoration: none; display: inline-block;}
+
+a:focus{outline: 3px dashed #FF3600;}
+a:active{outline:none;}
+
+.space{margin-bottom: 24px;}
+
+.ir{
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-indent: -9999em;
+}
+.border{
+	border:1px solid #aaa;
+	border-radius: 5px;
+	transition:all 0.2s;
+}
+.border:hover,.border:focus{
+box-shadow: 2px 2px 2px #ccc;
+text-shadow: 1px 1px #aaa;
+}
+
+/*sns*/
+.family-site{
+	width:100%;
+	height:24px;
+	background-color:hsl(0, 0%, 94%);
+	padding-top: 3px;
+	color:hsl(0, 0%, 54%);
+	text-align: left;
+}
+.family-site>*{
+	display:inline-block;
+	padding-left:20px;
+	padding-right:20px;
+}
+
+.facebook, .kakao, .naver{
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+}
+.facebook{background-image: url(img/header/facebook.svg);}
+.kakao{background-image: url(img/header/1468739669_kakaostory.png);}
+.naver{background-image: url(img/header/naver.svg);}
+
+
+/*헤더부분*/
+.main-header{
+	height:120px;
+	background-color: hsl(214, 81%, 48%);
+	padding-top:24px;
+}
+.top-logo{
+	width:90px;
+	height:96px;
+	background-image: url(img/header/logo.png);
+	background-size: contain;
+	margin-left: auto;
+	margin-right: auto;
+}
+.top-nav{
+	height:48px;
+	background-color: hsl(0, 0%, 13%);
+	float:left;
+	padding-top:12px;
+	padding-bottom: 12px;
+}
+.top-nav-menu:hover,.top-nav-menu:focus{
+	border-bottom:2px solid hsl(214, 81%, 48%);
+	border-bottom-width: 5rem;
+}
+
+
+
+/*메인 상단*/
+.main-top-article{
+	color: #383d41;
+	height:168px;
+	font-size: 1.2rem;
+padding-top: 0.8rem;}
+
+.main-top-article.big{
+	height:360px;
+	background-image: url(img/main/big-image.jpg);
+	background-size: cover;
+	padding-top:8rem;
+}
+.main-top-article.big>h1{
+	height:5rem;
+	padding-top:2rem;
+	font-size: 4rem;
+	font-weight: bold;
+	color:#fff;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.main-top-article.service{
+	background: url(img/main/service.png) no-repeat center 3rem;
+}
+.main-top-article.series{
+	background: url(img/main/series-starwars.png) no-repeat center 3rem;
+	background-size: 20%;
+}
+.main-top-article.pay{
+	background: url(img/main/pay.png) no-repeat center 3rem;
+}
+.main-top-article.member{
+	background: url(img/main/member.png) no-repeat center 3rem;
+}
+
+
+
+/*배너*/
+.ad-banner{
+	height:72px;
+	background-color: hsl(6, 65%, 52%);
+	color: #fff;
+	font-weight: bold;
+	font-size: 2rem;
+	line-height: 72px;
+	letter-spacing: 0.22em;
+	word-spacing: 0.4em;
+	background:url(img/main/service.png);
+}
+.ad-banner>span{
+	background-color: rgba(0,0,0,0.2);
+}
+
+/*메인하단 후기*/
+.main-bottom{
+	background-color: hsl(0, 0%, 96%);
+}
+.main-bottom-article, .main-bottom-ad{
+height:240px;
+}
+.main-bottom-article-section{padding-left: 15px; margin-right: 0px;width:885px;}
+
+.main-bottom-article{
+width:420px;
+margin-left: 0;
+text-align: right;
+font-size: 1.5rem;
+padding-top: 12rem;
+overflow: hidden;
+}
+
+.main-bottom-article.title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 1.7rem;
+    background-color: hsl(214, 81%, 48%);
+}
+.main-bottom-article.title>h3{
+    width: 10.7rem;
+    height: auto;
+    font-size: 2.9rem;
+    line-height: 1.3;
+    text-align: right;
+    margin-left: 14rem;
+}
+[class*="review-"]{
+	position:relative;
+	border-radius: 5px;
+	color:#fff;
+	text-shadow: 0 0 3px #000;
+}
+
+a[class*="review-"]::before{
+	content: '';
+	position: absolute;
+	left:0;
+	top:0;
+	border-radius: 5px;
+	width:100%;
+	height:100%;
+	background-color: hsla(20, 81%, 80%, 0.2);
+}
+a[class*="review-"]:hover::before, a[class*="review-"]:focus::before{
+background-color: hsla(20, 81%, 80%, 0);
+}
+.review-text{
+	position:absolute;
+	right:1rem;
+	bottom: 1rem;
+	padding-bottom: 0.5rem;
+	width:100%;
+	border-bottom: 1px solid #fff;
+}
+.review-happy{
+	background: url(img/after/happy.jpg) no-repeat center top; 
+	background-size: 50%;}
+.review-borrow{
+	background: url(img/after/borrow1.jpg)no-repeat center top; 
+	background-size: 50%;}
+.review-cheap{
+	background: url(img/after/cheap.jpg)no-repeat center top; 
+	background-size: 50%;}
+.review-clean{
+	background: url(img/after/clean1.jpg)no-repeat center top; 
+	background-size: 50%;}
+.review-home{
+	background: url(img/after/home.jpg) no-repeat center top; 
+	background-size: 50%;}
+
+
+
+/*메인하단 광고*/
+.main-bottom-ad-section{
+	float:left;
+	width:285px;
+}
+.main-bottom-ad-section>a.border:hover{
+	cursor: pointer
+}
+.main-bottom-ad, .main-bottom-deliver, .main-bottom-newsletter{
+color: #888;
+width:285px;
+height: auto;
+float: left;
+margin-left:0;
+background-color: #fff;
+padding:0.5rem 1rem;
+}
+.main-bottom-ad dt, figure>figcaption:first-of-type{font-size: 1.5rem; line-height: 1.5;}
+
+/*푸터*/
+.main-footer{
+	min-height:144px;
+	padding-top:1rem;
+	padding-bottom: 1rem;
+	width:100%;
+	background-color:hsl(214, 81%, 48%);
+	float: left;
+}
+
+.bottom-logo, .contact, .publish{
+	min-height:96px;
+	position:relative;
+	padding-top: 1rem;
+	text-align: left;
+}
+.bottom-logo{
+	background-image: url(img/header/logo.png);
+	background-size: 50%;
+	background-position: center;
+}
+.bottom-logo::after{
+	content: '';
+	border-right:1px solid hsl(0, 0%, 87%);
+	width:1px;
+	height:72px;
+	position:absolute;
+	right:0;
+	top:10px;
+}
+.copyright{
+	height:48px;
+	position:relative;
+	margin-top:1rem;
+	padding-top:1rem;
+}
+.copyright::after{
+content: '';
+position:absolute;
+width:100%;
+height:1px;
+border-top:1px solid hsl(0, 0%, 87%);
+top:-5px;
+left:0;
+}

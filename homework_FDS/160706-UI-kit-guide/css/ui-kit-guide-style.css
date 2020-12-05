@@ -1,0 +1,65 @@
+.hidden{
+	display:none;
+}
+.cf::after{
+display: block;
+content: '';
+clear: both;
+}
+
+span{display: inline-block;}
+
+html{
+	font-size: 14px;
+	line-height:1.5;
+}
+body{
+	background-image: linear-gradient(180deg, transparent 97%, #999 97%);
+	background-size: 1px 1.5rem;
+}
+
+/*typograpy*/
+/*
+기본 글자 크기 : 14px = 1rem;
+행간 : 1.5 = 1.5rem;
+
+type-scale 비율 : 1.313;
+
+
+*/
+section>h2{
+	text-transform: uppercase;
+	font-size: 1.723rem;
+}
+
+.sub-heading{font-size: 1rem;
+margin-left:1.2rem;}
+
+.typo-header{
+width:7.7rem;
+vertical-align: middle;
+float:left;}
+.typo-header +*{
+	overflow:hidden;
+}
+h1, h2, h3, h4, h5, h6, p{
+	margin-bottom: 1.5rem;
+	letter-spacing: -0.025em;
+}
+p{
+	letter-spacing: 0;
+}
+h5,h6,p{line-height: 1.5rem;}
+h6{font-size: 1rem;}
+h5{font-size: 1.313rem;}
+h2,h3,h4{line-height: 3rem;}
+h4{font-size: 1.723969rem;}
+h3{font-size: 2.263571297rem;}
+h2{font-size: 2.972069112961rem;}
+h1{font-size: 3.902326745317793rem;
+line-height: 4.5rem;}
+
+.table-style1, .table-style2{
+	font-size: 1rem;
+	line-height: 3rem;
+}

@@ -1,0 +1,55 @@
+html, body{ 
+	width: 100%;
+font-size:16px;}
+a{
+	display: inline-block;
+	text-decoration: none;
+	color:inherit;
+}
+button[type="button"]{
+	border:none;
+	background-color: transparent;
+}
+button[type="button"]:hover{
+	cursor: pointer;
+	outline:2px solid skyblue;
+}
+.cf::after{
+	content: '';
+	display:block;
+	clear: both;
+}
+
+.al{
+	float:left;
+}
+.ar{float:right;}
+
+/*헤더부분 */
+.main-header{
+	width:100%;
+	height:5rem;
+	border:1px solid green;
+}
+.top-logo{
+	background-image: url(../img/header/svg-logo-aware.png);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-indent: -999rem;
+	width: 97px;
+	height: 20px;
+}
+
+.main-header >*{
+margin:2rem 1rem;}
+.top-nav>a{margin-right: 2rem;}
+
+.user-btn>li{
+margin-left: 2rem;
+}
+
+/*이벤트부분*/
+.event{
+	border:1px solid orange;
+	width:100%;	
+}

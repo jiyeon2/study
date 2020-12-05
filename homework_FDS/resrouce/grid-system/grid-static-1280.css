@@ -1,0 +1,54 @@
+/*1280고정그리드
+base-font-size: 0.9375rem; (15px)
+base-leading-ratio(line-height) : 1.5; // 18*1.5=27px
+gutter-direction: after; //margin-right 사용
+*/
+
+/*오버레이 그리드 가이드라인 모듈*/
+.grid-container::before{
+	content: '';
+	position:absolute;
+	z-index:10000;
+	top:0;
+	left: 0;
+	width:100%;
+	min-height:100vh;
+	background: hsla(60, 50%, 50%, 0.3);
+	background: linear-gradient(90deg, hsla(0, 50%,50%,0.3) 81%, transparent 81%), linear-gradient(180deg, transparent 26px, green 26px);
+	background-size:160px 1px, 1px 1.6875rem;
+}
+
+.
+
+
+/*그리드 컨테이너 모듈*/
+.grid-container{
+	width: 1250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*그리드 모듈*/
+.grid::after{
+content: '';
+display: block;
+clear: both;
+}
+
+/*유닛모듈*/
+[class*="unit-"]{
+	float: left;
+	margin-right: 30px;
+}
+[class*="unit-"]:last-child, .last, .omega {   /*last-child 쓸 수 없는 브라우저 대응 위해 새로운 클래스 지정*/
+	margin-right: 0;
+}
+
+.unit-1{width:130px;}
+.unit-2{width:290px;}
+.unit-3{width:450px;}
+.unit-4{width:610px;}
+.unit-5{width:770px;}
+.unit-6{width:930px;}
+.unit-7{width:1090px;}
+.unit-8{width:1250px;}
